@@ -21,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/shop', [HomeController::class, 'index2'])->name('shop');
+Route::get('/match', [HomeController::class, 'index3'])->name('match');
+Route::get('/team', [HomeController::class, 'index4'])->name('team');
+Route::get('/contact', [HomeController::class, 'index5'])->name('contact');
+Route::get('/playerdetail', [HomeController::class, 'index6'])->name('playerdetail');
