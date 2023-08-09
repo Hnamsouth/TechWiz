@@ -20,4 +20,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
+Route::get('/match', [HomeController::class, 'match'])->name('match');
+Route::get('/team', [HomeController::class, 'team'])->name('team');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
+Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+Route::get('/productdetail', [HomeController::class, 'productdetail'])->name('productdetail');
