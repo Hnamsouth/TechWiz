@@ -10,7 +10,6 @@ use Illuminate\Tests\Integration\Database\EloquentHasManyThroughTest\Team;
 class Player extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $table ="players";
 

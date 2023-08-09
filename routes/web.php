@@ -20,12 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
-Route::get('/match', [HomeController::class, 'match'])->name('match');
-Route::get('/team', [HomeController::class, 'team'])->name('team');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/shop', [HomeController::class, 'index2'])->name('shop');
+Route::get('/match', [HomeController::class, 'index3'])->name('match');
+Route::get('/team', [HomeController::class, 'index4'])->name('team');
+Route::get('/contact', [HomeController::class, 'index5'])->name('contact');
+Route::get('/playerdetail', [HomeController::class, 'index6'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/productdetail', [HomeController::class, 'productdetail'])->name('productdetail');
 Route::get('/test', [HomeController::class, 'index'])->name('test');
