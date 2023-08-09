@@ -322,33 +322,33 @@
                                     <a class="tg-btn" href="#">Filter</a>
                                 </div>
                             </div>
-                            <div class="tg-widget">
-                                <h3>Slideshow Widget</h3>
-                                <div class="tg-slideshow-widget tg-haslayout">
-                                    <div id="tg-slideshow-slider" class="tg-slideshow-slider tg-haslayout">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <figure class="tg-postimg">
-                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">
-                                                </figure>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <figure class="tg-postimg">
-                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">
-                                                </figure>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <figure class="tg-postimg">
-                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">
-                                                </figure>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-pagination tg-pagination-slider"></div>
-                                        <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
-                                        <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="tg-widget">--}}
+{{--                                <h3>Slideshow Widget</h3>--}}
+{{--                                <div class="tg-slideshow-widget tg-haslayout">--}}
+{{--                                    <div id="tg-slideshow-slider" class="tg-slideshow-slider tg-haslayout">--}}
+{{--                                        <div class="swiper-wrapper">--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <figure class="tg-postimg">--}}
+{{--                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">--}}
+{{--                                                </figure>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <figure class="tg-postimg">--}}
+{{--                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">--}}
+{{--                                                </figure>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <figure class="tg-postimg">--}}
+{{--                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">--}}
+{{--                                                </figure>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="swiper-pagination tg-pagination-slider"></div>--}}
+{{--                                        <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>--}}
+{{--                                        <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="tg-widget tg-tags-widget">
                                 <h3>popular tags</h3>
                                 <ul>

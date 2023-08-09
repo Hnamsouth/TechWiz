@@ -1,146 +1,64 @@
 <footer id="tg-footer" class="tg-footer tg-haslayout">
-    <div class="tg-haslayout tg-footerinfobox">
-        <div class="tg-bgboxone"></div>
-        <div class="tg-bgboxtwo"></div>
-        <div class="tg-footerinfo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="tg-footercol">
-                            <div class="tg-posttitle">
-                                <h3>signup newsletter</h3>
-                            </div>
-                            <div class="tg-description">
-                                <p>Adipisicing elit, sed do eiusmod tempor incidunta utiai labore et dolore magna si aliqua quis.</p>
-                            </div>
-                            <form class="tg-form-newsletter">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Email">
-                                    </div>
-                                    <button class="tg-btn" type="submit">signup</button>
-                                </fieldset>
-                            </form>
-                            <div class="tg-posttitle">
-                                <h3>popular tags</h3>
-                            </div>
-                            <div class="tg-tags">
-                                <a class="tg-tag" href="#">fashion</a>
-                                <a class="tg-tag" href="#">travel</a>
-                                <a class="tg-tag" href="#">blog</a>
-                                <a class="tg-tag" href="#">sports</a>
-                                <a class="tg-tag" href="#">magazine</a>
-                                <a class="tg-tag" href="#">ui</a>
-                                <a class="tg-tag" href="#">tech</a>
-                                <a class="tg-tag" href="#">fun time</a>
-                                <a class="tg-tag" href="#">soccer</a>
-                            </div>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>About Us</h4>
+                    <p>We create Premium Html Themes for more than three years.
+                        Our team goal is to reunite the elegance of unique.</p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Top products</h4>
+                    <div class="top-prd flex">
+                        <div>img</div>
+                        <div>
+                            <div>product name</div>
+                            <span>start</span>
+                            <p>$20.000</p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="tg-footercol">
-                            <div class="tg-posttitle">
-                                <h3>Top products</h3>
-                            </div>
-                            <div class="tg-toprated">
-                                <ul>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="assets/images/thumbnails/img-04.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="assets/images/thumbnails/img-05.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="assets/images/thumbnails/img-06.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="assets/images/thumbnails/img-07.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="top-prd flex">
+                        <div>img</div>
+                        <div>
+                            <div>product name</div>
+                            <span>start</span>
+                            <p>$20.000</p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="tg-footercol">
-                            <div class="tg-haslayout">
-                                <strong class="tg-logo">
-                                    <a href="#">
-                                        <img src="assets/images/logo2.png" alt="image description">
-                                    </a>
-                                </strong>
-                            </div>
-                            <div class="tg-description">
-                                <p>Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
-                            </div>
-                            <ul class="tg-contactinfo">
-                                <li>
-                                    <i class="fa fa-home"></i>
-                                    <address>123 Eccles Old Road, New Salford Road London, Uk, M6 7AF</address>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope-o"></i>
-                                    <a href="info%40domain.html">info@domain.com</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>
-                                    <span>+44 123 456 788 - 9</span>
-                                </li>
-                            </ul>
-                            <div class="tg-haslayout">
-                                <a class="tg-btn" href="#">read more</a>
-                            </div>
+                    <div class="top-prd flex">
+                        <div>img</div>
+                        <div>
+                            <div>product name</div>
+                            <span>start</span>
+                            <p>$20.000</p>
                         </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <h4>About Us</h4>
+                    <div>
+                        <ul><a>Home</a></ul>
+                        <ul><a>Match results</a></ul>
+                        <ul><a>Team</a></ul>
+                        <ul><a>Shop</a></ul>
+                        <ul><a>Contact</a></ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Sign up for newsletters</h4>
+                    <div>
+                        <form>
+                            <input type="text" class="" placeholder="Name">
+                            <input type="text" class="" placeholder="Email">
+                            <button type="submit">Sign up</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="tg-footerbar">
-        <div class="container">
-            <span class="tg-copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-            <nav class="tg-footernav">
-                <ul>
-                    <li><a href="#">Main</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Buy Tickets</a></li>
-                    <li><a href="#">Match Results</a></li>
-                    <li><a href="#">Upcoming Matches</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <div class="bottom">
+        <div class="container"></div>
     </div>
 </footer>
+
