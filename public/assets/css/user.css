@@ -1,3 +1,6 @@
 .user-acc input{
     width: 100%;
 }
+.user-acc ul{
+    list-style: none;
+}

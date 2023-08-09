@@ -52,6 +52,7 @@
                                         <label>Address</label>
                                         <input type="text">
                                     </div>
+                                    <div>Change information</div>
                                 </div>
                             </div>
                         </div>
