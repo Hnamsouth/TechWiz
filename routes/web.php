@@ -28,4 +28,4 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/productdetail', [HomeController::class, 'productdetail'])->name('productdetail');
-Route::get('/test', [HomeController::class, 'index'])->name('test');
+Route::get('/user', [HomeController::class, 'useraccount'])->name('user');

@@ -189,7 +189,7 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="tg-postimg">
-                                            <img src="assets/images/player/img-04.html" alt="image description">
+                                            <img src="assets/images/player/img-01.html" alt="image description">
                                             <figcaption class="tg-img-hover">
                                                 <a href="#" class="tg-theme-tag">SWEEPER</a>
                                                 <div class="tg-section-heading">
