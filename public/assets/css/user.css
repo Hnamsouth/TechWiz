@@ -11,22 +11,24 @@
     transform: translate(-50%, -50%);
 }
 .banner-content .title{
-    font-size: 56px;
+    width: max-content;
+    font-size: 58px;
     font-weight: 900;
     margin-bottom: 30px;
+}
+.title{
+    color: #fff;
 }
 .title span{
     color: #fbc02d;
     padding-left: 18px;
     padding-right: 18px;
 }
-.showcase{
-    background: rgba(0, 0, 0, 0.3);
-}
 .showcase img{
     background-size: cover;
-    height: 820px;
+    height: 700px;
     width: 100%;
+    filter: brightness(50%);
 }
 .book-ticket .btn{
     margin: 0 10px;
