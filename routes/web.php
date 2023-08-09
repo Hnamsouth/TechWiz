@@ -14,25 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-
-
-
-Route::middleware(['auth', 'admin'])->prefix(env('ADMIN_PATH'))->group(function () {
-
-    Route::get("/dashboard", [\App\Http\Controllers\WebController::class, "home"]);
-
-
-
-
-
-
-
+Route::get('/', function () {
+    return view('welcome');
 });
 
+Auth::routes();
 
-
-
-
-
+Route::get('/home', [HomeController::class, 'index'])->name('home');
