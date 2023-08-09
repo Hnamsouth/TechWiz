@@ -25,9 +25,9 @@ class HomeController extends Controller
     {
         return view('guest.home');
     }
-    public function index()
+    public function useraccount()
     {
-        return view('guest.test');
+        return view('guest.useraccount');
     }
     public function shop()
     {

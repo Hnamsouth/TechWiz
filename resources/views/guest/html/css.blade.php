@@ -17,5 +17,6 @@
 <link rel="stylesheet" href="/assets/css/responsive.css">
 <link rel="stylesheet" href="/assets/css/checkout.css">
 <link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/css/user.css">
 <script src="/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
