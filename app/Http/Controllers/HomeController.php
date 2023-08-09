@@ -21,29 +21,36 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function home()
     {
         return view('guest.home');
     }
-    public function index2()
+    public function shop()
     {
         return view('guest.shop');
     }
-    public function index3()
+    public function match()
     {
         return view('guest.match');
     }
-    public function index4()
+    public function team()
     {
         return view('guest.team');
     }
-    public function index5()
+    public function contact()
     {
         return view('guest.contact');
     }
-    public function index6()
+    public function playerdetail()
     {
         return view('guest.playerdetail');
     }
-
+    public function checkout()
+    {
+        return view('guest.checkout');
+    }
+    public function productdetail()
+    {
+        return view('guest.productdetail');
+    }
 }
