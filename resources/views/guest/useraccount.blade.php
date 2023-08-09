@@ -23,8 +23,8 @@
             <div class="row">
                 <div class="col-sm-2">
                     <ul>
-                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#">User Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#">Change Password</a></li>
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#user-profile">User Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#change-pass">Change Password</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#">Log out</a></li>
                     </ul>
                 </div>
