@@ -101,7 +101,15 @@
                     document.querySelector(tabId).classList.add('show', 'active');
                 });
             });
+
+            // Open "User Profile" tab and content pane on page load
+            var userProfileTab = document.querySelector('a[href="#user-profile"]');
+            var userProfileContent = document.querySelector('#user-profile');
+
+            userProfileTab.classList.add('active');
+            userProfileContent.classList.add('show', 'active');
         });
     </script>
+
 
 @endsection

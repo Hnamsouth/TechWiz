@@ -188,7 +188,7 @@
             <div class="row">
                 <div class="col-sm-6 header-top-left">
                     <ul>
-                        <li>Email@gmail.com</li>
+                        <li><a>Email@gmail.com</a></li>
                         <li>EN</li>
                         <li><span>/</span>VN</li>
                     </ul>
