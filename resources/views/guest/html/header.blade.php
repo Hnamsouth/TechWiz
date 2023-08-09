@@ -201,8 +201,8 @@
                         <li>
                             <i class="fa fa-shopping-cart"></i>
                         </li>
-                        <li>Login</li>
-                        <li><span>/</span>Sign up</li>
+                        <li><a href="javascript().html" data-toggle="modal" data-target="#tg-login">Sign in</a></li>
+                        <li><a href="javascript().html" data-toggle="modal" data-target="#tg-register"><span>/</span>Sign up</a></li>
                     </ul>
                 </div>
             </div>

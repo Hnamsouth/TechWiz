@@ -35,5 +35,21 @@ header a{
 }
 /*FOOTER*/
 .tg-footer{
+    padding-top: 40px;
+    padding-bottom:40px;
     color: #fff;
+}
+.tg-footer h4{
+    color: #fff;
+    margin-bottom: 16px;
+}
+.tg-footer input{
+    width: 100%;
+}
+.tg-footer .email-input {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.tg-footer .btn{
+    width: 100%;
 }

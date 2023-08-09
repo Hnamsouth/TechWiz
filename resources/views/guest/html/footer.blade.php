@@ -13,24 +13,24 @@
                         <div>img</div>
                         <div>
                             <div>product name</div>
-                            <span>start</span>
-                            <p>$20.000</p>
+                            <div>start</div>
+                            <span>$20.000</span>
                         </div>
                     </div>
                     <div class="top-prd flex">
                         <div>img</div>
                         <div>
                             <div>product name</div>
-                            <span>start</span>
-                            <p>$20.000</p>
+                            <div>start</div>
+                            <span>$20.000</span>
                         </div>
                     </div>
                     <div class="top-prd flex">
                         <div>img</div>
                         <div>
                             <div>product name</div>
-                            <span>start</span>
-                            <p>$20.000</p>
+                            <div>start</div>
+                            <span>$20.000</span>
                         </div>
                     </div>
                 </div>
@@ -48,9 +48,13 @@
                     <h4>Sign up for newsletters</h4>
                     <div>
                         <form>
-                            <input type="text" class="" placeholder="Name">
-                            <input type="text" class="" placeholder="Email">
-                            <button type="submit">Sign up</button>
+                            <div>
+                                <input type="text" class="" placeholder="User name">
+                            </div>
+                            <div class="email-input">
+                                <input type="text" class="" placeholder="Email address">
+                            </div>
+                            <div class="btn btn-pr">Sign up</div>
                         </form>
                     </div>
                 </div>
@@ -58,7 +62,9 @@
         </div>
     </div>
     <div class="bottom">
-        <div class="container"></div>
+        <div class="container">
+            
+        </div>
     </div>
 </footer>
 
