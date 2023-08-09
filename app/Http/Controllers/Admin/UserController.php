@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin2;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
@@ -73,7 +73,7 @@ class UserController extends Controller
 
         // Assign the employee role to the user
         $user->admin()->create([
-            'role' => Admin::EMP,
+            'role' => Admin::ADMIN,
         ]);
 
         return redirect()->to('admin2/employee');

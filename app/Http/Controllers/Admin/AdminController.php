@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin2;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -279,7 +279,7 @@ class AdminController extends Controller
             ->get();
 
 
-        return view('admin2.home', compact(
+        return view('admin.home', compact(
             'ordersCount', 'totalRevenue', 'averageValue','usersCount',
             'ordersRate', 'revenueRate', 'avgOrderValueRate', 'usersRate',
             'months', 'ordersData', 'revenueData', 'averageData', 'usersData',
