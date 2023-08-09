@@ -1396,7 +1396,7 @@
                 </div>
             </div>
         </div>
-        <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
+        <div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog"     >
             <div class="modal-dialog" role="document">
                 <div class="tg-modal-content">
                     <div class="tg-formarea">
