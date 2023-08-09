@@ -66,10 +66,10 @@
         if(data.confirm) {
             var cf = confirm(data.message)
             if(cf) {
-                if (window.location.pathname === '/admin2/order') {
+                if (window.location.pathname === '/admin/order') {
                     window.location.reload();
                 } else {
-                    window.location.href = '/admin2/order';
+                    window.location.href = '/admin/order';
                 }
             }
         }
@@ -79,10 +79,10 @@
         if(data.confirm) {
             var cf = confirm(data.message)
             if(cf) {
-                if (window.location.pathname === '/admin2/order/return-request') {
+                if (window.location.pathname === '/admin/order/return-request') {
                     window.location.reload();
                 } else {
-                    window.location.href = '/admin2/order/return-request';
+                    window.location.href = '/admin/order/return-request';
                 }
             }
         }

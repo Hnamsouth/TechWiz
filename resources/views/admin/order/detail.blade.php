@@ -112,7 +112,7 @@
                     <div class="payment-invoice__body">
                         <div class="payment-invoice-address d-flex justify-content-sm-between">
                             <div class="payment-invoice-logo">
-                                <a href="{{url('admin2/dashboard')}}"><img class="svg dark" src="/assets/images/logo.png" width="200" alt=""></a>
+                                <a href="{{url('admin/dashboard')}}"><img class="svg dark" src="/assets/images/logo.png" width="200" alt=""></a>
                             </div>
                             <div class="payment-invoice-address__area">
                                 <address>Arts. Stationery Store<br> 9 Ton That Thuyet, My Dinh 2<br> Cau Giay, Ha Noi, Vietnam<br>
@@ -165,15 +165,15 @@
                                             <th>{{$key+1}}</th>
                                             <td class="Product-cart-title">
                                                 <div class="media align-items-center">
-                                                    <img src="{{ substr_replace($product->thumbnail, 'w_auto/', strpos($product->thumbnail, 'upload/') + 7, 0) }}" width="60" alt="" class="rounded-lg mr-2">
+                                                    <img src="{{ add_w_auto_to_cloudinary_url($product->thumbnail) }}" width="60" alt="" class="rounded-lg mr-2">
                                                     <div class="media-body">
                                                         <h5 class="mt-0">{{$product->name}}</h5>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="unit text-right">{{number_format($product->pivot->price)}} VND</td>
+                                            <td class="unit text-right">{{number_format($product->pivot->price)}} USD</td>
                                             <td class="invoice-quantity text-right">x{{$product->pivot->quantity}}</td>
-                                            <td class="text-right order">{{ number_format($product->pivot->price * $product->pivot->quantity) }} VND</td>
+                                            <td class="text-right order">{{ number_format($product->pivot->price * $product->pivot->quantity) }} USD</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -199,10 +199,10 @@
 
                                         <td>
                                             <div class="total-order float-right text-right fs-14 fw-500">
-                                                <p>{{number_format($order->subtotal)}} VND</p>
+                                                <p>{{number_format($order->subtotal)}} USD</p>
 {{--                                                <p>-$126.30</p>--}}
-                                                <p>{{number_format($order->delivery_fee)}} VND</p>
-                                                <h5 class="text-primary">{{number_format($order->grand_total)}} VND</h5>
+                                                <p>{{number_format($order->delivery_fee)}} USD</p>
+                                                <h5 class="text-primary">{{number_format($order->grand_total)}} USD</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -232,12 +232,6 @@
                                             @case(5)
                                                 <span class="order-bg-opacity-gray text-gray rounded-lg active rounded-lg px-2 py-1 text-uppercase">canceled</span>
                                                 @break
-                                            @case(6)
-                                                <span class="order-bg-opacity-danger text-danger rounded-lg active rounded-lg px-2 py-1 text-uppercase">returned</span>
-                                                @break
-                                            @case(7)
-                                                <span class="order-bg-opacity-dark text-dark rounded-lg active rounded-lg px-2 py-1 text-uppercase">refunded</span>
-                                                @break
                                             @default
                                                 <span>Unidentified</span>
                                         @endswitch
@@ -249,16 +243,6 @@
                                         <span>{{$order->payment_method}}</span>
                                     </div>
                                 </div><!-- End: .d-flex -->
-                                <div class="d-flex justify-content-center" style="flex-basis: 20%">
-                                    <div class="payment-invoice-qr__address">
-                                        <p>Payment Status:</p>
-                                        @if($order->payment_status)
-                                            <span class="bg-opacity-success color-success text-success rounded-lg userDatatable-content-status active px-2 py-1 text-uppercase" style="width: fit-content">paid</span>
-                                        @else
-                                            <span class="bg-opacity-danger color-danger text-danger rounded-lg userDatatable-content-status active px-2 py-1 text-uppercase" style="width: fit-content">unpaid</span>
-                                        @endif
-                                    </div>
-                                </div><!-- End: .d-flex -->
                                 <div class="d-flex justify-content-center justify-content-lg-end" style="flex-basis: 20%">
                                     <div class="payment-invoice-qr__address">
                                         <p>Customer Note:</p>
@@ -268,7 +252,7 @@
                                 <div class="d-flex justify-content-center justify-content-lg-end" style="flex-basis: 20%">
                                     <div class="payment-invoice-qr__address">
                                         <p class="float-right">Total Payment:</p>
-                                        <h3 class="text-primary">{{number_format($order->grand_total)}} VND</h3>
+                                        <h3 class="text-primary">{{number_format($order->grand_total)}} USD</h3>
                                     </div>
                                 </div><!-- End: .d-flex -->
                             </div><!-- End: .payment-invoice-qr -->
@@ -282,7 +266,7 @@
                                     <span data-feather="printer"></span>print</button>
                                 <button type="button" class="btn border rounded-pill bg-normal text-gray px-25">
                                     <span data-feather="send"></span>invoice</button>
-                                <form action="{{url('admin2/order/detail',['order'=>$order->code])}}" method="post">
+                                <form action="{{url('admin/order/detail',['order'=>$order->code])}}" method="post">
                                     @method('PUT')
                                     @csrf
                                     @if(($order->status >= \App\Models\Order::CONFIRMED && $order->status <= \App\Models\Order::SHIPPING && $order->status))
@@ -297,18 +281,6 @@
                                                     @default UNIDENTIFIED
                                                 @endswitch
                                             </button>
-                                    @elseif($order->status == \App\Models\Order::COMPLETED && is_null($order->return_status))
-                                        <input type="hidden" name="status" value="{{\App\Models\Order::RETURNED}}">
-                                        <button type="submit" class="btn-primary btn rounded-pill px-2 px-sm-25 text-white download">
-                                            <span data-feather="arrow-up"></span>
-                                            Change status to : RETURNED
-                                        </button>
-                                    @elseif($order->status == \App\Models\Order::RETURNED || ($order->status == \App\Models\Order::CANCELED && $order->payment_status))
-                                        <input type="hidden" name="status" value="{{\App\Models\Order::REFUNDED}}">
-                                        <button type="submit" class="btn-primary btn rounded-pill px-2 px-sm-25 text-white download">
-                                            <span data-feather="arrow-up"></span>
-                                            Change status to : REFUNDED
-                                        </button>
                                     @endif
                                 </form>
                                 @if($order->status <= 2)
@@ -332,7 +304,7 @@
     <div class="modal-info-confirmed modal fade show" id="modal-info-confirmed" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-info modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form action="{{url('admin2/order/detail',['order'=>$order->code])}}" method="post">
+                <form action="{{url('admin/order/detail',['order'=>$order->code])}}" method="post">
                     @method('PUT')
                     @csrf
                     <input type="hidden" name="status" value="5">
@@ -396,147 +368,5 @@
     </div>
     @endif
 
-    @if(isset($order->return_status))
-    <div class="container-fluid" id="return-request">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="shop-breadcrumb">
-                    <div class="breadcrumb-main">
-                        <h4 class="text-capitalize breadcrumb-title">Return Request for Order #{{$order->id}}</h4>
-                        <div class="breadcrumb-action justify-content-center flex-wrap">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="payment-invoice global-shadow border bg-white radius-xl w-100 mb-30">
-                    <div class="payment-invoice__body mt-5">
-                        <div class="position-relative after:absolute after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg after:bg-gray-100">
-                            <ol class="position-relative px-0 mb-5 z-10 d-flex justify-content-between text-sm font-medium text-gray-500">
-                                <li class="d-flex align-items-center gap-2 bg-white p-2">
-                                                <span class="h-6 w-6 rounded-full @if($order->return_status == \App\Models\Order::RETURN_PENDING) bg-blue-600 text-white @else bg-gray-100 @endif text-center text-[10px] font-bold leading-6">
-                                                  1
-                                                </span>
-                                    <span class="hidden sm:block"> Pending </span>
-                                </li>
-                                @if($order->return_status != \App\Models\Order::RETURN_DENIED)
-                                    <li class="d-flex align-items-center gap-2 bg-white p-2">
-                                                <span class="h-6 w-6 rounded-full @if($order->return_status == \App\Models\Order::RETURN_CONFIRMED) bg-blue-600 text-white @else bg-gray-100 @endif text-center text-[10px] font-bold leading-6">
-                                                  2
-                                                </span>
-                                        <span class="hidden sm:block"> Confirmed </span>
-                                    </li>
-                                    <li class="d-flex align-items-center gap-2 bg-white p-2">
-                                                <span class="h-6 w-6 rounded-full @if($order->return_status == \App\Models\Order::RETURN_COMPLETED) bg-blue-600 text-white @else bg-gray-100 @endif text-center text-[10px] font-bold leading-6">
-                                                  3
-                                                </span>
-                                        <span class="hidden sm:block"> Completed </span>
-                                    </li>
-                                @endif
-                                @if($order->return_status == \App\Models\Order::RETURN_DENIED)
-                                    <li class="d-flex align-items-center gap-2 bg-white p-2">
-                                                <span class="h-6 w-6 rounded-full bg-blue-600 text-center text-[10px] font-bold leading-6 text-white">
-                                                  2
-                                                </span>
-                                        <span class="hidden sm:block"> Denied </span>
-                                    </li>
-                                @endif
-                            </ol>
-                        </div>
-                        <div class="payment-invoice-table">
-                            <div class="table-responsive">
-                                <table id="cart" class="table table-borderless">
-                                    <thead>
-                                    <tr class="product-cart__header">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Return Product</th>
-                                        <th scope="col" class="text-right">Return Price</th>
-                                        <th scope="col" class="text-right">Return Quantity</th>
-                                        <th scope="col" class="text-right">Refund Amount</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($order->products as $key => $product)
-                                        <tr>
-                                            <th>{{$key+1}}</th>
-                                            <td class="Product-cart-title">
-                                                <div class="media align-items-center">
-                                                    <img src="{{ substr_replace($product->thumbnail, 'w_auto/', strpos($product->thumbnail, 'upload/') + 7, 0) }}" width="60" alt="" class="rounded-lg mr-2">
-                                                    <div class="media-body">
-                                                        <h5 class="mt-0">{{$product->name}}</h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="unit text-right">{{number_format($product->pivot->price)}} VND</td>
-                                            <td class="invoice-quantity text-right">x{{$product->pivot->quantity}}</td>
-                                            <td class="text-right order">{{ number_format($product->pivot->price * $product->pivot->quantity) }} VND</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <td colspan="3"></td>
-                                        <td class="order-summery float-right">
-                                            <div class="total-money d-flex justify-content-between align-items-center mt-2 text-right float-right">
-                                                <h6>Total Refund:</h6>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="total-order float-right text-right fs-14 fw-500">
-                                                <h5 class="text-primary">{{number_format($order->refund_amount)}} VND</h5>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <h6>Return Reason :</h6>
-                            <p>{{$order->return_reason}}</p>
-                            <h6>Request Date :</h6>
-                            <p>{{\Carbon\Carbon::parse($order->request_date)->format('F j, Y')}}</p>
-                            <div class="payment-invoice__btn mt-1 mt-lg-1 ">
-                                @if($order->return_status === \App\Models\Order::PENDING)
-                                    <form action="{{route('update-return-request',['order'=>$order->code])}}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="return-status" value="{{\App\Models\Order::RETURN_CONFIRMED}}">
-                                        <button type="submit" class="btn-primary btn rounded-pill px-2 px-sm-25 text-white download">
-                                            <span data-feather="check"></span>
-                                            Confirm
-                                        </button>
-                                    </form>
-                                    <form action="{{route('update-return-request',['order'=>$order->code])}}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="return-status" value="{{\App\Models\Order::RETURN_DENIED}}">
-                                        <button type="submit" class="btn-secondary btn rounded-pill px-25 text-white download ml-2">
-                                            <span data-feather="x-circle"></span>
-                                            Deny
-                                        </button>
-                                    </form>
-                                @endif
-                                @if($order->return_status === \App\Models\Order::RETURN_CONFIRMED)
-                                    <form action="{{route('update-return-request',['order'=>$order->code])}}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="return-status" value="{{\App\Models\Order::RETURN_COMPLETED}}">
-                                        <button type="submit" class="btn-primary btn rounded-pill px-2 px-sm-25 text-white download">
-                                            <span data-feather="check"></span>
-                                            Return Request Completed
-                                        </button>
-                                    </form>
-                                @endif
-                            </div>
-                        </div><!-- End: .payment-invoice-table -->
-
-                    </div><!-- End: .payment-invoice__body -->
-                </div><!-- End: .payment-invoice -->
-            </div><!-- End: .col -->
-        </div>
-    </div>
-    @endif
 @endsection
 

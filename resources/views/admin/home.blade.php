@@ -291,7 +291,7 @@
                                                 <td>{{$category->name}}</td>
                                                 <td>{{$category->total_orders}}</td>
                                                 <td>{{$category->total_products}}</td>
-                                                <td>{{number_format($category->revenue)}} VND</td>
+                                                <td>{{number_format($category->revenue)}} USD</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -315,7 +315,7 @@
                                                 <td>{{$category->name}}</td>
                                                 <td>{{$category->total_orders}}</td>
                                                 <td>{{$category->total_products}}</td>
-                                                <td>{{number_format($category->revenue)}} VND</td>
+                                                <td>{{number_format($category->revenue)}} USD</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -339,7 +339,7 @@
                                                 <td>{{$category->name}}</td>
                                                 <td>{{$category->total_orders}}</td>
                                                 <td>{{$category->total_products}}</td>
-                                                <td>{{number_format($category->revenue)}} VND</td>
+                                                <td>{{number_format($category->revenue)}} USD</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -363,7 +363,7 @@
                                                 <td>{{$category->name}}</td>
                                                 <td>{{$category->total_orders}}</td>
                                                 <td>{{$category->total_products}}</td>
-                                                <td>{{number_format($category->revenue)}} VND</td>
+                                                <td>{{number_format($category->revenue)}} USD</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -415,9 +415,9 @@
                                             @foreach($topProducts1 as $product)
                                                 <tr>
                                                     <td>{{$product->name}}</td>
-                                                    <td>{{number_format($product->price)}} VND</td>
+                                                    <td>{{number_format($product->price)}} USD</td>
                                                     <td>{{$product->total_quantity}}</td>
-                                                    <td>{{number_format($product->revenue)}} VND</td>
+                                                    <td>{{number_format($product->revenue)}} USD</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -441,9 +441,9 @@
                                             @foreach($topProducts2 as $product)
                                                 <tr>
                                                     <td>{{$product->name}}</td>
-                                                    <td>{{number_format($product->price)}} VND</td>
+                                                    <td>{{number_format($product->price)}} USD</td>
                                                     <td>{{$product->total_quantity}}</td>
-                                                    <td>{{number_format($product->revenue)}} VND</td>
+                                                    <td>{{number_format($product->revenue)}} USD</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -467,9 +467,9 @@
                                             @foreach($topProducts3 as $product)
                                                 <tr>
                                                     <td>{{$product->name}}</td>
-                                                    <td>{{number_format($product->price)}} VND</td>
+                                                    <td>{{number_format($product->price)}} USD</td>
                                                     <td>{{$product->total_quantity}}</td>
-                                                    <td>{{number_format($product->revenue)}} VND</td>
+                                                    <td>{{number_format($product->revenue)}} USD</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -493,9 +493,9 @@
                                             @foreach($topProducts4 as $product)
                                                 <tr>
                                                     <td>{{$product->name}}</td>
-                                                    <td>{{number_format($product->price)}} VND</td>
+                                                    <td>{{number_format($product->price)}} USD</td>
                                                     <td>{{$product->total_quantity}}</td>
-                                                    <td>{{number_format($product->revenue)}} VND</td>
+                                                    <td>{{number_format($product->revenue)}} USD</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
