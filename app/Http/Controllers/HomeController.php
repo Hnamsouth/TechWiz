@@ -25,6 +25,10 @@ class HomeController extends Controller
     {
         return view('guest.home');
     }
+    public function index()
+    {
+        return view('guest.test');
+    }
     public function shop()
     {
         return view('guest.shop');

@@ -23,3 +23,10 @@ header ul li{
 header a{
     color: #000;
 }
+.flex{
+    display: flex;
+}
+/*FOOTER*/
+.tg-footer{
+    color: #fff;
+}

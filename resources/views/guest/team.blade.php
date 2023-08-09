@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="tg-postimg">
-                                            <img src="assets/images/player/img-04.html" alt="image description">
+                                            <img src="assets/images/player/img-01.html" alt="image description">
                                             <figcaption class="tg-img-hover">
                                                 <a href="#" class="tg-theme-tag">SWEEPER</a>
                                                 <div class="tg-section-heading">
@@ -455,7 +455,7 @@
                                                     <div class="tg-matchdetail">
                                                         <div class="tg-box">
                                                             <strong class="tg-teamlogo">
-                                                                <img src="assets/images/sponser/img-01.png" alt="image description">
+                                                                <img src="assets/images/sponser/img-03.png" alt="image description">
                                                             </strong>
                                                         </div>
                                                         <div class="tg-box">
