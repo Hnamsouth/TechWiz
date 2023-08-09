@@ -25,7 +25,7 @@ Route::get('/shop', [HomeController::class, 'index2'])->name('shop');
 Route::get('/match', [HomeController::class, 'index3'])->name('match');
 Route::get('/team', [HomeController::class, 'index4'])->name('team');
 Route::get('/contact', [HomeController::class, 'index5'])->name('contact');
-Route::get('/playerdetail', [HomeController::class, 'index6'])->name('playerdetail');
+Route::get('/playerdetail', [HomeController::class, 'index'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/productdetail', [HomeController::class, 'productdetail'])->name('productdetail');
 Route::get('/test', [HomeController::class, 'index'])->name('test');
