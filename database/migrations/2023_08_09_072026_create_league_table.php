@@ -18,7 +18,8 @@ class CreateLeagueTable extends Migration
             $table->string('name');
             $table->string('country');
             $table->string('logo');
-            $table->string('season');
+            $table->text('description');
+            $table->text('role_des');
             $table->timestamps();
         });
     }

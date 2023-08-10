@@ -20,13 +20,10 @@ class CreatePlayersTable extends Migration
             $table->string('position');
             $table->date('date_of_birth');
             $table->string('img');
-            $table->text('des');
+            $table->text('description');
             $table->tinyInteger('number');
             $table->unsignedDouble('height',6,2);
             $table->unsignedDouble('weight',6,2);
-
-            $table->unsignedBigInteger('team_id');
-            $table->foreign('team_id')->references('id')->on('teams');
             $table->timestamps();
         });
     }

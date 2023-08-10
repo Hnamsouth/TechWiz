@@ -21,8 +21,8 @@ class CreateMatchEventTable extends Migration
 
             $table->unsignedBigInteger('first_player_id')->nullable();
             $table->unsignedBigInteger('second_player_id')->nullable();
-
             $table->unsignedBigInteger('match_id');
+
             $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('first_player_id')->references('id')->on('players');
             $table->foreign('second_player_id')->references('id')->on('players');
