@@ -11,7 +11,10 @@
         <div class="navbar-left">
             <a href="" class="sidebar-toggle">
                 <img class="svg" src="/admin/img/svg/bars.svg" alt="img"></a>
-            <a class="navbar-brand" href="#"><img class="dark" src="/assets/images/logo.png" alt="svg"><img class="light" src="/assets/images/logo-2.png" alt="img"></a>
+
+            <div class="mr-5"></div>
+
+            <a class="navbar-brand" href="#"><img class="dark" width="40px" src="/assets/images/logo.png" alt="svg"><img class="light" width="40px" src="/assets/images/logo-2.png" alt="img"></a>
             <form action="/" class="search-form">
                 <span data-feather="search"></span>
                 <input class="form-control mr-sm-2 box-shadow-none" type="text" placeholder="Search...">
@@ -85,4 +88,5 @@
         </div>
         <!-- ends: .navbar-right -->
     </nav>
+
 </header>

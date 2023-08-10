@@ -143,6 +143,41 @@
 {{--                        <span class="menu-text">Settings</span>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
+
+{{--                Team--}}
+                <li class="has-child {{ request()->is('admin/team*') ? 'open' : '' }}">
+                    <a href="{{route('team-list')}}" class="{{ request()->is('admin/team*') ? 'active' : '' }}">
+                        <span data-feather="user-check" class="nav-icon"></span>
+                        <span class="menu-text">Team</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/team') ? 'active' : '' }}" href="{{route('team-list')}}">Team List</a>
+                        </li>
+                        <li>
+                            <a class="{{ request()->is('admin/team/create*') ? 'active' : '' }}" href="{{route('team-create')}}">Team create</a>
+                        </li>
+                    </ul>
+                </li>
+
+{{--                Player --}}
+
+                <li class="has-child {{ request()->is('admin/player*') ? 'open' : '' }}">
+                    <a href="{{route('player-list')}}" class="{{ request()->is('admin/player*') ? 'active' : '' }}">
+                        <span data-feather="user-check" class="nav-icon"></span>
+                        <span class="menu-text">Player</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/player') ? 'active' : '' }}" href="{{route('player-list')}}">Player List</a>
+                        </li>
+                        <li>
+                            <a class="{{ request()->is('admin/player/create*') ? 'active' : '' }}" href="{{route('player-create')}}">Player create</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
