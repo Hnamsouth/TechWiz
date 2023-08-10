@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeamsTable extends Migration
+class CreateEuroWorldSeasonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateTeamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('euro_world_season', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('country')->nullable();
-            $table->string('continent')->nullable();
-            $table->string('logo');
-            $table->boolean('level'); // club(0) or national(1)
+            $table->string('season');
+            $table->date('started_at');
+            $table->text('description');
+
+            $table->unsignedBigInteger('league_id');
+            $table->foreign('league_id')->references('id')->on('league');
+
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('euro_world_season');
     }
 }

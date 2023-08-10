@@ -11,8 +11,6 @@ class Coaches extends Model
     protected $table = 'coaches';
 
     protected $fillable = [
-
-
         'name',
         'nationality',
         'position',
@@ -20,9 +18,8 @@ class Coaches extends Model
         'date_of_birth',
         'img',
         'des',
-        'team_id'
-
-
+        'club_team_id',
+        'national_team_id',
     ];
     use HasFactory;
 
