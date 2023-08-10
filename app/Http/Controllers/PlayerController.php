@@ -13,7 +13,7 @@ class PlayerController extends Controller
         return view("guest.playerdetail",compact("latest_players"));
     }
 
-    public function player(){
+    public function player(Player $player){
     }
 
 }
