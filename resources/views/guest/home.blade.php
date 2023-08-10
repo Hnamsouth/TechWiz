@@ -23,7 +23,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/1.jpg" alt="" />
+                                        <img src="/assets/images/blog/5.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>Fernando Santos's Portugal manifesto</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15  <i class="fa fa-comments"></i> 16 </span>
@@ -35,7 +35,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/2.jpg" alt="" />
+                                        <img src="/assets/images/blog/2.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>Fernando Santos's Portugal manifesto</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -47,7 +47,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/3.jpg" alt="" />
+                                        <img src="/assets/images/blog/3.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>Fernando Santos's Portugal manifesto</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -59,7 +59,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/4.jpg" alt="" />
+                                        <img src="/assets/images/blog/4.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>Fernando Santos's Portugal manifesto</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -71,7 +71,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/5.jpg" alt="" />
+                                        <img src="/assets/images/blog/1.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>Fernando Santos's Portugal manifesto</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -89,7 +89,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.jpg" alt="" />
+                                                <img src="/assets/images/player.png" alt="" />
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -99,7 +99,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.jpg" alt="" />
+                                                <img src="/assets/images/player.png" alt="" />
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -109,7 +109,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.jpg" alt="" />
+                                                <img src="/assets/images//blog/player.png" alt="" />
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>

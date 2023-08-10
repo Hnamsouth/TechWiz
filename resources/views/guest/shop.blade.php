@@ -32,27 +32,25 @@
         ul.tags li a {
             width: 100%;
         }
-
     </style>
 @endsection
 
 @section('main-content')
     <!-- START PAGE TITILE SECTION -->
-    <div class="player-profile-section page-title-section">
+    <div class="tg-banner tg-haslayout">
+        <div class="tg-imglayer">
+            <img src="assets/images/bg-pattran.png" alt="image desctription">
+        </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="section-title profile-title">
-                        <h1>Our Shop</h1>
+                <div class="tg-banner-content tg-haslayout">
+                    <div class="tg-pagetitle">
+                        <h1>SPORTSOX SHOP</h1>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="pagination-area">
-                        <ul>
-                            <li><a href="#">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                            <li class="active"><a href="#">Our shop</a></li>
-                        </ul>
-                    </div>
+                    <ol class="tg-breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Sportsox shop</li>
+                    </ol>
                 </div>
             </div>
         </div>

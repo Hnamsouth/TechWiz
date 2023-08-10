@@ -28,6 +28,7 @@ Route::get('/blog-details', [HomeController::class, 'blogDetails'])->name('blog-
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
 Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
+Route::get('/user', [HomeController::class, 'user'])->name('user');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 //Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');

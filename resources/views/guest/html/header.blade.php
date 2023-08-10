@@ -25,7 +25,7 @@
                     <ul>
                         <li>Currency: <a href="#">USD</a></li>
                         <li>Wishlist: <a href="#">12</a></li>
-                        <li> <a href="#"><i class="fa fa-lock"></i> Sign Up </a>or<a href="#">   Login</a></li>
+                        <li> <a href="#"><i class="fa fa-lock"></i> Sign Up </a>or<a href="#">  Login</a></li>
                     </ul>
                 </div><!-- end of /. header top right menu -->
             </div><!-- end of /. col -->

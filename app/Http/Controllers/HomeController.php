@@ -111,4 +111,8 @@ class HomeController extends Controller
     {
         return view('guest.search');
     }
+    public function user()
+    {
+        return view('guest.useraccount');
+    }
 }
