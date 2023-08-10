@@ -17,7 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(100)->create();
+        $this->HungSeeder();
+        $this->NamSeeder();
+
+    }
+
+    protected  function HungSeeder(){
+        \App\Models\User::factory(100)->create();
 
         $this->call(CategorySeeder::class);
         $this->call(ProductSeeder::class);
@@ -68,5 +74,9 @@ class DatabaseSeeder extends Seeder
                 'grand_total' => $grand_total,
             ]);
         }
+    }
+
+    protected function NamSeeder(){
+        $this->call(TeamPlayerSeeder::class);
     }
 }

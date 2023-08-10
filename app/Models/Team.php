@@ -20,5 +20,8 @@ class Team extends Model
     {
         return $this->hasMany(MatchLineups::class,'team_id','id');
     }
+    public function Players(){
+        return $this->belongsToMany(Players::class,'team_player');
+    }
 
 }

@@ -16,16 +16,16 @@ class CreateMatchStatisticalTable extends Migration
         Schema::create('match_statistical', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedInteger('number_of_shots');
-            $table->unsignedInteger('shot_on_Target');
-            $table->unsignedInteger('ball_control'); // input minute team control
-            $table->unsignedInteger('passes');
-            $table->unsignedTinyInteger('accurate_passing_Rate');
-            $table->unsignedTinyInteger('foul');
-            $table->unsignedTinyInteger('yellow_card');
-            $table->unsignedTinyInteger('red_Card');
-            $table->unsignedTinyInteger('offside');
-            $table->unsignedTinyInteger('corner_kick');
+            $table->unsignedInteger('number_of_shots')->default(0);
+            $table->unsignedInteger('shot_on_Target')->default(0);
+            $table->unsignedInteger('ball_control')->default(0); // input minute team control
+            $table->unsignedInteger('passes')->default(0);
+            $table->unsignedTinyInteger('accurate_passing_Rate')->default(0);
+            $table->unsignedTinyInteger('foul')->default(0);
+            $table->unsignedTinyInteger('yellow_card')->default(0);
+            $table->unsignedTinyInteger('red_Card')->default(0);
+            $table->unsignedTinyInteger('offside')->default(0);
+            $table->unsignedTinyInteger('corner_kick')->default(0);
 
 
             $table->unsignedBigInteger('match_id');

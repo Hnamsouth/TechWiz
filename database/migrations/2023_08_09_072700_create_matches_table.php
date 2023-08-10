@@ -27,9 +27,9 @@ class CreateMatchesTable extends Migration
 
             $table->foreign('first_team')->references('id')->on('teams');
             $table->foreign('second_team')->references('id')->on('teams');
-            $table->foreign('league_season_id ')->references('id')->on('league_season');
-            $table->foreign('euro_world_season_id ')->references('id')->on('euro_world_season');
-            $table->foreign('league_stage_id ')->references('id')->on('league_stage');
+            $table->foreign('league_season_id')->references('id')->on('league_season');
+            $table->foreign('euro_world_season_id')->references('id')->on('euro_world_season');
+            $table->foreign('league_stage_id')->references('id')->on('league_stage');
 
             $table->timestamps();
         });
