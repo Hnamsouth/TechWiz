@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -55,6 +56,7 @@ class HomeController extends Controller
     }
     public function shopProduct()
     {
+        $listProduct = Product::orderBy("created_at", 'desc')->limit(12)->get();
 
 
 
@@ -67,7 +69,7 @@ class HomeController extends Controller
 
 
 
-        return view('guest.shop');
+        return view('guest.shop',compact('listProduct'));
     }
     public function productDetail()
     {
