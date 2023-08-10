@@ -11,6 +11,7 @@ class Team extends Model
     protected $fillable=[
         'name',
         'country',
+        'continent',
         'logo',
         'level',
     ];
@@ -20,8 +21,15 @@ class Team extends Model
     {
         return $this->hasMany(MatchLineups::class,'team_id','id');
     }
-    public function Players(){
+    public function TeamPlayers(){
         return $this->belongsToMany(Players::class,'team_player');
+    }
+
+    public function MatchT1(){
+        return $this->hasMany(Match::class,'first_team_id','id');
+    }
+    public function MatchT2(){
+        return $this->hasMany(Match::class,'second_team_id','id');
     }
 
 }

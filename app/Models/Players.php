@@ -27,7 +27,7 @@ class Players extends Model
         return $this->hasMany(MatchEvent::class);
     }
 
-    public function Team(){
+    public function TeamPlayers(){
         return $this->belongsToMany(Team::class,'team_player');
     }
 }

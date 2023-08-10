@@ -12,8 +12,16 @@ class TeamLeagueSeason extends Model
 
     protected $fillable=[
       'team_id',
-      'league_season_id'
+      'league_season_id',
+      'euro_world_season_id'
     ];
+
+    public function scopeLeagueSeason($query, $id){
+        if($id && $id !=0){
+            return $query->where('league_season_id','=',$id);
+        }
+        return $query;
+    }
 
 
 }

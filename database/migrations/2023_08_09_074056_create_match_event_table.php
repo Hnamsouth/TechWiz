@@ -16,8 +16,8 @@ class CreateMatchEventTable extends Migration
         Schema::create('match_event', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('minute');
-            $table->unsignedTinyInteger('event_type'); //  (Own goal, Normal Goal, Substitution, yellow card, red card,  Penalty, miss penalty)
-            $table->unsignedTinyInteger('time_at'); // (fisrt half, second half, extra time,penalty shootout )
+            $table->string('event_type'); //  (Own goal, Normal Goal, Substitution, yellow card, red card,  Penalty, miss penalty)
+            $table->string('time_at'); // (fisrt half, second half, extra time,penalty shootout )
 
             $table->unsignedBigInteger('first_player_id')->nullable();
             $table->unsignedBigInteger('second_player_id')->nullable();

@@ -17,8 +17,8 @@ class CreateMatchResultTable extends Migration
             $table->id();
             $table->unsignedBigInteger('match_id');
             $table->unsignedBigInteger('team_id');
-            $table->unsignedTinyInteger('goal');
-            $table->unsignedTinyInteger('status'); //( Win, lose, default  )
+            $table->unsignedTinyInteger('goal')->default(0);
+            $table->unsignedTinyInteger('penalty_shootout_goal')->nullable();
 
             $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('team_id')->references('id')->on('teams');

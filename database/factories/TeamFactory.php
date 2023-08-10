@@ -15,7 +15,6 @@ class TeamFactory extends Factory
     {
         return [
             'name'=> "Team " . $this->faker->lastName().random_int(0,100),
-            'country'=>$this->faker->country(),
             'logo'=>$this->faker->imageUrl(),
             'level'=>random_int(0,1),
         ];

@@ -15,9 +15,12 @@ class CreateTeamLeagueSeasonTable extends Migration
     {
         Schema::create('team_league_season', function (Blueprint $table) {
             $table->unsignedBigInteger('team_id');
-            $table->unsignedBigInteger('league_season_id');
+            $table->unsignedBigInteger('league_season_id')->nullable();
+            $table->unsignedBigInteger('euro_world_season_id')->nullable();
+
             $table->foreign('team_id')->references('id')->on('teams');
-            $table->foreign('league_season_id')->references('id')->on('league_season_id');
+            $table->foreign('league_season_id')->references('id')->on('league_season');
+            $table->foreign('euro_world_season_id')->references('id')->on('euro_world_season');
             $table->timestamps();
         });
     }

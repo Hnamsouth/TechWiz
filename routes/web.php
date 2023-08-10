@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Models\LeagueSeason;
+use App\Models\Match;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -15,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function (){
+    \App\Models\LeagueSeason::all()->dd();
     return view("welcome");
 });
 
