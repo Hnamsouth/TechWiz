@@ -13,6 +13,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     @include('guest.html.css')
+    @yield("after_css")
 </head>
 
 {{--<!--[if lt IE 9]>--}}
