@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +20,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //Create 100 users
          \App\Models\User::factory(100)->create();
+
+        //Create 1 admin
+        $admin = User::create([
+            'name' => 'John Doe',
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
+            'telephone' => '012345678',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'avatar' => 'https://res.cloudinary.com/dxcyeb8km/image/upload/v1689147696/sem3/avatar_ga15mg.png',
+            'remember_token' => Str::random(10),
+        ]);
+        Admin::create([
+            'user_id' => $admin->id,
+            'role' => Admin::ADMIN
+        ]);
+
 
         $this->call(CategorySeeder::class);
         $this->call(ProductSeeder::class);
