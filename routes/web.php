@@ -33,7 +33,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/product-detail', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');
-Route::get('/profile', [\App\Http\Controllers\PlayerController::class, 'player'])->name('club-history');
+Route::get('/profile', [\App\Http\Controllers\PlayerController::class, 'index'])->name('profile');
 
 //commit
 
@@ -42,6 +42,7 @@ Route::get('/profile', [\App\Http\Controllers\PlayerController::class, 'player']
 /* ---------------------------------------------------- */
 Route::prefix("admin")->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
+
     // -- PRODUCT --
     Route::prefix('product')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\ProductController::class, 'list']);
@@ -76,3 +77,4 @@ Route::prefix("admin")->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\UserController::class, "userList"])->name('user-list');
         Route::get('/detail/{user:id}', [\App\Http\Controllers\Admin\UserController::class, "userDetail"])->name('user-detail');
     });
+});

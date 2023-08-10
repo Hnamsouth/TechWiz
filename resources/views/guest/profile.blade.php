@@ -75,10 +75,12 @@
                                             <h1>Full Name</h1>
                                             <p>Garry Oldman Downy</p>
                                         </div>
+                                        @foreach($latest_players as $item)
                                         <div class="player-other-desc">
                                             <h1>Nationality</h1>
-                                            <p>American</p>
+                                            <p>{{$item->nationality}}</p>
                                         </div>
+                                        @endforeach
                                         <div class="player-other-desc">
                                             <h1>Social</h1>
                                             <ul>

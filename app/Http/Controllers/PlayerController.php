@@ -10,10 +10,12 @@ class PlayerController extends Controller
 {
     public function index(){
         $latest_players = Player::orderBy("created_at","desc")->limit(12)->get();
-        return view("guest.playerdetail",compact("latest_players"));
+        return view("guest.profile",compact("latest_players"));
     }
 
     public function player(Player $player){
+        $current_player = Player::where('id',$player->id);
+        return view("guest.profile",compact('player','current_player'));
     }
 
 }
