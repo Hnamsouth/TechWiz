@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@include('auth.css')
 @section('content')
 {{--<div class="container">--}}
 {{--    <div class="row justify-content-center">--}}
@@ -155,7 +154,7 @@
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{{route('register')}}"
                                                                                           class="link-danger">Register</a></p>
                     </div>
 
@@ -190,3 +189,7 @@
     </div>
 </section>
 @endsection
+
+
+
+
