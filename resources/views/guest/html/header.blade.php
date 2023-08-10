@@ -89,40 +89,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse top-nav" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" >
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index.html">Home 1</a></li>
-                            <li><a href="index1.html">Home 2</a></li>
-                        </ul>
-                    </li>
                     <li><a href="#">Features</a>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="club-histry.html">Club History</a></li>
-                            <li><a href="cooming-soon.html">Coming Soon</a></li>
-                            <li><a href="point-table.html">Point Table</a></li>
-                            <li><a href="profiles.html">Profile</a></li>
-                            <li><a href="result.html">Result</a></li>
-                            <li><a href="turnament-history.html">Turnament History </a></li>
-                            <li><a href="wcup-fixture.html">Wcup fixture</a></li>
-                        </ul>
-                    </li>
                     <li><a href="#">About</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="shop.html">Shop</a></li>
-                            <li><a href="shop-single.html">Shop Single</a></li>
-                        </ul>
+                    <li>
+                        <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop <b class="caret"></b></a>
                     </li>
                     <li>
                         <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
 
                     </li>
                     <li><a href="{{route("contact")}}">Contact</a></li>
+                    <li><a href="{{route("club-history")}}">Club History</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- end of /. container -->
