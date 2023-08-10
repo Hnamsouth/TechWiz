@@ -46,10 +46,10 @@ class HomeController extends Controller
     {
         return view('guest.blog-details');
     }
-    public function playerdetail()
-    {
-        return view('guest.playerdetail');
-    }
+//    public function playerdetail()
+//    {
+//        return view('guest.playerdetail');
+//    }
     public function checkout()
     {
         return view('guest.checkout');

@@ -31,9 +31,15 @@ Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 //Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
-Route::get('/product-detail', [HomeController::class, 'productDetail'])->name('product-detail');
+Route::get('/product-detail', [HomeController::class, 'productDetail'])->name('detail');
+Route::prefix("product")->group(function (){
+    Route::get('/detail/{product:slug}', [\App\Http\Controllers\ProductViewController::class, 'detail']);
+});
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');
-Route::get('/profile', [\App\Http\Controllers\PlayerController::class, 'index'])->name('profile');
+Route::prefix("profile")->group(function (){
+    Route::get('/{player:name}', [\App\Http\Controllers\PlayerController::class, 'detail']);
+});
+
 
 //commit
 

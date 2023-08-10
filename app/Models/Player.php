@@ -17,7 +17,7 @@ class Player extends Model
         "id","name","nationality","position","date_of_birth","img","des","number","height","weight","team_id"
     ];
 
-    public function Team(){
-        return $this->belongsTo(Team::class);
+    public function team(){
+        return $this->belongsTo(\App\Models\Team::class);
     }
 }

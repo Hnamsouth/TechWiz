@@ -45,7 +45,7 @@
                             <!-- Indicators -->
                             <ol class="carousel-indicators product-slider-thumb">
                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
-                                    <img src="/assets/images/shop/1.jpg" alt="">
+                                    <img src="{{ add_w_auto_to_cloudinary_url($product->thumbnail) }}" alt="">
                                 </li>
                                 <li data-target="#carousel-example-generic" data-slide-to="1">
                                     <img src="/assets/images/shop/2.jpg" alt="">
@@ -57,7 +57,7 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="/assets/images/shop/shop-single-1.jpg" alt="...">
+                                    <img src="{{ add_w_auto_to_cloudinary_url($product->thumbnail) }}" alt="...">
                                 </div>
                                 <div class="item ">
                                     <img src="/assets/images/shop/shop-single-1.jpg" alt="...">
@@ -75,7 +75,7 @@
                         <div class="product-meta row">
                             <div class="col-md-8">
                                 <div class="title">
-                                    <h3>Woo Single #1</h3>
+                                    <h3>{{$product->name}}</h3>
                                     <div class="rating-star">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
-                                    <h3 class="product-price">$42.00 <del>$56.00</del></h3>
+                                    <h3 class="product-price">${{number_format($product->price)}} <del>{{--old price here--}}</del></h3>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -96,7 +96,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-caption">
-                                    <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. <br><br> Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. imperdiet nec ...</p>
+                                    <p>{{$product->short_desc}}</p>
                                     <a href="#">Read more</a>
                                 </div>
                             </div>
@@ -142,17 +142,15 @@
                                     </div>
                                     <div class="content-area">
                                         <div class="col-md-8">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <br><br>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
-                                            </p>
+                                            <p>{!! $product->desc !!}</p>
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="/assets/images/shop/shop-single2.jpg" class="img-responsive" alt="">
+                                            <img src="{{ add_w_auto_to_cloudinary_url($product->thumbnail) }}" class="img-responsive" alt="">
                                         </div>
 
                                         <div class="col-md-12">
                                             <h3>Game Highlights</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. <br><br>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.
-                                            </p>
+                                            <p>ramdom text here</p>
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +192,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="recent-item-title">
-                        <h3>Recent <b>Items</b></h3>
+                        <h3>Related <b>Items</b></h3>
                     </div>
                     <div class="recent-productitems row owlcarousle" id="recent-product">
                         <div class="item">

@@ -68,7 +68,7 @@
                                     <div class="product-info">
                                         <div class="pull-left">
                                             <a href="shop-single.html" class="title">{{$item->name}}</a>
-                                            <p class="price">$42 <s class="previous-price">{{$item->price}}</s></p>
+                                            <p class="price">${{number_format($item->price)}} <s class="previous-price">$old price</s></p>
                                         </div>
 
                                         <div class="pull-right">
