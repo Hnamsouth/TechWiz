@@ -45,7 +45,6 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shop-breadcrumb">
-
                     <div class="breadcrumb-main">
                         <h4 class="text-capitalize breadcrumb-title">add product</h4>
                     </div>
@@ -63,7 +62,7 @@
                         <div class="col-xl-7 col-lg-10">
                             <div class="mx-sm-30 mx-20 ">
 
-                                <form action="{{ url("/admin2/product/create") }}" method="post" enctype="multipart/form-data" id="my-form">
+                                <form action="{{ url("/admin/product/create") }}" method="post" enctype="multipart/form-data" id="my-form">
                                     @csrf
                                     <!-- Start: card -->
                                     <div class="card add-product p-sm-30 p-20 mb-30">
@@ -166,40 +165,6 @@
                                                         {{$message}}
                                                     </div>
                                                     @enderror
-                                                </div>
-
-                                                <!-- form group 4 -->
-                                                <div class="form-group quantity-appearance">
-                                                    <label>Discount (Optional)</label>
-                                                    <select name="select-option2" id="select-option2" class="form-control">
-                                                        @foreach($discounts as $discount)
-                                                            <option value="{{$discount->id}}">{{$discount->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-                                                <!-- form group 5 -->
-                                                <div class="form-group status-radio add-product-status-radio mb-20">
-                                                    <label class="mb-15">status</label>
-                                                    <div class="d-flex">
-                                                        <div class="radio-horizontal-list d-flex flex-wrap">
-
-                                                            <div class="radio-theme-default custom-radio ">
-                                                                <input class="radio" type="radio" name="status" value=1 id="radio-hl1" required checked>
-                                                                <label for="radio-hl1">
-                                                                    <span class="radio-text">Active</span>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="radio-theme-default custom-radio ">
-                                                                <input class="radio" type="radio" name="status" value=0 id="radio-hl2">
-                                                                <label for="radio-hl2">
-                                                                    <span class="radio-text">Inactive</span>
-                                                                </label>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
                                                 </div>
 
                                                 <!-- form group 6 -->

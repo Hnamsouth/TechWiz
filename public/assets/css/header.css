@@ -1,0 +1,25 @@
+.header-top{
+    padding: 8px 0;
+    background: #fbc02d;
+}
+.header-top-right ul{
+    justify-content: end;
+}
+.header-top-right ul li{
+    margin-right: 15px;
+}
+.header-main {
+    padding: 14px 0;
+}
+.header-main ul li{
+    padding: 0 30px;
+}
+header ul{
+    display: flex;
+}
+header ul li{
+    list-style: none;
+}
+header a{
+    color: #000;
+}

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Discount;
 use App\Models\Image;
 use App\Models\Product;
 use Cloudinary\Api\Upload\UploadApi;
@@ -16,7 +15,6 @@ class ProductController extends Controller
     public function list(Request $request) {
         $search = $request->get("search");
         $category_id = $request->get("category_id");
-        $status = $request->get("status");
         //$lowest_price = $request->get("lowest_price");
         //$highest_price = $request->get("highest_price");
         $orderCol = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[0] : "created_at";
@@ -35,20 +33,18 @@ class ProductController extends Controller
             }])
             ->get();
 
-        $data = $searchedData->CategoryFilter($category_id)->Status($status)->orderBy($orderCol, $sortBy)->paginate(20);
+        $data = $searchedData->CategoryFilter($category_id)->orderBy($orderCol, $sortBy)->paginate(20);
 
-        return view("admin2.product.list", compact('data', 'categories', 'outOfStock', 'totalItems','searchedDataCount'));
+        return view("admin.product.list", compact('data', 'categories', 'outOfStock', 'totalItems','searchedDataCount'));
     }
 
     public function detail(Product $product) {
-        $reviews = $product->reviews()->with('order.user')->get();
-        return view("admin2.product.detail", compact("product","reviews"));
+        return view("admin.product.detail", compact("product"));
     }
 
     public function create() {
         $categories = Category::all();
-        $discounts = Discount::all();
-        return view("admin2.product.add", compact('categories','discounts'));
+        return view("admin.product.add", compact('categories'));
     }
 
     public function store(Request $request) {
@@ -69,7 +65,7 @@ class ProductController extends Controller
                     $request->file('thumbnail')->getRealPath(),
                     [
                         'public_id' => $fileName,
-                        'folder' => 'eproject-sem2/'
+                        'folder' => 'techwiz/'
                     ]
                 );
                 //-- Save url to 'thumbnail' --
@@ -81,10 +77,9 @@ class ProductController extends Controller
         }
 
         //After create new product in database, retrieve id and store images
-        $data['slug'] = Str::slug($data['name'].'-'.random_int(1,100));
+        $data['slug'] = Str::slug($data['name'].'-'.now()->format('YmdHisu'));
         $product = Product::create($data);
         $product_id = $product->id;
-        $product['sku'] = 'CG'.str_pad($product['category_id'], 3, '0', STR_PAD_LEFT).'PD'.str_pad($product_id, 4, '0', STR_PAD_LEFT);
         $product->update();
 
         if ($request->hasFile('images')) {
@@ -95,7 +90,7 @@ class ProductController extends Controller
                         $image->getRealPath(),
                         [
                             'public_id' => $fileName,
-                            'folder' => 'eproject-sem2/'
+                            'folder' => 'techwiz/'
                         ]
                     );
                     $url = $result['secure_url'];
@@ -110,14 +105,13 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->to("/admin2/product");
+        return redirect()->to("/admin/product");
 
     }
 
     public function edit(Product $product) {
         $categories = Category::all();
-        $discounts = Discount::all();
-        return view("admin2.product.edit", compact('product','categories','discounts'));
+        return view("admin.product.edit", compact('product','categories'));
     }
 
     public function update(Product $product, Request $request) {
@@ -134,7 +128,7 @@ class ProductController extends Controller
             if ($request->get('old_thumb_url') == null) { //Don't keep the old thumbnail
                 //-- Delete the old thumbnail from Cloudinary
                 if ($product->thumbnail) {
-                    $public_id = 'eproject-sem2/' . basename($product->thumbnail, '.' . pathinfo($product->thumbnail, PATHINFO_EXTENSION));
+                    $public_id = 'techwiz/' . basename($product->thumbnail, '.' . pathinfo($product->thumbnail, PATHINFO_EXTENSION));
                     $delete_result = (new UploadApi())->destroy($public_id, ['resource_type' => 'image']);
                 }
                 $data['thumbnail'] = null;
@@ -146,7 +140,7 @@ class ProductController extends Controller
                         $request->file('thumbnail')->getRealPath(),
                         [
                             'public_id' => $fileName,
-                            'folder' => 'eproject-sem2/'
+                            'folder' => 'techwiz/'
                         ]
                     );
                     //-- Save url to 'thumbnail' --
@@ -161,14 +155,14 @@ class ProductController extends Controller
         }
 
         //After edit product in database, check the old images if they need replace
-        $data['slug'] = Str::slug($data['name'].'-'.random_int(1,100));
+        $data['slug'] = Str::slug($data['name'].'-'.now()->format('YmdHisu'));
         $product->update($data);
         $product_id = $product->id;
 
         if ($request->get('keep_old_images') == 0) { //Don't keep the old image
             //Delete all old images from Cloudinary
             foreach ($product->images()->get() as $image) {
-                $public_id = 'eproject-sem2/' . basename($image->url, '.' . pathinfo($image->url, PATHINFO_EXTENSION));
+                $public_id = 'techwiz/' . basename($image->url, '.' . pathinfo($image->url, PATHINFO_EXTENSION));
                 $delete_result = (new UploadApi())->destroy($public_id, ['resource_type' => 'image']);
                 var_dump($delete_result);
             }
@@ -183,7 +177,7 @@ class ProductController extends Controller
                             $image->getRealPath(),
                             [
                                 'public_id' => $fileName,
-                                'folder' => 'eproject-sem2/'
+                                'folder' => 'techwiz/'
                             ]
                         );
                         $url = $result['secure_url'];
@@ -199,18 +193,17 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->to("/admin2/product");
+        return redirect()->to("/admin/product");
     }
 
     public function delete(Product $product) {
         $product->delete();
-        return redirect()->to("/admin2/product");
+        return redirect()->to("/admin/product");
     }
 
     public function deleted(Request $request) {
         $search = $request->get("search");
         $category_id = $request->get("category_id");
-        $status = $request->get("status");
         $orderCol = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[0] : "created_at";
         $sortBy = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[1] : "desc";
 
@@ -225,14 +218,14 @@ class ProductController extends Controller
             }])
             ->get();
 
-        $data = $searchedData->CategoryFilter($category_id)->Status($status)->orderBy($orderCol, $sortBy)->paginate(20);
+        $data = $searchedData->CategoryFilter($category_id)->orderBy($orderCol, $sortBy)->paginate(20);
 
-        return view("admin2.product.deleted", compact('data', 'categories', 'searchedDataCount'));
+        return view("admin.product.deleted", compact('data', 'categories', 'searchedDataCount'));
     }
 
     public function restore(Request $request) {
         $product = Product::withTrashed()->findOrFail($request->get('product_id'));
         $product->restore();
-        return redirect()->to("/admin2/product/deleted");
+        return redirect()->to("/admin/product/deleted");
     }
 }

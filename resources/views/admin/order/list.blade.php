@@ -30,7 +30,7 @@
                         <div class="breadcrumb-action justify-content-center flex-wrap">
                             <div class="action-btn">
 
-                                <form action="{{url("admin2/order")}}" method="get" id="myForm" class="d-flex">
+                                <form action="{{url("admin/order")}}" method="get" id="myForm" class="d-flex">
                                     <div class="form-group mb-0 mr-2">
                                         <div class="input-container icon-left position-relative">
                                             <span class="input-icon icon-left">
@@ -46,25 +46,7 @@
                                 </form>
 
                             </div>
-                            <div class="dropdown action-btn">
-                                <button class="btn btn-sm btn-default btn-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="la la-download"></i> Export
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <span class="dropdown-item">Export With</span>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="" class="dropdown-item">
-                                        <i class="la la-print"></i> Printer</a>
-                                    <a href="" class="dropdown-item">
-                                        <i class="la la-file-pdf"></i> PDF</a>
-                                    <a href="" class="dropdown-item">
-                                        <i class="la la-file-text"></i> Google Sheets</a>
-                                    <a href="" class="dropdown-item">
-                                        <i class="la la-file-excel"></i> Excel (XLSX)</a>
-                                    <a href="" class="dropdown-item">
-                                        <i class="la la-file-csv"></i> CSV</a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -100,7 +82,7 @@
             <div class="col-6 col-md-2">
                 <div class="overview-content border-right">
                     <p class="mb-1">Total Amount @if($todayOrders)- Today @endif</p>
-                    <h1 class="d-inline-block pr-1" style="color: #5f63f2;">{{$todayOrders ? number_format($todayOrders->sum('grand_total')) : number_format($timeFilterOrders->sum('grand_total'))}}</h1><strong class="text-primary">VND</strong>
+                    <h1 class="d-inline-block pr-1" style="color: #5f63f2;">{{$todayOrders ? number_format($todayOrders->sum('grand_total')) : number_format($timeFilterOrders->sum('grand_total'))}}</h1><strong class="text-primary">USD</strong>
                 </div>
             </div>
             <div class="col-6 col-md-2">
@@ -130,7 +112,7 @@
                     <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
                         <div class="d-flex align-items-center flex-wrap justify-content-center">
                             <div class="project-search order-search  global-shadow mt-10">
-                                <form action="{{url('admin2/order')}}" class="order-search__form" method="get" style="width: 320px">
+                                <form action="{{url('admin/order')}}" class="order-search__form" method="get" style="width: 320px">
                                     <span data-feather="search"></span>
                                     <input name="search" class="form-control mr-sm-2 border-0 box-shadow-none" type="search" placeholder="Filter by name or phone number" aria-label="Search" value="{{ app('request')->input('search') }}">
                                     <input type="hidden" name="date-ranger" value="{{ app('request')->input('date-ranger') }}">
@@ -144,31 +126,25 @@
                                 <div class="project-tap order-project-tap global-shadow">
                                     <ul class="nav px-1" id="ap-tab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == null || app('request')->input('status') == '') active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => null, 'page' => 1 ])) }}">All</a>
+                                            <a class="nav-link @if(app('request')->input('status') == null || app('request')->input('status') == '') active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => null, 'page' => 1 ])) }}">All</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') != null && app('request')->input('status') == 0) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 0, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Pending</a>
+                                            <a class="nav-link @if(app('request')->input('status') != null && app('request')->input('status') == 0) active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 0, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Pending</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') != null && app('request')->input('status') == 1) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 1, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Confirmed</a>
+                                            <a class="nav-link @if(app('request')->input('status') != null && app('request')->input('status') == 1) active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 1, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Confirmed</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == 2) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 2, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Processing</a>
+                                            <a class="nav-link @if(app('request')->input('status') == 2) active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 2, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Processing</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == 3) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 3, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Shipping</a>
+                                            <a class="nav-link @if(app('request')->input('status') == 3) active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 3, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Shipping</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == 4) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 4, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Completed</a>
+                                            <a class="nav-link @if(app('request')->input('status') == 4) active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 4, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Completed</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == 5) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 5, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Canceled</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == 6) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 6, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Returned</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link @if(app('request')->input('status') == 7) active @endif" href="{{ url('admin2/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 7, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Refunded</a>
+                                            <a class="nav-link @if(app('request')->input('status') == 5) active @endif" href="{{ url('admin/order') }}?{{ http_build_query(array_merge(request()->query(), ['status' => 5, 'page' => 1, 'date-ranger' => app('request')->input('date-ranger') ])) }}">Canceled</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -199,9 +175,6 @@
                                         </th>
                                         <th>
                                             <span class="userDatatable-title">Payment Method</span>
-                                        </th>
-                                        <th>
-                                            <span class="userDatatable-title">Payment Status</span>
                                         </th>
                                         <th>
                                             <span class="userDatatable-title">Ordered Date</span>
@@ -250,12 +223,6 @@
                                                         @case(5)
                                                             <span class="order-bg-opacity-gray text-gray rounded-pill active">canceled</span>
                                                             @break
-                                                        @case(6)
-                                                            <span class="order-bg-opacity-danger text-danger rounded-pill active">returned</span>
-                                                            @break
-                                                        @case(7)
-                                                            <span class="order-bg-opacity-dark text-dark rounded-pill active">refunded</span>
-                                                            @break
                                                         @default
                                                             <span>Unidentified</span>
                                                     @endswitch
@@ -263,7 +230,7 @@
                                             </td>
                                             <td>
                                                 <div class="orderDatatable-title">
-                                                    {{number_format($order->grand_total)}}
+                                                    {{number_format($order->grand_total)}} USD
                                                 </div>
                                             </td>
                                             <td>
@@ -271,15 +238,7 @@
                                                     {{$order->payment_method}}
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="orderDatatable-status d-inline-block">
-                                                    @if($order->payment_status)
-                                                        <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">paid</span>
-                                                    @else
-                                                        <span class="bg-opacity-danger  color-danger rounded-pill userDatatable-content-status active">unpaid</span>
-                                                    @endif
-                                                </div>
-                                            </td>
+
                                             <td>
                                                 <div class="orderDatatable-title">
                                                     {{$order->created_at->format('F j, Y')}}
@@ -289,7 +248,7 @@
                                             <td>
                                                 <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right" style="min-width: 50px">
                                                     <li>
-                                                        <a href="{{url('admin2/order/detail', ['order'=>$order->code])}}" class="edit" data-toggle="tooltip" data-placement="top" title="View Detail">
+                                                        <a href="{{url('admin/order/detail', ['order'=>$order->code])}}" class="edit" data-toggle="tooltip" data-placement="top" title="View Detail">
                                                             <span data-feather="eye"></span></a>
                                                     </li>
                                                 </ul>
@@ -307,7 +266,7 @@
                         <nav class="atbd-page ">
                             <ul class="atbd-pagination d-flex">
                                 <li class="atbd-pagination__item">
-                                    {{ $data->appends( app('request')->input() )->links("admin2.html.pagination") }}
+                                    {{ $data->appends( app('request')->input() )->links("admin.html.pagination") }}
                                 </li>
                             </ul>
                         </nav>

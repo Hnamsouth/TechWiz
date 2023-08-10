@@ -108,7 +108,7 @@
                                     </td>
                                     <td>
                                         <div class="userDatatable-content">
-                                            {{number_format($user->orders->sum('grand_total'))}} VND
+                                            {{number_format($user->orders->sum('grand_total'))}} USD
                                         </div>
                                     </td>
                                     <td>
