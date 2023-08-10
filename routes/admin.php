@@ -42,15 +42,27 @@
         Route::post("/create",[\App\Http\Controllers\Admin\TeamController::class,"store"]);
         Route::get("/edit",[\App\Http\Controllers\Admin\TeamController::class,"edit"])->name('team-edit');
         Route::put("/edit",[\App\Http\Controllers\Admin\TeamController::class,"update"]);
-        Route::delete('delete/{team:id}',[\App\Http\Controllers\Admin\TeamController::class,"delete"])->name('team-delete');
+        Route::delete('/delete/{team:id}',[\App\Http\Controllers\Admin\TeamController::class,"delete"])->name('team-delete');
     });
 
     // PLAYER
     Route::prefix('player')->group(function (){
-        Route::get('/',[\App\Http\Controllers\Admin\PlayerController::class,"list"])->name('player-list');
-        Route::get("/create",[\App\Http\Controllers\Admin\PlayerController::class,"create"])->name('player-create');
-        Route::post("/create",[\App\Http\Controllers\Admin\PlayerController::class,"store"]);
-        Route::get("/edit",[\App\Http\Controllers\Admin\PlayerController::class,"edit"])->name('player-edit');
-        Route::put("/edit",[\App\Http\Controllers\Admin\PlayerController::class,"update"]);
-        Route::delete('delete/{player:id}',[\App\Http\Controllers\Admin\PlayerController::class,"delete"])->name('player-delete');
+       Route::get('/',[\App\Http\Controllers\Admin\PlayerController::class,"list"])->name('player-list');
+       Route::get("/create",[\App\Http\Controllers\Admin\PlayerController::class,"create"])->name('player-create');
+       Route::post("/create",[\App\Http\Controllers\Admin\PlayerController::class,'store']);
+       Route::get('/edit',[\App\Http\Controllers\Admin\PlayerController::class,'edit'])->name('player-edit');
+       Route::put('/edit',[\App\Http\Controllers\Admin\PlayerController::class,'update']);
+       Route::delete('/delete/{players:id}',[\App\Http\Controllers\Admin\PlayerController::class.'delete'])->name('player-delete');
     });
+
+    // Coach
+    Route::prefix('coach')->group(function (){
+       Route::get('/',[\App\Http\Controllers\Admin\CoachController::class,'list'])->name('coach-list');
+       Route::get('/create',[\App\Http\Controllers\Admin\CoachController::class,'create'])->name('coach-create');
+       Route::post('/create',[\App\Http\Controllers\Admin\CoachController::class,'store']);
+       Route::get('/edit',[\App\Http\Controllers\Admin\CoachController::class,'edit'])->name('coach-edit');
+       Route::put('/edit',[\App\Http\Controllers\Admin\CoachController::class,'update']);
+       Route::delete('/delete/{coaches:id}',[\App\Http\Controllers\Admin\CoachController::class,'delete'])->name('coach-delete');
+    });
+
+
