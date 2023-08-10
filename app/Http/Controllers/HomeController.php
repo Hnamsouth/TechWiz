@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -25,10 +26,7 @@ class HomeController extends Controller
     {
         return view('guest.home');
     }
-    public function shop()
-    {
-        return view('guest.shop');
-    }
+
     public function match()
     {
         return view('guest.match');
@@ -41,9 +39,9 @@ class HomeController extends Controller
     {
         return view('guest.contact');
     }    public function blog()
-    {
-        return view('guest.blog');
-    }
+{
+    return view('guest.blog');
+}
     public function blogDetails()
     {
         return view('guest.blog-details');
@@ -56,8 +54,29 @@ class HomeController extends Controller
     {
         return view('guest.checkout');
     }
-    public function productdetail()
+    public function shopProduct()
     {
-        return view('guest.productdetail');
+        $listProduct = Product::orderBy("created_at", 'desc')->limit(12)->get();
+
+
+
+
+
+
+
+
+
+
+
+
+        return view('guest.shop',compact('listProduct'));
+    }
+    public function productDetail()
+    {
+        return view('guest.product-details');
+    }
+    public function clubHistory()
+    {
+        return view('guest.club-history');
     }
 }
