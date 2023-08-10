@@ -35,8 +35,13 @@ class HomeController extends Controller
     }
     public function match()
     {
-        return view('guest.match');
+        return view('guest.matchresult');
     }
+    public function matchdetail()
+    {
+        return view('guest.matchdetail');
+    }
+
     public function team()
     {
         return view('guest.team');
@@ -56,5 +61,9 @@ class HomeController extends Controller
     public function productdetail()
     {
         return view('guest.productdetail');
+    }
+    public function search()
+    {
+        return view('guest.search');
     }
 }

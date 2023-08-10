@@ -55,3 +55,16 @@
     align-items: center;
     justify-content: center
 }
+.top-prd-mid{
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+.top-prd .prd-img{
+    margin-right: 10px;
+}
+/*SEARCH PAGE*/
+
+.search-pg h2{
+    text-align: center;
+    margin: 20px 0 40px 0;
+}

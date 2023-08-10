@@ -10,38 +10,46 @@
                 <div class="col-sm-3">
                     <h4>Top products</h4>
                     <div class="top-prd flex">
-                        <div>img</div>
+                        <div class="prd-img">
+                            <img src="assets/images/thumbnails/img-03.jpg"/>
+                        </div>
                         <div>
                             <div>product name</div>
-                            <div>start</div>
+                            <div><span class="tg-stars"><span></span></span></div>
+                            <span>$20.000</span>
+                        </div>
+                    </div>
+                    <div class="top-prd top-prd-mid flex">
+                        <div class="prd-img">
+                            <img src="assets/images/thumbnails/img-01.jpg"/>
+                        </div>
+                        <div>
+                            <div>product name</div>
+                            <div><span class="tg-stars"><span></span></span></div>
                             <span>$20.000</span>
                         </div>
                     </div>
                     <div class="top-prd flex">
-                        <div>img</div>
-                        <div>
-                            <div>product name</div>
-                            <div>start</div>
-                            <span>$20.000</span>
+                        <div class="prd-img">
+                            <img src="assets/images/thumbnails/img-02.jpg"/>
                         </div>
-                    </div>
-                    <div class="top-prd flex">
-                        <div>img</div>
                         <div>
                             <div>product name</div>
-                            <div>start</div>
+                            <div><span class="tg-stars"><span></span></span></div>
                             <span>$20.000</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <h4>About Us</h4>
-                    <div>
-                        <ul><a>Home</a></ul>
-                        <ul><a>Match results</a></ul>
-                        <ul><a>Team</a></ul>
-                        <ul><a>Shop</a></ul>
-                        <ul><a>Contact</a></ul>
+                    <h4>Related to</h4>
+                    <div class="related">
+                        <ul>
+                            <li><a href="route{{'home'}}">Home</a></li>
+                            <li><a href="route{{'match'}}">Match results</a></li>
+                            <li><a href="route{{'team'}}">Team</a></li>
+                            <li><a href="route{{'shop'}}">Shop</a></li>
+                            <li><a href="route{{'contact'}}">Contact</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -63,7 +71,7 @@
     </div>
     <div class="bottom">
         <div class="container">
-            
+
         </div>
     </div>
 </footer>

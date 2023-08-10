@@ -53,3 +53,6 @@ header a{
 .tg-footer .btn{
     width: 100%;
 }
+.related ul li{
+    margin-bottom: 10px;
+}

@@ -188,7 +188,7 @@
             <div class="row">
                 <div class="col-sm-6 header-top-left">
                     <ul>
-                        <li><a>Email@gmail.com</a></li>
+                        <li><a><i class="fa fa-envelope"></i>Email@gmail.com</a></li>
                         <li>EN</li>
                         <li><span>/</span>VN</li>
                     </ul>
@@ -196,13 +196,14 @@
                 <div class="col-sm-6 header-top-right">
                     <ul>
                         <li>
-                            <i class="fa fa-search"></i>
+                            <a id="tg-btn-search" href="javascript:void(0)"><i class="fa fa-search"></i></a>
                         </li>
                         <li>
                             <i class="fa fa-shopping-cart"></i>
                         </li>
                         <li><a href="javascript().html" data-toggle="modal" data-target="#tg-login">Sign in</a></li>
-                        <li><a href="javascript().html" data-toggle="modal" data-target="#tg-register"><span>/</span>Sign up</a></li>
+                        <li><a href="javascript().html" data-toggle="modal" data-target="#tg-register"><span>/</span>Sign
+                                up</a></li>
                     </ul>
                 </div>
             </div>
@@ -211,7 +212,9 @@
     <div class="header-main">
         <div class="container">
             <div class="row">
-                <div class="col-sm-2"><a>LOGO</a></div>
+                <div class="col-sm-2"><a>
+                        {{--                        <img src="assets/images/logo2.png"/>--}}
+                    </a></div>
                 <div class="col-sm-10">
                     <ul>
                         <li><a href="{{route('home')}}">HOME</a></li>
@@ -219,9 +222,124 @@
                         <li><a href="{{route('match')}}">MATCH RESULTS</a></li>
                         <li><a href="{{route('shop')}}">SHOP ALL</a></li>
                         <li><a href="{{route('contact')}}">CONTACT</a></li>
+
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </header>
+{{--MODAL LOGIN--}}
+<div class="tg-modalbox modal fade" id="tg-login" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="tg-modal-content">
+            <div class="tg-formarea">
+                <div class="tg-border-heading">
+                    <h3>Login</h3>
+                </div>
+                <form class="tg-loginform" method="post">
+                    <fieldset>
+                        <div class="form-group">
+                            <input type="text" name="userName/email" class="form-control"
+                                   placeholder="username/email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="password">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" value="rememberme" class="checkbox">
+                                <em>Remember Me</em>
+                            </label>
+                            <a href="#">
+                                <em>Forgot Password</em>
+                                <i class="fa fa-question-circle"></i>
+                            </a>
+                        </div>
+                        <div class="form-group">
+                            <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                        </div>
+                        <div class="tg-description">
+                            <p>Don't have an account? <a href="#">Signup</a></p>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="tg-logintype">
+                <div class="tg-border-heading">
+                    <h3>Login with</h3>
+                </div>
+                <ul>
+                    <li class="tg-facebook"><a href="#">facebook</a></li>
+                    <li class="tg-twitter"><a href="#">twitter</a></li>
+                    <li class="tg-googleplus"><a href="#">google+</a></li>
+                    <li class="tg-linkedin"><a href="#">linkedin</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{--MODAL SIGN UP--}}
+<div class="tg-modalbox modal fade" id="tg-register" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="tg-modal-content">
+            <div class="tg-formarea">
+                <div class="tg-border-heading">
+                    <h3>Signup</h3>
+                </div>
+                <form class="tg-loginform" method="post">
+                    <fieldset>
+                        <div class="form-group">
+                            <input type="text" name="userName" class="form-control" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <div class="tg-note">
+                                <i class="fa fa-exclamation-circle"></i>
+                                <span>We will email you your password.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="tg-btn tg-btn-lg" type="submit">Login Now</button>
+                        </div>
+                        <div class="tg-description">
+                            <p>Already have an account? <a href="#">Login</a></p>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="tg-logintype">
+                <div class="tg-border-heading">
+                    <h3>Signup with</h3>
+                </div>
+                <ul>
+                    <li class="tg-facebook"><a href="#">facebook</a></li>
+                    <li class="tg-twitter"><a href="#">twitter</a></li>
+                    <li class="tg-googleplus"><a href="#">google+</a></li>
+                    <li class="tg-linkedin"><a href="#">linkedin</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{--SEARCH FUNCTION--}}
+<div class="tg-searchbox">
+    <a id="tg-close-search" class="tg-close-search" href="javascript:void(0)"><span class="fa fa-close"></span></a>
+    <div class="tg-searcharea">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form class="tg-form-search">
+                        <fieldset>
+                            <input type="search" class="form-control" placeholder="keyword">
+                            <i class="icon-icon_search2"></i>
+                        </fieldset>
+                    </form>
+                    <p>Start typing and press Enter to search</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
