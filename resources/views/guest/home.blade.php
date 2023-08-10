@@ -417,7 +417,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game1.png" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -427,7 +427,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game2.png" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -437,7 +437,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game3.png" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -447,7 +447,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game1.png" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -457,7 +457,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game2.png" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -596,7 +596,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/2.jpg" alt="" />
+                                        <img src="/assets/images/blog/2.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>UEFA EURO 2016 Team of the Tournament</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -608,7 +608,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/3.jpg" alt="" />
+                                        <img src="/assets/images/blog/3.png" alt="" />
                                         <div class="blog-content-title">
                                             <h3>On bringing in younger players</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -620,7 +620,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s1.jpg" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s1.png" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -634,7 +634,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s2.jpg" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s2.png" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -648,7 +648,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s3.jpg" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s3.png" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -662,7 +662,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s4.jpg" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s1.png" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -691,7 +691,7 @@
                         <div class="widget">
                             <div class="sidebar-ad">
                                 <a href="#">
-                                    <img src="/assets/images/banner.jpg" class="img-responsive" width="370" height="571" alt="">
+                                    <img src="/assets/images/banner.png" class="img-responsive" width="370" height="571" alt="">
                                 </a>
                             </div>
                         </div>
