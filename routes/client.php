@@ -1,4 +1,8 @@
 <?php
+
+
+use Illuminate\Support\Facades\Route;
+
 Route::middleware(['auth', 'admin'])->prefix(env('ADMIN_PATH'))->group(function () {
 
     Route::get("/dashboard", [\App\Http\Controllers\WebController::class, "home"]);

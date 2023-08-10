@@ -1,5 +1,9 @@
 <?php
-    Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
     // -- PRODUCT --
     Route::prefix('product')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\ProductController::class, 'list']);
