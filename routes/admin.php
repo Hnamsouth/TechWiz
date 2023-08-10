@@ -1,6 +1,11 @@
+
 <?php
+
+use Illuminate\Support\Facades\Route;
+Route::middleware(['auth','admin'])-> prefix(env('ADMIN_PATH'))->group(function () {
+
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
-    // -- PRODUCT --
+// -- PRODUCT --
     Route::prefix('product')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\ProductController::class, 'list']);
         Route::get('/detail/{product:slug}', [\App\Http\Controllers\Admin\ProductController::class, 'detail']);
@@ -12,7 +17,7 @@
         Route::get('/deleted', [\App\Http\Controllers\Admin\ProductController::class, 'deleted']);
         Route::post('/restore', [\App\Http\Controllers\Admin\ProductController::class, 'restore']);
     });
-    // -- CATEGORY --
+// -- CATEGORY --
     Route::prefix('category')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\CategoryController::class, 'list']);
         Route::get('/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create']);
@@ -23,14 +28,15 @@
         Route::get('/deleted', [\App\Http\Controllers\Admin\CategoryController::class, 'deleted']);
         Route::post('/restore', [\App\Http\Controllers\Admin\CategoryController::class, 'restore']);
     });
-    // -- ORDER --
+// -- ORDER --
     Route::prefix('order')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\OrderController::class, "list"]);
         Route::get('/detail/{order:code}', [\App\Http\Controllers\Admin\OrderController::class, "detail"]);
         Route::put('/detail/{order:code}', [\App\Http\Controllers\Admin\OrderController::class, "updateStatus"]);
     });
-    // -- USER (CUSTOMER) --
+// -- USER (CUSTOMER) --
     Route::prefix('user')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\UserController::class, "userList"])->name('user-list');
         Route::get('/detail/{user:id}', [\App\Http\Controllers\Admin\UserController::class, "userDetail"])->name('user-detail');
     });
+});
