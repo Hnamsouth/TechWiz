@@ -79,5 +79,6 @@
             @yield('content')
         </main>
     </div>
+@include('auth.js')
 </body>
 </html>
