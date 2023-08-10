@@ -60,34 +60,9 @@
                                         <!-- Start: card body -->
                                         <div class="add-product__body px-sm-40 px-20">
                                             <!-- Start: form -->
-                                            <form action="{{ url("/admin2/category/edit",["category"=>$category->slug]) }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ url("/admin/category/edit",["category"=>$category->slug]) }}" method="post" enctype="multipart/form-data">
                                                 @method('PUT')
                                                 @csrf
-                                                <!-- form group -->
-                                                <div class="form-group">
-                                                    <label class="d-block">Icon image</label>
-                                                    <div class="atbd-tag-wrap d-inline-block position-relative">
-                                                        <div class="atbd-upload">
-                                                            <div class="atbd-upload-avatar ">
-                                                                <img class="avatrSrc img-thumbnail" src="{{ $category->icon ?? '/admin/img/upload.png' }}" alt="Avatar Upload" style="max-width: 200px">
-                                                            </div>
-                                                            <div class="avatar-up">
-                                                                <input type="file" name="icon" class="upload-avatar-input" accept="image/*">
-                                                                <input type="hidden" name="old_icon_url" value="{{ $category->icon }}">
-                                                            </div>
-                                                            <div class="image-actions">
-                                                                <a href="#" class="edit-icon position-absolute" style="top: -10px;right: -10px"><i class="fas fa-pen"></i>
-                                                                </a>
-                                                                <a href="#" class="remove-icon position-absolute" style="bottom: -10px;right: -10px"><i class="fas fa-times fs-24"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    @error("icon")
-                                                    <div class="invalid-feedback">
-                                                        {{$message}}
-                                                    </div>
-                                                    @enderror
-                                                </div>
 
                                                 <!-- form group -->
                                                 <div class="form-group">
@@ -98,30 +73,6 @@
                                                         {{$message}}
                                                     </div>
                                                     @enderror
-                                                </div>
-
-                                                <!-- form group 5 -->
-                                                <div class="form-group status-radio add-product-status-radio mb-20">
-                                                    <label class="mb-15">Category Status</label>
-                                                    <div class="d-flex">
-                                                        <div class="radio-horizontal-list d-flex flex-wrap">
-
-                                                            <div class="radio-theme-default custom-radio ">
-                                                                <input class="radio" type="radio" name="status" value=1 id="radio-hl1" required @if($category->status) checked @endif>
-                                                                <label for="radio-hl1">
-                                                                    <span class="radio-text">Active</span>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="radio-theme-default custom-radio ">
-                                                                <input class="radio" type="radio" name="status" value=0 id="radio-hl2" @if(!$category->status) checked @endif>
-                                                                <label for="radio-hl2">
-                                                                    <span class="radio-text">Inactive</span>
-                                                                </label>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
                                                 </div>
 
                                                 <!-- form group 6 -->
@@ -160,43 +111,43 @@
 @endsection
 
 @section("after_js")
-    <script>
-        $(document).ready(function() {
-            // function to handle image preview and show the edit and remove icons
-            function handlePreview(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
+{{--            // function to handle image preview and show the edit and remove icons--}}
+{{--            function handlePreview(input) {--}}
+{{--                if (input.files && input.files[0]) {--}}
+{{--                    var reader = new FileReader();--}}
 
-                    reader.onload = function(e) {
-                        $('.avatrSrc').attr('src', e.target.result);
-                        $('.edit-icon').show();
-                        $('.remove-icon').show();
-                        $('input[name=old_icon_url]').val(''); // clear the value of the old_icon_url input
-                    }
+{{--                    reader.onload = function(e) {--}}
+{{--                        $('.avatrSrc').attr('src', e.target.result);--}}
+{{--                        $('.edit-icon').show();--}}
+{{--                        $('.remove-icon').show();--}}
+{{--                        $('input[name=old_icon_url]').val(''); // clear the value of the old_icon_url input--}}
+{{--                    }--}}
 
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
+{{--                    reader.readAsDataURL(input.files[0]);--}}
+{{--                }--}}
+{{--            }--}}
 
-            // handle change event of the file input
-            $('.upload-avatar-input').change(function() {
-                handlePreview(this);
-            });
+{{--            // handle change event of the file input--}}
+{{--            $('.upload-avatar-input').change(function() {--}}
+{{--                handlePreview(this);--}}
+{{--            });--}}
 
-            // handle click event of the edit icon
-            $('.edit-icon').click(function() {
-                $('.upload-avatar-input').click();
-            });
+{{--            // handle click event of the edit icon--}}
+{{--            $('.edit-icon').click(function() {--}}
+{{--                $('.upload-avatar-input').click();--}}
+{{--            });--}}
 
-            // handle click event of the remove icon
-            $('.remove-icon').click(function() {
-                $('.avatrSrc').attr('src', '/admin/img/upload.png');
-                $('.upload-avatar-input').val('');
-                $(this).hide();
-                $('input[name=old_icon_url]').val(''); // clear the value of the old_icon_url input
-            });
-        });
-    </script>
+{{--            // handle click event of the remove icon--}}
+{{--            $('.remove-icon').click(function() {--}}
+{{--                $('.avatrSrc').attr('src', '/admin/img/upload.png');--}}
+{{--                $('.upload-avatar-input').val('');--}}
+{{--                $(this).hide();--}}
+{{--                $('input[name=old_icon_url]').val(''); // clear the value of the old_icon_url input--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection
 
 
