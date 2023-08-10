@@ -18,6 +18,7 @@ class CreateTeamsTable extends Migration
             $table->string('name')->unique();
             $table->string('country');
             $table->string('logo');
+            $table->boolean('level'); // club(0) or national(1)
             $table->timestamps();
         });
     }

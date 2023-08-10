@@ -19,10 +19,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'avatar',
         'email',
+        'username',
         'password',
-        'status',
-        'token',
+        'remember_token',
+        'telephone',
+        'country',
+        'state',
+        'city',
+        'address',
+        'postcode'
     ];
 
     /**
@@ -43,4 +50,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function Admin()
+    {
+
+        return $this->hasOne(Admin::class);
+    }
+    public function isAdmin()
+    {
+        $admin = $this->Admin;
+        if ($admin && $admin->role == Admin::ADMIN) {
+
+            return true;
+        }
+        return false;
+    }
 }

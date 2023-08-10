@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+    protected $table = 'teams';
+    protected $fillable=[
+        'name',
+        'country',
+        'logo',
+        'level',
+    ];
     use HasFactory;
 
-    protected $table = "teams";
-
-    protected $fillable = [
-        "name",
-        "country",
-        "logo"
-    ];
-
+    public function MatchLineups(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(MatchLineups::class,'team_id','id');
+    }
 
 }

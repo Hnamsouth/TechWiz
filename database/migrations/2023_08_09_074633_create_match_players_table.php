@@ -23,6 +23,7 @@ class CreateMatchPlayersTable extends Migration
             $table->unsignedInteger('goal_assists');
             $table->unsignedInteger('red_card');
             $table->unsignedInteger('yellow_card');
+            $table->boolean('main_lineup');
 
             $table->unsignedBigInteger('match_id');
             $table->unsignedBigInteger('player_id');
