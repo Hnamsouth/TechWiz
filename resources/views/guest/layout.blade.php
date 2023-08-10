@@ -21,23 +21,23 @@
 {{--    <![endif]--></head>--}}
 <body>
 {{--@include('guest.html.preloader')--}}
+@include('guest.html.preloader')
 
-<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+<div class="wrapper">
 
-
-    @include('guest.html.mobile-menu')
     @include('guest.html.header')
-    @include('guest.html.home-slider')
+
 
 
     @yield('main-content')
+    @include('guest.html.video-section')
 
+    @include('guest.html.twitter-section')
 
     @include('guest.html.footer')
 
 </div>
-@include('guest.html.search')
-@include('guest.html.model')
+@include('guest.html.js')
 
 <!-- Wrapper End -->
 

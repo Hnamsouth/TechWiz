@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,10 +25,7 @@ class HomeController extends Controller
     {
         return view('guest.home');
     }
-    public function shop()
-    {
-        return view('guest.shop');
-    }
+
     public function match()
     {
         return view('guest.match');
@@ -40,6 +37,13 @@ class HomeController extends Controller
     public function contact()
     {
         return view('guest.contact');
+    }    public function blog()
+    {
+        return view('guest.blog');
+    }
+    public function blogDetails()
+    {
+        return view('guest.blog-details');
     }
     public function playerdetail()
     {
@@ -49,8 +53,28 @@ class HomeController extends Controller
     {
         return view('guest.checkout');
     }
-    public function productdetail()
+    public function shopProduct()
     {
-        return view('guest.productdetail');
+
+
+
+
+
+
+
+
+
+
+
+
+        return view('guest.shop');
+    }
+    public function productDetail()
+    {
+        return view('guest.product-details');
+    }
+    public function clubHistory()
+    {
+        return view('guest.club-history');
     }
 }

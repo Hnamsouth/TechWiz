@@ -1,146 +1,117 @@
-<footer id="tg-footer" class="tg-footer tg-haslayout">
-    <div class="tg-haslayout tg-footerinfobox">
-        <div class="tg-bgboxone"></div>
-        <div class="tg-bgboxtwo"></div>
-        <div class="tg-footerinfo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="tg-footercol">
-                            <div class="tg-posttitle">
-                                <h3>signup newsletter</h3>
-                            </div>
-                            <div class="tg-description">
-                                <p>Adipisicing elit, sed do eiusmod tempor incidunta utiai labore et dolore magna si aliqua quis.</p>
-                            </div>
-                            <form class="tg-form-newsletter">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Email">
-                                    </div>
-                                    <button class="tg-btn" type="submit">signup</button>
-                                </fieldset>
-                            </form>
-                            <div class="tg-posttitle">
-                                <h3>popular tags</h3>
-                            </div>
-                            <div class="tg-tags">
-                                <a class="tg-tag" href="#">fashion</a>
-                                <a class="tg-tag" href="#">travel</a>
-                                <a class="tg-tag" href="#">blog</a>
-                                <a class="tg-tag" href="#">sports</a>
-                                <a class="tg-tag" href="#">magazine</a>
-                                <a class="tg-tag" href="#">ui</a>
-                                <a class="tg-tag" href="#">tech</a>
-                                <a class="tg-tag" href="#">fun time</a>
-                                <a class="tg-tag" href="#">soccer</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="tg-footercol">
-                            <div class="tg-posttitle">
-                                <h3>Top products</h3>
-                            </div>
-                            <div class="tg-toprated">
-                                <ul>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="/assets/images/thumbnails/img-04.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="/assets/images/thumbnails/img-05.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="/assets/images/thumbnails/img-06.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="/assets/images/thumbnails/img-07.jpg" alt="image description">
-                                            </a>
-                                        </figure>
-                                        <div class="tg-productcontent">
-                                            <h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-                                            <span class="tg-price">Price: $67</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="tg-footercol">
-                            <div class="tg-haslayout">
-                                <strong class="tg-logo">
-                                    <a href="#">
-                                        <img src="/assets/images/logo2.png" alt="image description">
-                                    </a>
-                                </strong>
-                            </div>
-                            <div class="tg-description">
-                                <p>Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
-                            </div>
-                            <ul class="tg-contactinfo">
-                                <li>
-                                    <i class="fa fa-home"></i>
-                                    <address>123 Eccles Old Road, New Salford Road London, Uk, M6 7AF</address>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope-o"></i>
-                                    <a href="info%40domain.html">info@domain.com</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>
-                                    <span>+44 123 456 788 - 9</span>
-                                </li>
-                            </ul>
-                            <div class="tg-haslayout">
-                                <a class="tg-btn" href="#">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- satrt footer top section -->
+<div class="section footer-top-section">
+    <div class="container-fluid footer-top-bg">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-7 bg-parent">
+                <Div class="right-bg-g"></Div>
             </div>
-        </div>
-    </div>
-    <div class="tg-footerbar">
-        <div class="container">
-            <span class="tg-copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
-            <nav class="tg-footernav">
-                <ul>
-                    <li><a href="#">Main</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Buy Tickets</a></li>
-                    <li><a href="#">Match Results</a></li>
-                    <li><a href="#">Upcoming Matches</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</footer>
+        </div><!-- bg arrow shape -->
+    </div><!-- end of /. container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="footer-widget">
+                    <div class="widget-title">
+                        <h3>About Us</h3>
+                    </div>
+                    <div class="widget-container">
+                        <ul>
+                            <li><a href="#">Latest News</a></li>
+                            <li><a href="#">Players Room</a></li>
+                            <li><a href="#">Media Gallery</a></li>
+                            <li><a href="#">Feedback</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div><!-- end of /. widget  -->
+            </div><!-- end of /. col-md-2 -->
+            <div class="col-md-2">
+                <div class="footer-widget">
+                    <div class="widget-title">
+                        <h3>Information</h3>
+                    </div>
+                    <div class="widget-container">
+                        <ul>
+                            <li><a href="#">Olympics</a></li>
+                            <li><a href="#">FIFA 2016</a></li>
+                            <li><a href="#">NFL 2016</a></li>
+                            <li><a href="#">NBA 2016</a></li>
+                            <li><a href="#">Boxing</a></li>
+                        </ul>
+                    </div>
+                </div><!-- end of /. widget  -->
+            </div><!-- end of /. col-md-2 -->
+            <div class="col-md-2">
+                <div class="footer-widget">
+                    <div class="widget-title">
+                        <h3>Support</h3>
+                    </div>
+                    <div class="widget-container">
+                        <ul>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Account</a></li>
+                        </ul>
+                    </div>
+                </div><!-- end of /. widget  -->
+            </div><!-- end of /. col-md-2 -->
+            <div class="col-md-2">
+                <div class="footer-widget">
+                    <div class="widget-title">
+                        <h3>Support</h3>
+                    </div>
+                    <div class="widget-container">
+                        <ul>
+                            <li><a href="#">Terms and Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Account</a></li>
+                        </ul>
+                    </div>
+                </div><!-- end of /. widget  -->
+            </div><!-- end of /. col-md-2 -->
+            <div class="col-md-4">
+                <div class="footer-logo">
+                    <a href="#">
+                        <img src="/assets/images/logo.png" class="img-responsive" width="262" height="76" alt="">
+                    </a>
+                </div><!-- end of /. footer logo -->
+            </div><!-- end of /.col -->
+        </div><!-- end of /. row -->
+    </div><!-- end of /. container -->
+</div><!-- end of /. footer top -->
+<!-- star footer  -->
+<div class="footer-section">
+    <div class="container-fluid footer-top-bg">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-7 bg-parent">
+                <Div class="right-bg-g"></Div>
+            </div>
+        </div><!-- end of /. row -->
+    </div><!-- end of /. container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6">
+                <div class="alignleft copyright">
+                    <p>&copy; All Rights Reserved 2017</p>
+                </div><!-- end of /. copyright -->
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="footer-social">
+                    <p>Follow Us:</p>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                    </ul>
+                </div><!-- end of /. follow  -->
+            </div> <!-- end of /. col -->
+        </div><!-- end of /. row -->
+    </div><!-- end of /. container -->
+</div><!-- end of /. footer -->
