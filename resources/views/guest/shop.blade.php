@@ -32,25 +32,27 @@
         ul.tags li a {
             width: 100%;
         }
+
     </style>
 @endsection
 
 @section('main-content')
     <!-- START PAGE TITILE SECTION -->
-    <div class="tg-banner tg-haslayout">
-        <div class="tg-imglayer">
-            <img src="assets/images/bg-pattran.png" alt="image desctription">
-        </div>
+    <div class="player-profile-section page-title-section">
         <div class="container">
             <div class="row">
-                <div class="tg-banner-content tg-haslayout">
-                    <div class="tg-pagetitle">
-                        <h1>SPORTSOX SHOP</h1>
+                <div class="col-sm-6">
+                    <div class="section-title profile-title">
+                        <h1>Our Shop</h1>
                     </div>
-                    <ol class="tg-breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">Sportsox shop</li>
-                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <div class="pagination-area">
+                        <ul>
+                            <li><a href="#">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li class="active"><a href="#">Our shop</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +67,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="product-filter">
-                                <p class="pull-left">Showing <b>{{ $data ?? ''->firstItem() }}–{{$data ?? ''->lastItem()}}</b> of <b>{{ $data ?? ''->total() }}</b> results</p>
+                                <p class="pull-left">Showing <b>{{ $data->firstItem() }}–{{$data->lastItem()}}</b> of <b>{{ $data->total() }}</b> results</p>
 
                                 <form action="{{url('shop')}}" method="get" id="my-form" class="pull-right">
                                     <select name="orderCol" id="" onchange="document.getElementById('my-form').submit();">
@@ -82,37 +84,37 @@
 
                     <div class="row">
 
-                        @foreach($data ?? '' as $product)
-                        <div class="col-md-4">
-                            <div class="products clearifx">
-                                <div class="single-product">
-                                    <div class="product-imgs">
-                                        <a href="{{url('product-detail', ['product'=>$product->slug])}}">
-                                            <div style="position: relative; width: 100%; padding-top: calc(330 / 262 * 100%); overflow: hidden;">
-                                                <img src="{{add_w_auto_to_cloudinary_url($product->thumbnail)}}" alt="" class="img-responsive product-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                        @foreach($data as $product)
+                            <div class="col-md-4">
+                                <div class="products clearifx">
+                                    <div class="single-product">
+                                        <div class="product-imgs">
+                                            <a href="{{url('product-detail', ['product'=>$product->slug])}}">
+                                                <div style="position: relative; width: 100%; padding-top: calc(330 / 262 * 100%); overflow: hidden;">
+                                                    <img src="{{add_w_auto_to_cloudinary_url($product->thumbnail)}}" alt="" class="img-responsive product-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="product-info">
+                                            <div class="pull-left" style="max-width: 80%">
+                                                <a href="{{url('product-detail', ['product'=>$product->slug])}}" class="title">{{$product->name}}</a>
+                                                <p class="price">${{number_format($product->price)}}</p>
                                             </div>
-                                        </a>
-                                    </div>
 
-                                    <div class="product-info">
-                                        <div class="pull-left" style="max-width: 80%">
-                                            <a href="{{url('product-detail', ['product'=>$product->slug])}}" class="title">{{$product->name}}</a>
-                                            <p class="price">${{number_format($product->price)}}</p>
-                                        </div>
-
-                                        <div class="pull-right">
-                                            <ul class="list-inline">
-                                                <li>
-                                                    <a href="" class="basket">
-                                                        <i class="fa fa-shopping-basket"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                            <div class="pull-right">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <a href="" class="basket">
+                                                            <i class="fa fa-shopping-basket"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div><!-- END OF PRODUCTS -->
-                        </div>
+                                </div><!-- END OF PRODUCTS -->
+                            </div>
                         @endforeach
 
 
@@ -120,7 +122,7 @@
 
                     <div class="all-products">
                         <nav aria-label="Page navigation" class="navigation">
-                            {{ $data ?? ''->appends(app('request')->input())->links('guest.html.pagination') }}
+                            {{ $data->appends(app('request')->input())->links('guest.html.pagination') }}
                         </nav>
                     </div><!-- END OF PRODUCTS SECTION -->
 
@@ -155,13 +157,13 @@
                                             All ({{$searchedDataCount}})
                                         </a>
                                     </li>
-                                @foreach($categories as $category)
-                                    <li class="@if(app('request')->input('category_id') == $category->id) active @endif">
-                                        <a href="{{ url('shop') }}?{{ http_build_query(array_merge(request()->query(), ['category_id' => $category->id])) }}">
-                                            {{$category->name}} ({{$category->products_count}})
-                                        </a>
-                                    </li>
-                                @endforeach
+                                    @foreach($categories as $category)
+                                        <li class="@if(app('request')->input('category_id') == $category->id) active @endif">
+                                            <a href="{{ url('shop') }}?{{ http_build_query(array_merge(request()->query(), ['category_id' => $category->id])) }}">
+                                                {{$category->name}} ({{$category->products_count}})
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
