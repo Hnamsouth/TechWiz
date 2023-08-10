@@ -96,7 +96,7 @@ class HomeController extends Controller
     public function productDetail(Product $product)
     {
         $related_products = Product::where("category_id", $product->category_id)->where("id","<>",$product->id)->orderBy("created_at", "desc")->limit(4)->get();
-        return view('guest.product-details', compact("product", "related_products"));
+        return view('guest.product-detail', compact("product", "related_products"));
     }
     public function clubHistory()
     {

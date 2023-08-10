@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="contact-title">
-                        <h3>Use Contat Form <Span>& We Help you!</Span></h3>
+                        <h3>Use Contact Form <Span>& We Help you!</Span></h3>
                     </div>
                 </div>
 
