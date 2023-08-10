@@ -35,7 +35,7 @@
                     <!--billing address-->
                     <div class="bill-address mb-4">
                         <div class="t-head row align-middle py-3 mb-4">
-                            <h4>Billing Address</h4>
+                            <h2>Billing Address</h2>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 ps-0 firstname user-input">
@@ -71,7 +71,7 @@
                     <!--shipping method-->
                     <div class="shipping-method mb-4">
                         <div class="t-head row align-middle py-3 mb-4">
-                            <h4>Shipping Method</h4>
+                            <h2>Shipping Method</h2>
                         </div>
                         <div class="">
                             <div class="row">
@@ -97,7 +97,7 @@
                     <!--payment method-->
                     <div class="payment-method mb-4">
                         <div class="t-head row align-middle py-3 mb-4">
-                            <h4>Payment Method</h4>
+                            <h2>Payment Method</h2>
                         </div>
                         <p class="mdt">Please choose the payment method</p>
                         <ul class="pay d-flex mb-4">
@@ -126,7 +126,7 @@
                     <!--billing summary here-->
                     <div class="sticky">
                         <div class="billing-summary">
-                            <h3 class="text-center mb-3">BILLING SUMMARY</h3>
+                            <h2 class="text-center mb-3">BILLING SUMMARY</h2>
                             <div class="row">
                                 <div class="col-sm-10 ps-0">
                                     <h6>Product name 1</h6>

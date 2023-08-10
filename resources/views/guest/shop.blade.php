@@ -65,7 +65,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="product-filter">
-                                <p class="pull-left">Showing <b>{{ $data->firstItem() }}–{{$data->lastItem()}}</b> of <b>{{ $data->total() }}</b> results</p>
+                                <p class="pull-left">Showing <b>{{ $data ?? ''->firstItem() }}–{{$data ?? ''->lastItem()}}</b> of <b>{{ $data ?? ''->total() }}</b> results</p>
 
                                 <form action="{{url('shop')}}" method="get" id="my-form" class="pull-right">
                                     <select name="orderCol" id="" onchange="document.getElementById('my-form').submit();">
@@ -82,7 +82,7 @@
 
                     <div class="row">
 
-                        @foreach($data as $product)
+                        @foreach($data ?? '' as $product)
                         <div class="col-md-4">
                             <div class="products clearifx">
                                 <div class="single-product">
@@ -120,7 +120,7 @@
 
                     <div class="all-products">
                         <nav aria-label="Page navigation" class="navigation">
-                            {{ $data->appends(app('request')->input())->links('guest.html.pagination') }}
+                            {{ $data ?? ''->appends(app('request')->input())->links('guest.html.pagination') }}
                         </nav>
                     </div><!-- END OF PRODUCTS SECTION -->
 
