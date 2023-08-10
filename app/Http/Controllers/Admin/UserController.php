@@ -28,6 +28,8 @@ class UserController extends Controller
 
     public function userDetail(User $user) {
         $orderIds = Order::where('user_id', $user->id)->get()->pluck('id');
+
+//        test push
         return view('admin.user.user-detail', compact('user'));
     }
 }
