@@ -56,3 +56,11 @@ header a{
 .related ul li{
     margin-bottom: 10px;
 }
+.footer-bottom{
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+}
+.btm-inner{
+    padding-top: 8px;
+    padding-bottom: 8x;
+}

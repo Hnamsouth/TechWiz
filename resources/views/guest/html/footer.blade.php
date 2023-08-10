@@ -69,8 +69,8 @@
             </div>
         </div>
     </div>
-    <div class="bottom">
-        <div class="container">
+    <div class="footer-bottom">
+        <div class="container btm-inner">
 
         </div>
     </div>
