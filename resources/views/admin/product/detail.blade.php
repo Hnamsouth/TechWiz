@@ -54,11 +54,11 @@
                                         </ol>
                                         <div class="carousel-inner" role="listbox">
                                             <div class="carousel-item active">
-                                                <img class="img-fluid d-flex bg-opacity-primary" src="{{ substr_replace($product->thumbnail, 'w_auto/', strpos($product->thumbnail, 'upload/') + 7, 0) }}" alt="Card image cap" title="">
+                                                <img class="img-fluid d-flex bg-opacity-primary" src="{{ add_w_auto_to_cloudinary_url($product->thumbnail) }}" alt="Card image cap" title="">
                                             </div>
                                             @foreach($product->images as $key => $image)
                                                 <div class="carousel-item">
-                                                    <img class="img-fluid d-flex bg-opacity-primary" src="{{ substr_replace($image->url, 'w_auto/', strpos($image->url, 'upload/') + 7, 0) }}" alt="Card image cap" title="">
+                                                    <img class="img-fluid d-flex bg-opacity-primary" src="{{ add_w_auto_to_cloudinary_url($image->url) }}" alt="Card image cap" title="">
                                                 </div>
                                             @endforeach
                                         </div>
@@ -68,13 +68,13 @@
                                         <ul class="reset-ul d-flex flex-wrap list-thumb-gallery">
                                             <li>
                                                 <a href="#" class="thumbnail" data-target="#myCarouselArticle" data-slide-to="0">
-                                                    <img class="img-fluid d-flex bg-opacity-primary" src="{{ substr_replace($product->thumbnail, 'w_auto/', strpos($product->thumbnail, 'upload/') + 7, 0) }}" alt="">
+                                                    <img class="img-fluid d-flex bg-opacity-primary" src="{{ add_w_auto_to_cloudinary_url($product->thumbnail) }}" alt="">
                                                 </a>
                                             </li>
                                             @foreach($product->images as $key => $image)
                                             <li>
                                                 <a href="#" class="thumbnail" data-target="#myCarouselArticle" data-slide-to="{{$key+1}}">
-                                                    <img class="img-fluid d-flex bg-opacity-primary" src="{{ substr_replace($image->url, 'w_auto/', strpos($image->url, 'upload/') + 7, 0) }}" alt="">
+                                                    <img class="img-fluid d-flex bg-opacity-primary" src="{{ add_w_auto_to_cloudinary_url($image->url) }}" alt="">
                                                 </a>
                                             </li>
                                             @endforeach
@@ -97,37 +97,11 @@
                                     </div>
                                     <!-- End: Product Title -->
                                     <div class="product-item__content text-capitalize">
-                                        <!-- Start: Product Ratings -->
-                                        <div class="stars-rating d-flex align-items-center">
-                                            @php
-                                                $averageRating = round($product->reviews->average('rating') * 2) / 2; // Round to nearest half
-                                            @endphp
-                                            @for($i = 1; $i <= 5; $i++)
-                                                @if($i <= $averageRating)
-                                                    <span class="star-icon las la-star active"></span>
-                                                @elseif($i - $averageRating <= 0.5)
-                                                    <span class="star-icon las la-star-half-alt active"></span>
-                                                @else
-                                                    <span class="star-icon las la-star inactive"></span>
-                                                @endif
-                                            @endfor
-                                            <span class="stars-rating__point">{{number_format($product->reviews->average('rating'),1)}}</span>
-                                            <span class="stars-rating__review">
-                                                        <span>{{$product->reviews->count()}}</span> Reviews</span>
-                                        </div>
-                                        <!-- End: Product Ratings -->
                                         <!-- Start: Product Brand -->
                                         <span class="product-desc-price">
-                                            {{number_format($product->price)}}<sub class="ml-1">VND</sub>
+                                            {{number_format($product->price)}}<sub class="ml-1">USD</sub>
                                         </span>
-                                        @if($product->discount_id != null)
-                                            <div class="d-flex align-items-center mb-2">
-                                                <span class="product-price">$100.00</span>
-                                                <span class="product-discount">50% Off</span>
-                                            </div>
-                                        @endif
 
-                                        <!-- End: Product Brand -->
                                         <!-- Start: Product Description -->
                                         <p class=" product-deatils-pera">{{$product->short_desc}}</p>
                                         <!-- End: Product Description -->
@@ -143,10 +117,6 @@
                                                 <span class="free">{{$product->Category->name}}</span>
                                             </div>
                                             <div class="title">
-                                                <p>SKU:</p>
-                                                <span class="free">{{$product->sku ?? '...'}}</span>
-                                            </div>
-                                            <div class="title">
                                                 <p>Created:</p>
                                                 <span class="free">{{$product->created_at}}</span>
                                             </div>
@@ -157,13 +127,13 @@
                                         </div>
                                         <!-- End: Product Stock -->
                                         <!-- Start: Product Selections -->
-                                        @if (auth()->user()->isAdmin(\App\Models\Admin::ADMIN))
+
                                         <div class="product-item__button mt-lg-30 mt-sm-25 mt-20 d-flex flex-wrap">
                                             <div class=" d-flex flex-wrap product-item__action align-items-center">
-                                                <a href="{{url("admin2/product/edit",["product"=>$product->slug])}}">
+                                                <a href="{{url("admin/product/edit",["product"=>$product->slug])}}">
                                                 <button class="btn btn-primary btn-default btn-squared border-0 mr-10 my-sm-0 my-2"><span data-feather="edit"></span> Edit</button>
                                                 </a>
-                                                <form id="delete-form" action="{{ url("admin2/product/delete",["product"=>$product->slug]) }}" method="post" style="">
+                                                <form id="delete-form" action="{{ url("admin/product/delete",["product"=>$product->slug]) }}" method="post" style="">
                                                     @method("DELETE")
                                                     @csrf
                                                     <button type="button" class="btn btn-secondary btn-default btn-squared border-0 px-25 my-sm-0 my-2 mr-2" data-toggle="modal" data-target="#modal-info-confirmed">
@@ -173,7 +143,7 @@
                                             </div>
                                         </div>
                                         <!-- End: Product Selections -->
-                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +162,7 @@
             </div>
             <!-- End: Card -->
 
-            @if (auth()->user()->isAdmin(\App\Models\Admin::ADMIN))
+
             <!-- Delete Confirm Modal -->
             <div class="modal-info-confirmed modal fade show" id="modal-info-confirmed" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-sm modal-info" role="document">
@@ -218,41 +188,7 @@
                 </div>
             </div>
             <!-- End of Delete Confirm Modal -->
-            @endif
 
-            <div class="card card-default card-md mb-4">
-                <div class="card-header py-20 px-sm-40 px-20">
-                    <h6>Reviews</h6>
-                </div>
-                <div class="card-body pb-10 px-sm-40 px-20">
-                    @foreach($reviews as $review)
-                        <div class="atbd-comment-box media">
-                            <div class="atbd-comment-box__author mt-2">
-                                <figure>
-                                    <img src="/admin/img/author/1.jpg" class="bg-opacity-primary d-flex" alt="Admin Autor">
-                                </figure>
-                            </div><!-- ends: .atbd-comment-box__author -->
-                            <div class="atbd-comment-box__content media-body">
-                                <div class="comment-content-inner cci">
-                                    <div>
-                                        @for($i = 1; $i <= 5; $i++)
-                                            @if($i <= $averageRating)
-                                                <span class="star-icon las la-star active"></span>
-                                            @elseif($i - $averageRating <= 0.5)
-                                                <span class="star-icon las la-star-half-alt active"></span>
-                                            @else
-                                                <span class="star-icon las la-star inactive"></span>
-                                            @endif
-                                        @endfor
-                                    </div>
-                                    <span class="cci__author-info">{{$review->order->user->fullname}} <span style="color: darkgray">- {{$review->created_at->format('F j, Y')}}</span></span>
-                                    <p class="cci__comment-text">{{$review->comment}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
         </div>
 
     </div>

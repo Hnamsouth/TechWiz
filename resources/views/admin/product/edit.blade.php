@@ -63,7 +63,7 @@
                         <div class="col-xl-7 col-lg-10">
                             <div class="mx-sm-30 mx-20 ">
 
-                                <form action="{{ url("/admin2/product/edit",["product"=>$product->slug]) }}" method="post" enctype="multipart/form-data" id="my-form">
+                                <form action="{{ url("/admin/product/edit",["product"=>$product->slug]) }}" method="post" enctype="multipart/form-data" id="my-form">
                                     @method('PUT')
                                     @csrf
                                     <!-- Start: card -->
@@ -81,7 +81,7 @@
                                                     <div class="atbd-tag-wrap d-inline-block position-relative">
                                                         <div class="atbd-upload">
                                                             <div class="atbd-upload-avatar">
-                                                                <img class="avatrSrc img-thumbnail" src="{{ $product->thumbnail != null ? substr_replace($product->thumbnail, 'w_auto/', strpos($product->thumbnail, 'upload/') + 7, 0) : '/admin/img/upload.png'}}" alt="Avatar Upload" style="max-width: 200px">
+                                                                <img class="avatrSrc img-thumbnail" src="{{ $product->thumbnail != null ? add_w_auto_to_cloudinary_url($product->thumbnail) : '/admin/img/upload.png'}}" alt="Avatar Upload" style="max-width: 200px">
                                                             </div>
                                                             <div class="avatar-up">
                                                                 <input type="file" name="thumbnail" class="upload-avatar-input" accept="image/*">
@@ -168,40 +168,6 @@
                                                         {{$message}}
                                                     </div>
                                                     @enderror
-                                                </div>
-
-                                                <!-- form group 4 -->
-                                                <div class="form-group quantity-appearance">
-                                                    <label>Discount (Optional)</label>
-                                                    <select name="select-option2" id="select-option2" class="form-control">
-                                                        @foreach($discounts as $discount)
-                                                            <option value="{{$discount->id}}" @if($product->discount_id == $discount->id) selected @endif>{{$discount->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-                                                <!-- form group 5 -->
-                                                <div class="form-group status-radio add-product-status-radio mb-20">
-                                                    <label class="mb-15">status</label>
-                                                    <div class="d-flex">
-                                                        <div class="radio-horizontal-list d-flex flex-wrap">
-
-                                                            <div class="radio-theme-default custom-radio ">
-                                                                <input class="radio" type="radio" name="status" value=1 id="radio-hl1" required @if($product->status == 1) checked @endif>
-                                                                <label for="radio-hl1">
-                                                                    <span class="radio-text">Active</span>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="radio-theme-default custom-radio ">
-                                                                <input class="radio" type="radio" name="status" value=0 id="radio-hl2" @if($product->status == 0) checked @endif>
-                                                                <label for="radio-hl2">
-                                                                    <span class="radio-text">Inactive</span>
-                                                                </label>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
                                                 </div>
 
                                                 <!-- form group 6 -->

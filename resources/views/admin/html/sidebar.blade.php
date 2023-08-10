@@ -39,7 +39,7 @@
                         <li>
                             <a class="{{ request()->is('admin/category') ? 'active' : '' }}" href="{{url('admin/category')}}">Category List</a>
                         </li>
-                        @if (auth()->user()->isAdmin(\App\Models\Admin::ADMIN))
+
                         <li>
                             <a class="{{ request()->is('admin/category/create') ? 'active' : '' }}" href="{{url('admin/category/create')}}">Category Add</a>
                         </li>
@@ -51,7 +51,7 @@
                         <li>
                             <a class="{{ request()->is('admin/category/deleted') ? 'active' : '' }}" href="{{url('admin/category/deleted')}}">Category Deleted</a>
                         </li>
-                        @endif
+
                     </ul>
                 </li>
                 <li class="has-child {{ request()->is('admin/product*') ? 'open' : '' }}">
@@ -69,7 +69,7 @@
                                 <a class="{{ request()->is('admin/product/detail*') ? 'active' : '' }}">Product Detail</a>
                             </li>
                         @endif
-                        @if (auth()->user()->isAdmin(\App\Models\Admin::ADMIN))
+
                         <li>
                             <a class="{{ request()->is('admin/product/create') ? 'active' : '' }}" href="{{url('admin/product/create')}}">Product Add</a>
                         </li>
@@ -81,7 +81,7 @@
                         <li>
                             <a class="{{ request()->is('admin/product/deleted') ? 'active' : '' }}" href="{{url('admin/product/deleted')}}">Products Deleted</a>
                         </li>
-                        @endif
+
                     </ul>
                 </li>
                 <li class="has-child {{ request()->is('admin/order*') ? 'open' : '' }}">
@@ -99,36 +99,9 @@
                             <a class="{{ request()->is('admin/order/detail*') ? 'active' : '' }}">Order Detail</a>
                         </li>
                         @endif
-                        <li>
-                            <a class="{{ request()->is('admin/order/return-request') ? 'active' : '' }}" href="{{url('admin/order/return-request')}}">Return Requests</a>
-                        </li>
                     </ul>
                 </li>
-                @if (auth()->user()->isAdmin(\App\Models\Admin::ADMIN))
-                <li class="has-child {{ request()->is('admin/employee*') ? 'open' : '' }}">
-                    <a href="{{ url('admin/employee') }}" class="{{ request()->is('admin/employee*') ? 'active' : '' }}">
-                        <span data-feather="briefcase" class="nav-icon"></span>
-                        <span class="menu-text">Employees</span>
-                        <span class="toggle-icon"></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a class="{{ request()->is('admin/employee') ? 'active' : '' }}" href="{{url('admin/employee')}}">Employee List</a>
-                        </li>
-                        <li>
-                            <a class="{{ request()->is('admin/employee/create') ? 'active' : '' }}" href="{{url('admin/employee/create')}}">Employee Add</a>
-                        </li>
-                        @if(request()->is('admin/employee/edit*'))
-                        <li>
-                            <a class="{{ request()->is('admin/employee/edit*') ? 'active' : '' }}" href="">Employee Edit</a>
-                        </li>
-                        @endif
-                        <li>
-                            <a class="{{ request()->is('admin/employee/deleted') ? 'active' : '' }}" href="{{url('admin/employee/deleted')}}">Employees Deleted</a>
-                        </li>
-                    </ul>
-                </li>
-                @endif
+
                 <li class="has-child {{ request()->is('admin/user*') ? 'open' : '' }}">
                     <a href="{{route('user-list')}}" class="{{ request()->is('admin/user*') ? 'active' : '' }}">
                         <span data-feather="user-check" class="nav-icon"></span>
