@@ -31,6 +31,6 @@ class ContactUs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('')
+        Schema::dropIfExists('contactUs');
     }
 }
