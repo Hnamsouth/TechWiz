@@ -2,7 +2,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Route::middleware(['auth','admin'])-> prefix(env('ADMIN_PATH'))->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
 
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
 // -- PRODUCT --
@@ -38,5 +38,17 @@ Route::middleware(['auth','admin'])-> prefix(env('ADMIN_PATH'))->group(function 
     Route::prefix('user')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\UserController::class, "userList"])->name('user-list');
         Route::get('/detail/{user:id}', [\App\Http\Controllers\Admin\UserController::class, "userDetail"])->name('user-detail');
+    });
+
+    Route::prefix('league')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\LeagueController::class, 'list'])->name('match-list');
+        Route::get('/detail/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'detail'])->name('match-detail');
+        Route::get('/create', [\App\Http\Controllers\Admin\LeagueController::class, 'create']);
+        Route::post('/create', [\App\Http\Controllers\Admin\LeagueController::class, 'store']);
+        Route::get('/edit/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'edit']);
+        Route::put('/edit/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'update']);
+        Route::delete('/delete/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'delete']);
+        Route::get('/deleted', [\App\Http\Controllers\Admin\LeagueController::class, 'deleted']);
+        Route::post('/restore', [\App\Http\Controllers\Admin\LeagueController::class, 'restore']);
     });
 });

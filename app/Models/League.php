@@ -16,4 +16,14 @@ class League extends Model
     ];
 
     use HasFactory;
+    public function matches() {
+        return $this->hasMany(Match::class);
+    }
+
+    public function scopeSearch($query, $search) {
+        if($search && $search != "") {
+            return $query->where("name", "like", "%$search%");
+        }
+        return $query;
+    }
 }
