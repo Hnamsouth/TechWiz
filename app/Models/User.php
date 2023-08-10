@@ -64,4 +64,13 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function isSaff()
+    {
+        $admin = $this->Admin;
+        if ($admin && $admin->role == Admin::STAFF) {
+
+            return true;
+        }
+        return false;
+    }
 }

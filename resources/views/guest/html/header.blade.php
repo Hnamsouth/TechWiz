@@ -25,7 +25,7 @@
                                                         <li>
                                                             <figure>
                                                                 <a href="#">
-                                                                    <img src="images/thumbnails/img-01.jpg" alt="image description">
+                                                                    <img src="/assets/images/thumbnails/img-01.jpg" alt="image description">
                                                                 </a>
                                                             </figure>
                                                             <div class="tg-product-detail">
@@ -37,7 +37,7 @@
                                                         <li>
                                                             <figure>
                                                                 <a href="#">
-                                                                    <img src="images/thumbnails/img-02.jpg" alt="image description">
+                                                                    <img src="/assets/images/thumbnails/img-02.jpg" alt="image description">
                                                                 </a>
                                                             </figure>
                                                             <div class="tg-product-detail">
@@ -49,7 +49,7 @@
                                                         <li>
                                                             <figure>
                                                                 <a href="#">
-                                                                    <img src="images/thumbnails/img-03.jpg" alt="image description">
+                                                                    <img src="/assets/images/thumbnails/img-03.jpg" alt="image description">
                                                                 </a>
                                                             </figure>
                                                             <div class="tg-product-detail">
@@ -112,7 +112,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <strong class="tg-logo">
-                            <a href="index-2.html"><img src="images/logo.png" alt="image description"></a>
+                            <a href="index-2.html"><img src="/assets/images/logo.png" alt="image description"></a>
                         </strong>
                     </div>
                     <div id="tg-navigation" class="tg-navigation">

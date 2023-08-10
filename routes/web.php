@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.home');
-});
+
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'admin'])->prefix(env('ADMIN_PATH'))->group(function () {
 
     Route::get("/dashboard", [\App\Http\Controllers\WebController::class, "home"]);
