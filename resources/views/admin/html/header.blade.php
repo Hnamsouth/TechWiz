@@ -51,7 +51,7 @@
                                 </div>
                                 <div>
                                     <h6>{{ Auth::user()->name }}</h6>
-                                    <span>{{ Auth::user()->admin->role == 'ADMIN' ? 'Administrator' : 'Employee' }}</span>
+{{--                                    <span>{{ Auth::user()->admin->role == 'ADMIN' ? 'Administrator' : 'Employee' }}</span>--}}
                                 </div>
                             </div>
                             <div class="nav-author__options">
