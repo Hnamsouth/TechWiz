@@ -112,7 +112,7 @@
                         <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
 
                     </li>
-                    <li><a href="{{route("contact")}}">Contact</a></li>
+                    <li><a href="#">Contact</a></li>
                     <li><a href="{{route("club-history")}}">Club History</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

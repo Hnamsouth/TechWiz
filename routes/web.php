@@ -28,8 +28,11 @@ Route::get('/blog-details', [HomeController::class, 'blogDetails'])->name('blog-
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
 Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
-Route::get('/user', [HomeController::class, 'user'])->name('user');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/contact1', [HomeController::class, 'contact'])->name('contact');
+Route::prefix('/contact')->group(function(){
+//    Route::get('/contact', [\App\Http\Controllers\FeedbackController::class, 'create']);
+//    Route::post('/contact', [\App\Http\Controllers\FeedbackController::class, 'store']);
+});
 //Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
