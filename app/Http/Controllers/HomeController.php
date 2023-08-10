@@ -25,10 +25,7 @@ class HomeController extends Controller
     {
         return view('guest.home');
     }
-    public function shop()
-    {
-        return view('guest.shop');
-    }
+
     public function match()
     {
         return view('guest.match');
@@ -56,8 +53,16 @@ class HomeController extends Controller
     {
         return view('guest.checkout');
     }
-    public function productdetail()
+    public function shopProduct()
     {
-        return view('guest.productdetail');
+        return view('guest.shop');
+    }
+    public function productDetail()
+    {
+        return view('guest.product-details');
+    }
+    public function clubHistory()
+    {
+        return view('guest.club-history');
     }
 }
