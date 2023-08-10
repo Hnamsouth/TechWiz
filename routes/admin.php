@@ -42,13 +42,20 @@ Route::middleware(['auth','admin'])->group(function () {
 
     Route::prefix('league')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\LeagueController::class, 'list'])->name('match-list');
-        Route::get('/detail/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'detail'])->name('match-detail');
+        Route::get('/detail/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'detail'])->name('league-detail');
         Route::get('/create', [\App\Http\Controllers\Admin\LeagueController::class, 'create']);
         Route::post('/create', [\App\Http\Controllers\Admin\LeagueController::class, 'store']);
-        Route::get('/edit/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'edit']);
-        Route::put('/edit/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'update']);
-        Route::delete('/delete/{league:slug}', [\App\Http\Controllers\Admin\LeagueController::class, 'delete']);
-        Route::get('/deleted', [\App\Http\Controllers\Admin\LeagueController::class, 'deleted']);
-        Route::post('/restore', [\App\Http\Controllers\Admin\LeagueController::class, 'restore']);
+        Route::get('/edit/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'edit']);
+        Route::put('/edit/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'update']);
+        Route::delete('/delete/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'delete']);
+    });
+    Route::prefix('match')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\MatchController::class, 'list'])->name('match-list');
+        Route::get('/detail/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'detail'])->name('match-detail');
+        Route::get('/create', [\App\Http\Controllers\Admin\MatchController::class, 'create']);
+        Route::post('/create', [\App\Http\Controllers\Admin\MatchController::class, 'store']);
+        Route::get('/edit/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'edit']);
+        Route::put('/edit/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'update']);
+        Route::delete('/delete/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'delete']);
     });
 });

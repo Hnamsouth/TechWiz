@@ -139,9 +139,6 @@
                                 <a class="{{ request()->is('admin/match/edit*') ? 'active' : '' }}">Match Edit</a>
                             </li>
                         @endif
-                        <li>
-                            <a class="{{ request()->is('admin/match/deleted') ? 'active' : '' }}" href="{{url('admin/match/deleted')}}">Match Deleted</a>
-                        </li>
 
                     </ul>
                 </li>
@@ -165,9 +162,6 @@
                                     League Edit</a>
                             </li>
                         @endif
-                        <li>
-                            <a class="{{ request()->is('admin/league/deleted') ? 'active' : '' }}" href="{{url('admin/league/deleted')}}">League Deleted</a>
-                        </li>
 
                     </ul>
                 </li>

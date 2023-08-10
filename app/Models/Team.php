@@ -15,4 +15,8 @@ class Team extends Model
         'logo',
     ];
     use HasFactory;
+
+    public function matches() {
+        return $this->hasMany(Match::class);
+    }
 }

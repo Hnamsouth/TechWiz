@@ -52,7 +52,7 @@
                 <div class="shop-breadcrumb">
 
                     <div class="breadcrumb-main">
-                        <h4 class="text-capitalize breadcrumb-title">Edit League</h4>
+                        <h4 class="text-capitalize breadcrumb-title">Edit Match</h4>
                     </div>
 
                 </div>
@@ -68,7 +68,7 @@
                         <div class="col-xl-7 col-lg-10">
                             <div class="mx-sm-30 mx-20 ">
 
-                                <form action="{{ url("/admin/league/edit",["league"=>$league->id]) }}" method="post"
+                                <form action="{{ url("/admin/match/edit",["league"=>$match->id]) }}" method="post"
                                       enctype="multipart/form-data" id="my-form">
                                     @method('PUT')
                                     @csrf
@@ -76,84 +76,107 @@
                                     <div class="card add-product p-sm-30 p-20 mb-30">
                                         <div class="card-body p-0">
                                             <div class="card-header">
-                                                <h6 class="fw-500">About League #{{$league->id}}</h6>
+                                                <h6 class="fw-500">About Match #{{$match->id}}</h6>
                                             </div>
                                             <!-- Start: card body -->
                                             <div class="add-product__body px-sm-40 px-20">
 
                                                 <!-- form group -->
                                                 <div class="form-group">
-                                                    <label class="d-block mb-3">League Logo</label>
-                                                    <div class="atbd-tag-wrap d-inline-block position-relative">
-                                                        <div class="atbd-upload">
-                                                            <div class="atbd-upload-avatar">
-                                                                <img class="avatrSrc img-thumbnail"
-                                                                     src="{{ $league->logo != null ? add_w_auto_to_cloudinary_url($league->logo) : '/admin/img/upload.png'}}"
-                                                                     alt="Avatar Upload" style="max-width: 200px">
-                                                            </div>
-                                                            <div class="avatar-up">
-                                                                <input type="file" name="thumbnail"
-                                                                       class="upload-avatar-input" accept="image/*">
-                                                                <input type="hidden" name="old_thumb_url"
-                                                                       value="{{$league->logo}}">
-                                                            </div>
-                                                            <div class="image-actions">
-                                                                <a href="#" class="edit-icon position-absolute"
-                                                                   style="top: -10px;right: -10px"><i
-                                                                        class="fas fa-pen"></i>
-                                                                </a>
-                                                                <a href="#" class="remove-icon position-absolute"
-                                                                   style="bottom: -10px;right: -10px"><i
-                                                                        class="fas fa-times fs-24"></i></a>
-                                                            </div>
+                                                    <label for="datetime">Datetime</label>
+                                                    <input name="datetime" type="datetime-local"
+                                                           class="form-control @error("datetime") is-invalid @enderror"
+                                                           id="datetime" value="{{$match->datetime}}" required>
+
+                                                    @error("datetime")
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="location">Location</label>
+                                                    <input name="location" type="text"
+                                                           class="form-control @error("location") is-invalid @enderror"
+                                                           id="location" placeholder="Enter Location ..."
+                                                           value="{{$match->location}}" required>
+                                                    @error("location")
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="countryOption">
+                                                        <label for="countryOption">
+                                                            First team
+                                                        </label>
+                                                        <select name="first_team" id="select-search-first"
+                                                                class="form-control @error("name") is-invalid @enderror"
+                                                                required>
+                                                            @foreach($team as $item)
+                                                                <option value="{{$item->id}}"
+                                                                        @if($match->first_team == $item->id) selected @endif>{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error("first_team")
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
                                                         </div>
+                                                        @enderror
                                                     </div>
-                                                    @error("icon")
-                                                    <div class="invalid-feedback">
-                                                        {{$message}}
-                                                    </div>
-                                                    @enderror
                                                 </div>
-                                                <!-- form group -->
                                                 <div class="form-group">
-                                                    <label for="name1">League name</label>
-                                                    <input name="name" type="text"
-                                                           class="form-control @error("name") is-invalid @enderror"
-                                                           id="name1" placeholder="Enter Category Name..."
-                                                           value="{{ $league->name }}" required>
-                                                    @error("name")
-                                                    <div class="invalid-feedback">
-                                                        {{$message}}
+                                                    <div class="countryOption1">
+                                                        <label for="countryOption1">
+                                                            Second team
+                                                        </label>
+                                                        <select name="second_team" id="select-search-second"
+                                                                class="form-control @error("name") is-invalid @enderror"
+                                                                required>
+                                                            @foreach($team as $item)
+                                                                <option value="{{$item->id}}"
+                                                                        @if($match->second_team == $item->id) selected @endif>{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error("second_team")
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="country">Country</label>
-                                                    <input name="country" type="text"
-                                                           class="form-control @error("country") is-invalid @enderror"
-                                                           id="country" placeholder="Enter Country Name..."
-                                                           value="{{ $league->country }}" required>
-                                                    @error("country")
-                                                    <div class="invalid-feedback">
-                                                        {{$message}}
-                                                    </div>
-                                                    @enderror
                                                 </div>
 
 
+
+
+                                                <!-- form group 6 -->
                                                 <div class="form-group">
-                                                    <label for="season">Season</label>
-                                                    <input name="season" type="text"
-                                                           class="form-control @error("season") is-invalid @enderror"
-                                                           id="season" placeholder="Enter Season Name..."
-                                                           value="{{ $league->season }}" required>
-                                                    @error("season")
-                                                    <div class="invalid-feedback">
-                                                        {{$message}}
+                                                    <div class="countryOption12">
+                                                        <label for="countryOption12">
+                                                            League team
+                                                        </label>
+                                                        <select name="league_id" id="select-search-league_id"
+                                                                class="form-control @error("name") is-invalid @enderror"
+                                                                required>
+                                                            @foreach($league as $item)
+                                                                <option value="{{$item->id}}"
+                                                                        @if($match->league_id == $item->id) selected @endif>{{$item->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error("league_id")
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
-                                                    @enderror
                                                 </div>
+
+                                                <!-- Start: button group -->
+
+
+
 
                                             </div>
                                             <!-- End: card body -->
