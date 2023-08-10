@@ -5,7 +5,7 @@
 		*************************************-->
     <div class="tg-banner tg-haslayout">
         <div class="tg-imglayer">
-            <img src="images/bg-pattran.png" alt="image desctription">
+            <img src="/assets/images/bg-pattran.png" alt="image desctription">
         </div>
         <div class="container">
             <div class="row">
@@ -184,16 +184,16 @@
             </div>
             <div id="tg-mapcontent" class="tg-mapcontent owl-carousel">
                 <div class="item">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8070273775697!2d-0.13298118405677026!3d51.516756217839884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d06098567%3A0x657781e4c62dccae!2s14+Tottenham+Court+Rd%2C+Fitzrovia%2C+London+W1T+1JY%2C+UK!5e0!3m2!1sen!2s!4v1468332667385"></iframe>
+                    <iframe src="/assets/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8070273775697!2d-0.13298118405677026!3d51.516756217839884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d06098567%3A0x657781e4c62dccae!2s14+Tottenham+Court+Rd%2C+Fitzrovia%2C+London+W1T+1JY%2C+UK!5e0!3m2!1sen!2s!4v1468332667385"></iframe>
                 </div>
                 <div class="item">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.0010946428147!2d-2.3645922841588!3d51.384657927491055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487181149eed3bff%3A0x3aaf87fd82220875!2s3+Edgar+Buildings+George+St%2C+Bath%2C+Bath+and+North+East+Somerset+BA1+2FJ%2C+UK!5e0!3m2!1sen!2s!4v1468332753250"></iframe>
+                    <iframe src="/assets/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.0010946428147!2d-2.3645922841588!3d51.384657927491055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487181149eed3bff%3A0x3aaf87fd82220875!2s3+Edgar+Buildings+George+St%2C+Bath%2C+Bath+and+North+East+Somerset+BA1+2FJ%2C+UK!5e0!3m2!1sen!2s!4v1468332753250"></iframe>
                 </div>
                 <div class="item">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.9551750898822!2d-3.212455184020526!3d55.93281498556128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c70c0bdf6d55%3A0x4129ca60bdbbdb2d!2s46+Morningside+Rd%2C+Edinburgh+EH10+4BF%2C+UK!5e0!3m2!1sen!2s!4v1468332796662"></iframe>
+                    <iframe src="/assets/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.9551750898822!2d-3.212455184020526!3d55.93281498556128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c70c0bdf6d55%3A0x4129ca60bdbbdb2d!2s46+Morningside+Rd%2C+Edinburgh+EH10+4BF%2C+UK!5e0!3m2!1sen!2s!4v1468332796662"></iframe>
                 </div>
                 <div class="item">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.8450413820606!2d-1.9012604841263068!3d52.48194134680125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc8e7d47e945%3A0x936a2fd5f8da0a2b!2s27+Colmore+Row%2C+Birmingham%2C+West+Midlands+B3+2EW%2C+UK!5e0!3m2!1sen!2s!4v1468332833565"></iframe>
+                    <iframe src="/assets/https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.8450413820606!2d-1.9012604841263068!3d52.48194134680125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc8e7d47e945%3A0x936a2fd5f8da0a2b!2s27+Colmore+Row%2C+Birmingham%2C+West+Midlands+B3+2EW%2C+UK!5e0!3m2!1sen!2s!4v1468332833565"></iframe>
                 </div>
             </div>
         </section>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ==== Document Title ==== -->
-    <title>USNews - Multipurpose News, Magazine and Blog HTML5 Template</title>
+    <title>sccc</title>
 
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="">
@@ -22,8 +22,12 @@
 <body>
 {{--@include('guest.html.preloader')--}}
 
-<div class="wrapper">
+<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+
+
+    @include('guest.html.mobile-menu')
     @include('guest.html.header')
+    @include('guest.html.home-slider')
 
 
     @yield('main-content')
@@ -32,6 +36,9 @@
     @include('guest.html.footer')
 
 </div>
+@include('guest.html.search')
+@include('guest.html.model')
+
 <!-- Wrapper End -->
 
 </body>
