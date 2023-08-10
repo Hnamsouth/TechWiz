@@ -13,13 +13,17 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-//    public function home()
+//    public function __construct()
 //    {
-//        /* --------------------------------------------------------------------------- */
-//        /* --------------------- Data for the first 4 bar-charts --------------------- */
-//        /* --------------------------------------------------------------------------- */
-//
-//        // Get the number of orders, revenue, average value and total users
+//        $this->middleware('auth');
+//    }
+    public function home()
+    {
+        /* --------------------------------------------------------------------------- */
+        /* --------------------- Data for the first 4 bar-charts --------------------- */
+        /* --------------------------------------------------------------------------- */
+
+        // Get the number of orders, revenue, average value and total users
 //        $ordersCount = Order::count();
 //        $totalRevenue = Order::where('status', 4)->sum('grand_total');
 //
@@ -277,9 +281,9 @@ class AdminController extends Controller
 //            ->orderByDesc('total_quantity')
 //            ->take(5)
 //            ->get();
-//
-//
-//        return view('admin2.home', compact(
+
+
+        return view('admin.home', compact(
 //            'ordersCount', 'totalRevenue', 'averageValue','usersCount',
 //            'ordersRate', 'revenueRate', 'avgOrderValueRate', 'usersRate',
 //            'months', 'ordersData', 'revenueData', 'averageData', 'usersData',
@@ -288,9 +292,9 @@ class AdminController extends Controller
 //            'revenueYear', 'previousRevenueYear', 'labelsYear',
 //            'topCategories1', 'topCategories2', 'topCategories3', 'topCategories4',
 //            'topProducts1', 'topProducts2', 'topProducts3', 'topProducts4'
-//        ));
-//
-//
-//    }
+        ));
+
+
+    }
 
 }
