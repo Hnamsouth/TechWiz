@@ -55,6 +55,18 @@ class HomeController extends Controller
     }
     public function shopProduct()
     {
+
+
+
+
+
+
+
+
+
+
+
+
         return view('guest.shop');
     }
     public function productDetail()

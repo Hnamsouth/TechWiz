@@ -33,3 +33,4 @@ Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('play
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/product-detail', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');
+//commit
