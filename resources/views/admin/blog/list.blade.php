@@ -139,7 +139,7 @@
                                         <td>
                                             <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
                                                 <li>
-                                                    <a class="view detail-btn" href="{{url("admin/blog/detail",["blog"=>$item->blog])}}">
+                                                    <a class="view detail-btn" href="{{url("admin/blog/detail",["blog"=>$item->id])}}">
                                                         <span data-feather="eye"></span></a>
                                                 </li>
 

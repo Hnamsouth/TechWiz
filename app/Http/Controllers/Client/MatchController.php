@@ -21,9 +21,15 @@ class MatchController extends Controller
         $ME3 = MatchEvent::MatchSearch($match->id)->TimeAt("First Extra Time")->get();
         $ME4 = MatchEvent::MatchSearch($match->id)->TimeAt("Penalty Shootout")->get();
 
-//        dd(MatchEvent::MatchSearch($match->id)->get());
         $MatchLineups = $match->MatchLineups;
         $MatchPlayer = $match->MatchPlayer;
-        return view('guest.match-detail',compact('match','MatchResult','MatchStatistical','ME1','ME2','ME3','ME4','MatchLineups','MatchPlayer'));
+        $MatchPlayerT2 = $match->MatchPlayer->where('team_id','=',$MatchLineups[1]->team_id);
+//        dd($MatchPlayer);
+
+        return view('guest.match-detail',compact('match','MatchResult','MatchStatistical','ME1','ME2','ME3','ME4','MatchLineups','MatchPlayer','MatchPlayerT2'));
+    }
+
+    public function PointTable(){
+        return view('guest.point-table');
     }
 }

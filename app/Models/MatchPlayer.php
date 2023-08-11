@@ -33,10 +33,13 @@ class MatchPlayer extends Model
         }
         return $query;
     }
-    public function scopeTeam($query,$team_id){
+    public function scopeTeams($query,$team_id){
         if($team_id && $team_id!=0){
             return $query->where('team_id','=',$team_id);
         }
         return $query;
+    }
+    public function Player(){
+        return $this->belongsTo(Players::class);
     }
 }

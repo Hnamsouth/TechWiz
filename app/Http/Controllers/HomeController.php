@@ -7,10 +7,11 @@ use App\Events\NewOrderCreated;
 use App\Mail\MailOrder;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Match;
 use App\Models\Order;
 use App\Models\League;
 use App\Models\LeagueSeason;
-use App\Models\Match;
+use App\Models\Players;
 use App\Models\Product;
 use Cloudinary\Api\Upload\UploadApi;
 use Carbon\Carbon;
@@ -30,7 +31,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -40,10 +41,40 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
+        $leagueSeasonList = LeagueSeason::with('League')->with('Matches')->get();
 //        dd($leagueSeasonList->get(4)->Matches->take(10));
 //        dd($leagueSeasonList->get(2)->Matches->first());
-        return view('guest.home',compact('leagueSeasonList'));
+
+        $today = Carbon::now('Asia/Kolkata');
+        $last_new = Blog::where('publish_date', '>=', $today)
+            ->orderBy("publish_date", 'desc')
+            ->limit(1)->get();
+
+        $second_new = Blog::
+        where('id', '<>', $last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(4)->get();
+
+        $match = Match::orderBy("datetime", 'desc')
+            ->limit(4)->get();;
+
+
+        $today_on_sport = Blog::
+        orderBy("publish_date", 'desc')->limit(5)
+            ->get();
+        $today_on_sport_footter=Blog::
+        orderBy("publish_date", 'asc')->limit(5)
+            ->get();
+
+
+
+
+//            foreach ($match as $item){
+//                dd($item->matchResult);
+//            }
+//        dd($match);
+
+
+        return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList','today_on_sport','today_on_sport_footter'));
     }
 
     public function match()
@@ -57,30 +88,67 @@ class HomeController extends Controller
     public function contact()
     {
         return view('guest.contact');
-    }    public function blog()
+    }
+
+    public function blog()
     {
-        $today=Carbon::now('Asia/Kolkata');
-        $last_new=Blog::where('publish_date','>=',$today)
+        $today = Carbon::now('Asia/Kolkata');
+        $last_new = Blog::where('publish_date', '>=', $today)
             ->orderBy("publish_date", 'desc')
             ->limit(1)->get();
 
-        $second_new=Blog::where('publish_date','>=',$today)->
-        where('id','<>',$last_new->first()->id)
+        $second_new = Blog::
+        where('id', '<>', $last_new->first()->id)
             ->orderBy("publish_date", 'desc')->limit(8)->get();
 
 
+        $last_new_slider = Blog::
+        where('id', '<>', $last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(3)->get();
 
 
-        return view('guest.blog',compact('last_new','second_new'));
+        $today_on_sport = Blog::
+        orderBy("publish_date", 'desc')->limit(5)
+            ->get();
+        $today_on_sport_footter=Blog::
+        orderBy("publish_date", 'asc')->limit(5)
+            ->get();
+
+        $league=League::all();
+
+
+//        dd($second_new);
+
+
+        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport','today_on_sport_footter','last_new_slider','league'));
     }
-    public function blogDetails()
+
+    public function playerdetail(Players $player)
     {
-        return view('guest.blog-details');
+
+        return view('guest.profile', compact('player'));
+
     }
-    public function playerdetail()
+
+    public function blogDetails(Blog $blog)
     {
-        return view('guest.playerdetail');
+
+        $today_on_sport = Blog::
+        orderBy("publish_date", 'desc')->limit(5)
+            ->get();
+        $today_on_sport_footter=Blog::
+        orderBy("publish_date", 'asc')->limit(5)
+            ->get();
+        $last_new_slider = Blog::
+            orderBy("publish_date", 'desc')->limit(3)->get();
+        $league=League::all();
+
+
+        return view('guest.blog-details', compact('blog','today_on_sport','league','today_on_sport_footter','last_new_slider'));
+
+
     }
+
 
     public function shopProduct(Request $request)
     {
@@ -326,7 +394,7 @@ class HomeController extends Controller
             'grand_total' => $total + $shipping,
             'status' => $request->get('payment_method') == Order::COD ? Order::CONFIRMED : Order::PENDING,
             'fullname' => $request->get('name'),
-            'country' => $request->get('country') ,
+            'country' => $request->get('country'),
             'state' => $request->get('state'),
             'city' => $request->get('city'),
             'address' => $request->get('address'),
