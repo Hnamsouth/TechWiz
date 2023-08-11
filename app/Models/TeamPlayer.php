@@ -15,4 +15,11 @@ class TeamPlayer extends Model
         'player_id',
         'team_id',
     ];
+
+    public function scopeTeam($query,$team_id){
+        if($team_id && $team_id!=0){
+            return $query->where('team_id',$team_id);
+        }
+        return $query;
+    }
 }

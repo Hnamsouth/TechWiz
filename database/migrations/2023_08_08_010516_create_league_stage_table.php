@@ -15,7 +15,7 @@ class CreateLeagueStageTable extends Migration
     {
         Schema::create('league_stage', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name'); // (qualifier,round_of_16,group stage,quarter_finals, semi-final, final)
             $table->timestamps();
         });
     }

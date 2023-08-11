@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMatchResultTable extends Migration
+class CreateTeamLeagueSeasonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateMatchResultTable extends Migration
      */
     public function up()
     {
-        Schema::create('match_result', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('match_id');
+        Schema::create('team_league_season', function (Blueprint $table) {
             $table->unsignedBigInteger('team_id');
-            $table->unsignedTinyInteger('goal')->default(0);
-            $table->unsignedTinyInteger('penalty_shootout_goal')->nullable();
+            $table->unsignedBigInteger('league_season_id')->nullable();
+            $table->unsignedBigInteger('euro_world_season_id')->nullable();
 
-            $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreign('league_season_id')->references('id')->on('league_season');
+            $table->foreign('euro_world_season_id')->references('id')->on('euro_world_season');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateMatchResultTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('match_result');
+        Schema::dropIfExists('team_league_season');
     }
 }

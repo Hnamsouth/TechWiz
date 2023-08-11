@@ -12,6 +12,7 @@ class StageTeam extends Model
     protected  $fillable=[
         'index',
         'league_stage_id',
+        'euro_world_season_id',
         't1_id',
         't2_id',
         't3_id',

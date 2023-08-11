@@ -17,19 +17,21 @@ class CreateMatchPlayersTable extends Migration
             $table->id();
 
             $table->string('position');
-            $table->unsignedDouble('rating',2,1);
-            $table->unsignedInteger('minute_playing');
-            $table->unsignedInteger('goal');
-            $table->unsignedInteger('goal_assists');
-            $table->unsignedInteger('red_card');
-            $table->unsignedInteger('yellow_card');
-            $table->boolean('main_lineup');
+            $table->unsignedDouble('rating',2,1)->default(0);
+            $table->unsignedInteger('minute_playing')->default(random_int(5,90));
+            $table->unsignedInteger('goal')->default(random_int(0,3));
+            $table->unsignedInteger('goal_assists')->default(random_int(0,3));
+            $table->unsignedInteger('red_card')->default(0);
+            $table->unsignedInteger('yellow_card')->default(random_int(0,1));
+            $table->boolean('main_lineup')->default(1);
 
             $table->unsignedBigInteger('match_id');
             $table->unsignedBigInteger('player_id');
+            $table->unsignedBigInteger('team_id');
 
             $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('player_id')->references('id')->on('players');
+            $table->foreign('team_id')->references('id')->on('teams');
             $table->timestamps();
         });
     }

@@ -15,6 +15,6 @@ class MatchResult extends Model
         'match_id',
         'team_id',
         'goal',
-        'status',//( Win, lose, default )
+        'penalty_shootout_goal',
     ];
 }

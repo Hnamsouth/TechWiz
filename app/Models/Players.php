@@ -10,6 +10,7 @@ class Players extends Model
     use HasFactory;
 
     protected $table='players';
+
     protected $fillable=[
         'name',
         'nationality',
@@ -24,5 +25,9 @@ class Players extends Model
 
     public function MatchEvents(){
         return $this->hasMany(MatchEvent::class);
+    }
+
+    public function TeamPlayers(){
+        return $this->belongsToMany(Team::class,'team_player');
     }
 }

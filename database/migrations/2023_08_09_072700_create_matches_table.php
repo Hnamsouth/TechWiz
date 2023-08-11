@@ -18,18 +18,19 @@ class CreateMatchesTable extends Migration
 
             $table->dateTime('datetime');
             $table->string('location');
+            $table->unsignedTinyInteger('status')->default(0);
 
-            $table->unsignedBigInteger('first_team');
-            $table->unsignedBigInteger('second_team');
+            $table->unsignedBigInteger('first_team_id');
+            $table->unsignedBigInteger('second_team_id');
             $table->unsignedBigInteger('league_season_id')->nullable();
             $table->unsignedBigInteger('euro_world_season_id')->nullable();
             $table->unsignedBigInteger('league_stage_id')->nullable();
 
-            $table->foreign('first_team')->references('id')->on('teams');
-            $table->foreign('second_team')->references('id')->on('teams');
-            $table->foreign('league_season_id ')->references('id')->on('league_season');
-            $table->foreign('euro_world_season_id ')->references('id')->on('euro_world_season');
-            $table->foreign('league_stage_id ')->references('id')->on('league_stage');
+            $table->foreign('first_team_id')->references('id')->on('teams');
+            $table->foreign('second_team_id')->references('id')->on('teams');
+            $table->foreign('league_season_id')->references('id')->on('league_season');
+            $table->foreign('euro_world_season_id')->references('id')->on('euro_world_season');
+            $table->foreign('league_stage_id')->references('id')->on('league_stage');
 
             $table->timestamps();
         });

@@ -22,8 +22,8 @@ class CreatePlayersTable extends Migration
             $table->string('img');
             $table->text('description');
             $table->tinyInteger('number');
-            $table->unsignedDouble('height',6,2);
-            $table->unsignedDouble('weight',6,2);
+            $table->unsignedTinyInteger('height');
+            $table->unsignedTinyInteger('weight');
             $table->timestamps();
         });
     }
