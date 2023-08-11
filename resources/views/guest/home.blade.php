@@ -172,154 +172,36 @@
                             </div>
                             <div class="widget-container">
                                 <div class="owl-carousel" id="recent-result">
-                                    <div class="item">
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div><!-- end of /. item -->
-                                    <div class="item">
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recent-items">
-                                            <a href="#">
-                                                <h4>06 Aug, 2016</h4>
-                                                <div class="result-coutry-area">
-                                                    <div class="result-item">
-                                                        <p>Portogal</p>
-                                                        <img src="/assets/images/flag1.png" alt="" />
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <p>1-0</p>
-                                                    </div>
-                                                    <div class="result-item">
-                                                        <img src="/assets/images/flag2.png" alt="" />
-                                                        <p>France</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div><!-- end of /. item -->
+{{--              hien thi cac tran dau da xong cua moi giai                      --}}
+                                    @foreach($leagueSeasonList as $ls)
+                                        @if($ls->Matches->count() >0)
+                                            <div class="item">
+                                                @foreach($ls->Matches->take(10) as $m )
+                                                    @if($m->status)
+                                                        <div class="recent-items" >
+                                                            <a href="{{route('match_rs',['match'=>$m->id])}}">
+                                                                <h4>{{$m->datetime}}</h4>
+                                                                <div class="result-coutry-area">
+                                                                    <div class="result-item">
+                                                                        <p>Team{{$m->FirstTeam->id}}</p>
+                                                                        <img src="{{$m->FirstTeam->logo}}" alt="" />
+                                                                    </div>
+                                                                    <div class="result-item">
+                                                                        <p style="font-size:16px;font-family: system-ui;"><span style="font-weight:600">{{$m->MatchResult[0]->goal}}({{$m->MatchResult[0]->penalty_shootout_goal}})</span> - {{$m->MatchResult[1]->goal}}({{$m->MatchResult[1]->penalty_shootout_goal}})</p>
+                                                                    </div>
+                                                                    <div class="result-item">
+                                                                        <img src="{{$m->SecondTeam->logo}}" alt="" />
+                                                                        <p>Team {{$m->SecondTeam->id}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </div><!-- end of /. item -->
+                                        @endif
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div><!-- end of /. widget -->

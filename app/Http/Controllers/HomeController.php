@@ -8,6 +8,9 @@ use App\Mail\MailOrder;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\League;
+use App\Models\LeagueSeason;
+use App\Models\Match;
 use App\Models\Product;
 use Cloudinary\Api\Upload\UploadApi;
 use Carbon\Carbon;
@@ -37,7 +40,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('guest.home');
+        $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
+//        dd($leagueSeasonList->get(4)->Matches->take(10));
+//        dd($leagueSeasonList->get(2)->Matches->first());
+        return view('guest.home',compact('leagueSeasonList'));
     }
 
     public function match()
@@ -51,9 +57,7 @@ class HomeController extends Controller
     public function contact()
     {
         return view('guest.contact');
-    }
-
-    public function blog()
+    }    public function blog()
     {
         $today=Carbon::now('Asia/Kolkata');
         $last_new=Blog::where('publish_date','>=',$today)

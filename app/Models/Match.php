@@ -21,14 +21,29 @@ class Match extends Model
         'league_stage_id',
     ];
     public function FirstTeam(){
-        return $this->belongsTo(Team::class,'first_team_id','id');
+        return $this->belongsTo(Team::class,'first_team_id');
     }
     public function SecondTeam(){
-        return $this->belongsTo(Team::class,'second_team_id','id');
+        return $this->belongsTo(Team::class,'second_team_id');
     }
-    public function LeagueSeason(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function MatchResult(){
+        return $this->hasMany(MatchResult::class,'match_id');
+    }
+    public function MatchStatistical(){
+        return $this->hasMany(MatchStatistical::class,'match_id');
+    }
+    public function MatchEvent(){
+        return $this->hasMany(MatchEvent::class,'match_id');
+    }
+    public function MatchPlayer(){
+        return $this->hasMany(MatchPlayer::class,'match_id');
+    }
+    public function MatchLineups(){
+        return $this->hasMany(MatchLineups::class,'match_id');
+    }
+    public function LeagueSeason(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsToMany(LeagueSeason::class, 'league_season');
+        return $this->belongsTo(LeagueSeason::class);
     }
 
     public function EuroWorldSeason(): \Illuminate\Database\Eloquent\Relations\BelongsToMany

@@ -17,4 +17,8 @@ class MatchResult extends Model
         'goal',
         'penalty_shootout_goal',
     ];
+
+    public function Match(){
+        return $this->belongsTo(Match::class,'match_id');
+    }
 }

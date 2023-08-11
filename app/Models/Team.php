@@ -24,11 +24,11 @@ class Team extends Model
     {
         return $this->hasMany(MatchLineups::class,'team_id','id');
     }
-    public function TeamPlayers(){
-        return $this->belongsToMany(Players::class,'team_player');
+    public function TeamPlayer(){
+        return $this->belongsToMany(Players::class,'team_player','team_id','player_id');
     }
 
-    public function MatchT1(){
+    public function Matches(){
         return $this->hasMany(Match::class,'first_team_id','id');
     }
     public function MatchT2(){

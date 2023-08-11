@@ -107,3 +107,6 @@ Route::prefix("admin")->group(function () {
     Route::get('/feedback', [\App\Http\Controllers\FeedbackController::class, "list"])->name('feedback');
 
 });
+
+
+Route::get('/match-rs/{match:id}',[\App\Http\Controllers\Client\MatchController::class,'match_result'])->name('match_rs');
