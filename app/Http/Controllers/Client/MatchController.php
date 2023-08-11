@@ -28,4 +28,8 @@ class MatchController extends Controller
 
         return view('guest.match-detail',compact('match','MatchResult','MatchStatistical','ME1','ME2','ME3','ME4','MatchLineups','MatchPlayer','MatchPlayerT2'));
     }
+
+    public function PointTable(){
+        return view('guest.point-table');
+    }
 }

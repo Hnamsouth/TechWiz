@@ -26,8 +26,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [HomeController::class, 'blogDetails'])->name('blog-details');
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
+
 Route::get('/match', [HomeController::class, 'match'])->name('match');
-Route::get('/team', [HomeController::class, 'team'])->name('team');
+Route::get('/point-table', [\App\Http\Controllers\Client\MatchController::class, 'PointTable'])->name('point_table');
+Route::get('/team', [HomeController::class, 'PointTable'])->name('team');
+
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
 Route::prefix('/contact')->group(function(){
