@@ -2,6 +2,9 @@
     padding: 8px 0;
     background: #fbc02d;
 }
+.header-top-left ul li{
+    margin-right: 15px;
+}
 .header-top-right ul{
     justify-content: end;
 }
@@ -9,10 +12,14 @@
     margin-right: 15px;
 }
 .header-main {
-    padding: 14px 0;
+    padding: 22px 0;
+    background-color: #111;
 }
 .header-main ul li{
     padding: 0 30px;
+}
+.header-main ul li a{
+    color: #fff;
 }
 header ul{
     display: flex;
@@ -28,5 +35,32 @@ header a{
 }
 /*FOOTER*/
 .tg-footer{
+    padding-top: 40px;
+    padding-bottom:40px;
     color: #fff;
+}
+.tg-footer h4{
+    color: #fff;
+    margin-bottom: 16px;
+}
+.tg-footer input{
+    width: 100%;
+}
+.tg-footer .email-input {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.tg-footer .btn{
+    width: 100%;
+}
+.related ul li{
+    margin-bottom: 10px;
+}
+.footer-bottom{
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+}
+.btm-inner{
+    padding-top: 8px;
+    padding-bottom: 8x;
 }

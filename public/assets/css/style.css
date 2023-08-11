@@ -819,12 +819,12 @@ div#bestplayer {
     width: 100%;
     height: 100%;
     display: block;
-    /*background-image: -webkit-gradient(linear, top right, bottom left, color-stop(0, #575970), color-stop(1, #24252F));*/
-    /*background-image: -o-linear-gradient(top right, #575970, #24252F);*/
-    /*background-image: -moz-linear-gradient(top right, #575970, #24252F);*/
-    /*background-image: -webkit-linear-gradient(top right, #575970, #24252F);*/
-    /*background-image: linear-gradient(to bottom left, #575970, #24252F);*/
-    opacity: 0.8;
+    background-image: -webkit-gradient(linear, top right, bottom left, color-stop(0, #575970), color-stop(1, #24252F));
+    background-image: -o-linear-gradient(top right, #575970, #24252F);
+    background-image: -moz-linear-gradient(top right, #575970, #24252F);
+    background-image: -webkit-linear-gradient(top right, #575970, #24252F);
+    background-image: linear-gradient(to bottom left, #575970, #24252F);
+    opacity: 0.3;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
