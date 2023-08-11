@@ -52,8 +52,9 @@ class PlayerController extends Controller
             $data['img'] = $data[''] ?? null;
         }
 
-        Players::create($data);
+        $player = Players::create($data);
 
+        $player->update();
         return redirect()->to("/admin/player");
     }
 
@@ -105,6 +106,8 @@ class PlayerController extends Controller
         } finally {
             $data['img'] = $data['img'] ?? null;
         }
+
+        $data = $request->all();
 
         $players->update($data);
         return redirect()->to("admin/player");

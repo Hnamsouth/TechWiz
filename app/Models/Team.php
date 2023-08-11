@@ -12,7 +12,7 @@ class Team extends Model
 
         'name',
         'country',
-        'continent',
+//        'continent',
         'logo',
         'level',
     ];

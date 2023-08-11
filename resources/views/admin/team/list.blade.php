@@ -85,6 +85,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Country</th>
+                                    <th>Continent</th>
                                     <th>Level</th>
                                     <th>Logo</th>
                                 </thead>
@@ -105,6 +106,9 @@
                                     </td>
                                     <td>
                                         {{$item->country}}
+                                    </td>
+                                    <td>
+                                        {{$item->continent}}
                                     </td>
                                     <td>
                                         @if($item->level)

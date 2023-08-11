@@ -87,6 +87,7 @@
                                     <th>Position</th>
                                     <th>DOB</th>
                                     <th>Description</th>
+                                    <th>Club team id</th>
                                     <th>Image</th>
                                     </thead>
                                     <tbody>
@@ -113,7 +114,12 @@
                                             <td>
                                                 {{$item->des}}
                                             </td>
+                                            <td>
+                                                {{$item->club_team_id}}
+                                            </td>
+                                            <td>
                                                 {{$item->img}}
+                                            </td>
                                             <td>
                                                 <div class="table-actions">
                                                     <a href="{{route("coach-edit",["coaches"=>$coaches->id])}}">
