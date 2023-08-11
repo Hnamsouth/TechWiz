@@ -165,6 +165,12 @@
 
                     </ul>
                 </li>
+                <li class="">
+                    <a href="{{url("admin/feedback")}}" class="{{ request()->is('admin/feedback') ? 'active' : '' }}">
+                        <span data-feather="eye" class="nav-icon"></span>
+                        <span class="menu-text">User Feedback</span>
+                    </a>
+                </li>
 
 
 

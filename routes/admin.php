@@ -39,7 +39,7 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\UserController::class, "userList"])->name('user-list');
         Route::get('/detail/{user:id}', [\App\Http\Controllers\Admin\UserController::class, "userDetail"])->name('user-detail');
     });
-
+// -- LEAGUE --
     Route::prefix('league')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\LeagueController::class, 'list'])->name('match-list');
         Route::get('/detail/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'detail'])->name('league-detail');
@@ -49,6 +49,7 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::put('/edit/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'update']);
         Route::delete('/delete/{league:id}', [\App\Http\Controllers\Admin\LeagueController::class, 'delete']);
     });
+// -- MATCH --
     Route::prefix('match')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\MatchController::class, 'list'])->name('match-list');
         Route::get('/detail/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'detail'])->name('match-detail');
@@ -58,6 +59,7 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::put('/edit/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'update']);
         Route::delete('/delete/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'delete']);
     });
+// -- BLOG --
     Route::prefix('blog')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\BlogController::class, 'list'])->name('blog-list');
         Route::get('/detail/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'detail'])->name('blog-detail');

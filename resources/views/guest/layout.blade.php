@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<base href="/">
     <!-- ==== Document Title ==== -->
     <title>sccc</title>
 
@@ -32,7 +32,7 @@
 
 
     @yield('main-content')
-    @include('guest.html.video-section')
+
 
     @include('guest.html.twitter-section')
 
@@ -78,6 +78,6 @@
 </script>
 
 <!-- Wrapper End -->
-
+@include("guest.html.js")
 </body>
 </html>
