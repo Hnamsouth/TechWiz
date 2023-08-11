@@ -167,6 +167,33 @@
                 </li>
 
 
+
+                <li class="has-child {{ request()->is('admin/blog*') ? 'open' : '' }}">
+                    <a href="{{url('admin/blog')}}" class="{{ request()->is('admin/blog*') ? 'active' : '' }}">
+                        <span data-feather="clipboard" class="nav-icon"></span>
+                        <span class="menu-text">Blog</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/blog') ? 'active' : '' }}" href="{{url('admin/blog')}}">Blog List</a>
+                        </li>
+
+                        <li>
+                            <a class="{{ request()->is('admin/blog/create') ? 'active' : '' }}" href="{{url('admin/blog/create')}}">Blog Add</a>
+                        </li>
+                        @if(request()->is('admin/blog/edit*'))
+                            <li>
+                                <a class="{{ request()->is('admin/blog/edit*') ? 'active' : '' }}">
+                                    Blog Edit</a>
+                            </li>
+                        @endif
+
+                    </ul>
+                </li>
+
+
+
                 {{--                <li>--}}
 {{--                    <a href="bookmarks.html" class="">--}}
 {{--                        <span data-feather="bookmark" class="nav-icon"></span>--}}

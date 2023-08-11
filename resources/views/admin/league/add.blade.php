@@ -65,8 +65,8 @@
 
                                                 <!-- form group -->
                                                 <div class="form-group">
-                                                    <label for="name1">Date Time</label>
-                                                    <dat name="name" type="date" class="form-control @error("date") is-invalid @enderror" id="name1" placeholder="Enter Category Name..." value="{{ old('name') }}" required>
+                                                    <label for="name1">League name</label>
+                                                    <input name="name" type="text" class="form-control @error("name") is-invalid @enderror" id="name1" placeholder="Enter League Name..." value="{{ old('name') }}" required>
                                                     @error("name")
                                                     <div class="invalid-feedback">
                                                         {{$message}}

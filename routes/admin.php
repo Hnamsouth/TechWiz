@@ -58,4 +58,13 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::put('/edit/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'update']);
         Route::delete('/delete/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'delete']);
     });
+    Route::prefix('blog')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\BlogController::class, 'list'])->name('blog-list');
+        Route::get('/detail/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'detail'])->name('blog-detail');
+        Route::get('/create', [\App\Http\Controllers\Admin\BlogController::class, 'create']);
+        Route::post('/create', [\App\Http\Controllers\Admin\BlogController::class, 'store']);
+        Route::get('/edit/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'edit']);
+        Route::put('/edit/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'update']);
+        Route::delete('/delete/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'delete']);
+    });
 });
