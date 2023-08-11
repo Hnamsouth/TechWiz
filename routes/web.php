@@ -26,26 +26,16 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog-detail/{blog:id}', [HomeController::class, 'blogDetails']);
 
-
-
-
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
-
-Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
-Route::prefix('/contact')->group(function () {
-Route::get('/point-table', [\App\Http\Controllers\Client\MatchController::class, 'PointTable'])->name('point_table');
 
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-
-Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
-
+//Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::prefix('/contact')->group(function(){
     Route::get('/', [\App\Http\Controllers\FeedbackController::class, 'create'])->name('contact');
     Route::get('/create', [\App\Http\Controllers\FeedbackController::class, 'create']);
     Route::post('/create', [\App\Http\Controllers\FeedbackController::class, 'store']);
 });
-Route::get('/point-table', [\App\Http\Controllers\Client\MatchController::class, 'PointTable'])->name('point_table');
+
 Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
 Route::post('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
@@ -58,13 +48,7 @@ Route::prefix("profile")->group(function (){
     Route::get('/{player:name}', [\App\Http\Controllers\PlayerController::class, 'detail']);
 });
 
-
-//commit
-
-
 /* -- PAYPAL -- */
-
-
 Route::get('/process-paypal/{order:code}', [HomeController::class, 'processPaypal'])->middleware(['auth'])->name('process_paypal');
 Route::get('/success-paypal/{order:code}', [HomeController::class, 'successPaypal'])->middleware(['auth'])->name('success_paypal');
 Route::get('/cancel-paypal/{order:code}', [HomeController::class, 'cancelPaypal'])->middleware(['auth'])->name('cancel_paypal');
@@ -83,7 +67,6 @@ Route::post('/cancel-order', [HomeController::class, "cancelOrder"]);
 /* ---------------------------------------------------- */
 Route::prefix("admin")->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
-
     // -- PRODUCT --
     Route::prefix('product')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\ProductController::class, 'list']);
@@ -120,6 +103,5 @@ Route::prefix("admin")->group(function () {
     });
     // -- USER FEEDBACK --
     Route::get('/feedback', [\App\Http\Controllers\FeedbackController::class, "list"])->name('feedback');
-
 });
-Route::get('/match-rs/{match:id}',[\App\Http\Controllers\Client\MatchController::class,'match_result'])->name('match_rs');
+
