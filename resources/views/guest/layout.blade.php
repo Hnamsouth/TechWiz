@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ==== Document Title ==== -->
-    <title>USNews - Multipurpose News, Magazine and Blog HTML5 Template</title>
+    <title>sccc</title>
 
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="">
@@ -21,17 +21,24 @@
 {{--    <![endif]--></head>--}}
 <body>
 {{--@include('guest.html.preloader')--}}
+@include('guest.html.preloader')
 
 <div class="wrapper">
+
     @include('guest.html.header')
 
 
-    @yield('main-content')
 
+    @yield('main-content')
+    @include('guest.html.video-section')
+
+    @include('guest.html.twitter-section')
 
     @include('guest.html.footer')
 
 </div>
+@include('guest.html.js')
+
 <!-- Wrapper End -->
 
 </body>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Match extends Model
 {
-    use HasFactory;
+
 
     protected $table = 'matches';
     protected $fillable = [
@@ -15,23 +15,28 @@ class Match extends Model
         'location',
         'first_team',
         'second_team',
-        'league_season_id',
-        'euro_world_season_id',
-        'league_stage_id',
+        'league_id'
+
+
     ];
+    use HasFactory;
 
-    public function LeagueSeason(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(LeagueSeason::class, 'league_season');
+    public function league() {
+        return $this->belongsTo(League::class);
+    }
+    public function firstteam() {
+        return $this->belongsTo(Team::class,'first_team');
+    }
+    public function secondteam() {
+        return $this->belongsTo(Team::class,'second_team');
     }
 
-    public function EuroWorldSeason(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(EuroWorldSeason::class, 'euro_world_season');
+    public function scopeSearch($query, $search) {
+        if($search && $search != "") {
+            return $query->where("first_team","or","second_team", "like", "%$search%");
+        }
+        return $query;
     }
-    public function LeagueStage(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(LeageStage::class,'league_stage_id','id');
-    }
+
 
 }

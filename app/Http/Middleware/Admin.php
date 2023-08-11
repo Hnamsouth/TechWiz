@@ -22,6 +22,9 @@ class Admin
                 return $next($request);
             }
         }
+
+
+
         return abort(404);
     }
 }

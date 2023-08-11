@@ -9,15 +9,17 @@ class Team extends Model
 {
     protected $table = 'teams';
     protected $fillable=[
+
         'name',
         'country',
         'logo',
         'level',
     ];
-
-
-
     use HasFactory;
+
+    public function matches() {
+        return $this->hasMany(Match::class);
+    }
 
     public function MatchLineups(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

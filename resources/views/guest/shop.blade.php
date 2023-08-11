@@ -1,372 +1,350 @@
 @extends('guest.layout')
 @section('main-content')
-    <div class="tg-banner tg-haslayout">
-        <div class="tg-imglayer">
-            <img src="assets/images/bg-pattran.png" alt="image desctription">
-        </div>
+    <!-- START PAGE TITILE SECTION -->
+    <div class="player-profile-section page-title-section">
         <div class="container">
             <div class="row">
-                <div class="tg-banner-content tg-haslayout">
-                    <div class="tg-pagetitle">
-                        <h1>shop online</h1>
+                <div class="col-sm-6">
+                    <div class="section-title profile-title">
+                        <h1>Our Shop</h1>
                     </div>
-                    <ol class="tg-breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li class="active">shop online</li>
-                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <div class="pagination-area">
+                        <ul>
+                            <li><a href="#">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="#">Bread<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li class="active"><a href="#">Crumbs</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--************************************
-            Banner End
-    *************************************-->
-    <!--************************************
-            Main Start
-    *************************************-->
-    <main id="tg-main" class="tg-main tg-haslayout">
+    <!-- END OF /. PAGE TITLE SECTION -->
+
+    <!-- START PRODUCTS SECTION -->
+    <div class="all-products-area">
         <div class="container">
             <div class="row">
-                <div id="tg-twocolumns" class="tg-twocolumns tg-main-section tg-haslayout">
-                    <div class="col-md-9 col-sm-8 col-xs-12 pull-right">
-                        <div class="tg-shopbanner">
-                            <div class="tg-bgpattran">
-                                <div id="tg-shopslider" class="tg-shopslider">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="row">
-                                                <div class="col-md-7 col-sm-12 col-xs-12">
-                                                    <div class="tg-shopcontent">
-                                                        <span class="tg-limitedoffer">limited offer</span>
-                                                        <div class="tg-contentbox">
-                                                            <a class="tg-theme-tag" href="#">mens wear</a>
-                                                            <h2>Yellow Sports shoes</h2>
-                                                            <span class="tg-price"><del>$ 256</del> / $200</span>
-                                                            <span class="tg-stars"><span></span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5 hidden-sm hidden-xs">
-                                                    <figure><img src="assets/images/shop/img-01.png" alt="image description"></figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="row">
-                                                <div class="col-md-7 col-sm-12 col-xs-12">
-                                                    <div class="tg-shopcontent">
-                                                        <span class="tg-limitedoffer">limited offer</span>
-                                                        <div class="tg-contentbox">
-                                                            <a class="tg-theme-tag" href="#">mens wear</a>
-                                                            <h2>Yellow Sports shoes</h2>
-                                                            <span class="tg-price"><del>$ 256</del> / $200</span>
-                                                            <span class="tg-stars"><span></span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5 hidden-sm hidden-xs">
-                                                    <figure><img src="assets/images/shop/img-01.png" alt="image description"></figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="row">
-                                                <div class="col-md-7 col-sm-12 col-xs-12">
-                                                    <div class="tg-shopcontent">
-                                                        <span class="tg-limitedoffer">limited offer</span>
-                                                        <div class="tg-contentbox">
-                                                            <a class="tg-theme-tag" href="#">mens wear</a>
-                                                            <h2>Yellow Sports shoes</h2>
-                                                            <span class="tg-price"><del>$ 256</del> / $200</span>
-                                                            <span class="tg-stars"><span></span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5 hidden-sm hidden-xs">
-                                                    <figure><img src="assets/images/shop/img-01.png" alt="image description"></figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="row">
-                                                <div class="col-md-7 col-sm-12 col-xs-12">
-                                                    <div class="tg-shopcontent">
-                                                        <span class="tg-limitedoffer">limited offer</span>
-                                                        <div class="tg-contentbox">
-                                                            <a class="tg-theme-tag" href="#">mens wear</a>
-                                                            <h2>Yellow Sports shoes</h2>
-                                                            <span class="tg-price"><del>$ 256</del> / $200</span>
-                                                            <span class="tg-stars"><span></span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5 hidden-sm hidden-xs">
-                                                    <figure><img src="assets/images/shop/img-01.png" alt="image description"></figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tg-sliderpagination swiper-pagination"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tg-shophead">
-                            <ul class="tg-shopviewnav">
-                                <li class="tg-active"><a href="#"><i class="fa fa-th"></i></a></li>
-                                <li><a href="#"><i class="fa fa-list"></i></a></li>
-                            </ul>
-                            <form class="tg-formfilter">
-                                <fieldset>
-                                    <div class="tg-select">
-                                        <select>
-                                            <option>sort by: All Category</option>
-                                            <option>All Category</option>
-                                            <option>All Category</option>
-                                        </select>
-                                    </div>
-                                    <div class="tg-select">
-                                        <select>
-                                            <option>Show: 9 Items Per Page</option>
-                                            <option>All Category</option>
-                                            <option>All Category</option>
-                                        </select>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        <div class="th-products">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-02.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-03.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-04.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-05.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-06.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-07.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-08.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-09.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6">
-                                    <div class="tg-product">
-                                        <figure class="tg-productimg">
-                                            <img src="assets/images/shop/img-10.jpg" alt="image description">
-                                            <figcaption>
-                                                <a class="tg-btncart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="tg-productinfo">
-                                            <a class="tg-theme-tag" href="#">Mens wear</a>
-                                            <div class="tg-producttitle"><h2><a href="#">Casual Red T-Shirt</a></h2></div>
-                                            <div class="tg-productprice"><h3>$ 164</h3></div>
-                                            <span class="tg-stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="tg-pagination">
-                                <li class="tg-prevpage"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                <li class="active"><a href="#">4</a></li>
-                                <li><a href="#">6</a></li>
-                                <li class="tg-nextpage"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <aside id="tg-sidebar" class="tg-sidebar">
-                            <div class="tg-widget tg-search">
-                                <form class="form-search">
-                                    <fieldset>
-                                        <input type="search" placeholder="Search Here" class="form-control">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </fieldset>
+                <div class="col-md-9">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="product-filter">
+                                <p class="pull-left">Showing <b>1–12</b> of <b>68</b> results</p>
+
+                                <form action="" method="post" class="pull-right">
+                                    <select name="" id="">
+                                        <option value="">Default Sorting</option>
+                                        <option value="">Size</option>
+                                        <option value="">Category</option>
+                                    </select>
                                 </form>
-                            </div>
-                            <div class="tg-widget tg-catagories-widget">
-                                <h3>catagories</h3>
-                                <ul>
-                                    <li><a href="#"><em>Web Design</em><i>389</i></a></li>
-                                    <li><a href="#"><em>Marketing</em><i>203</i></a></li>
-                                    <li><a href="#"><em>Wordpress</em><i>256</i></a></li>
-                                    <li><a href="#"><em>Graphic Design</em><i>52</i></a></li>
-                                    <li><a href="#"><em>Photography</em><i>43</i></a></li>
-                                    <li><a href="#"><em>eCommerce</em><i>23</i></a></li>
-                                    <li><a href="#"><em>Html</em><i>389</i></a></li>
-                                </ul>
-                            </div>
-                            <div class="tg-widget tg-price-widget">
-                                <h3>filter by price</h3>
-                                <div class="tg-price-range">
-                                    <div id="tg-slider-range" class="tg-slider-range"></div>
-                                    <p>
-                                        <label for="amount">Price:</label>
-                                        <input type="text" id="amount" readonly>
-                                    </p>
-                                    <a class="tg-btn" href="#">Filter</a>
+                            </div><!-- END OF PRODUCT FILTER -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        @foreach($listProduct as $item)
+                        <div class="col-md-4">
+                            <div class="products clearifx">
+                                <div class="single-product">
+                                    <div class="product-imgs">
+                                        <a href="shop-single.html">
+                                            <img src="{{$item->thumbnail}}" alt="" class="img-responsive product-img" />
+                                            <div class="product-hover">
+                                                <div class="list-inline text-center product-ratings">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="product-info">
+                                        <div class="pull-left">
+                                            <a href="shop-single.html" class="title">{{$item->name}}</a>
+                                            <p class="price">$42 <s class="previous-price">{{$item->price}}</s></p>
+                                        </div>
+
+                                        <div class="pull-right">
+                                            <ul class="list-inline">
+                                                <li>
+                                                    <a href="" class="favourite">
+                                                        <i class="fa fa-star-o"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="" class="basket">
+                                                        <i class="fa fa-shopping-basket"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- END OF PRODUCTS -->
+                        </div>
+                        @endforeach
+
+
+                    </div>
+
+                    <div class="all-products">
+                        <nav aria-label="Page navigation" class="navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        <span aria-hidden="true">Prev</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">Next</span>
+                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav><!-- END OF PRODUCT NAVIGATION -->
+
+                    </div><!-- END OF PRODUCTS SECTION -->
+
+
+                </div><!-- END OF COL -->
+
+                <div class="col-sm-3">
+                    <div class="product-sidebar">
+                        <div class="filter-by">
+                            <h1 class="title text-uppercase">filter by</h1>
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <form action="" method="post">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Wirehouse Options
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <p class="item">
+                                                    <input id="china" type="checkbox" name="wirehouse">
+                                                    <label for="china" class="checkbox-label">China</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="us" type="checkbox" name="wirehouse" checked>
+                                                    <label for="us" class="checkbox-label">US</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="eu" type="checkbox" name="wirehouse" checked>
+                                                    <label for="eu" class="checkbox-label">EU</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="hk" type="checkbox" name="wirehouse">
+                                                    <label for="hk" class="checkbox-label">HK</label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Price Range
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <div id="slider">
+                                                    <div id="slider-range"></div>
+                                                    <p>
+                                                        <input class="text-left" id="rangeA">
+                                                        <span class="text-center" id="rangeSeperator">to</span>
+                                                        <input class="text-right" id="rangeB">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Item Options
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <p class="item">
+                                                    <input id="silk" type="checkbox" name="silk">
+                                                    <label for="silk" class="checkbox-label">Silk</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="cotton" type="checkbox" name="cotton" checked>
+                                                    <label for="cotton" class="checkbox-label">Cotton</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="synthetics" type="checkbox" name="synthetics">
+                                                    <label for="synthetics" class="checkbox-label">Synthetics</label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    Size
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <p class="item">
+                                                    <input id="big" type="checkbox" name="big">
+                                                    <label for="big" class="checkbox-label">Big</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="medium" type="checkbox" name="medium" checked>
+                                                    <label for="medium" class="checkbox-label">Medium</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="small" type="checkbox" name="small">
+                                                    <label for="small" class="checkbox-label">Small</label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFive">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    Model
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                            <div class="panel-body">
+                                                <p class="item">
+                                                    <input id="a" type="checkbox" name="a">
+                                                    <label for="a" class="checkbox-label">A</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="b" type="checkbox" name="b" checked>
+                                                    <label for="b" class="checkbox-label">B</label>
+                                                </p>
+                                                <p class="item">
+                                                    <input id="c" type="checkbox" name="c">
+                                                    <label for="c" class="checkbox-label">C</label>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="viewmore text-center">Viewmore <i class="fa fa-plus-circle"></i></a>
+                                </form>
+                            </div><!-- END OF PANEL GROUP SECTION -->
+                        </div><!-- END OF FILTER BY SECTION -->
+
+
+
+                        <div class="widget">
+                            <div class="widget-title">
+                                <h3>Products</h3>
+                                <div class="custom-navigation arrow-style">
+                                    <button class="club-rank-perv"><i class="fa fa-angle-left"></i> </button>
+                                    <button class="club-rank-next"><i class="fa fa-angle-right"></i> </button>
                                 </div>
                             </div>
-{{--                            <div class="tg-widget">--}}
-{{--                                <h3>Slideshow Widget</h3>--}}
-{{--                                <div class="tg-slideshow-widget tg-haslayout">--}}
-{{--                                    <div id="tg-slideshow-slider" class="tg-slideshow-slider tg-haslayout">--}}
-{{--                                        <div class="swiper-wrapper">--}}
-{{--                                            <div class="swiper-slide">--}}
-{{--                                                <figure class="tg-postimg">--}}
-{{--                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">--}}
-{{--                                                </figure>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="swiper-slide">--}}
-{{--                                                <figure class="tg-postimg">--}}
-{{--                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">--}}
-{{--                                                </figure>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="swiper-slide">--}}
-{{--                                                <figure class="tg-postimg">--}}
-{{--                                                    <img src="assets/images/sidebar/img-01.jpg" alt="image description">--}}
-{{--                                                </figure>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="swiper-pagination tg-pagination-slider"></div>--}}
-{{--                                        <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>--}}
-{{--                                        <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-                            <div class="tg-widget tg-tags-widget">
-                                <h3>popular tags</h3>
-                                <ul>
-                                    <li><a class="tg-btn" href="#">fashion</a></li>
-                                    <li><a class="tg-btn" href="#">travel</a></li>
-                                    <li><a class="tg-btn" href="#">sports</a></li>
-                                    <li><a class="tg-btn" href="#">blog</a></li>
-                                    <li><a class="tg-btn" href="#">magazine</a></li>
-                                    <li><a class="tg-btn" href="#">fun time</a></li>
-                                    <li><a class="tg-btn" href="#">ui</a></li>
-                                    <li><a class="tg-btn" href="#">tech</a></li>
-                                    <li><a class="tg-btn" href="#">soccer</a></li>
+                            <div class="widget-container">
+                                <div class="owl-carousel products-sidebar" id="club-rank">
+                                    <div class="item">
+                                        <div class="single-product">
+                                            <img src="/assets/images/shop/1.jpg" alt="" class="img-responsive pull-left" />
+                                            <div class="product-extras">
+                                                <a href="#" class="product-title">Woo Single # 1</a>
+                                                <p class="prices">$42 <del class="old-price">$56</del></p>
+                                            </div>
+                                        </div>
+                                        <div class="single-product">
+                                            <img src="/assets/images/shop/2.jpg" alt="" class="img-responsive pull-left" />
+                                            <div class="product-extras">
+                                                <a href="#" class="product-title">Woo Single # 2</a>
+                                                <p class="prices">$42 <del class="old-price">$56</del></p>
+                                            </div>
+                                        </div>
+                                        <div class="single-product">
+                                            <img src="/assets/images/shop/3.jpg" alt="" class="img-responsive pull-left" />
+                                            <div class="product-extras">
+                                                <a href="#" class="product-title">Woo Single # 3</a>
+                                                <p class="prices">$42 <del class="old-price">$56</del></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="single-product">
+                                            <img src="/assets/images/shop/4.jpg" alt="" class="img-responsive pull-left" />
+                                            <div class="product-extras">
+                                                <a href="#" class="product-title">Woo Single # 1</a>
+                                                <p class="prices">$42 <del class="old-price">$56</del></p>
+                                            </div>
+                                        </div>
+                                        <div class="single-product">
+                                            <img src="/assets/images/shop/5.jpg" alt="" class="img-responsive pull-left" />
+                                            <div class="product-extras">
+                                                <a href="#" class="product-title">Woo Single # 2</a>
+                                                <p class="prices">$42 <del class="old-price">$56</del></p>
+                                            </div>
+                                        </div>
+                                        <div class="single-product">
+                                            <img src="/assets/images/shop/6.jpg" alt="" class="img-responsive pull-left" />
+                                            <div class="product-extras">
+                                                <a href="#" class="product-title">Woo Single # 3</a>
+                                                <p class="prices">$42 <del class="old-price">$56</del></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="filter-by popular-tags text-uppercase">
+                            <h1 class="title">popoular tags</h1>
+
+                            <div class="all-tags">
+                                <ul class="list-inline tags">
+                                    <li><a href="">balls</a></li>
+                                    <li class="active"><a href="">boots</a></li>
+                                    <li><a href="">footwear</a></li>
+                                    <li><a href="">goals</a></li>
+                                    <li><a href="">new arrivals</a></li>
+                                    <li><a href="">sale</a></li>
+                                    <li><a href="">store</a></li>
                                 </ul>
                             </div>
-                        </aside>
+                        </div>
                     </div>
-                </div>
+                </div><!-- END OF PRODUCT SIDEBAR SECTION -->
             </div>
         </div>
-    </main>
+    </div><!-- END OF PRODUCTS SECTION -->
+    @include('guest.html.twitter-section')
 @endsection
