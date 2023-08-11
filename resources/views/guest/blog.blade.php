@@ -8,115 +8,36 @@
                     <div class="blog-container">
                         <!-- START BLOG ITEMS -->
                         <div class="row">
+                            @foreach($last_new as $item)
                             <div class="col-md-12">
                                 <div class="blog-items">
                                     <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/1.jpg" alt="" />
+                                        <span>{{$item->league->name}}</span>
+                                        <img src="{{$item->thumbnail}}" alt="" />
                                         <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15  <i class="fa fa-comments"></i> 16 </span>
+                                            <h3>{{$item->title}}</h3>
+                                            <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}  <i class="fa fa-comments"></i> 16 </span>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/2.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/3.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/4.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/5.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
+                                @foreach($second_new as $item)
 
-                            <div class="col-md-6">
+                                <div class="col-md-6">
                                 <div class="blog-items">
                                     <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/6.jpg" alt="" />
+                                        <span>{{$item->league->name}}</span>
+                                        <img src="{{$item->thumbnail}}" alt="" />
                                         <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                                            <h3>{{$item->title}}</h3>
+                                            <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i class="fa fa-comments"></i> 16 </span>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/7.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/8.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/9.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                                @endforeach
+
                             <div class="col-md-12">
                                 <nav aria-label="Page navigation" class="navigation">
                                     <ul class="pagination">

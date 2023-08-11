@@ -1,6 +1,6 @@
 @extends("admin.layout")
 
-@section("title", "League List")
+@section("title", "Product List")
 
 @section("after_css")
     <style>
@@ -31,7 +31,21 @@
         .atbd-pagination__item a.disabled:hover {
             background: #ffffff;
         }
+        .atbd-select .select2-selection {
+            height: 40px;
+            max-width: unset;
+        }
+        #select-1{
+            height: 40px;
+        }
+        @media (min-width: 992px) {
+            .order-search__form {
+                width: 250px;
+            }
+        }
+        .select2 {
 
+        }
     </style>
 @endsection
 
@@ -40,34 +54,131 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <div class="breadcrumb-main">
+                <div class="breadcrumb-main mb-3">
                     <h4 class="text-capitalize breadcrumb-title">League</h4>
                     <div class="breadcrumb-action justify-content-center flex-wrap">
+{{--                        <div class="dropdown action-btn">--}}
+{{--                            <button class="btn btn-sm btn-default btn-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                <i class="la la-download"></i> Export--}}
+{{--                            </button>--}}
+{{--                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">--}}
+{{--                                <span class="dropdown-item">Export With</span>--}}
+{{--                                <div class="dropdown-divider"></div>--}}
+{{--                                <a href="" class="dropdown-item">--}}
+{{--                                    <i class="la la-print"></i> Printer</a>--}}
+{{--                                <a href="" class="dropdown-item">--}}
+{{--                                    <i class="la la-file-pdf"></i> PDF</a>--}}
+{{--                                <a href="" class="dropdown-item">--}}
+{{--                                    <i class="la la-file-text"></i> Google Sheets</a>--}}
+{{--                                <a href="" class="dropdown-item">--}}
+{{--                                    <i class="la la-file-excel"></i> Excel (XLSX)</a>--}}
+{{--                                <a href="" class="dropdown-item">--}}
+{{--                                    <i class="la la-file-csv"></i> CSV</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
                         <div class="action-btn">
-                            <a href="{{url("admin/category/create")}}" class="btn btn-sm btn-primary btn-add">
-                                <i class="la la-plus"></i> Add New</a>
+                            <a href="{{url("admin/league/create")}}" class="btn btn-sm btn-primary btn-add">
+                                <i class="la la-plus"></i> Add New League</a>
                         </div>
+
                     </div>
                 </div>
 
             </div>
         </div>
+
+{{--        <div class="row w-75 mb-4">--}}
+{{--            <div class="col-6 col-md-3">--}}
+{{--                <div class="overview-content border-right">--}}
+{{--                    <p class="mb-1">Total Products</p>--}}
+{{--                    <h1 style="color: #5f63f2;">{{$data->total()}}</h1>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-6 col-md-3">--}}
+{{--                <div class="overview-content border-right">--}}
+{{--                    <p class="mb-1">Out of Stock</p>--}}
+{{--                    <h1 style="color: #5f63f2;">{{$outOfStock}}</h1>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-6 col-md-3">--}}
+{{--                <div class="overview-content border-right">--}}
+{{--                    <p class="mb-1">Total Items</p>--}}
+{{--                    <h1 style="color: #5f63f2;">{{$totalItems}}</h1>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-6 col-md-3">--}}
+{{--                <div class="overview-content">--}}
+{{--                    <p class="mb-1">Categories</p>--}}
+{{--                    <h1 style="color: #5f63f2;">{{$categories->count()}}</h1>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
         <div class="row">
 
             <div class="col-lg-12 mb-30">
                 <div class="card">
-                    <div class="card-header color-dark fw-500">
-                        Category List
-                        <div class="d-flex align-items-center flex-wrap justify-content-center mb-2">
-                            <div class="project-search order-search  global-shadow mt-10">
-                                <form action="{{url('admin/league')}}" method="get" class="order-search__form">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                    <input name="search" class="form-control mr-sm-2 border-0 box-shadow-none" type="search" placeholder="Filter by name" aria-label="Search" value="{{ app('request')->input('search') }}">
-                                </form>
-                            </div><!-- End: .project-search -->
-                        </div>
-                    </div>
+{{--                    <div class="card-header color-dark fw-500 pb-10 flex-column flex-md-row">--}}
+{{--                        <div>--}}
+{{--                            <div class="project-search order-search global-shadow mt-10 float-left ml-4 ml-md-0 mr-0 mr-md-3">--}}
+{{--                                <form action="{{url('admin/league')}}" method="get" class="order-search__form">--}}
+{{--                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>--}}
+{{--                                    <input name="search" class="form-control mr-sm-2 border-0 box-shadow-none" type="search" placeholder="Search by name" aria-label="Search" value="{{ app('request')->input('search') }}">--}}
+{{--                                    <input type="hidden" name="category_id" value="{{ app('request')->input('category_id') }}">--}}
+{{--                                    <input type="hidden" name="status" value="{{ app('request')->input('status') }}">--}}
+{{--                                    <input type="hidden" name="orderCol" value="{{ app('request')->input('orderCol') }}">--}}
+{{--                                    <input type="hidden" name="page" value="1">--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-xl-10 mt-15 float-left ml-4 ml-md-0 mr-0 mr-md-3">--}}
+{{--                                <div class="atbd-select-list d-flex align-items-center">--}}
+{{--                                    <label class="color-gray fs-14 mr-10 mb-0">Category :</label>--}}
+{{--                                    <div class="atbd-select" style="min-width: 240px">--}}
+{{--                                        <form action="{{url("admin/league")}}" method="get" id="category-form">--}}
+{{--                                            <input type="hidden" name="search" value="{{ app('request')->input('search') }}">--}}
+{{--                                            <input type="hidden" name="status" value="{{ app('request')->input('status') }}">--}}
+{{--                                            <input type="hidden" name="orderCol" value="{{ app('request')->input('orderCol') }}">--}}
+{{--                                            <input type="hidden" name="page" value="1">--}}
+{{--                                        </form>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="mt-xl-10 mt-15 float-left ml-4 ml-md-0">--}}
+{{--                                <div class="atbd-select-list d-flex align-items-center">--}}
+{{--                                    <label class="color-gray fs-14 mr-10 mb-0">Price :</label>--}}
+{{--                                    <input type="text" class="form-control form-control-default" placeholder="Lowest" style="width: 110px; height: 40px">--}}
+{{--                                    <span class="color-gray px-1"><i class="fas fa-angle-right"></i></span>--}}
+{{--                                    <input type="text" class="form-control form-control-default" placeholder="Highest" style="width: 110px; height: 40px">--}}
 
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <div class="mt-xl-10 mt-15 float-left float-md-right ml-4">--}}
+{{--                                <div class="atbd-select-list d-flex align-items-center">--}}
+{{--                                    <label class="color-gray fs-14 mr-10 mb-0">Sort by :</label>--}}
+{{--                                    <div class="atbd-select" style="min-width: 170px">--}}
+{{--                                        <form action="{{url("admin/product")}}" method="get" id="sort-form">--}}
+{{--                                            <select name="orderCol" id="select-1" class="form-control" onchange="document.getElementById('sort-form').submit();">--}}
+{{--                                                <option value="created_at/desc" @if(app('request')->input('orderCol') == null || app('request')->input('orderCol') == 'created_at/desc') selected @endif>Newest</option>--}}
+{{--                                                <option value="created_at/asc" @if(app('request')->input('orderCol') == 'created_at/asc') selected @endif>Oldest</option>--}}
+{{--                                                <option value="name/asc" @if(app('request')->input('orderCol') == 'name/asc') selected @endif>Name A-Z</option>--}}
+{{--                                                <option value="name/desc" @if(app('request')->input('orderCol') == 'name/desc') selected @endif>Name Z-A</option>--}}
+{{--                                                <option value="price/desc" @if(app('request')->input('orderCol') == 'price/desc') selected @endif>Highest Price</option>--}}
+{{--                                                <option value="price/asc" @if(app('request')->input('orderCol') == 'price/asc') selected @endif>Lowest Price</option>--}}
+{{--                                                <option value="quantity/desc" @if(app('request')->input('orderCol') == 'quantity/desc') selected @endif>Highest Quantity</option>--}}
+{{--                                                <option value="quantity/asc" @if(app('request')->input('orderCol') == 'quantity/asc') selected @endif>Lowest Quantity</option>--}}
+{{--                                            </select>--}}
+{{--                                            <input type="hidden" name="search" value="{{ app('request')->input('search') }}">--}}
+{{--                                            <input type="hidden" name="category_id" value="{{ app('request')->input('category_id') }}">--}}
+{{--                                            <input type="hidden" name="page" value="1">--}}
+{{--                                        </form>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
                     <div class="card-body">
@@ -77,49 +188,16 @@
                                     <thead>
                                     <tr class="userDatatable-header">
                                         <th>
-                                            <div class="userDatatable-title">
-                                                ID
-                                                <div class="d-flex justify-content-between align-items-center w-100">
-                                                    <a href="{{ url('admin/category') }}?{{ http_build_query(array_merge(request()->query(), ['order_col' => 'id','sort_by' => (app('request')->input('sort_by') == 'desc' || app('request')->input('sort_by') == null) ? 'asc' : 'desc' ,'page' => 1])) }}">
-                                                    <span class="userDatatable-sort">
-                                                        <i class="fas fa-sort-up up @if(app('request')->input('order_col')=='id' && app('request')->input('sort_by')=='asc') selected @endif"></i>
-                                                        <i class="fas fa-caret-down down @if(app('request')->input('order_col')=='id' && app('request')->input('sort_by')=='desc') selected @endif"></i>
-                                                    </span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <div class="userDatatable-title">ID</div>
                                         </th>
                                         <th>
-                                            <div class="userDatatable-title">
-                                                Name
-                                                <div class="d-flex justify-content-between align-items-center w-100">
-                                                    <a href="{{ url('admin/category') }}?{{ http_build_query(array_merge(request()->query(), ['order_col' => 'name','sort_by' => (app('request')->input('sort_by') == 'desc' || app('request')->input('sort_by') == null) ? 'asc' : 'desc' ,'page' => 1])) }}">
-                                                    <span class="userDatatable-sort">
-                                                        <i class="fas fa-sort-up up @if(app('request')->input('order_col')=='name' && app('request')->input('sort_by')=='asc') selected @endif"></i>
-                                                        <i class="fas fa-caret-down down @if(app('request')->input('order_col')=='name' && app('request')->input('sort_by')=='desc') selected @endif"></i>
-                                                    </span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <div class="userDatatable-title">Name</div>
                                         </th>
                                         <th>
-                                            <span class="userDatatable-title">Description</span>
+                                            <span class="userDatatable-title">Country</span>
                                         </th>
                                         <th>
-                                            <div class="userDatatable-title">
-                                                Created date
-                                                <div class="d-flex justify-content-between align-items-center w-100">
-                                                    <a href="{{ url('admin/category') }}?{{ http_build_query(array_merge(request()->query(), ['order_col' => 'created_at','sort_by' => (app('request')->input('sort_by') == 'desc' || app('request')->input('sort_by') == null) ? 'asc' : 'desc' ,'page' => 1])) }}">
-                                                    <span class="userDatatable-sort">
-                                                        <i class="fas fa-sort-up up @if(app('request')->input('order_col')=='created_at' && app('request')->input('sort_by')=='asc') selected @endif"></i>
-                                                        <i class="fas fa-caret-down down @if(app('request')->input('order_col')=='created_at' && app('request')->input('sort_by')=='desc') selected @endif"></i>
-                                                    </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </th>
-                                        <th>
-                                            <span class="userDatatable-title">No. of Products</span>
+                                            <span class="userDatatable-title">Season</span>
                                         </th>
                                         <th>
                                             <span class="userDatatable-title float-right">Action</span>
@@ -137,8 +215,11 @@
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center">
+                                                <div class="userDatatable__imgWrapper d-flex align-items-center">
+                                                    <a href="{{url("admin/league/detail",["league"=>$item->id])}}" class="profile-image rounded-lg d-block m-0 wh-38" style="background-image:url('{{ add_w_auto_to_cloudinary_url($item->logo) }}'); background-size: cover;"></a>
+                                                </div>
                                                 <div class="userDatatable-inline-title">
-                                                    <a href="#" class="text-dark fw-500">
+                                                    <a href="{{url("admin/league/detail",["league"=>$item->id])}}" class="text-dark fw-500">
                                                         <h6>{{$item->name}}</h6>
                                                     </a>
                                                 </div>
@@ -146,36 +227,30 @@
                                         </td>
                                         <td>
                                             <div class="userDatatable-content">
-                                                @if($item->desc == null || $item->desc == "")
-                                                    (No description)
-                                                @else
-                                                    {{$item->desc}}
-                                                @endif
+                                                {{$item->country}}
                                             </div>
                                         </td>
                                         <td>
                                             <div class="userDatatable-content">
-                                                {{$item->created_at->format('F j, Y')}}
+                                                {{($item->season)}}
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="userDatatable-content">
-                                                {{$item->products->count('id')}} products
-                                            </div>
-                                        </td>
+
+
+
                                         <td>
                                             <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
                                                 <li>
-                                                    <a class="view detail-btn" data-toggle="modal" data-target="#modal-basic" data-category-id="{{ $item->id }}" data-category-name="{{ $item->name }}" data-category-description="{{ $item->desc }}">
+                                                    <a class="view detail-btn" href="{{url("admin/league/detail",["league"=>$item->id])}}">
                                                         <span data-feather="eye"></span></a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{url("admin/category/edit",["category"=>$item->slug])}}" class="edit" >
+                                                    <a href="{{url("admin/league/edit",["league"=>$item->id])}}" class="edit">
                                                         <span data-feather="edit"></span></a>
                                                 </li>
                                                 <li>
-                                                    <form id="delete-form-{{ $item->id }}" action="{{ url("admin/category/delete",["category"=>$item->slug]) }}" method="post" style="">
+                                                    <form id="delete-form-{{ $item->id }}" action="{{ url("admin/league/delete",["league"=>$item->id]) }}" method="post" style="">
                                                         @method("DELETE")
                                                         @csrf
                                                         <button type="button" class="delete-button" style="background: none; color: inherit; border: none; padding: 0; font: inherit; cursor: pointer; outline: inherit;" data-toggle="modal" data-target="#modal-info-confirmed-{{ $item->id }}">
@@ -201,12 +276,13 @@
                                                         </div>
 
                                                         <div class="modal-info-text">
-                                                            <h6>Do you Want to delete category #{{$item->id}}?</h6>
+                                                            <h6>Do you Want to delete league #{{$item->id}}?</h6>
                                                             <p>{{$item->name}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
+
                                                     <button type="button" class="btn btn-light btn-outlined btn-sm" data-dismiss="modal">Cancel</button>
                                                     <button type="button" class="btn btn-info btn-sm" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item->id }}').submit();">Ok</button>
                                                 </div>
@@ -216,7 +292,6 @@
                                     <!-- End of Delete Confirm Modal -->
 
                                     @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -236,51 +311,7 @@
             </div>
 
         </div>
-        <!-- Detail Info Modal -->
-        <div class="modal-basic modal fade show" id="modal-basic" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content modal-bg-white ">
-                    <div class="modal-header">
-                        <h6 class="modal-title">Category #<span id="modal-category-id"></span></h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span data-feather="x"></span></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <div class="row justify-content-between">
-                            <div class="col-2 fw-500">Name:</div>
-                            <div class="col-10 pl-4 mb-2" id="modal-category-name"></div>
-                            <div class="col-2 fw-500">Description:</div>
-                            <div class="col-10 pl-4 mb-2" id="modal-category-desc"></div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End of Detail Info Modal -->
 
     </div>
 @endsection
 
-@section("after_js")
-    {{--Script for Detail Info Modal--}}
-    <script>
-        $(document).ready(function() {
-            $('.detail-btn').click(function() {
-                var categoryId = $(this).data('category-id');
-                var categoryName = $(this).data('category-name');
-                var categoryDescription = $(this).data('category-description');
-
-                $('#modal-category-id').text(categoryId);
-                $('#modal-category-name').text(categoryName);
-                if(categoryDescription == null || categoryDescription === '') {
-                    $('#modal-category-desc').text('(There is no description for this category)');
-                } else {
-                    $('#modal-category-desc').text(categoryDescription);
-                }
-            });
-        });
-    </script>
-@endsection
