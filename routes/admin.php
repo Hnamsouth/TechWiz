@@ -85,4 +85,4 @@
         Route::put('/edit/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'update']);
         Route::delete('/delete/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'delete']);
     });
-});
+
