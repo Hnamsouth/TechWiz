@@ -30,10 +30,10 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="profile-images-match">
-                        <a href="#"><img class="img-responsive" src="/assets/images/player.jpg" width="370" height="370" alt=""></a>
+                        <a href="#"><img class="img-responsive" src="{{$player->img}}" width="370" height="370" alt=""></a>
                         <div class="profile-details">
                             <div class="profile-pic profile-details-inner">
-                                <a href="#"><img class="img-responsive" src="/assets/images/fixture-team2.png" width="64" height="84" alt=""></a>
+                                <a href="#"><img class="img-responsive" src="{{$player->Teams[0]->logo}}" width="64" height="84" alt=""></a>
                             </div>
                             <div class="carryer-match profile-details-inner">
                                 <h2>24</h2>
@@ -44,39 +44,40 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="player-carryer-total-des">
-                        <h1 id="profile-title"><b>{{$player->name}} <span>#{{$player->number}}</span></b></h1>
+                        <h1 id="profile-title">{{$player->name}} <b>{{$player->position}} <span># {{$player->number}}</span></b></h1>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="player-description">
-                                    <p>{{$player->des}}</p>
-
+                                    <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
+                                    <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.</p>
+                                    <p>Nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et </p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="player-other-desc-inner">
                                     <div class="player-desc-1">
                                         <div class="player-other-desc">
-                                            <h1>Full Name</h1>
-                                            <p>{{$player->name}}y</p>
+                                            <h1>Legacy (Italy)</h1>
+                                            <p>Football Club</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Date of Birth</h1>
-                                            <p>{{$player->date_of_birth}}</p>
+                                            <p>16 Aug, 1993</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Height & Weight</h1>
-                                            <p>{{$player->height}}m, {{$player->weight}}kg</p>
+                                            <p>184cm , 96kg</p>
                                         </div>
                                     </div>
 
                                     <div class="player-desc-1">
                                         <div class="player-other-desc">
-                                            <h1>Nationality</h1>
-                                            <p>{{$player->nationality}}</p>
+                                            <h1>Full Name</h1>
+                                            <p>Garry Oldman Downy</p>
                                         </div>
                                         <div class="player-other-desc">
-                                            <h1>Team</h1>
-                                            <p>{{$player->team->name}}</p>
+                                            <h1>Nationality</h1>
+                                            <p>American</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Social</h1>

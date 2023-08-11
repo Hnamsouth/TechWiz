@@ -19,35 +19,66 @@
 
                         <!-- START BLOG ITEMS -->
                         <div class="row">
-                            @foreach($last_new as $item)
-                                <div class="col-md-12">
-                                    <div class="blog-items">
-                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
-                                            <span>{{$item->league->name}}</span>
-                                            <img src="{{$item->thumbnail}}" alt="" />
-                                            <div class="blog-content-title">
-                                                <h3>{{$item->title}}</h3>
-                                                <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}  <i class="fa fa-comments"></i> 16 </span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach<!-- end of /. col -->
-                                @foreach($second_new as $item)
-
-                                    <div class="col-md-6">
-                                        <div class="blog-items">
-                                            <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
-                                                <span>{{$item->league->name}}</span>
-                                                <img src="{{$item->thumbnail}}" alt="" />
-                                                <div class="blog-content-title">
-                                                    <h3>{{$item->title}}</h3>
-                                                    <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i class="fa fa-comments"></i> 16 </span>
-                                                </div>
-                                            </a>
+                            <div class="col-md-12">
+                                <div class="blog-items">
+                                    <a href="blog-single.html">
+                                        <span>Euro 2016</span>
+                                        <img src="/assets/images/blog/1.jpg" alt="" />
+                                        <div class="blog-content-title">
+                                            <h3>Fernando Santos's Portugal manifesto</h3>
+                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15  <i class="fa fa-comments"></i> 16 </span>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    </a>
+                                </div>
+                            </div><!-- end of /. col -->
+                            <div class="col-md-6">
+                                <div class="blog-items">
+                                    <a href="blog-single.html">
+                                        <span>Euro 2016</span>
+                                        <img src="/assets/images/blog/2.jpg" alt="" />
+                                        <div class="blog-content-title">
+                                            <h3>Fernando Santos's Portugal manifesto</h3>
+                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- end of /. col -->
+                            <div class="col-md-6">
+                                <div class="blog-items">
+                                    <a href="blog-single.html">
+                                        <span>Euro 2016</span>
+                                        <img src="/assets/images/blog/3.jpg" alt="" />
+                                        <div class="blog-content-title">
+                                            <h3>Fernando Santos's Portugal manifesto</h3>
+                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- end of /. col -->
+                            <div class="col-md-6">
+                                <div class="blog-items">
+                                    <a href="blog-single.html">
+                                        <span>Euro 2016</span>
+                                        <img src="/assets/images/blog/4.jpg" alt="" />
+                                        <div class="blog-content-title">
+                                            <h3>Fernando Santos's Portugal manifesto</h3>
+                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- end of /. col -->
+                            <div class="col-md-6">
+                                <div class="blog-items">
+                                    <a href="blog-single.html">
+                                        <span>Euro 2016</span>
+                                        <img src="/assets/images/blog/5.jpg" alt="" />
+                                        <div class="blog-content-title">
+                                            <h3>Fernando Santos's Portugal manifesto</h3>
+                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- end of /. col -->
                             <div class="col-md-6">
                                 <div class="title-section sm-title">
                                     <h2>Top <b>Player</b></h2>
@@ -58,7 +89,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.png" alt="" />
+                                                <img src="/assets/images/player.jpg" alt="" />
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -68,7 +99,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.png" alt="" />
+                                                <img src="/assets/images/player.jpg" alt="" />
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -78,7 +109,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images//blog/player.png" alt="" />
+                                                <img src="/assets/images/player.jpg" alt="" />
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -141,32 +172,36 @@
                             </div>
                             <div class="widget-container">
                                 <div class="owl-carousel" id="recent-result">
-                                    <div class="item">
-{{--                                        <div class="item">--}}
-{{--                                            @foreach($match as $item)--}}
-{{--                                                <div class="recent-items">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <h4>{{$item->datetime}}</h4>--}}
-{{--                                                        <div class="result-coutry-area">--}}
-{{--                                                            <div class="result-item">--}}
-{{--                                                                <p>{{$item->FirstTeam->name}}</p>--}}
-{{--                                                                <img src="{{$item->FirstTeam->logo}}" alt="" />--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class="result-item">--}}
-{{--                                                                <p>{{$item->matchResult->goal}}-0</p>--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class="result-item">--}}
-{{--                                                                <img src="{{$item->SecondTeam->logo}}" alt="" />--}}
-{{--                                                                <p>{{$item->SecondTeam->name}}</p>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </a>--}}
-{{--                                                </div>--}}
-{{--                                            @endforeach--}}
+{{--              hien thi cac tran dau da xong cua moi giai                      --}}
+                                    @foreach($leagueSeasonList as $ls)
+                                        @if($ls->Matches->count() >0)
+                                            <div class="item">
+                                                @foreach($ls->Matches->take(4) as $m )
+                                                    @if($m->status)
+                                                        <div class="recent-items" >
+                                                            <a href="{{route('match_rs',['match'=>$m->id])}}">
+                                                                <h4>{{$m->datetime}}</h4>
+                                                                <div class="result-coutry-area">
+                                                                    <div class="result-item">
+                                                                        <p>Team{{$m->FirstTeam->id}}</p>
+                                                                        <img src="{{$m->FirstTeam->logo}}" alt="" />
+                                                                    </div>
+                                                                    <div class="result-item">
+                                                                        <p style="font-size:16px;font-family: system-ui;"><span style="font-weight:600">{{$m->MatchResult[0]->goal}}({{$m->MatchResult[0]->penalty_shootout_goal}})</span> - {{$m->MatchResult[1]->goal}}({{$m->MatchResult[1]->penalty_shootout_goal}})</p>
+                                                                    </div>
+                                                                    <div class="result-item">
+                                                                        <img src="{{$m->SecondTeam->logo}}" alt="" />
+                                                                        <p>Team {{$m->SecondTeam->id}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </div><!-- end of /. item -->
+                                        @endif
+                                    @endforeach
 
-{{--                                        </div><!-- end of /. item -->--}}
-
-                                    </div><!-- end of /. item -->
                                 </div>
                             </div>
                         </div><!-- end of /. widget -->
@@ -264,7 +299,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game1.png" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -274,7 +309,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game2.png" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -284,7 +319,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game3.png" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -294,7 +329,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game1.png" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -304,7 +339,7 @@
                                             <ul class="sport-item">
                                                 <li>
                                                     <a href="#">
-                                                        <img src="/assets/images/next-game2.png" class="img-responsive" width="310" height="220" alt="">
+                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
                                                 </li>
@@ -443,7 +478,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/2.png" alt="" />
+                                        <img src="/assets/images/blog/2.jpg" alt="" />
                                         <div class="blog-content-title">
                                             <h3>UEFA EURO 2016 Team of the Tournament</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -455,7 +490,7 @@
                                 <div class="blog-items">
                                     <a href="blog-single.html">
                                         <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/3.png" alt="" />
+                                        <img src="/assets/images/blog/3.jpg" alt="" />
                                         <div class="blog-content-title">
                                             <h3>On bringing in younger players</h3>
                                             <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
@@ -467,7 +502,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s1.png" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s1.jpg" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -481,7 +516,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s2.png" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s2.jpg" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -495,7 +530,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s3.png" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s3.jpg" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -509,7 +544,7 @@
                                 <div class="blog-items-sm">
                                     <a href="blog-single.html">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s1.png" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="/assets/images/blog/s4.jpg" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
                                             <span>Euro 2016</span>
@@ -538,7 +573,7 @@
                         <div class="widget">
                             <div class="sidebar-ad">
                                 <a href="#">
-                                    <img src="/assets/images/banner.png" class="img-responsive" width="370" height="571" alt="">
+                                    <img src="/assets/images/banner.jpg" class="img-responsive" width="370" height="571" alt="">
                                 </a>
                             </div>
                         </div>
@@ -547,6 +582,4 @@
             </div><!-- end of /. row -->
         </div><!-- end of /. container -->
     </div><!-- end of /. blog container 2 -->
-    @include('guest.html.video-section')
 @endsection
-

@@ -27,7 +27,11 @@ class Players extends Model
         return $this->hasMany(MatchEvent::class);
     }
 
-    public function TeamPlayers(){
-        return $this->belongsToMany(Team::class,'team_player');
+    public function Teams(){
+        return $this->belongsToMany(Team::class,'team_player','player_id','team_id');
+    }
+
+    public function MatchPlayer(){
+        return $this->hasMany(MatchPlayer::class,"player_id");
     }
 }

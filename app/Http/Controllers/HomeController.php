@@ -9,6 +9,9 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Match;
 use App\Models\Order;
+use App\Models\League;
+use App\Models\LeagueSeason;
+use App\Models\Players;
 use App\Models\Product;
 use Cloudinary\Api\Upload\UploadApi;
 use Carbon\Carbon;
@@ -35,6 +38,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
+//        dd($leagueSeasonList->get(4)->Matches->take(10));
+//        dd($leagueSeasonList->get(2)->Matches->first());
+        return view('guest.home',compact('leagueSeasonList'));
 
 
         $today=Carbon::now('Asia/Kolkata');
@@ -56,7 +63,7 @@ class HomeController extends Controller
 //        dd($match);
 
 
-        return view('guest.home',compact('last_new','second_new','match'));
+        return view('guest.home',compact('last_new','second_new','match','leagueSeasonList'));
     }
 
     public function match()
@@ -94,8 +101,12 @@ $today_on_sport = Blog::where('publish_date','=',$today)
 
         return view('guest.blog',compact('last_new','second_new','today_on_sport'));
     }
+    public function playerdetail(Players $player)
+    {
 
+        return view('guest.profile', compact('player'));
 
+    }
     public function blogDetails(Blog $blog){
 
 
@@ -104,10 +115,6 @@ $today_on_sport = Blog::where('publish_date','=',$today)
 
     }
 
-    public function playerDetail()
-    {
-        return view('guest.profile');
-    }
 
     public function shopProduct(Request $request)
     {

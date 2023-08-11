@@ -217,11 +217,11 @@ class TeamPlayerSeeder extends Seeder
                 ]);
 
                 // create match event
-                $mpst11 = MatchPlayer::MainLineups(0)->Match($m->id)->Team($m->first_team_id)->get();
-                $mpst12 = MatchPlayer::MainLineups(1)->Match($m->id)->Team($m->first_team_id)->get();
+                $mpst11 = MatchPlayer::MainLineups(0)->Match($m->id)->Teams($m->first_team_id)->get();
+                $mpst12 = MatchPlayer::MainLineups(1)->Match($m->id)->Teams($m->first_team_id)->get();
 
-                $mpst21 = MatchPlayer::MainLineups(0)->Match($m->id)->Team($m->second_team_id)->get();
-                $mpst22 = MatchPlayer::MainLineups(1)->Match($m->id)->Team($m->second_team_id)->get();
+                $mpst21 = MatchPlayer::MainLineups(0)->Match($m->id)->Teams($m->second_team_id)->get();
+                $mpst22 = MatchPlayer::MainLineups(1)->Match($m->id)->Teams($m->second_team_id)->get();
 
                 $this->createMatchEvent(23,"Normal Goal","First Half",$mpst11[6]->player_id,null,$m->id);
                 $this->createMatchEvent(36,"Normal Goal","First Half",$mpst11[7]->player_id,null,$m->id);
@@ -233,8 +233,8 @@ class TeamPlayerSeeder extends Seeder
 
                 $this->createMatchEvent(52,"Substitution","Second Half",$mpst21[9]->player_id,$mpst22[8]->player_id,$m->id);
 
-                $this->createMatchEvent(80,"Own goal","First Half",$mpst11[9]->player_id,null,$m->id);
-                $this->createMatchEvent(89,"Penalty","First Half",$mpst21[8]->player_id,null,$m->id);
+                $this->createMatchEvent(80,"Own goal","Second Half",$mpst11[9]->player_id,null,$m->id);
+                $this->createMatchEvent(89,"Penalty","Second Half",$mpst21[8]->player_id,null,$m->id);
 
                 $this->createMatchEvent(98,"Yellow card","First Extra Time",$mpst22[4]->player_id,null,$m->id);
                 $this->createMatchEvent(103,"Normal Goal","First Extra Time",$mpst21[4]->player_id,null,$m->id);
