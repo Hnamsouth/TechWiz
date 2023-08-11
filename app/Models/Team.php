@@ -17,9 +17,9 @@ class Team extends Model
     ];
     use HasFactory;
 
-    public function matches() {
-        return $this->hasMany(Match::class);
-    }
+//    public function matches() {
+//        return $this->hasMany(Match::class);
+//    }
 
     public function MatchLineups(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
