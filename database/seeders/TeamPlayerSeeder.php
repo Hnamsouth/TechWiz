@@ -217,11 +217,11 @@ class TeamPlayerSeeder extends Seeder
                 ]);
 
                 // create match event
-                $mpst11 = MatchPlayer::MainLineups(0)->Match($m->id)->Team($m->first_team_id)->get();
-                $mpst12 = MatchPlayer::MainLineups(1)->Match($m->id)->Team($m->first_team_id)->get();
+                $mpst11 = MatchPlayer::MainLineups(0)->Match($m->id)->Teams($m->first_team_id)->get();
+                $mpst12 = MatchPlayer::MainLineups(1)->Match($m->id)->Teams($m->first_team_id)->get();
 
-                $mpst21 = MatchPlayer::MainLineups(0)->Match($m->id)->Team($m->second_team_id)->get();
-                $mpst22 = MatchPlayer::MainLineups(1)->Match($m->id)->Team($m->second_team_id)->get();
+                $mpst21 = MatchPlayer::MainLineups(0)->Match($m->id)->Teams($m->second_team_id)->get();
+                $mpst22 = MatchPlayer::MainLineups(1)->Match($m->id)->Teams($m->second_team_id)->get();
 
                 $this->createMatchEvent(23,"Normal Goal","First Half",$mpst11[6]->player_id,null,$m->id);
                 $this->createMatchEvent(36,"Normal Goal","First Half",$mpst11[7]->player_id,null,$m->id);

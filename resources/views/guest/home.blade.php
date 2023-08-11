@@ -176,7 +176,7 @@
                                     @foreach($leagueSeasonList as $ls)
                                         @if($ls->Matches->count() >0)
                                             <div class="item">
-                                                @foreach($ls->Matches->take(10) as $m )
+                                                @foreach($ls->Matches->take(4) as $m )
                                                     @if($m->status)
                                                         <div class="recent-items" >
                                                             <a href="{{route('match_rs',['match'=>$m->id])}}">
