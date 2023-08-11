@@ -85,10 +85,6 @@ class HomeController extends Controller
 
         return view('guest.profile',compact('player'));
     }
-    public function checkout()
-    {
-        return view('guest.checkout');
-    }
     public function shopProduct(Request $request)
     {
         $search = $request->get("search");

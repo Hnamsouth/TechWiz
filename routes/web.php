@@ -30,7 +30,6 @@ Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::prefix('/contact')->group(function(){
     Route::get('/', [\App\Http\Controllers\FeedbackController::class, 'create'])->name('contact');
     Route::get('/create', [\App\Http\Controllers\FeedbackController::class, 'create']);
