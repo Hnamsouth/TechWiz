@@ -38,29 +38,29 @@
                             </div>
                                 @endforeach
 
-                            <div class="col-md-12">
-                                <nav aria-label="Page navigation" class="navigation">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                                                <span aria-hidden="true">Prev</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">Next</span>
-                                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
+{{--                            <div class="col-md-12">--}}
+{{--                                <nav aria-label="Page navigation" class="navigation">--}}
+{{--                                    <ul class="pagination">--}}
+{{--                                        <li>--}}
+{{--                                            <a href="#" aria-label="Previous">--}}
+{{--                                                <i class="fa fa-chevron-left" aria-hidden="true"></i>--}}
+{{--                                                <span aria-hidden="true">Prev</span>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li><a href="#">1</a></li>--}}
+{{--                                        <li class="active"><a href="#">2</a></li>--}}
+{{--                                        <li><a href="#">3</a></li>--}}
+{{--                                        <li><a href="#">4</a></li>--}}
+{{--                                        <li><a href="#">5</a></li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="#" aria-label="Next">--}}
+{{--                                                <span aria-hidden="true">Next</span>--}}
+{{--                                                <i class="fa fa-chevron-right" aria-hidden="true"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </nav>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -75,89 +75,36 @@
 
                                     <!-- Wrapper for slides -->
                                     <div class="carousel-inner" role="listbox">
-                                        <div class="item active">
+
+                                        @foreach($today_on_sport as $key=> $item)
+
+
+                                        <div class="item  {{$key==0?'active':''}}">
                                             <ul class="sport-item">
                                                 <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
+                                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                                        <img src="{{$item->thumbnail}}" class="img-responsive" width="310" height="220" alt="">
+                                                        <h3>{{$item->title}}</h3>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
+                                        @endforeach
+
 
                                     </div>
                                     <ol class="carousel-indicators sport-item slider-game-time">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
-                                            <a href="#">
-                                                <span>16:48</span>
-                                                <p>Best Player in Europe final three: Cristiano Ronaldo</p>
+                                        @foreach($today_on_sport_footter as $key=> $item)
+
+
+                                        <li data-target="#carousel-example-generic" data-slide-to="0" class=" {{$key==0?'active':''}}">
+                                            <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                                <span>{{$item->publish_date}}</span>
+                                                <p>{{$item->title}}</p>
                                             </a>
                                         </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="1">
-                                            <a href="#">
-                                                <span>15:24</span>
-                                                <p>Sweden and Germany in last four</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="2">
-                                            <a href="#">
-                                                <span>12:28</span>
-                                                <p>Men's Olympic football: day three</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="3">
-                                            <a href="#">
-                                                <span>11:42</span>
-                                                <p>Carvajal wins Super Cup for Madrid</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="4">
-                                            <a href="#">
-                                                <span>11:42</span>
-                                                <p>Praise for City signing John Stones</p>
-                                            </a>
-                                        </li>
+                                        @endforeach
+
                                     </ol>
                                 </div>
                             </div>
@@ -168,59 +115,35 @@
                             </div>
                             <div class="widget-container">
                                 <div class="widget-latest-blog">
+                                    @foreach($last_new_slider as  $item)
+
                                     <div class="blog-items-sm latest-blog">
-                                        <a href="blog-single.html">
+                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
                                             <div class="thumbnail">
-                                                <img src="/assets/images/l-news/1.jpg" class="img-responsive" width="120" height="120" alt="">
+                                                <img src="{{$item->thumbnail}}" class="img-responsive" width="120" height="120" alt="">
                                             </div>
                                             <div class="blog-content">
-                                                <span>Euro 2016</span>
-                                                <h3>Lukas Podolski retires from Germany duty</h3>
-                                                <p><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15</p>
+                                                <span>{{$item->league->name}}</span>
+                                                <h3>{{$item->title}}</h3>
+                                                <p><i class="fa fa-clock-o"></i>  {{$item->publish_date}}</p>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="blog-items-sm latest-blog">
-                                        <a href="blog-single.html">
-                                            <div class="thumbnail">
-                                                <img src="/assets/images/l-news/2.jpg" class="img-responsive" width="120" height="120" alt="">
-                                            </div>
-                                            <div class="blog-content">
-                                                <span>Euro 2016</span>
-                                                <h3>Lukas Podolski retires from Germany duty</h3>
-                                                <p><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="blog-items-sm latest-blog">
-                                        <a href="blog-single.html">
-                                            <div class="thumbnail">
-                                                <img src="/assets/images/l-news/3.jpg" class="img-responsive" width="120" height="120" alt="">
-                                            </div>
-                                            <div class="blog-content">
-                                                <span>Euro 2016</span>
-                                                <h3>Lukas Podolski retires from Germany duty</h3>
-                                                <p><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>
                         <div class="widget">
                             <div class="widget-title">
-                                <h3>Categories</h3>
+                                <h3>League</h3>
                             </div>
                             <div class="widget-container">
                                 <ul class="cat">
-                                    <li><a href="#">Liga BBVA</a></li>
-                                    <li><a href="#">UEFA</a></li>
-                                    <li><a href="#">EPL</a></li>
-                                    <li><a href="#">Super Cup</a></li>
-                                    <li><a href="#">World Cup</a></li>
-                                    <li><a href="#">NPL</a></li>
-                                    <li><a href="#">Nation League</a></li>
-                                    <li><a href="#">Archive</a></li>
+                                    @foreach($league as $item)
+                                    <li><a href="/">{{$item->name}}</a></li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>

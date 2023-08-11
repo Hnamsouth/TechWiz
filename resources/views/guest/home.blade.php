@@ -19,66 +19,35 @@
 
                         <!-- START BLOG ITEMS -->
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/1.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15  <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
+                            @foreach($last_new as $item)
+                                <div class="col-md-12">
+                                    <div class="blog-items">
+                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                            <span>{{$item->league->name}}</span>
+                                            <img src="{{$item->thumbnail}}" alt="" />
+                                            <div class="blog-content-title">
+                                                <h3>{{$item->title}}</h3>
+                                                <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}  <i class="fa fa-comments"></i> 16 </span>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div><!-- end of /. col -->
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/2.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                            @endforeach<!-- end of /. col -->
+                                @foreach($second_new as $item)
+
+                                    <div class="col-md-6">
+                                        <div class="blog-items">
+                                            <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                                <span>{{$item->league->name}}</span>
+                                                <img src="{{$item->thumbnail}}" alt="" />
+                                                <div class="blog-content-title">
+                                                    <h3>{{$item->title}}</h3>
+                                                    <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i class="fa fa-comments"></i> 16 </span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                            </div><!-- end of /. col -->
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/3.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div><!-- end of /. col -->
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/4.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div><!-- end of /. col -->
-                            <div class="col-md-6">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/5.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>Fernando Santos's Portugal manifesto</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div><!-- end of /. col -->
+                                    </div>
+                                @endforeach
                             <div class="col-md-6">
                                 <div class="title-section sm-title">
                                     <h2>Top <b>Player</b></h2>
@@ -295,89 +264,34 @@
 
                                     <!-- Wrapper for slides -->
                                     <div class="carousel-inner" role="listbox">
-                                        <div class="item active">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
-                                        <div class="item">
-                                            <ul class="sport-item">
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
-                                                        <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end of slider /. item -->
+                                        @foreach($today_on_sport as $key=> $item)
+
+
+                                            <div class="item  {{$key==0?'active':''}}">
+                                                <ul class="sport-item">
+                                                    <li>
+                                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                                            <img src="{{$item->thumbnail}}" class="img-responsive" width="310" height="220" alt="">
+                                                            <h3>{{$item->title}}</h3>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- end of slider /. item -->
+                                        @endforeach
+
 
                                     </div>
                                     <ol class="sport-item slider-game-time">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
-                                            <a href="#">
-                                                <span>16:48</span>
-                                                <p>Best Player in Europe final three: Cristiano Ronaldo</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="1">
-                                            <a href="#">
-                                                <span>15:24</span>
-                                                <p>Sweden and Germany in last four</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="2">
-                                            <a href="#">
-                                                <span>12:28</span>
-                                                <p>Men's Olympic football: day three</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="3">
-                                            <a href="#">
-                                                <span>11:42</span>
-                                                <p>Carvajal wins Super Cup for Madrid</p>
-                                            </a>
-                                        </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="4">
-                                            <a href="#">
-                                                <span>11:42</span>
-                                                <p>Praise for City signing John Stones</p>
-                                            </a>
-                                        </li>
+                                        @foreach($today_on_sport_footter as $key=> $item)
+
+
+                                            <li data-target="#carousel-example-generic" data-slide-to="0" class=" {{$key==0?'active':''}}">
+                                                <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                                    <span>{{$item->publish_date}}</span>
+                                                    <p>{{$item->title}}</p>
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ol>
                                 </div>
                             </div>

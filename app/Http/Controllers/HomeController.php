@@ -41,8 +41,6 @@ class HomeController extends Controller
         $leagueSeasonList = LeagueSeason::with('League')->with('Matches')->get();
 //        dd($leagueSeasonList->get(4)->Matches->take(10));
 //        dd($leagueSeasonList->get(2)->Matches->first());
-        return view('guest.home', compact('leagueSeasonList'));
-
 
         $today = Carbon::now('Asia/Kolkata');
         $last_new = Blog::where('publish_date', '>=', $today)
@@ -57,13 +55,23 @@ class HomeController extends Controller
             ->limit(4)->get();;
 
 
+        $today_on_sport = Blog::
+        orderBy("publish_date", 'desc')->limit(5)
+            ->get();
+        $today_on_sport_footter=Blog::
+        orderBy("publish_date", 'asc')->limit(5)
+            ->get();
+
+
+
+
 //            foreach ($match as $item){
 //                dd($item->matchResult);
 //            }
 //        dd($match);
 
 
-        return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList'));
+        return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList','today_on_sport','today_on_sport_footter'));
     }
 
     public function match()
@@ -91,15 +99,27 @@ class HomeController extends Controller
         $second_new = Blog::
         where('id', '<>', $last_new->first()->id)
             ->orderBy("publish_date", 'desc')->limit(8)->get();
-        $today_on_sport = Blog::where('publish_date', '=', $today)
-            ->orderBy("publish_date", 'desc')
+
+
+        $last_new_slider = Blog::
+        where('id', '<>', $last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(3)->get();
+
+
+        $today_on_sport = Blog::
+        orderBy("publish_date", 'desc')->limit(5)
             ->get();
+        $today_on_sport_footter=Blog::
+        orderBy("publish_date", 'asc')->limit(5)
+            ->get();
+
+        $league=League::all();
 
 
 //        dd($second_new);
 
 
-        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport'));
+        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport','today_on_sport_footter','last_new_slider','league'));
     }
 
     public function playerdetail(Players $player)
@@ -112,8 +132,18 @@ class HomeController extends Controller
     public function blogDetails(Blog $blog)
     {
 
+        $today_on_sport = Blog::
+        orderBy("publish_date", 'desc')->limit(5)
+            ->get();
+        $today_on_sport_footter=Blog::
+        orderBy("publish_date", 'asc')->limit(5)
+            ->get();
+        $last_new_slider = Blog::
+            orderBy("publish_date", 'desc')->limit(3)->get();
+        $league=League::all();
 
-        return view('guest.blog-details', compact('blog'));
+
+        return view('guest.blog-details', compact('blog','today_on_sport','league','today_on_sport_footter','last_new_slider'));
 
 
     }
