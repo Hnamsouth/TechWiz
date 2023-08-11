@@ -7,23 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class League extends Model
 {
+    use HasFactory;
+
     protected $table ='league';
     protected $fillable=[
         'name',
         'country',
         'logo',
-        'season'
+        'description',
+        'role_des',
     ];
 
-    use HasFactory;
-    public function matches() {
-        return $this->hasMany(Match::class);
+    public function LeagueSeason(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(LeagueSeason::class,'league_id','id');
     }
 
-    public function scopeSearch($query, $search) {
-        if($search && $search != "") {
-            return $query->where("name", "like", "%$search%");
-        }
-        return $query;
+    public function EuroWorldSeason(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(EuroWorldSeason::class,'league_id','id');
     }
+
 }
