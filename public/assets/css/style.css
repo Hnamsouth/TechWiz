@@ -6563,3 +6563,7 @@ table.point-items-more span {
     transform: rotate(360deg);
   }
 }
+.flex-al-center{
+    display: flex;
+    align-items: center;
+}

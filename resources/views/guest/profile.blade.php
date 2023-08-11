@@ -30,10 +30,10 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="profile-images-match">
-                        <a href="#"><img class="img-responsive" src="/assets/images/player.jpg" width="370" height="370" alt=""></a>
+                        <a href="#"><img class="img-responsive" src="{{$player->img}}" width="370" height="370" alt=""></a>
                         <div class="profile-details">
                             <div class="profile-pic profile-details-inner">
-                                <a href="#"><img class="img-responsive" src="/assets/images/fixture-team2.png" width="64" height="84" alt=""></a>
+                                <a href="#"><img class="img-responsive" src="{{$player->Teams[0]->logo}}" width="64" height="84" alt=""></a>
                             </div>
                             <div class="carryer-match profile-details-inner">
                                 <h2>24</h2>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="player-carryer-total-des">
-                        <h1 id="profile-title">Garry <b>Oldman <span>#21</span></b></h1>
+                        <h1 id="profile-title">{{$player->name}} <b>{{$player->position}} <span># {{$player->number}}</span></b></h1>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="player-description">

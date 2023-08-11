@@ -29,7 +29,7 @@ Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product'
 Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
+Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');

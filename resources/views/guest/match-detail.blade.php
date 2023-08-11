@@ -491,8 +491,53 @@
                                         @endif
 {{--                                        	https://ssl.gstatic.com/onebox/sports/game_feed/pens_goal_icon.svg     // miss--}}
                                     @if(!is_null($ME4))
-
-                                    @endif
+                                            <div class="row statstics-attempts-row">
+                                                <div class="col-md-12">
+                                                    <div class="statstics statstics-attempts">
+                                                        <p>{{$ME4[0]->time_at}}</p>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        @php
+                                            $ft=0;
+                                            $st=0;
+                                        @endphp
+                                            @for($i=0;$i<$ME4->count()-1;$i++)
+                                                @if($i%2==1) @continue @endif
+                                                    <div class="row {{$i%2==1?"color-row":""}} " style="display:flex; align-items:center">
+                                                        <div class="col-md-4 col-xs-2">
+                                                            @php($ft=$ME4[$i]->event_type=='Penalty'?$ft+1:$ft)
+                                                            <div class="">
+                                                                <img src="{{$ME4[$i]->FirstPlayer->img}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                                <div class="row">
+                                                                    <span style="font-size:15px;font-weight:bold">{{$ME4[$i]->FirstPlayer->name}}({{$ME4[$i]->FirstPlayer->number}})</span>
+                                                                    <p>({{$ft}} - {{$st}})</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-xs-8">
+                                                            <div class="statstics statstics-center text-center">
+                                                                <p class="statstics">
+                                                                    <img src="https://ssl.gstatic.com/onebox/sports/game_feed/pens_{{$ME4[$i]->event_type=='Penalty'?"goal":"miss"}}_icon.svg" width="30" height="30" style="border-radius: 50%;"/> -
+                                                                    <img src="https://ssl.gstatic.com/onebox/sports/game_feed/pens_{{$ME4[$i+1]->event_type=='Penalty'?"goal":"miss"}}_icon.svg" width="30" height="30" style="border-radius: 50%;"/>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-xs-2">
+                                                            @php($st=$ME4[$i+1]->event_type=='Penalty'?$st+1:$st)
+                                                            <div class="text-right">
+                                                                <div class="row">
+                                                                    <span style="font-size:15px;font-weight:bold">{{$ME4[$i+1]->FirstPlayer->name}}({{$ME4[$i+1]->FirstPlayer->number}})</span>
+                                                                    <p>({{$ft}} - {{$st}})</p>
+                                                                </div>
+                                                                <img src="{{$ME4[$i+1]->FirstPlayer->img}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            @endfor
+                                            <p class="text-center">{{ $ME4[0]->FirstPlayer->Teams[0]->name }} kicks the first turn {{ $ft }}</p>
+                                        @endif
 
                                     <div class="row statstics-total-row statstics-total-row-last">
                                         <div class="col-md-12">
@@ -806,224 +851,27 @@
                         <div role="tabpanel" class="tab-pane" id="team">
                             <div class="result-tab-area">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>16</p>
+                                    @for($i=0;$i < $MatchPlayer->count()/2;$i++)
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                    <div class="statstics">
+                                                        <a  href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center" style="font-size:15px;font-weight:bold">
+                                                            <img src="{{$MatchPlayer[$i]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <span>{{$MatchPlayer[$i]->Player->name}}({{$MatchPlayer[$i]->Player->number}})</span>
+                                                        </a>
+                                                    </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Shots</p>
+                                            <div class="col-sm-6">
+                                                    <div class="statstics statstics-right text-right">
+                                                        <a href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center"  style="justify-content:end; font-size:15px;font-weight:bold">
+                                                            <span>{{$MatchPlayer[$i+2]->Player->name}}({{$MatchPlayer[$i+2]->Player->number}})</span>
+                                                            <img src="{{$MatchPlayer[$i+2]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                        </a>
+                                                    </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">7</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row color-row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>6</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Shots on Target</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">3</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>86%</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Pass Success %</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">72%</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row color-row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p class="statstics-color">49%</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Aerial Dual Success</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p>51%</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>16</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Dribbles Won</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">3</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row color-row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p class="statstics-color">18</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Tackles</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p>25</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row statstics-attempts-row">
-                                        <div class="col-md-12">
-                                            <div class="statstics statstics-attempts">
-                                                <p>Attempts</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>16</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Total</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">7</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row color-row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>9</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Open Play</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">3</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>6</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Set Piece</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">4</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row color-row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p class="statstics-color">0</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Counter Attack</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">0</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p>1</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Penalty</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">0</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row color-row">
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics">
-                                                <p class="statstics-color">0</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-8">
-                                            <div class="statstics statstics-center text-center">
-                                                <p>Own Goal</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-xs-2">
-                                            <div class="statstics statstics-right text-right">
-                                                <p class="statstics-color">0</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row statstics-total-row statstics-total-row-last">
-                                        <div class="col-md-12">
-                                            <div class="statstics statstics-total">
-                                                <p>TOTALs</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        </div>`
+                                        @php($i=$i%2==1?$i+2:$i)
+                                    @endfor
                                 </div>
                             </div>
                         </div>

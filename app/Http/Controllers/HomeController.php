@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\League;
 use App\Models\LeagueSeason;
 use App\Models\Match;
+use App\Models\Players;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -54,9 +55,10 @@ class HomeController extends Controller
     {
         return view('guest.blog-details');
     }
-    public function playerdetail()
+    public function playerdetail(Players $player)
     {
-        return view('guest.playerdetail');
+
+        return view('guest.profile',compact('player'));
     }
     public function checkout()
     {
