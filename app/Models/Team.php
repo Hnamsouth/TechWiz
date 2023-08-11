@@ -15,6 +15,9 @@ class Team extends Model
         'logo',
         'level',
     ];
+
+
+
     use HasFactory;
 
     public function MatchLineups(): \Illuminate\Database\Eloquent\Relations\HasMany
@@ -30,6 +33,13 @@ class Team extends Model
     }
     public function MatchT2(){
         return $this->hasMany(Match::class,'second_team_id','id');
+    }
+
+    public function scopeSearch($query, $search) {
+        if($search && $search != "") {
+            return $query->where("name", "like", "%$search%");
+        }
+        return $query;
     }
 
 }

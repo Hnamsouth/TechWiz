@@ -1,11 +1,10 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
 Route::middleware(['auth','admin'])->group(function () {
 
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
-// -- PRODUCT --
+    // -- PRODUCT --
     Route::prefix('product')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\ProductController::class, 'list']);
         Route::get('/detail/{product:slug}', [\App\Http\Controllers\Admin\ProductController::class, 'detail']);
@@ -17,7 +16,7 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::get('/deleted', [\App\Http\Controllers\Admin\ProductController::class, 'deleted']);
         Route::post('/restore', [\App\Http\Controllers\Admin\ProductController::class, 'restore']);
     });
-// -- CATEGORY --
+    // -- CATEGORY --
     Route::prefix('category')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\CategoryController::class, 'list']);
         Route::get('/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create']);
@@ -28,13 +27,13 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::get('/deleted', [\App\Http\Controllers\Admin\CategoryController::class, 'deleted']);
         Route::post('/restore', [\App\Http\Controllers\Admin\CategoryController::class, 'restore']);
     });
-// -- ORDER --
+    // -- ORDER --
     Route::prefix('order')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\OrderController::class, "list"]);
         Route::get('/detail/{order:code}', [\App\Http\Controllers\Admin\OrderController::class, "detail"]);
         Route::put('/detail/{order:code}', [\App\Http\Controllers\Admin\OrderController::class, "updateStatus"]);
     });
-// -- USER (CUSTOMER) --
+    // -- USER (CUSTOMER) --
     Route::prefix('user')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\UserController::class, "userList"])->name('user-list');
         Route::get('/detail/{user:id}', [\App\Http\Controllers\Admin\UserController::class, "userDetail"])->name('user-detail');
@@ -70,3 +69,35 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::delete('/delete/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'delete']);
     });
 });
+
+    // TEAM
+    Route::prefix('team')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Admin\TeamController::class,"list"])->name('team-list');
+        Route::get("/create",[\App\Http\Controllers\Admin\TeamController::class,"create"])->name('team-create');
+        Route::post("/create",[\App\Http\Controllers\Admin\TeamController::class,"store"]);
+        Route::get("/edit",[\App\Http\Controllers\Admin\TeamController::class,"edit"])->name('team-edit');
+        Route::put("/edit",[\App\Http\Controllers\Admin\TeamController::class,"update"]);
+        Route::delete('/delete/{team:id}',[\App\Http\Controllers\Admin\TeamController::class,"delete"])->name('team-delete');
+    });
+
+    // PLAYER
+    Route::prefix('player')->group(function (){
+       Route::get('/',[\App\Http\Controllers\Admin\PlayerController::class,"list"])->name('player-list');
+       Route::get("/create",[\App\Http\Controllers\Admin\PlayerController::class,"create"])->name('player-create');
+       Route::post("/create",[\App\Http\Controllers\Admin\PlayerController::class,'store']);
+       Route::get('/edit',[\App\Http\Controllers\Admin\PlayerController::class,'edit'])->name('player-edit');
+       Route::put('/edit',[\App\Http\Controllers\Admin\PlayerController::class,'update']);
+       Route::delete('/delete/{players:id}',[\App\Http\Controllers\Admin\PlayerController::class.'delete'])->name('player-delete');
+    });
+
+    // Coach
+    Route::prefix('coach')->group(function (){
+       Route::get('/',[\App\Http\Controllers\Admin\CoachController::class,'list'])->name('coach-list');
+       Route::get('/create',[\App\Http\Controllers\Admin\CoachController::class,'create'])->name('coach-create');
+       Route::post('/create',[\App\Http\Controllers\Admin\CoachController::class,'store']);
+       Route::get('/edit',[\App\Http\Controllers\Admin\CoachController::class,'edit'])->name('coach-edit');
+       Route::put('/edit',[\App\Http\Controllers\Admin\CoachController::class,'update']);
+       Route::delete('/delete/{coaches:id}',[\App\Http\Controllers\Admin\CoachController::class,'delete'])->name('coach-delete');
+    });
+
+
