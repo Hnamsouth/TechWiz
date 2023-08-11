@@ -233,8 +233,8 @@ class TeamPlayerSeeder extends Seeder
 
                 $this->createMatchEvent(52,"Substitution","Second Half",$mpst21[9]->player_id,$mpst22[8]->player_id,$m->id);
 
-                $this->createMatchEvent(80,"Own goal","First Half",$mpst11[9]->player_id,null,$m->id);
-                $this->createMatchEvent(89,"Penalty","First Half",$mpst21[8]->player_id,null,$m->id);
+                $this->createMatchEvent(80,"Own goal","Second Half",$mpst11[9]->player_id,null,$m->id);
+                $this->createMatchEvent(89,"Penalty","Second Half",$mpst21[8]->player_id,null,$m->id);
 
                 $this->createMatchEvent(98,"Yellow card","First Extra Time",$mpst22[4]->player_id,null,$m->id);
                 $this->createMatchEvent(103,"Normal Goal","First Extra Time",$mpst21[4]->player_id,null,$m->id);

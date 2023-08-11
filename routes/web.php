@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
@@ -34,3 +34,6 @@ Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');
 //commit
+
+
+Route::get('/match-rs/{match:id}',[\App\Http\Controllers\Client\MatchController::class,'match_result'])->name('match_rs');
