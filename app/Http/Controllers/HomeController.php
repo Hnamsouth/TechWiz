@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Events\CancelOrder;
 use App\Events\NewOrderCreated;
 use App\Mail\MailOrder;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use Cloudinary\Api\Upload\UploadApi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -49,9 +51,23 @@ class HomeController extends Controller
     public function contact()
     {
         return view('guest.contact');
-    }    public function blog()
+    }
+
+    public function blog()
     {
-        return view('guest.blog');
+        $today=Carbon::now('Asia/Kolkata');
+        $last_new=Blog::where('publish_date','>=',$today)
+            ->orderBy("publish_date", 'desc')
+            ->limit(1)->get();
+
+        $second_new=Blog::where('publish_date','>=',$today)->
+        where('id','<>',$last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(8)->get();
+
+
+
+
+        return view('guest.blog',compact('last_new','second_new'));
     }
     public function blogDetails()
     {
@@ -102,7 +118,7 @@ class HomeController extends Controller
     public function productDetail(Product $product)
     {
         $related_products = Product::where("category_id", $product->category_id)->where("id","<>",$product->id)->orderBy("created_at", "desc")->limit(4)->get();
-        return view('guest.product-details', compact("product", "related_products"));
+        return view('guest.product-detail', compact("product", "related_products"));
     }
 
     public function addToCart(Product $product, Request $request) {

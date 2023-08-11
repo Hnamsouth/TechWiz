@@ -44,40 +44,39 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="player-carryer-total-des">
-                        <h1 id="profile-title">Garry <b>Oldman <span>#21</span></b></h1>
+                        <h1 id="profile-title"><b>{{$player->name}} <span>#{{$player->number}}</span></b></h1>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="player-description">
-                                    <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
-                                    <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.</p>
-                                    <p>Nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et </p>
+                                    <p>{{$player->des}}</p>
+
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="player-other-desc-inner">
                                     <div class="player-desc-1">
                                         <div class="player-other-desc">
-                                            <h1>Legacy (Italy)</h1>
-                                            <p>Football Club</p>
+                                            <h1>Full Name</h1>
+                                            <p>{{$player->name}}y</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Date of Birth</h1>
-                                            <p>16 Aug, 1993</p>
+                                            <p>{{$player->date_of_birth}}</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Height & Weight</h1>
-                                            <p>184cm , 96kg</p>
+                                            <p>{{$player->height}}m, {{$player->weight}}kg</p>
                                         </div>
                                     </div>
 
                                     <div class="player-desc-1">
                                         <div class="player-other-desc">
-                                            <h1>Full Name</h1>
-                                            <p>Garry Oldman Downy</p>
+                                            <h1>Nationality</h1>
+                                            <p>{{$player->nationality}}</p>
                                         </div>
                                         <div class="player-other-desc">
-                                            <h1>Nationality</h1>
-                                            <p>American</p>
+                                            <h1>Team</h1>
+                                            <p>{{$player->team->name}}</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Social</h1>

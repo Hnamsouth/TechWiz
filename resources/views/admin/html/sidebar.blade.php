@@ -119,7 +119,88 @@
                         @endif
                     </ul>
                 </li>
-{{--                <li>--}}
+
+                <li class="has-child {{ request()->is('admin/match*') ? 'open' : '' }}">
+                    <a href="{{url('admin/match')}}" class="{{ request()->is('admin/match*') ? 'active' : '' }}">
+                        <span data-feather="clipboard" class="nav-icon"></span>
+                        <span class="menu-text">Match</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/match') ? 'active' : '' }}" href="{{url('admin/match')}}">Match List</a>
+                        </li>
+
+                        <li>
+                            <a class="{{ request()->is('admin/match/create') ? 'active' : '' }}" href="{{url('admin/match/create')}}">Match Add</a>
+                        </li>
+                        @if(request()->is('admin/match/edit*'))
+                            <li>
+                                <a class="{{ request()->is('admin/match/edit*') ? 'active' : '' }}">Match Edit</a>
+                            </li>
+                        @endif
+
+                    </ul>
+                </li>
+                <li class="has-child {{ request()->is('admin/league*') ? 'open' : '' }}">
+                    <a href="{{url('admin/league')}}" class="{{ request()->is('admin/league*') ? 'active' : '' }}">
+                        <span data-feather="clipboard" class="nav-icon"></span>
+                        <span class="menu-text">League</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/league') ? 'active' : '' }}" href="{{url('admin/league')}}">League List</a>
+                        </li>
+
+                        <li>
+                            <a class="{{ request()->is('admin/league/create') ? 'active' : '' }}" href="{{url('admin/league/create')}}">League Add</a>
+                        </li>
+                        @if(request()->is('admin/league/edit*'))
+                            <li>
+                                <a class="{{ request()->is('admin/league/edit*') ? 'active' : '' }}">
+                                    League Edit</a>
+                            </li>
+                        @endif
+
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="{{url("admin/feedback")}}" class="{{ request()->is('admin/feedback') ? 'active' : '' }}">
+                        <span data-feather="eye" class="nav-icon"></span>
+                        <span class="menu-text">User Feedback</span>
+                    </a>
+                </li>
+
+
+
+                <li class="has-child {{ request()->is('admin/blog*') ? 'open' : '' }}">
+                    <a href="{{url('admin/blog')}}" class="{{ request()->is('admin/blog*') ? 'active' : '' }}">
+                        <span data-feather="clipboard" class="nav-icon"></span>
+                        <span class="menu-text">Blog</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/blog') ? 'active' : '' }}" href="{{url('admin/blog')}}">Blog List</a>
+                        </li>
+
+                        <li>
+                            <a class="{{ request()->is('admin/blog/create') ? 'active' : '' }}" href="{{url('admin/blog/create')}}">Blog Add</a>
+                        </li>
+                        @if(request()->is('admin/blog/edit*'))
+                            <li>
+                                <a class="{{ request()->is('admin/blog/edit*') ? 'active' : '' }}">
+                                    Blog Edit</a>
+                            </li>
+                        @endif
+
+                    </ul>
+                </li>
+
+
+
+                {{--                <li>--}}
 {{--                    <a href="bookmarks.html" class="">--}}
 {{--                        <span data-feather="bookmark" class="nav-icon"></span>--}}
 {{--                        <span class="menu-text">Discounts / Sales</span>--}}
