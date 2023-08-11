@@ -76,6 +76,24 @@ class Match extends Model
         }
         return $query;
     }
+    public function scopeF1Team($query, $team_id){
+        if($team_id && $team_id != 0){
+            return $query->where('first_team_id','=',$team_id);
+        }
+        return $query;
+    }
+
+    public function scopeF1TeamSeason($query, $team_id,$season){
+        if($team_id && $team_id != 0){
+            return $query->where(function ($query) use ($team_id) {
+                $query->where('first_team_id', $team_id)
+                    ->orWhere('second_team_id', $team_id);
+            })
+                ->where('league_season_id', $season)
+                ->where('status', 1);
+        }
+        return $query;
+    }
 
 
 

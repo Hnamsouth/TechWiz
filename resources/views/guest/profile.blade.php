@@ -57,27 +57,27 @@
                                 <div class="player-other-desc-inner">
                                     <div class="player-desc-1">
                                         <div class="player-other-desc">
-                                            <h1>Legacy (Italy)</h1>
-                                            <p>Football Club</p>
+                                            <h1>Full Name</h1>
+                                            <p>{{$player->name}}y</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Date of Birth</h1>
-                                            <p>16 Aug, 1993</p>
+                                            <p>{{$player->date_of_birth}}</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Height & Weight</h1>
-                                            <p>184cm , 96kg</p>
+                                            <p>{{$player->height}}m, {{$player->weight}}kg</p>
                                         </div>
                                     </div>
 
                                     <div class="player-desc-1">
                                         <div class="player-other-desc">
-                                            <h1>Full Name</h1>
-                                            <p>Garry Oldman Downy</p>
+                                            <h1>Nationality</h1>
+                                            <p>{{$player->nationality}}</p>
                                         </div>
                                         <div class="player-other-desc">
-                                            <h1>Nationality</h1>
-                                            <p>American</p>
+                                            <h1>Team</h1>
+                                            <p>{{$player->Teams[0]->name}}</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Social</h1>

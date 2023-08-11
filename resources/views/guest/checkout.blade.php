@@ -565,15 +565,6 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="option-block">
-                                        <div class="custom-controls-stacked">
-                                            <label class="custom-control material-checkbox">
-                                                <input name="payment_method" type="radio" class="material-control-input" value="{{\App\Models\Order::COD}}">
-                                                <span class="material-control-indicator"></span>
-                                                <span class="description">COD (Cash On Delivery)</span>
-                                            </label>
-                                        </div>
-                                    </div>
                                     @error('payment_method')
                                     <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
                                     @enderror
