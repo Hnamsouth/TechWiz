@@ -139,9 +139,6 @@
                                 <a class="{{ request()->is('admin/match/edit*') ? 'active' : '' }}">Match Edit</a>
                             </li>
                         @endif
-                        <li>
-                            <a class="{{ request()->is('admin/match/deleted') ? 'active' : '' }}" href="{{url('admin/match/deleted')}}">Match Deleted</a>
-                        </li>
 
                     </ul>
                 </li>
@@ -165,9 +162,6 @@
                                     League Edit</a>
                             </li>
                         @endif
-                        <li>
-                            <a class="{{ request()->is('admin/league/deleted') ? 'active' : '' }}" href="{{url('admin/league/deleted')}}">League Deleted</a>
-                        </li>
 
                     </ul>
                 </li>
@@ -177,6 +171,33 @@
                         <span class="menu-text">User Feedback</span>
                     </a>
                 </li>
+
+
+
+                <li class="has-child {{ request()->is('admin/blog*') ? 'open' : '' }}">
+                    <a href="{{url('admin/blog')}}" class="{{ request()->is('admin/blog*') ? 'active' : '' }}">
+                        <span data-feather="clipboard" class="nav-icon"></span>
+                        <span class="menu-text">Blog</span>
+                        <span class="toggle-icon"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="{{ request()->is('admin/blog') ? 'active' : '' }}" href="{{url('admin/blog')}}">Blog List</a>
+                        </li>
+
+                        <li>
+                            <a class="{{ request()->is('admin/blog/create') ? 'active' : '' }}" href="{{url('admin/blog/create')}}">Blog Add</a>
+                        </li>
+                        @if(request()->is('admin/blog/edit*'))
+                            <li>
+                                <a class="{{ request()->is('admin/blog/edit*') ? 'active' : '' }}">
+                                    Blog Edit</a>
+                            </li>
+                        @endif
+
+                    </ul>
+                </li>
+
 
 
                 {{--                <li>--}}

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,10 +16,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+//    public function __construct()
+//    {
 //        $this->middleware('auth');
-    }
+//    }
 
     /**
      * Show the application dashboard.
@@ -40,18 +42,33 @@ class HomeController extends Controller
     public function contact()
     {
         return view('guest.contact');
-    }    public function blog()
-{
-    return view('guest.blog');
-}
+    }
+
+    public function blog()
+    {
+        $today=Carbon::now('Asia/Kolkata');
+        $last_new=Blog::where('publish_date','>=',$today)
+            ->orderBy("publish_date", 'desc')
+            ->limit(1)->get();
+
+        $second_new=Blog::where('publish_date','>=',$today)->
+        where('id','<>',$last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(8)->get();
+
+
+
+
+        return view('guest.blog',compact('last_new','second_new'));
+    }
+
     public function blogDetails()
     {
         return view('guest.blog-details');
     }
-//    public function playerdetail()
-//    {
-//        return view('guest.playerdetail');
-//    }
+    public function playerdetail()
+    {
+        return view('guest.playerdetail');
+    }
     public function checkout()
     {
         return view('guest.checkout');

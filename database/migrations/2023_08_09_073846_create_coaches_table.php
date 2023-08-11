@@ -22,8 +22,10 @@ class CreateCoachesTable extends Migration
             $table->string('img');
             $table->text('des');
 
-            $table->unsignedBigInteger('team_id');
-            $table->foreign('team_id')->references('id')->on('teams');
+            $table->unsignedBigInteger('club_team_id')->nullable();
+            $table->unsignedBigInteger('national_team_id')->nullable();
+            $table->foreign('club_team_id')->references('id')->on('teams');
+            $table->foreign('national_team_id')->references('id')->on('teams');
             $table->timestamps();
         });
     }
