@@ -48,8 +48,9 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="player-description">
-                                    <p>{{$player->des}}</p>
-
+                                    <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.</p>
+                                    <p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed.</p>
+                                    <p>Nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et </p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -76,7 +77,7 @@
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Team</h1>
-                                            <p>{{$player->team->name}}</p>
+                                            <p>{{$player->Teams[0]->name}}</p>
                                         </div>
                                         <div class="player-other-desc">
                                             <h1>Social</h1>

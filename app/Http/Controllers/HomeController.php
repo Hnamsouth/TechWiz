@@ -82,7 +82,7 @@ class HomeController extends Controller
     }
     public function playerdetail(Players $player)
     {
-
+//        dd($player->Teams);
         return view('guest.profile',compact('player'));
     }
     public function shopProduct(Request $request)

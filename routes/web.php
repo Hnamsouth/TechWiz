@@ -32,7 +32,9 @@ Route::get('/point-table', [\App\Http\Controllers\Client\MatchController::class,
 Route::get('/team', [HomeController::class, 'PointTable'])->name('team');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
 Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
+
 Route::prefix('/contact')->group(function(){
     Route::get('/', [\App\Http\Controllers\FeedbackController::class, 'create'])->name('contact');
     Route::get('/create', [\App\Http\Controllers\FeedbackController::class, 'create']);

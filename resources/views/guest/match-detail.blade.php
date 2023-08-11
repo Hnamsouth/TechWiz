@@ -2,7 +2,7 @@
 
 @extends('guest.layout')
 @section('main-content')
-    @include('guest.html.slider-section')
+{{--    @include('guest.html.slider-section')--}}
     <!-- start of /. match today section -->
     <div class="match-today-section world-cup-match">
         <div class="container">
