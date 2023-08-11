@@ -1,5 +1,21 @@
 
 @extends('guest.layout')
+
+@section('after_css')
+    <style>
+        .buy-now-btn > button {
+            display: block;
+            text-align: center;
+            background-color: #fec722;
+            font-size: 14px;
+            font-weight: 700;
+            color: #24252f;
+            padding: 12px;
+            border: none;
+        }
+    </style>
+@endsection
+
 @section('main-content')
 
     <!-- START PAGE TITILE SECTION -->
@@ -74,7 +90,7 @@
                             <div class="col-md-8">
                                 <div class="title">
                                     <h3>{{$product->name}}</h3>
-                                    <h3 class="product-price">${{number_format($product->price)}}</h3>
+                                    <h3 class="product-price">${{number_format($product->price, 2)}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +111,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="buy-now-btn">
-                                        <a href=""><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart</a>
+                                        <button type="submit"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart</button>
                                     </div>
                                 </div>
                             </form>

@@ -32,7 +32,17 @@
         ul.tags li a {
             width: 100%;
         }
-
+        .product-info .pull-right li button {
+            background: #fec722 none repeat scroll 0 0;
+            border-radius: 5px;
+            display: block;
+            padding: 12px 16px;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            border: none;
+        }
     </style>
 @endsection
 
@@ -85,36 +95,41 @@
                     <div class="row">
 
                         @foreach($data as $product)
-                            <div class="col-md-4">
-                                <div class="products clearifx">
-                                    <div class="single-product">
-                                        <div class="product-imgs">
-                                            <a href="{{url('product-detail', ['product'=>$product->slug])}}">
-                                                <div style="position: relative; width: 100%; padding-top: calc(330 / 262 * 100%); overflow: hidden;">
-                                                    <img src="{{add_w_auto_to_cloudinary_url($product->thumbnail)}}" alt="" class="img-responsive product-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <div class="product-info">
-                                            <div class="pull-left" style="max-width: 80%">
-                                                <a href="{{url('product-detail', ['product'=>$product->slug])}}" class="title">{{$product->name}}</a>
-                                                <p class="price">${{number_format($product->price)}}</p>
+                        <div class="col-md-4">
+                            <div class="products clearifx">
+                                <div class="single-product">
+                                    <div class="product-imgs">
+                                        <a href="{{url('product-detail', ['product'=>$product->slug])}}">
+                                            <div style="position: relative; width: 100%; padding-top: calc(330 / 262 * 100%); overflow: hidden;">
+                                                <img src="{{add_w_auto_to_cloudinary_url($product->thumbnail)}}" alt="" class="img-responsive product-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
                                             </div>
-
-                                            <div class="pull-right">
-                                                <ul class="list-inline">
-                                                    <li>
-                                                        <a href="" class="basket">
-                                                            <i class="fa fa-shopping-basket"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </div><!-- END OF PRODUCTS -->
-                            </div>
+
+                                    <div class="product-info">
+                                        <div class="pull-left" style="max-width: 80%">
+                                            <a href="{{url('product-detail', ['product'=>$product->slug])}}" class="title">{{$product->name}}</a>
+                                            <p class="price">${{number_format($product->price, 2)}}</p>
+                                        </div>
+
+                                        @if($product->quantity > 0)
+                                        <div class="pull-right">
+                                            <ul class="list-inline">
+                                                <li>
+                                                    <form class="add-to-cart-form" action="{{url('add-to-cart',['product'=>$product->slug])}}" method="get">
+                                                        <input type="hidden" name="buy_quantity" value="1">
+                                                        <button type="submit" class="basket">
+                                                            <i class="fa fa-shopping-basket"></i>
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div><!-- END OF PRODUCTS -->
+                        </div>
                         @endforeach
 
 
@@ -157,13 +172,13 @@
                                             All ({{$searchedDataCount}})
                                         </a>
                                     </li>
-                                    @foreach($categories as $category)
-                                        <li class="@if(app('request')->input('category_id') == $category->id) active @endif">
-                                            <a href="{{ url('shop') }}?{{ http_build_query(array_merge(request()->query(), ['category_id' => $category->id])) }}">
-                                                {{$category->name}} ({{$category->products_count}})
-                                            </a>
-                                        </li>
-                                    @endforeach
+                                @foreach($categories as $category)
+                                    <li class="@if(app('request')->input('category_id') == $category->id) active @endif">
+                                        <a href="{{ url('shop') }}?{{ http_build_query(array_merge(request()->query(), ['category_id' => $category->id])) }}">
+                                            {{$category->name}} ({{$category->products_count}})
+                                        </a>
+                                    </li>
+                                @endforeach
                                 </ul>
                             </div>
                         </div>
