@@ -65,7 +65,7 @@
             <div class="attr-nav shoping-cart-box">
                 <ul>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        <a href="{{url('cart')}}" class="dropdown-toggle" data-toggle="dropdown" >
                             <i class="fa fa-shopping-bag"></i>
                             <div class="shop-cart">
                                 <span class="cart-price">
@@ -97,10 +97,10 @@
                     <li><a href="#">Features</a>
                     <li><a href="#">About</a></li>
                     <li>
-                        <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop <b class="caret"></b></a>
+                        <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop </a>
                     </li>
                     <li>
-                        <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
+                        <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">News</a>
                     </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     <li><a href="{{route("club-history")}}">Club History</a></li>

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->NamSeeder();
 
         $this->HungSeeder();
+        $this->HienSeeder();
     }
 
     protected  function HungSeeder(){
@@ -79,4 +80,10 @@ class DatabaseSeeder extends Seeder
     protected function NamSeeder(){
         $this->call(TeamPlayerSeeder::class);
     }
+
+    protected  function HienSeeder(){
+        $this->call(BlogSeeder::class);
+    }
+
+
 }
