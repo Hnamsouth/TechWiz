@@ -11,7 +11,7 @@
                             @foreach($last_new as $item)
                             <div class="col-md-12">
                                 <div class="blog-items">
-                                    <a href="blog-single.html">
+                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
                                         <span>{{$item->league->name}}</span>
                                         <img src="{{$item->thumbnail}}" alt="" />
                                         <div class="blog-content-title">
@@ -26,7 +26,7 @@
 
                                 <div class="col-md-6">
                                 <div class="blog-items">
-                                    <a href="blog-single.html">
+                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
                                         <span>{{$item->league->name}}</span>
                                         <img src="{{$item->thumbnail}}" alt="" />
                                         <div class="blog-content-title">

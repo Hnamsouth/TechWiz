@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,25 +25,33 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::get('/blog-details', [HomeController::class, 'blogDetails'])->name('blog-details');
+Route::get('/blog-detail/{blog:id}', [HomeController::class, 'blogDetails']);
+
+
+
+
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
 Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
-Route::prefix('/contact')->group(function(){
+Route::prefix('/contact')->group(function () {
     Route::get('/', [\App\Http\Controllers\FeedbackController::class, 'create'])->name('contact');
     Route::get('/create', [\App\Http\Controllers\FeedbackController::class, 'create']);
     Route::post('/create', [\App\Http\Controllers\FeedbackController::class, 'store']);
 });
 //Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
+Route::post('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('add-to-cart/{product:slug}', [HomeController::class, 'addToCart'])->name('add-to-cart');
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
 Route::post('/update-cart', [HomeController::class, 'updateCart'])->name('cart');
 Route::post('/delete-from-cart/{product:slug}', [HomeController::class, 'deleteFromCart'])->name('cart');
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');
-Route::prefix("profile")->group(function (){
-    Route::get('/{player:name}', [\App\Http\Controllers\PlayerController::class, 'detail']);
+
+
+
+Route::prefix("profile")->group(function () {
+    Route::get('/{player:name}', [\App\Http\Controllers\HomeController::class, 'playerDetail']);
 });
 
 
@@ -56,7 +65,7 @@ Route::get('/cancel-paypal/{order:code}', [HomeController::class, 'cancelPaypal'
 
 /* -- Account section -- */
 Route::get('/my-account', [HomeController::class, "myAccount"])->middleware(['auth']);
-Route::post('/update-user-info', [HomeController::class, "updateUserInfo"])->middleware(['auth']) ;
+Route::post('/update-user-info', [HomeController::class, "updateUserInfo"])->middleware(['auth']);
 Route::get('/my-account/change-password', [HomeController::class, "changePassword"])->middleware(['auth']);
 Route::post('/my-account/change-password', [HomeController::class, "changePasswordSave"])->middleware(['auth']);
 Route::get('/order-history', [HomeController::class, "orderHistory"])->middleware(['auth']);

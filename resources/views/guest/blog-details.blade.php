@@ -32,11 +32,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="blog-single-thumb">
-                                <img src="/assets/images/blog/b-single1.jpg" alt="" class="img-responsive">
+                                <img src="{{$blog->thumbnail}}" alt="" class="img-responsive">
                                 <span>Euro 2016</span>
                             </div>
                             <div class="blog-single-content-title">
-                                <h3>Fernando Santos's Portugal manifesto</h3>
+                                <h3>{{$blog->title}}</h3>
                                 <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15  <i class="fa fa-comments"></i> 16 </span>
                                 <ul class="blog-share">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -47,36 +47,7 @@
                                     <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="blog-single-content">
-                                <p>
-                                    Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. <br><br>
-
-                                    Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. In ac dui quis
-                                </p>
-                                <h3>Game Highlights</h3>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="blog-single-sub-item">
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <br>
-
-                                                Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
-                                            </p>
-                                            <i class="fa fa-quote-left" aria-hidden="true"></i>  <b>Donec mollis hendrerit risus hasellus nec sem in justo llentesque facilisis. Etiam imperdiet imperdiet orci. </b>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="blog-single-sub-item">
-                                            <img src="/assets/images/blog/b-single2.jpg" alt="" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <br>
-
-                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
-                                </p>
-
-                            </div>
+                            {!! $blog->content !!}
                             <div class="author-profile">
                                 <div class="profile-pic"><img src="/assets/images/blog/admin.jpg" alt="" class="img-responsive"></div>
                                 <div class="author-content">

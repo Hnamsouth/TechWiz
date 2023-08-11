@@ -17,4 +17,6 @@ class MatchResult extends Model
         'goal',
         'penalty_shootout_goal',
     ];
+
+
 }

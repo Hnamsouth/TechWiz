@@ -7,6 +7,7 @@ use App\Events\NewOrderCreated;
 use App\Mail\MailOrder;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Match;
 use App\Models\Order;
 use App\Models\Product;
 use Cloudinary\Api\Upload\UploadApi;
@@ -25,10 +26,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     /**
      * Show the application dashboard.
@@ -37,7 +35,28 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('guest.home');
+
+
+        $today=Carbon::now('Asia/Kolkata');
+        $last_new=Blog::where('publish_date','>=',$today)
+            ->orderBy("publish_date", 'desc')
+            ->limit(1)->get();
+
+        $second_new=Blog::
+        where('id','<>',$last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(4)->get();
+
+        $match=Match::orderBy("datetime", 'desc')
+            ->limit(4)->get();;
+
+
+//            foreach ($match as $item){
+//                dd($item->matchResult);
+//            }
+//        dd($match);
+
+
+        return view('guest.home',compact('last_new','second_new','match'));
     }
 
     public function match()
@@ -60,22 +79,34 @@ class HomeController extends Controller
             ->orderBy("publish_date", 'desc')
             ->limit(1)->get();
 
-        $second_new=Blog::where('publish_date','>=',$today)->
+        $second_new=Blog::
         where('id','<>',$last_new->first()->id)
             ->orderBy("publish_date", 'desc')->limit(8)->get();
+$today_on_sport = Blog::where('publish_date','=',$today)
+    ->orderBy("publish_date", 'desc')
+    ->get();
 
 
 
 
-        return view('guest.blog',compact('last_new','second_new'));
+//        dd($second_new);
+
+
+        return view('guest.blog',compact('last_new','second_new','today_on_sport'));
     }
-    public function blogDetails()
-    {
-        return view('guest.blog-details');
+
+
+    public function blogDetails(Blog $blog){
+
+
+        return view('guest.blog-details',compact('blog'));
+
+
     }
-    public function playerdetail()
+
+    public function playerDetail()
     {
-        return view('guest.playerdetail');
+        return view('guest.profile');
     }
 
     public function shopProduct(Request $request)
