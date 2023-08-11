@@ -12,7 +12,7 @@
             justify-content: space-between;
         }
         /* Style My Account Page */
-        #sidebar .widget-title {
+        #sidebar .widget-title1 {
             font-weight: 500;
             line-height: 26px;
             padding: 23px 0px 16px;
@@ -179,7 +179,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-4">
                     <div class="sidebar" id="sidebar">
-                        <h4 class="widget-title">My Account</h4>
+                        <h3 class="widget-title1">My Account</h3>
                         <ul>
                             <li class="accout-item current"><a href="{{url('/my-account')}}"> Account Information </a></li>
                             <li class="accout-item"><a href="{{url('/order-history')}}">Order History
