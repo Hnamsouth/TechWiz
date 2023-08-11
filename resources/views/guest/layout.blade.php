@@ -78,6 +78,6 @@
 </script>
 
 <!-- Wrapper End -->
-@include("guest.html.js")
+{{--@include("guest.html.js")--}}
 </body>
 </html>

@@ -1,7 +1,6 @@
 @extends('guest.layout')
 @section('main-content')
     @include('guest.html.slider-section')
-
     <!-- START MAIN CONTANER -->
     <div class="section blog-container-1">
         <div class="container">
@@ -174,7 +173,7 @@
                                 <div class="owl-carousel" id="recent-result">
 {{--              hien thi cac tran dau da xong cua moi giai                      --}}
                                     @foreach($leagueSeasonList as $index=>$ls)
-                                        @if($ls->Matches->count() >0)
+                                        @if($index<2 || $index > 7) @continue @endif
                                             <div class="item">
                                                 @foreach($ls->Matches->take(4) as $m )
                                                     @if($m->status)
@@ -187,7 +186,10 @@
                                                                         <img src="{{$m->FirstTeam->logo}}" alt="" />
                                                                     </div>
                                                                     <div class="result-item">
-                                                                        <p style="font-size:16px;font-family: system-ui;"><span style="font-weight:600">{{$m->MatchResult[0]->goal}}({{$m->MatchResult[0]->penalty_shootout_goal}})</span> - {{$m->MatchResult[1]->goal}}({{$m->MatchResult[1]->penalty_shootout_goal}})</p>
+                                                                        <p style="font-size:16px;font-family: system-ui;">
+                                                                            <span style="font-weight:600">{{$m->MatchResult[0]->goal}}({{$m->MatchResult[0]->penalty_shootout_goal}})</span> -
+                                                                            {{$m->MatchResult[1]->goal}}({{$m->MatchResult[1]->penalty_shootout_goal}})
+                                                                        </p>
                                                                     </div>
                                                                     <div class="result-item">
                                                                         <img src="{{$m->SecondTeam->logo}}" alt="" />
@@ -199,7 +201,6 @@
                                                     @endif
                                                 @endforeach
                                             </div><!-- end of /. item -->
-                                        @endif
                                     @endforeach
 
                                 </div>
