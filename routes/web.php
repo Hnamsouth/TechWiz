@@ -28,8 +28,8 @@ Route::get('/blog-details', [HomeController::class, 'blogDetails'])->name('blog-
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
 Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
-Route::get('/contact1', [HomeController::class, 'contact'])->name('contact');
 Route::prefix('/contact')->group(function(){
+    Route::get('/', [\App\Http\Controllers\FeedbackController::class, 'create'])->name('contact');
     Route::get('/create', [\App\Http\Controllers\FeedbackController::class, 'create']);
     Route::post('/create', [\App\Http\Controllers\FeedbackController::class, 'store']);
 });
@@ -84,4 +84,7 @@ Route::prefix("admin")->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\UserController::class, "userList"])->name('user-list');
         Route::get('/detail/{user:id}', [\App\Http\Controllers\Admin\UserController::class, "userDetail"])->name('user-detail');
     });
+    // -- USER FEEDBACK --
+    Route::get('/feedback', [\App\Http\Controllers\FeedbackController::class, "list"])->name('feedback');
+
 });

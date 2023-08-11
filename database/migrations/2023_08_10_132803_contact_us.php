@@ -13,7 +13,7 @@ class ContactUs extends Migration
      */
     public function up()
     {
-        Schema::create('contactUs', function (Blueprint $table){
+        Schema::create('feedback', function (Blueprint $table){
             $table->id();
             $table->string('name');
             $table->string('email');
@@ -31,6 +31,6 @@ class ContactUs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactUs');
+        Schema::dropIfExists('feedback');
     }
 }

@@ -49,30 +49,30 @@
                         <h3>Use Contact Form <Span>& We Help you!</Span></h3>
                     </div>
                 </div>
-                <form action="{{ url("/contact/create") }}" method="post" enctype="multipart/form-data"
-                      id="my-form">
-                    @csrf
+{{--                <form action="#"  id="my-form">--}}
+
                     <div class="col-md-8 col-md-offset-2">
-                        <form action="#" class="row comment-reply contact-form">
+                        <form action="{{ url("/contact/create") }}" method="post" enctype="multipart/form-data" class="row comment-reply contact-form">
+                            @csrf
                             <div class="col-md-6 form-group">
-                                <input type="text" class="form-control" placeholder="Name*">
+                                <input name="name" type="text" class="form-control" placeholder="Name*" value="{{old('name')}}">
                             </div>
                             <div class="col-md-6 form-group">
-                                <input type="email" class="form-control" placeholder="Email*">
+                                <input name="email" type="email" class="form-control" placeholder="Email*" value="{{old('email')}}">
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" placeholder="Website*">
+                                <input name="website" type="text" class="form-control" placeholder="Website*" value="{{old('website')}}">
                             </div>
                             <div class="col-md-12 form-group">
-                                <textarea name="yourtext" class="form-control" cols="30" rows="6"
-                                          placeholder="Your message"></textarea>
+                                <textarea name="feedback" class="form-control" cols="30" rows="6"
+                                          placeholder="Your message">{{old('feedback')}}</textarea>
                             </div>
                             <div class="col-md-12">
-                                <input type="submit" class="comment-submit" value="Submit Your Message">
+                                <button type="submit" class="comment-submit" value="Submit Your Message">Submit Your Message</button>
                             </div>
                         </form>
                     </div>
-                </form>
+{{--                </form>--}}
             </div>
         </div>
     </div><!-- END OF /. CONTACT INFO SECTION  -->

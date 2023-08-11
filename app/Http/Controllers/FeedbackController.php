@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Feedback;
 
 class FeedbackController extends Controller
 {
+    public function list(Request $request) {
+        $search = $request->get("search");
+        $orderCol = $request->has('order_col') ? $request->get('order_col') : 'id';
+        $sortBy = $request->has('sort_by') ? $request->get('sort_by') : 'asc';
+
+        $data = Feedback::Search($search)->orderBy($orderCol,$sortBy)->paginate(20);
+
+        return view("admin.feedback.list", compact('data'));
+    }
     public function create(){
         return view('guest.contact');
     }
@@ -19,6 +30,8 @@ class FeedbackController extends Controller
             "website" => "required|string|min:1",
             "feedback" => "required|string|min:1",
         ]);
-        return redirect()->to("/contact");
+        $data =$request->all();
+        Feedback::create($data);
+        return redirect()->to("/home");
     }
 }
