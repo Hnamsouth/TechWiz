@@ -28,18 +28,18 @@ class BlogController extends Controller
     {
 
         $request->validate([
-            "title" => "required|string|min:1",
-            "description" => "required|string|min:10",
+            "title" => "required|string|min:1|max:50",
+            "description" => "required|string|min:10|max:100",
             "content" => "required",
             "thumbnail" => "nullable|image|mimes:jpeg,png,jpg,svg,webp",
             "publish_date" => 'required|date|after:today',
-            "league_id"=>"required"
+            "league_id" => "required"
 
         ]);
 
         $data = $request->except("thumbnail");
         try {
-            if($request->hasFile("thumbnail")) {
+            if ($request->hasFile("thumbnail")) {
                 $fileName = time() . "_" . str_replace(' ', '_', $request->get('name'));
                 //-- Upload image to Cloudinary --
                 $result = (new UploadApi())->upload(
@@ -67,19 +67,19 @@ class BlogController extends Controller
     {
         $league = League::all();
 
-        return view("admin.blog.edit", compact('blog','league'));
+        return view("admin.blog.edit", compact('blog', 'league'));
     }
 
     public function update(Blog $blog, Request $request)
     {
 
         $request->validate([
-            "title" => "required|string|min:1",
-            "description" => "required|string|min:10",
+            "title" => "required|string|min:1|max:50",
+            "description" => "required|string|min:1|max:255",
             "content" => "required",
             "thumbnail" => "nullable|image|mimes:jpeg,png,jpg,svg,webp",
             "publish_date" => 'required|date|after:today',
-            "league_id"=>"required"
+            "league_id" => "required"
 
         ]);
 
@@ -93,7 +93,7 @@ class BlogController extends Controller
                 }
                 $data['thumbnail'] = null;
                 //-- If user want to upload new thumbnail
-                if($request->hasFile("thumbnail")) {
+                if ($request->hasFile("thumbnail")) {
                     $fileName = time() . "_" . str_replace(' ', '_', $request->get('name'));
                     //-- Upload image to Cloudinary --
                     $result = (new UploadApi())->upload(
@@ -113,18 +113,19 @@ class BlogController extends Controller
         } finally {
             $data['thumbnail'] = $data['thumbnail'] ?? null;
         }
-$blog->update($data);
+        $blog->update($data);
 
         return redirect()->to("/admin/blog");
     }
 
-    public function delete(Blog $league)
+    public function delete(Blog $blog)
     {
-        $league->delete();
+        $blog->delete();
         return redirect()->to("/admin/blog");
     }
 
-    public function detail(Blog $blog) {
+    public function detail(Blog $blog)
+    {
         return view("admin.blog.detail", compact("blog"));
     }
 

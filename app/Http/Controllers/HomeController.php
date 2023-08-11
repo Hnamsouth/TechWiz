@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -33,36 +35,56 @@ class HomeController extends Controller
     {
         return view('guest.match');
     }
+
     public function team()
     {
         return view('guest.team');
     }
+
     public function contact()
     {
         return view('guest.contact');
-    }    public function blog()
-    {
-        return view('guest.blog');
     }
+
+    public function blog()
+    {
+        $today=Carbon::now('Asia/Kolkata');
+        $last_new=Blog::where('publish_date','>=',$today)
+            ->orderBy("publish_date", 'desc')
+            ->limit(1)->get();
+
+        $second_new=Blog::where('publish_date','>=',$today)->
+        where('id','<>',$last_new->first()->id)
+            ->orderBy("publish_date", 'desc')->limit(8)->get();
+
+
+
+
+        return view('guest.blog',compact('last_new','second_new'));
+    }
+
     public function blogDetails()
     {
         return view('guest.blog-details');
     }
+
     public function playerdetail()
     {
         return view('guest.playerdetail');
     }
+
     public function checkout()
     {
         return view('guest.checkout');
     }
+
     public function shopProduct(Request $request)
     {
         $search = $request->get("search");
         $category_id = $request->get("category_id");
         $lowest_price = $request->get("lowest_price");
         $highest_price = $request->get("highest_price");
-        $lowest_price =  str_replace('$', '', $request->get('lowest_price'));
+        $lowest_price = str_replace('$', '', $request->get('lowest_price'));
         $highest_price = str_replace('$', '', $request->get('highest_price'));
         $orderCol = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[0] : "created_at";
         $sortBy = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[1] : "desc";
@@ -91,13 +113,15 @@ class HomeController extends Controller
 
         $data = $searchedData->CategoryFilter($category_id)->orderBy($orderCol, $sortBy)->paginate(12);
 
-        return view('guest.shop',compact('data',"categories", "searchedDataCount"));
+        return view('guest.shop', compact('data', "categories", "searchedDataCount"));
     }
+
     public function productDetail(Product $product)
     {
-        $related_products = Product::where("category_id", $product->category_id)->where("id","<>",$product->id)->orderBy("created_at", "desc")->limit(4)->get();
+        $related_products = Product::where("category_id", $product->category_id)->where("id", "<>", $product->id)->orderBy("created_at", "desc")->limit(4)->get();
         return view('guest.product-details', compact("product", "related_products"));
     }
+
     public function clubHistory()
     {
         return view('guest.club-history');
