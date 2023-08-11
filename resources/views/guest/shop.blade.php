@@ -32,7 +32,17 @@
         ul.tags li a {
             width: 100%;
         }
-
+        .product-info .pull-right li button {
+            background: #fec722 none repeat scroll 0 0;
+            border-radius: 5px;
+            display: block;
+            padding: 12px 16px;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            border: none;
+        }
     </style>
 @endsection
 
@@ -99,18 +109,23 @@
                                     <div class="product-info">
                                         <div class="pull-left" style="max-width: 80%">
                                             <a href="{{url('product-detail', ['product'=>$product->slug])}}" class="title">{{$product->name}}</a>
-                                            <p class="price">${{number_format($product->price)}}</p>
+                                            <p class="price">${{number_format($product->price, 2)}}</p>
                                         </div>
 
+                                        @if($product->quantity > 0)
                                         <div class="pull-right">
                                             <ul class="list-inline">
                                                 <li>
-                                                    <a href="" class="basket">
-                                                        <i class="fa fa-shopping-basket"></i>
-                                                    </a>
+                                                    <form class="add-to-cart-form" action="{{url('add-to-cart',['product'=>$product->slug])}}" method="get">
+                                                        <input type="hidden" name="buy_quantity" value="1">
+                                                        <button type="submit" class="basket">
+                                                            <i class="fa fa-shopping-basket"></i>
+                                                        </button>
+                                                    </form>
                                                 </li>
                                             </ul>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div><!-- END OF PRODUCTS -->

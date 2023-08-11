@@ -1,3 +1,15 @@
+@php
+    function calculateTotalPrice($cartItems) {
+        $totalPrice = 0;
+
+        foreach ($cartItems as $item) {
+            $totalPrice += $item->buy_quantity * $item->price;
+        }
+
+        return number_format($totalPrice, 2);
+    }
+@endphp
+
 <!-- START HEADER TOP SECTION -->
 <div class="header-top">
     <div class="container">
@@ -58,31 +70,12 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
                             <i class="fa fa-shopping-bag"></i>
                             <div class="shop-cart">
-                                <span class="cart-price">Your Cart (3)</span>
-                                <p>$1200.00</p>
+                                <span class="cart-price">
+                                     Your Cart (<span id="cart-count">{{ count(session('cart', [])) }}</span>)
+                                </span>
+                                <p id="total-price">${{ calculateTotalPrice(session('cart', [])) }}</p>
                             </div>
                         </a>
-                        <ul class="dropdown-menu cart-list">
-                            <li>
-                                <a href="#" class="photo"><img src="/assets/images/cart/1.jpg" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">Woo Single #1</a></h6>
-                                <p><span class="price">$42.00 </span><del>$56.00 </del></p>
-                            </li>
-                            <li>
-                                <a href="#" class="photo"><img src="/assets/images/cart/2.jpg" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">Woo Single #2</a></h6>
-                                <p><span class="price">$36.00 </span><del>$38.00</del></p>
-                            </li>
-                            <li>
-                                <a href="#" class="photo"><img src="/assets/images/cart/3.jpg" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">Woo Single #3</a></h6>
-                                <p><span class="price">$38.00 </span><del>$42.00</del></p>
-                            </li>
-                            <li class="total">
-                                <a href="#" class="btn btn-default btn-cart">View Cart</a>
-                                <a href="#" class="btn btn-default btn-cart">Checkout</a>
-                            </li>
-                        </ul>
                     </li>
                 </ul><!-- end of /. cart ul -->
             </div><!-- end of /. cart area -->
