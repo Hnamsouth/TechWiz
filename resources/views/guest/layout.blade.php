@@ -31,7 +31,7 @@
 
 
     @yield('main-content')
-    @include('guest.html.video-section')
+
 
     @include('guest.html.twitter-section')
 

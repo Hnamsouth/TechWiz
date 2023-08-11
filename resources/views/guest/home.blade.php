@@ -700,4 +700,6 @@
             </div><!-- end of /. row -->
         </div><!-- end of /. container -->
     </div><!-- end of /. blog container 2 -->
+    @include('guest.html.video-section')
 @endsection
+

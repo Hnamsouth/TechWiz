@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="blog-items">
-                                    <a href="blog-single.html">
+                                    <a href="{{route('blog-details')}}">
                                         <span>Euro 2016</span>
                                         <img src="/assets/images/blog/1.jpg" alt="" />
                                         <div class="blog-content-title">
@@ -121,18 +121,18 @@
                                 <nav aria-label="Page navigation" class="navigation">
                                     <ul class="pagination">
                                         <li>
-                                            <a href="#" aria-label="Previous">
+                                            <a href="{{route('blog-details')}}" aria-label="Previous">
                                                 <i class="fa fa-chevron-left" aria-hidden="true"></i>
                                                 <span aria-hidden="true">Prev</span>
                                             </a>
                                         </li>
-                                        <li><a href="#">1</a></li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
+                                        <li><a href="{{route('blog-details')}}">1</a></li>
+                                        <li class="active"><a href="{{route('blog-details')}}">2</a></li>
+                                        <li><a href="{{route('blog-details')}}">3</a></li>
+                                        <li><a href="{{route('blog-details')}}">4</a></li>
+                                        <li><a href="{{route('blog-details')}}">5</a></li>
                                         <li>
-                                            <a href="#" aria-label="Next">
+                                            <a href="{{route('blog-details')}}" aria-label="Next">
                                                 <span aria-hidden="true">Next</span>
                                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                             </a>
@@ -157,7 +157,7 @@
                                         <div class="item active">
                                             <ul class="sport-item">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{route('blog-details')}}">
                                                         <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
@@ -167,7 +167,7 @@
                                         <div class="item">
                                             <ul class="sport-item">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{route('blog-details')}}">
                                                         <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
@@ -177,7 +177,7 @@
                                         <div class="item">
                                             <ul class="sport-item">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{route('blog-details')}}">
                                                         <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
@@ -187,7 +187,7 @@
                                         <div class="item">
                                             <ul class="sport-item">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{route('blog-details')}}">
                                                         <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
@@ -197,7 +197,7 @@
                                         <div class="item">
                                             <ul class="sport-item">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{route('blog-details')}}">
                                                         <img src="/assets/images/next-game.jpg" class="img-responsive" width="310" height="220" alt="">
                                                         <h3>Best Player in Europe final three: Cristiano Ronaldo</h3>
                                                     </a>
@@ -207,32 +207,32 @@
 
                                     </div>
                                     <ol class="carousel-indicators sport-item slider-game-time">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
-                                            <a href="#">
+                                        <li data-target="{{route('blog-details')}}carousel-example-generic" data-slide-to="0" class="active">
+                                            <a href="{{route('blog-details')}}">
                                                 <span>16:48</span>
                                                 <p>Best Player in Europe final three: Cristiano Ronaldo</p>
                                             </a>
                                         </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="1">
-                                            <a href="#">
+                                        <li data-target="{{route('blog-details')}}carousel-example-generic" data-slide-to="1">
+                                            <a href="{{route('blog-details')}}">
                                                 <span>15:24</span>
                                                 <p>Sweden and Germany in last four</p>
                                             </a>
                                         </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="2">
-                                            <a href="#">
+                                        <li data-target="{{route('blog-details')}}carousel-example-generic" data-slide-to="2">
+                                            <a href="{{route('blog-details')}}">
                                                 <span>12:28</span>
                                                 <p>Men's Olympic football: day three</p>
                                             </a>
                                         </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="3">
-                                            <a href="#">
+                                        <li data-target="{{route('blog-details')}}carousel-example-generic" data-slide-to="3">
+                                            <a href="{{route('blog-details')}}">
                                                 <span>11:42</span>
                                                 <p>Carvajal wins Super Cup for Madrid</p>
                                             </a>
                                         </li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="4">
-                                            <a href="#">
+                                        <li data-target="{{route('blog-details')}}carousel-example-generic" data-slide-to="4">
+                                            <a href="{{route('blog-details')}}">
                                                 <span>11:42</span>
                                                 <p>Praise for City signing John Stones</p>
                                             </a>
@@ -292,14 +292,14 @@
                             </div>
                             <div class="widget-container">
                                 <ul class="cat">
-                                    <li><a href="#">Liga BBVA</a></li>
-                                    <li><a href="#">UEFA</a></li>
-                                    <li><a href="#">EPL</a></li>
-                                    <li><a href="#">Super Cup</a></li>
-                                    <li><a href="#">World Cup</a></li>
-                                    <li><a href="#">NPL</a></li>
-                                    <li><a href="#">Nation League</a></li>
-                                    <li><a href="#">Archive</a></li>
+                                    <li><a href="{{route('blog-details')}}">Liga BBVA</a></li>
+                                    <li><a href="{{route('blog-details')}}">UEFA</a></li>
+                                    <li><a href="{{route('blog-details')}}">EPL</a></li>
+                                    <li><a href="{{route('blog-details')}}">Super Cup</a></li>
+                                    <li><a href="{{route('blog-details')}}">World Cup</a></li>
+                                    <li><a href="{{route('blog-details')}}">NPL</a></li>
+                                    <li><a href="{{route('blog-details')}}">Nation League</a></li>
+                                    <li><a href="{{route('blog-details')}}">Archive</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -308,5 +308,5 @@
             </div>
         </div>
     </div><!-- END OF /. BLOG CONTAINER SECTION -->
-
+    @include('guest.html.video-section')
 @endsection
