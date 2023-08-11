@@ -173,7 +173,7 @@
                             <div class="widget-container">
                                 <div class="owl-carousel" id="recent-result">
 {{--              hien thi cac tran dau da xong cua moi giai                      --}}
-                                    @foreach($leagueSeasonList as $ls)
+                                    @foreach($leagueSeasonList as $index=>$ls)
                                         @if($ls->Matches->count() >0)
                                             <div class="item">
                                                 @foreach($ls->Matches->take(4) as $m )

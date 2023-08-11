@@ -33,476 +33,107 @@
                     <div class="col-md-12">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#match-statistics" aria-controls="match-statistics" role="tab" data-toggle="tab">Match Statistics</a></li>
-                            <li role="presentation"><a href="#match-event" aria-controls="match-reports" role="tab" data-toggle="tab">Match Events</a></li>
-                            <li role="presentation"><a href="#team" aria-controls="team" role="tab" data-toggle="tab">Team</a></li>
-                            <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a></li>
+                            @foreach($leagueData as $index=>$ll)
+                                @if($index<2) @continue @endif
+                                <li role="presentation" class="{{$index==3?"active":""}}"><a href="#{{str_replace(' ','',$ll['league']->name)}}" aria-controls="match-statistics" role="tab" data-toggle="tab">{{$ll['league']->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="match-statistics">
-                            <div class="point-table-area">
-                                <div class="point-title-area">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%" scope="row">Group A</th>
-                                            <th width="10%" class="text-center">Playered</th>
-                                            <th width="10%" class="text-center">Won</th>
-                                            <th width="10%" class="text-center">Draw</th>
-                                            <th width="10%" class="text-center">Lost </th>
-                                            <th width="10%" class="text-center">For</th>
-                                            <th width="10%" class="text-center">Against</th>
-                                            <th width="10%" class="text-center">Goal dif.</th>
-                                            <th width="10%" class="text-center">Points</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <div class="point-itmes">
-                                    <table class="table table-striped-inverse point-table">
-                                        <tbody>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>France</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>Iceland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>Ireland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="point-table-button text-center">
-                                        <a href="">View Details <i class="fa fa-plus-circle"></i></a>
+                        @foreach($leagueData as $index=>$ll)
+                            @if($index<2) @continue @endif
+                            <div role="tabpanel" class="tab-pane {{$index==3?"active":""}}" id="{{str_replace(' ','',$ll['league']->name)}}">
+                                <div class="point-table-area">
+                                    <h2 class="text-center">{{$ll['league']->name}}</h2>
+                                    <div class="point-itmes">
+
+                                        <table class="table table-striped-inverse point-table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%" scope="row">Rank</th>
+                                                    <th width="25%" class="text-center">Team</th>
+                                                    <th width="10%" class="text-center">Won</th>
+                                                    <th width="10%" class="text-center">Draw</th>
+                                                    <th width="10%" class="text-center">Lost </th>
+                                                    <th width="10%" class="text-center">Goal For</th>
+                                                    <th width="10%" class="text-center">Goal Against</th>
+                                                    <th width="10%" class="text-center">Points</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($ll['point']->sortBy([['point', 'asc']]) as $id=>$tp)
+                                                <tr>
+                                                    <td data-th="Rank" width="5%" scope="row">{{$id+1}}</td>
+                                                    <td data-th="Team" width="25%"  class="text-left">
+                                                        <img src="{{$tp->team->logo}}" alt="" width="30" height="30" style="border-radius:50%" />
+                                                        <span>{{$tp->team->name}}</span>
+                                                    </td>
+                                                    <td data-th="Won" width="10%" class="text-center">{{$tp->win}}</td>
+                                                    <td data-th="Draw" width="10%" class="text-center">{{$tp->draw}}</td>
+                                                    <td data-th="Lost" width="10%" class="text-center">{{$tp->lose}}</td>
+                                                    <td data-th="For" width="10%" class="text-center">{{$tp->goal_for}}</td>
+                                                    <td data-th="Against" width="10%" class="text-center">{{$tp->goal_against}}</td>
+                                                    <td data-th="Points" width="10%" class="text-center">{{$tp->point}}</td>
+                                                </tr>
+                                            @endforeach
+
+                                            </tbody>
+                                        </table>
+
+                                        <div class="point-table-button text-center">
+                                            <a href="">View Details <i class="fa fa-plus-circle"></i></a>
+                                        </div>
+                                        <table class="table point-items-more table-striped-inverse">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <p class="pt-heading">10 Aug, 2016 - Group Stage</p>
+                                                    <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span>France</span>
+                                                    <img src="images/flag2.png" alt="" />
+                                                    <span>2:1</span>
+                                                    <img src="images/flag1.png" alt="" />
+                                                    <span>Portugal</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="pt-heading">06 Jun, 2016 - Group Stage</p>
+                                                    <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span>Iceland</span>
+                                                    <img src="images/flag3.png" alt="" />
+                                                    <span>1:0</span>
+                                                    <img src="images/flag1.png" alt="" />
+                                                    <span>Portugal</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="pt-heading">04 Jun, 2016 - Group Stage</p>
+                                                    <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span>Ireland</span>
+                                                    <img src="images/flag4.png" alt="" />
+                                                    <span>2:1</span>
+                                                    <img src="images/flag1.png" alt="" />
+                                                    <span>Portugal</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <table class="table point-items-more table-striped-inverse">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">10 Aug, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>France</span>
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">06 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Iceland</span>
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>1:0</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">04 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Ireland</span>
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="match-event">
-                            <div class="point-table-area">
-                                <div class="point-title-area">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%" scope="row">Group A</th>
-                                            <th width="10%" class="text-center">Playered</th>
-                                            <th width="10%" class="text-center">Won</th>
-                                            <th width="10%" class="text-center">Draw</th>
-                                            <th width="10%" class="text-center">Lost </th>
-                                            <th width="10%" class="text-center">For</th>
-                                            <th width="10%" class="text-center">Against</th>
-                                            <th width="10%" class="text-center">Goal dif.</th>
-                                            <th width="10%" class="text-center">Points</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <div class="point-itmes">
-                                    <table class="table table-striped-inverse point-table">
-                                        <tbody>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>France</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>Iceland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>Ireland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="point-table-button text-center">
-                                        <a href="">View Details <i class="fa fa-plus-circle"></i></a>
-                                    </div>
-                                    <table class="table point-items-more table-striped-inverse">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">10 Aug, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>France</span>
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">06 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Iceland</span>
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>1:0</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">04 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Ireland</span>
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="comments">
-                            <div class="point-table-area">
-                                <div class="point-title-area">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%" scope="row">Group A</th>
-                                            <th width="10%" class="text-center">Playered</th>
-                                            <th width="10%" class="text-center">Won</th>
-                                            <th width="10%" class="text-center">Draw</th>
-                                            <th width="10%" class="text-center">Lost </th>
-                                            <th width="10%" class="text-center">For</th>
-                                            <th width="10%" class="text-center">Against</th>
-                                            <th width="10%" class="text-center">Goal dif.</th>
-                                            <th width="10%" class="text-center">Points</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <div class="point-itmes">
-                                    <table class="table table-striped-inverse point-table">
-                                        <tbody>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>France</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>Iceland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>Ireland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="point-table-button text-center">
-                                        <a href="">View Details <i class="fa fa-plus-circle"></i></a>
-                                    </div>
-                                    <table class="table point-items-more table-striped-inverse">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">10 Aug, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>France</span>
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">06 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Iceland</span>
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>1:0</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">04 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Ireland</span>
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="team">
-                            <div class="point-table-area">
-                                <div class="point-title-area">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th width="20%" scope="row">Group A</th>
-                                            <th width="10%" class="text-center">Playered</th>
-                                            <th width="10%" class="text-center">Won</th>
-                                            <th width="10%" class="text-center">Draw</th>
-                                            <th width="10%" class="text-center">Lost </th>
-                                            <th width="10%" class="text-center">For</th>
-                                            <th width="10%" class="text-center">Against</th>
-                                            <th width="10%" class="text-center">Goal dif.</th>
-                                            <th width="10%" class="text-center">Points</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <div class="point-itmes">
-                                    <table class="table table-striped-inverse point-table">
-                                        <tbody>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>France</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>Iceland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        <tr>
-                                            <th data-th="Group A" width="20%" scope="row">
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>Ireland</span>
-                                            </th>
-                                            <td data-th="Playered" width="10%" class="text-center">3</td>
-                                            <td data-th="Won" width="10%" class="text-center">2</td>
-                                            <td data-th="Draw" width="10%" class="text-center">1</td>
-                                            <td data-th="Lost" width="10%" class="text-center">0</td>
-                                            <td data-th="For" width="10%" class="text-center">4</td>
-                                            <td data-th="Against" width="10%" class="text-center">1</td>
-                                            <td data-th="Goal dif." width="10%" class="text-center">3</td>
-                                            <td data-th="Points" width="10%" class="text-center">7</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="point-table-button text-center">
-                                        <a href="">View Details <i class="fa fa-plus-circle"></i></a>
-                                    </div>
-                                    <table class="table point-items-more table-striped-inverse">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">10 Aug, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>France</span>
-                                                <img src="images/flag2.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">06 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Iceland</span>
-                                                <img src="images/flag3.png" alt="" />
-                                                <span>1:0</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="pt-heading">04 Jun, 2016 - Group Stage</p>
-                                                <p>Stade de France, Saint-Desnis <br />Referee: Viktor Kassai (HUN</p>
-                                            </td>
-                                            <td class="text-right">
-                                                <span>Ireland</span>
-                                                <img src="images/flag4.png" alt="" />
-                                                <span>2:1</span>
-                                                <img src="images/flag1.png" alt="" />
-                                                <span>Portugal</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+
+                        @endforeach
                     </div>
                 </div>
             </div>
