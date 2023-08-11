@@ -1,5 +1,4 @@
 @extends('guest.layout')
-
 @section('after_css')
     <style>
         .cart-section .othre-content .coupon-box input[type='text']{

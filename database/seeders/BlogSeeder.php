@@ -84,7 +84,7 @@ Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, v
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="blog-single-sub-item">
-                                                        <img src="/assets/images/blog/b-single2.jpg" alt="" class="img-responsive">
+                                                        <img src="/assets/images/blog/1.jpg" alt="" class="img-responsive">
                                                     </div>
                                                 </div>
                                             </div>

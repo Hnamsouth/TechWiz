@@ -46,7 +46,6 @@ Route::get('/team', [HomeController::class, 'PointTable'])->name('team');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('add-to-cart/{product:slug}', [HomeController::class, 'addToCart'])->name('add-to-cart');
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
