@@ -508,7 +508,7 @@
                                                     <div class="row {{$i%2==1?"color-row":""}} " style="display:flex; align-items:center">
                                                         <div class="col-md-4 col-xs-2">
                                                             @php($ft=$ME4[$i]->event_type=='Penalty'?$ft+1:$ft)
-                                                            <div class="">
+                                                            <div style="display:flex">
                                                                 <img src="{{$ME4[$i]->FirstPlayer->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                                 <div class="row">
                                                                     <span style="font-size:15px;font-weight:bold">{{$ME4[$i]->FirstPlayer->name}}({{$ME4[$i]->FirstPlayer->number}})</span>
@@ -526,7 +526,7 @@
                                                         </div>
                                                         <div class="col-md-4 col-xs-2">
                                                             @php($st=$ME4[$i+1]->event_type=='Penalty'?$st+1:$st)
-                                                            <div class="text-right">
+                                                            <div class="text-right" style="display: flex;flex-direction:row;justify-content: flex-end">
                                                                 <div class="row">
                                                                     <span style="font-size:15px;font-weight:bold">{{$ME4[$i+1]->FirstPlayer->name}}({{$ME4[$i+1]->FirstPlayer->number}})</span>
                                                                     <p>({{$ft}} - {{$st}})</p>

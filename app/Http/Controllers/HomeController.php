@@ -42,8 +42,6 @@ class HomeController extends Controller
     public function index()
     {
         $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
-//        dd($leagueSeasonList->get(4)->Matches->take(10));
-//        dd($leagueSeasonList->get(2)->Matches->first());
 
         $today = Carbon::now('Asia/Kolkata');
         $last_new = Blog::where('publish_date', '>=', $today)
@@ -64,16 +62,6 @@ class HomeController extends Controller
         $today_on_sport_footter=Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
-
-
-
-
-//            foreach ($match as $item){
-//                dd($item->matchResult);
-//            }
-//        dd($match);
-
-
         return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList','today_on_sport','today_on_sport_footter'));
     }
 
@@ -117,10 +105,7 @@ class HomeController extends Controller
         $league=League::all();
         return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport','today_on_sport_footter','last_new_slider','league'));
     }
-    public function blogDetails()
-    {
-        return view('guest.blog-details');
-    }
+
     public function playerdetail(Players $player)
     {
 
