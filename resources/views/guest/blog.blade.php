@@ -308,5 +308,5 @@
             </div>
         </div>
     </div><!-- END OF /. BLOG CONTAINER SECTION -->
-
+    @include('guest.html.video-section')
 @endsection
