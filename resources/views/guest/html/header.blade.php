@@ -120,8 +120,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse top-nav" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Match</a>
-                    <li><a href="">Player Rank</a></li>
+                    <li><a href="{{route('match')}}">Match</a>
+                    <li><a href="{{route('point_table')}}">Club Rank</a></li>
+                    <li><a href="{{route('top_player')}}">Player Rank</a></li>
                     <li>
                         <a href="{{route('shop-product')}}">Shop</a>
                     </li>
@@ -136,70 +137,70 @@
     </nav><!-- End Navigation -->
 
     <!-- START MENU SECTION -->
-    <nav class="navbar navbar-default bootsnav">
-        <div class="container">
-            <!-- Start Atribute Navigation -->
-            <div class="attr-nav">
-                <ul>
-                    <li class="search">
-                        <form action="#">
-                            <input type="text" name="search" placeholder="Search"/>
-                            <button><i class="fa fa-search"></i></button>
-                        </form>
-                    </li>
-                </ul>
-            </div><!-- end of /. header search button -->
-            <!-- End Atribute Navigation -->
+{{--    <nav class="navbar navbar-default bootsnav">--}}
+{{--        <div class="container">--}}
+{{--            <!-- Start Atribute Navigation -->--}}
+{{--            <div class="attr-nav">--}}
+{{--                <ul>--}}
+{{--                    <li class="search">--}}
+{{--                        <form action="#">--}}
+{{--                            <input type="text" name="search" placeholder="Search"/>--}}
+{{--                            <button><i class="fa fa-search"></i></button>--}}
+{{--                        </form>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div><!-- end of /. header search button -->--}}
+{{--            <!-- End Atribute Navigation -->--}}
 
-            <!-- Start Header Navigation -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </div>
-            <!-- End Header Navigation -->
+{{--            <!-- Start Header Navigation -->--}}
+{{--            <div class="navbar-header">--}}
+{{--                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">--}}
+{{--                    <i class="fa fa-bars"></i>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+{{--            <!-- End Header Navigation -->--}}
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">
-                    <li><a href="{{route('point_table')}}">Ranks</a></li>
-                    <li><a href="/match">Matches</a></li>
-                    <li><a href="/top-players">Player Ranks</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Super Cup</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">World Cup</a></li>
-                    <li><a href="#">NPL</a></li>
-                    <li><a href="#">Nation League</a></li>
-                    <li><a href="#">Archive</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- end of container -->
-    </nav><!-- end of /. nav -->
+{{--            <!-- Collect the nav links, forms, and other content for toggling -->--}}
+{{--            <div class="collapse navbar-collapse" id="navbar-menu">--}}
+{{--                <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">--}}
+{{--                    <li><a href="{{route('point_table')}}">Ranks</a></li>--}}
+{{--                    <li><a href="/match">Matches</a></li>--}}
+{{--                    <li><a href="/top-players">Player Ranks</a></li>--}}
+{{--                    <li class="dropdown">--}}
+{{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Super Cup</a>--}}
+{{--                        <ul class="dropdown-menu">--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li class="dropdown">--}}
+{{--                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>--}}
+{{--                                <ul class="dropdown-menu">--}}
+{{--                                    <li><a href="#">Custom Menu</a></li>--}}
+{{--                                    <li><a href="#">Custom Menu</a></li>--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>--}}
+{{--                                        <ul class="dropdown-menu">--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                    <li><a href="#">Custom Menu</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                    <li><a href="#">World Cup</a></li>--}}
+{{--                    <li><a href="#">NPL</a></li>--}}
+{{--                    <li><a href="#">Nation League</a></li>--}}
+{{--                    <li><a href="#">Archive</a></li>--}}
+{{--                </ul>--}}
+{{--            </div><!-- /.navbar-collapse -->--}}
+{{--        </div><!-- end of container -->--}}
+{{--    </nav>--}}
 </div><!-- end of /. nav area-->
 <!-- End Navigation -->
