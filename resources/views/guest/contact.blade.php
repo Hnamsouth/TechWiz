@@ -64,6 +64,8 @@
             {{--                </div><!-- END OF /. COL -->--}}
             {{--            </div>--}}
             <div class="row">
+{{--                <div>abc</div>--}}
+{{--                jjjjjjj--}}
                 <div class="col-xs-7">
                     <form action="{{ url("/contact/create") }}" method="post" enctype="multipart/form-data"
                           class="row comment-reply contact-form">
