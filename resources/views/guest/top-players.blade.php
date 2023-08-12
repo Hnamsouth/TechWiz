@@ -2,7 +2,7 @@
 
 @extends('guest.layout')
 @section('main-content')
-    @include('guest.html.slider-section')
+{{--    @include('guest.html.slider-section')--}}
     <!-- START PAGE TITILE SECTION -->
     <div class="player-profile-section page-title-section">
         <div class="container">
@@ -16,8 +16,7 @@
                     <div class="pagination-area">
                         <ul>
                             <li><a href="#">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                            <li><a href="#">Bread<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                            <li class="active"><a href="#">Crumbs</a></li>
+                            <li><a href="#">Player</a></li>
                         </ul>
                     </div>
                 </div>

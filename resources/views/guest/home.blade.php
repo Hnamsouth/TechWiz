@@ -23,30 +23,32 @@
                                     <div class="blog-items">
                                         <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
                                             <span>{{$item->league->name}}</span>
-                                            <img src="{{$item->thumbnail}}" alt="" />
+                                            <img src="{{$item->thumbnail}}" alt=""/>
                                             <div class="blog-content-title">
                                                 <h3>{{$item->title}}</h3>
-                                                <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}  <i class="fa fa-comments"></i> 16 </span>
+                                                <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}  <i
+                                                        class="fa fa-comments"></i> 16 </span>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                             @endforeach<!-- end of /. col -->
-                                @foreach($second_new as $item)
+                            @foreach($second_new as $item)
 
-                                    <div class="col-md-6">
-                                        <div class="blog-items">
-                                            <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
-                                                <span>{{$item->league->name}}</span>
-                                                <img src="{{$item->thumbnail}}" alt="" />
-                                                <div class="blog-content-title">
-                                                    <h3>{{$item->title}}</h3>
-                                                    <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i class="fa fa-comments"></i> 16 </span>
-                                                </div>
-                                            </a>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="blog-items">
+                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                            <span>{{$item->league->name}}</span>
+                                            <img src="{{$item->thumbnail}}" alt=""/>
+                                            <div class="blog-content-title">
+                                                <h3>{{$item->title}}</h3>
+                                                <span><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i
+                                                        class="fa fa-comments"></i> 16 </span>
+                                            </div>
+                                        </a>
                                     </div>
-                                @endforeach
+                                </div>
+                            @endforeach
                             <div class="col-md-6">
                                 <div class="title-section sm-title">
                                     <h2>Top <b>Player</b></h2>
@@ -57,7 +59,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.jpg" alt="" />
+                                                <img src="/assets/images/player.jpg" alt=""/>
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -67,7 +69,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.jpg" alt="" />
+                                                <img src="/assets/images/player.jpg" alt=""/>
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -77,7 +79,7 @@
                                         <div class="item">
                                             <a href="#">
                                                 <span>Euro 2016</span>
-                                                <img src="/assets/images/player.jpg" alt="" />
+                                                <img src="/assets/images/player.jpg" alt=""/>
                                                 <div class="blog-content-title">
                                                     <h3>David Beckham</h3>
                                                     <span><i class="fa fa-male"></i> Halfback </span>
@@ -86,8 +88,10 @@
                                         </div>
                                     </div>
                                     <div class="player-navigation arrow-style">
-                                        <button class="player-next"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
-                                        <button class="player-prev"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                        <button class="player-next"><i class="fa fa-chevron-left"
+                                                                       aria-hidden="true"></i></button>
+                                        <button class="player-prev"><i class="fa fa-chevron-right"
+                                                                       aria-hidden="true"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -108,17 +112,23 @@
                                             <li>
                                                 <input type="radio" id="b-option" name="selector">
                                                 <label for="b-option">Some Poll Option</label>
-                                                <div class="check"><div class="inside"></div></div>
+                                                <div class="check">
+                                                    <div class="inside"></div>
+                                                </div>
                                             </li>
                                             <li>
                                                 <input type="radio" id="c-option" name="selector">
                                                 <label for="c-option">Some Poll Option</label>
-                                                <div class="check"><div class="inside"></div></div>
+                                                <div class="check">
+                                                    <div class="inside"></div>
+                                                </div>
                                             </li>
                                             <li>
                                                 <input type="radio" id="d-option" name="selector">
                                                 <label for="d-option">Some Poll Option</label>
-                                                <div class="check"><div class="inside"></div></div>
+                                                <div class="check">
+                                                    <div class="inside"></div>
+                                                </div>
                                             </li>
                                         </ul>
                                         <a href="#">Submit My Answer</a>
@@ -134,42 +144,48 @@
                             <div class="widget-title">
                                 <h3>Recent Result</h3>
                                 <div class="recent-navigation arrow-style">
-                                    <button class="recent-re-next"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
-                                    <button class="recent-re-prev"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <button class="recent-re-next"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="recent-re-prev"><i class="fa fa-chevron-right"
+                                                                      aria-hidden="true"></i></button>
                                 </div>
                             </div>
                             <div class="widget-container">
                                 <div class="owl-carousel" id="recent-result">
-{{--              hien thi cac tran dau da xong cua moi giai                      --}}
+                                    {{--              hien thi cac tran dau da xong cua moi giai                      --}}
                                     @foreach($leagueSeasonList as $index=>$ls)
-                                        @if($index<2 || $index > 7) @continue @endif
-                                            <div class="item">
-                                                @foreach($ls->Matches->take(4) as $m )
-                                                    @if($m->status)
-                                                        <div class="recent-items" >
-                                                            <a href="{{route('match_rs',['match'=>$m->id])}}">
-                                                                <h4>{{$m->datetime}}</h4>
-                                                                <div class="result-coutry-area">
-                                                                    <div class="result-item">
-                                                                        <p>Team{{$m->FirstTeam->id}}</p>
-                                                                        <img src="{{$m->FirstTeam->logo}}" alt="" />
-                                                                    </div>
-                                                                    <div class="result-item">
-                                                                        <p style="font-size:16px;font-family: system-ui;">
-                                                                            <span style="font-weight:600">{{$m->MatchResult[0]->goal}}({{$m->MatchResult[0]->penalty_shootout_goal}})</span> -
-                                                                            {{$m->MatchResult[1]->goal}}({{$m->MatchResult[1]->penalty_shootout_goal}})
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="result-item">
-                                                                        <img src="{{$m->SecondTeam->logo}}" alt="" />
-                                                                        <p>Team {{$m->SecondTeam->id}}</p>
-                                                                    </div>
+                                        @if($index<2 || $index > 7)
+                                            @continue
+                                        @endif
+                                        <div class="item">
+                                            @foreach($ls->Matches->take(4) as $m )
+                                                @if($m->status)
+                                                    <div class="recent-items">
+                                                        <a href="{{route('match_rs',['match'=>$m->id])}}">
+                                                            <h4>{{$m->datetime}}</h4>
+                                                            <div class="result-coutry-area">
+                                                                <div class="result-item">
+                                                                    <p>Team{{$m->FirstTeam->id}}</p>
+                                                                    <img src="{{$m->FirstTeam->logo}}" alt=""/>
                                                                 </div>
-                                                            </a>
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            </div><!-- end of /. item -->
+                                                                <div class="result-item">
+                                                                    <p style="font-size:16px;font-family: system-ui;">
+                                                                        <span style="font-weight:600">{{$m->MatchResult[0]->goal}}({{$m->MatchResult[0]->penalty_shootout_goal}})</span>
+                                                                        -
+                                                                        {{$m->MatchResult[1]->goal}}
+                                                                        ({{$m->MatchResult[1]->penalty_shootout_goal}})
+                                                                    </p>
+                                                                </div>
+                                                                <div class="result-item">
+                                                                    <img src="{{$m->SecondTeam->logo}}" alt=""/>
+                                                                    <p>Team {{$m->SecondTeam->id}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        </div><!-- end of /. item -->
                                     @endforeach
 
                                 </div>
@@ -179,8 +195,10 @@
                             <div class="widget-title">
                                 <h3>Club Ranking</h3>
                                 <div class="custom-navigation arrow-style">
-                                    <button class="club-rank-perv"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
-                                    <button class="club-rank-next"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <button class="club-rank-perv"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="club-rank-next"><i class="fa fa-chevron-right"
+                                                                      aria-hidden="true"></i></button>
                                 </div>
                             </div>
                             <div class="widget-container">
@@ -267,12 +285,12 @@
                                     <div class="carousel-inner" role="listbox">
                                         @foreach($today_on_sport as $key=> $item)
 
-
                                             <div class="item  {{$key==0?'active':''}}">
                                                 <ul class="sport-item">
                                                     <li>
                                                         <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
-                                                            <img src="{{$item->thumbnail}}" class="img-responsive" width="310" height="220" alt="">
+                                                            <img src="{{$item->thumbnail}}" class="img-responsive"
+                                                                 width="310" height="220" alt="">
                                                             <h3>{{$item->title}}</h3>
                                                         </a>
                                                     </li>
@@ -285,8 +303,8 @@
                                     <ol class="sport-item slider-game-time">
                                         @foreach($today_on_sport_footter as $key=> $item)
 
-
-                                            <li data-target="#carousel-example-generic" data-slide-to="0" class=" {{$key==0?'active':''}}">
+                                            <li data-target="#carousel-example-generic" data-slide-to="0"
+                                                class=" {{$key==0?'active':''}}">
                                                 <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
                                                     <span>{{$item->publish_date}}</span>
                                                     <p>{{$item->title}}</p>
@@ -321,16 +339,17 @@
                         <div class="row">
                             <div class="col-lg-7 col-md-12">
                                 <div class="sub-title">
-                                    <p>Vivamus quis mi. Phasellus a est. Phasellus magna. In hac abitasse platea dictumst. Curabitur at lacus. </p>
+                                    <p>Vivamus quis mi. Phasellus a est. Phasellus magna. In hac abitasse platea
+                                        dictumst. Curabitur at lacus. </p>
                                 </div>
                             </div><!-- end of /. col -->
                             <div class="col-lg-5 col-md-12">
                                 <div class="subscribe-area">
                                     <form action="#" class="form-inline">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your e-mail"  />
+                                            <input type="text" class="form-control" placeholder="Your e-mail"/>
                                         </div>
-                                        <input type="submit" value="Sign Up" class="submit-btn" />
+                                        <input type="submit" value="Sign Up" class="submit-btn"/>
                                     </form>
                                 </div>
                             </div><!-- end of /. col -->
@@ -342,7 +361,9 @@
                     <div class="social-area facebook-box">
                         <h2>Join to <b>our Facebook</b></h2>
                         <div class="social-link">
-                            <div class="fb-like" data-href="https://www.facebook.com/webRedox/?__mref=message" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+                            <div class="fb-like" data-href="https://www.facebook.com/webRedox/?__mref=message"
+                                 data-layout="standard" data-action="like" data-size="small" data-show-faces="true"
+                                 data-share="false"></div>
                         </div>
                     </div>
                 </div><!-- end of /. col -->
@@ -354,9 +375,10 @@
                                     src="/assets/https://platform.twitter.com/widgets/follow_button.html?screen_name=webRedox&show_screen_name=true&show_count=true"
                                     style="height:20px;"></iframe>
 
-                            <script src="/assets/https://platform.twitter.com/widgets.js" type="text/javascript"></script>
+                            <script src="/assets/https://platform.twitter.com/widgets.js"
+                                    type="text/javascript"></script>
                             <script type="text/javascript">
-                                twttr.events.bind('follow', function(event) {
+                                twttr.events.bind('follow', function (event) {
                                     console.log(event);
                                     var followed_user_id = event.data.user_id;
                                     var followed_screen_name = event.data.screen_name;
@@ -380,7 +402,8 @@
                                 <div class="title-section">
                                     <ul class="filter-menu button-group sort-button-group">
                                         @foreach($league_1 as $key=>$item)
-                                        <li class="button {{$key==0?'active':''}}" data-category="all">{{$item->name}}</li>
+                                            <li class="button {{$key==0?'active':''}}"
+                                                data-category="all">{{$item->name}}</li>
                                         @endforeach
 
                                     </ul>
@@ -390,18 +413,19 @@
                         <div class="row work">
 
                             @foreach($last_new_league_world_cup as $item)
-                            <div class="col-md-6 work-item team">
-                                <div class="blog-items">
-                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
-                                        <span>{{$item->league->name}}</span>
-                                        <img src="{{$item->thumbnail}}" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>{{$item->title}}</h3>
-                                            <span><i class="fa fa-clock-o"></i>{{$item->publish_date}} <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
+                                <div class="col-md-6 work-item team">
+                                    <div class="blog-items">
+                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                            <span>{{$item->league->name}}</span>
+                                            <img src="{{$item->thumbnail}}" alt=""/>
+                                            <div class="blog-content-title">
+                                                <h3>{{$item->title}}</h3>
+                                                <span><i class="fa fa-clock-o"></i>{{$item->publish_date}} <i
+                                                        class="fa fa-comments"></i> 16 </span>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
 
@@ -409,49 +433,51 @@
 
 
 
-@foreach($last_new_league_world_cup_2 as $item)
+                            @foreach($last_new_league_world_cup_2 as $item)
 
-                            <div class="col-md-6 work-item team">
-                                <div class="blog-items-sm">
-                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
-                                        <div class="thumbnail">
-                                            <img src="{{$item->thumbnail}}" class="img-responsive" width="120" height="120" alt="">
-                                        </div>
-                                        <div class="blog-content">
-                                            <span>{{$item->league->name}}</span>
-                                            <h3>{{$item->title}}</h3>
-                                            <p><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i class="fa fa-comments"></i> 16</p>
-                                        </div>
-                                    </a>
+                                <div class="col-md-6 work-item team">
+                                    <div class="blog-items-sm">
+                                        <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                            <div class="thumbnail">
+                                                <img src="{{$item->thumbnail}}" class="img-responsive" width="120"
+                                                     height="120" alt="">
+                                            </div>
+                                            <div class="blog-content">
+                                                <span>{{$item->league->name}}</span>
+                                                <h3>{{$item->title}}</h3>
+                                                <p><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i
+                                                        class="fa fa-comments"></i> 16</p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                                @endforeach
+                            @endforeach
 
                         </div>
                     </div>
                 </div><!-- end of /. col-md-8 -->
-{{--                <div class="col-md-4">--}}
-{{--                    <div class="sidebar">--}}
-{{--                        <div class="widget">--}}
-{{--                            <div class="widget-title">--}}
-{{--                            </div>--}}
-{{--                            <div class="social-like-area">--}}
-{{--                                <ul>--}}
-{{--                                    <li><a href="#"><i class="fa fa-facebook"></i> <span>108608   Likes</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
-{{--                                    <li><a href="#"><i class="fa fa-twitter"></i> <span>108608   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
-{{--                                    <li><a href="#"><i class="fa fa-youtube-play"></i> <span>1802   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="widget">--}}
-{{--                            <div class="sidebar-ad">--}}
-{{--                                <a href="#">--}}
-{{--                                    <img src="/assets/images/banner.jpg" class="img-responsive" width="370" height="571" alt="">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div><!-- end of /. col -->--}}
+                {{--                <div class="col-md-4">--}}
+                {{--                    <div class="sidebar">--}}
+                {{--                        <div class="widget">--}}
+                {{--                            <div class="widget-title">--}}
+                {{--                            </div>--}}
+                {{--                            <div class="social-like-area">--}}
+                {{--                                <ul>--}}
+                {{--                                    <li><a href="#"><i class="fa fa-facebook"></i> <span>108608   Likes</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
+                {{--                                    <li><a href="#"><i class="fa fa-twitter"></i> <span>108608   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
+                {{--                                    <li><a href="#"><i class="fa fa-youtube-play"></i> <span>1802   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
+                {{--                                </ul>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                        <div class="widget">--}}
+                {{--                            <div class="sidebar-ad">--}}
+                {{--                                <a href="#">--}}
+                {{--                                    <img src="/assets/images/banner.jpg" class="img-responsive" width="370" height="571" alt="">--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div><!-- end of /. col -->--}}
             </div><!-- end of /. row -->
         </div><!-- end of /. container -->
     </div><!-- end of /. blog container 2 -->

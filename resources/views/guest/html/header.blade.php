@@ -122,7 +122,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{route('point_table')}}">Ranks</a>
                     <li><a href="/top-players">Player</a></li>
-                    <li><a href="/match">Player</a></li>
+                    <li><a href="/match">Match</a></li>
                     <li>
                         <a href="{{route('shop-product')}}">Shop</a>
                     </li>
@@ -131,37 +131,38 @@
                     </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     <li><a href="{{route("club-history")}}">Club History</a></li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- end of /. container -->
     </nav><!-- End Navigation -->
 
     <!-- START MENU SECTION -->
-    <nav class="navbar navbar-default bootsnav">
-        <div class="container">
-            <!-- Start Atribute Navigation -->
-            <div class="attr-nav">
-                <ul>
-                    <li class="search">
-                        <form action="#">
-                            <input type="text" name="search" placeholder="Search"/>
-                            <button><i class="fa fa-search"></i></button>
-                        </form>
-                    </li>
-                </ul>
-            </div><!-- end of /. header search button -->
-            <!-- End Atribute Navigation -->
+{{--    <nav class="navbar navbar-default bootsnav">--}}
+{{--        <div class="container">--}}
+{{--            <!-- Start Atribute Navigation -->--}}
+{{--            <div class="attr-nav">--}}
+{{--                <ul>--}}
+{{--                    <li class="search">--}}
+{{--                        <form action="#">--}}
+{{--                            <input type="text" name="search" placeholder="Search"/>--}}
+{{--                            <button><i class="fa fa-search"></i></button>--}}
+{{--                        </form>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div><!-- end of /. header search button -->--}}
+{{--            <!-- End Atribute Navigation -->--}}
 
-            <!-- Start Header Navigation -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </div>
-            <!-- End Header Navigation -->
+{{--            <!-- Start Header Navigation -->--}}
+{{--            <div class="navbar-header">--}}
+{{--                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">--}}
+{{--                    <i class="fa fa-bars"></i>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+{{--            <!-- End Header Navigation -->--}}
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-        </div><!-- end of container -->
-    </nav><!-- end of /. nav -->
+{{--            <!-- Collect the nav links, forms, and other content for toggling -->--}}
+{{--        </div><!-- end of container -->--}}
+{{--    </nav><!-- end of /. nav -->--}}
 </div><!-- end of /. nav area-->
 <!-- End Navigation -->

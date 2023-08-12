@@ -26,6 +26,15 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog-detail/{blog:id}', [HomeController::class, 'blogDetails']);
 
+Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
+Route::post('/checkout', [HomeController::class, 'placeOrder'])->middleware(['auth'])->name('placeOrder');
+
+/* -- PAYPAL -- */
+Route::get('/process-paypal/{order:code}', [HomeController::class, 'processPaypal'])->name('process_paypal');
+Route::get('/success-paypal/{order:code}', [HomeController::class, 'successPaypal'])->name('success_paypal');
+Route::get('/cancel-paypal/{order:code}', [HomeController::class, 'cancelPaypal'])->name('cancel_paypal');
+
+
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::prefix('/contact')->group(function(){
@@ -44,5 +53,7 @@ Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-
 Route::prefix("profile")->group(function (){
     Route::get('/{player:name}', [\App\Http\Controllers\PlayerController::class, 'detail']);
 });
+
+
 
 

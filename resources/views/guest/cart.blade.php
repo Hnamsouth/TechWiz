@@ -360,6 +360,7 @@
             </div>
         </div>
     </div><!-- END OF PRODUCTS SECTION -->
+
     @include('guest.html.twitter-section')
 @endsection
 
