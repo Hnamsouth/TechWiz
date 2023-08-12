@@ -16,7 +16,7 @@
                     </div>
                     <div class="widget-container">
                         <ul>
-                            <li><a href="#">Latest News</a></li>
+                            <li><a href="{{route('blog')}}">News</a></li>
                             <li><a href="#">Players Room</a></li>
                             <li><a href="#">Media Gallery</a></li>
                             <li><a href="#">Feedback</a></li>

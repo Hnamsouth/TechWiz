@@ -282,6 +282,6 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--</div>--}}
-    @include('guest.html.twitter-section')
+{{--    @include('guest.html.twitter-section')--}}
 @endsection
 
