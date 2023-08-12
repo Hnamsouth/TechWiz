@@ -35,22 +35,37 @@
             <div class="col-md-6">
                 <div class="header-right-menu">
                     <ul>
-                        <li>Currency: <a href="#">USD</a></li>
-                        <li>
-                        </li>
                         <li>
                             @guest
                                 <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
                             @endguest
+                        </li>
+
+                        <li>
                             @auth
-                                <form action="{{route('logout')}}" method="post">
+                                <form class="dropdown dropdown-toggle" action="{{route('logout')}}" method="post">
                                     @csrf
-                                    <button type="submit">
-                                        <i class="fas fa-user"> {{\Illuminate\Support\Facades\Auth::user()->name}}</i>
+                                    <ul class="dropdown-menu row bg-dark" role="menu">
+                                        <li>
+                                            <div  class="col-menu col-md-3 bg-dark">
+                                                <a href="{{url('/my-account')}}">
+                                                    <h6 class="title">My profile</h6>
+                                                </a>
+
+                                            </div><!-- end col-3 -->
+
+
+                                        </li>
+                                    </ul>
+                                    <button   type="submit">
+                                        <i class="fas fa-user">{{\Illuminate\Support\Facades\Auth::user()->name}}</i>
+
                                     </button>
 
+
                                 </form>
-                            @endauth</li>
+                            @endauth
+                        </li>
                     </ul>
                 </div><!-- end of /. header top right menu -->
             </div><!-- end of /. col -->
