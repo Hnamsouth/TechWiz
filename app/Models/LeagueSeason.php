@@ -21,3 +21,4 @@ class LeagueSeason extends Model
         return $this->belongsTo(League::class);
     }
 }
+///hahahahhahaha
