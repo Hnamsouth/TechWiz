@@ -25,7 +25,9 @@ class CoachController extends Controller
             "position"=>"required",
             "date_of_birth"=>"required",
             "des"=>"nullable",
-            "img"=>"required|image|mimes:png,gif,jpg,jpeg"
+            "img"=>"required|image|mimes:png,gif,jpg,jpeg",
+            "club_team_id"=>"nullable",
+            "national_team_id"=>"nullable"
         ],[
             "required"=>"Vui lòng nhập thông tin",
         ]);
@@ -47,8 +49,9 @@ class CoachController extends Controller
             $data['img'] = $data[''] ?? null;
         }
 
-        Coaches::create($data);
+        $coach = Coaches::create($data);
 
+        $coach->update();
         return redirect()->to('/admin/coach');
     }
 
@@ -63,7 +66,9 @@ class CoachController extends Controller
             "position"=>"required",
             "date_of_birth"=>"required",
             "des"=>"nullable",
-            "img"=>"required|image|mimes:png,gif,jpg,jpeg"
+            "img"=>"required|image|mimes:png,gif,jpg,jpeg",
+            "club_team_id"=>"nullable",
+            "national_team_id"=>"nullable"
         ],[
             "required"=>"Vui lòng nhập thông tin",
         ]);
@@ -97,6 +102,8 @@ class CoachController extends Controller
         } finally {
             $data['img'] = $data['img'] ?? null;
         }
+
+        $data = $request->all();
 
         $coaches->update($data);
         return redirect()->to('admin/coach');

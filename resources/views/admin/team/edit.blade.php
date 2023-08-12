@@ -96,6 +96,21 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="form-group row mb-25">
+                                        <div class="col-sm-3 d-flex aling-items-center">
+                                            <label for="inputCountry" class="col-form-label  color-dark fs-14 fw-500 align-center">Continent</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control  ih-medium ip-gray radius-xs b-light px-15 @error("continent") is-invalid @enderror" name="continent" id="inputCountry" placeholder="Enter continent" value="{{$team->continent}}">
+                                            @error("continent")
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                     <div class="form-group row mb-4">
                                         <div class="col-sm-3">
                                             <label for="inputLevel" class=" col-form-label  color-dark fs-14 fw-500 align-center">Level</label>

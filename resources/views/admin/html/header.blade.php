@@ -11,8 +11,13 @@
         <div class="navbar-left">
             <a href="" class="sidebar-toggle">
                 <img class="svg" src="/admin/img/svg/bars.svg" alt="img"></a>
+
+            <div class="mr-5"></div>
+
+            <a class="navbar-brand" href="#"><img class="dark" width="40px" src="/assets/images/logo.png" alt="svg"><img class="light" width="40px" src="/assets/images/logo-2.png" alt="img"></a>
             <a class="navbar-brand" href="#"><img class="dark" src="/assets/images/logo.png" alt="svg"><img
                     class="light" src="/assets/images/logo-2.png" alt="img"></a>
+>>>>>>>>> Temporary merge branch 2
             <form action="/" class="search-form">
                 <span data-feather="search"></span>
                 <input class="form-control mr-sm-2 box-shadow-none" type="text" placeholder="Search...">
@@ -34,8 +39,7 @@
                 </li>
                 <li class="nav-flag-select">
                     <div class="dropdown-custom">
-                        <a href="javascript:;" class="nav-item-toggle"><img src="/admin/img/flag.png" alt=""
-                                                                            class="rounded-circle"></a>
+                        <a href="javascript:;" class="nav-item-toggle"><img src="/admin/img/flag.png" alt="" class="rounded-circle"></a>
                         <div class="dropdown-wrapper dropdown-wrapper--small">
                             <a href=""><img src="/admin/img/eng.png" alt=""> English</a>
                         </div>
@@ -43,41 +47,37 @@
                 </li>
                 <!-- ends: .nav-flag-select -->
                 @auth
-                    <li class="nav-author">
-                        <div class="dropdown-custom">
-                            <a href="javascript:;" class="nav-item-toggle"><img
-                                    src="{{ Auth::user()->avatar ?? '/admin/img/author-nav.jpg' }}" alt=""
-                                    class="rounded-circle" width="200"></a>
-                            <div class="dropdown-wrapper">
-                                <div class="nav-author__info">
-                                    <div class="author-img">
-                                        <img src="{{ Auth::user()->avatar ?? '/admin/img/author-nav.jpg' }}" alt=""
-                                             class="rounded-circle" width="200">
-                                    </div>
-                                    <div>
-                                        <h6>{{ Auth::user()->name }}</h6>
-                                        {{--                                    <span>{{ Auth::user()->admin->role == 'ADMIN' ? 'Administrator' : 'Employee' }}</span>--}}
-                                    </div>
+                <li class="nav-author">
+                    <div class="dropdown-custom">
+                        <a href="javascript:;" class="nav-item-toggle"><img src="{{ Auth::user()->avatar ?? '/admin/img/author-nav.jpg' }}" alt="" class="rounded-circle" width="200"></a>
+                        <div class="dropdown-wrapper">
+                            <div class="nav-author__info">
+                                <div class="author-img">
+                                    <img src="{{ Auth::user()->avatar ?? '/admin/img/author-nav.jpg' }}" alt="" class="rounded-circle" width="200">
                                 </div>
-                                <div class="nav-author__options">
-                                    <ul>
-                                        <li>
-                                            <a href="">
-                                                <span data-feather="user"></span> Profile</a>
-                                        </li>
-                                    </ul>
-                                    <a href="{{ route('logout') }}" class="nav-author__signout"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <span data-feather="log-out"></span> Sign Out</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                <div>
+                                    <h6>{{ Auth::user()->name }}</h6>
+                                    <span>{{ Auth::user()->admin->role == 'ADMIN' ? 'Administrator' : 'Employee' }}</span>
                                 </div>
                             </div>
-                            <!-- ends: .dropdown-wrapper -->
+                            <div class="nav-author__options">
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            <span data-feather="user"></span> Profile</a>
+                                    </li>
+                                </ul>
+                                <a href="{{ route('logout') }}" class="nav-author__signout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <span data-feather="log-out"></span> Sign Out</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </div>
-                    </li>
-                    <!-- ends: .nav-author -->
+                        <!-- ends: .dropdown-wrapper -->
+                    </div>
+                </li>
+                <!-- ends: .nav-author -->
                 @endauth
             </ul>
             <!-- ends: .navbar-right__menu -->
@@ -91,4 +91,5 @@
         </div>
         <!-- ends: .navbar-right -->
     </nav>
+
 </header>
