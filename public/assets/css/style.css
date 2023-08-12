@@ -382,7 +382,7 @@ html, body, .wrapper{
 .header-right-menu > ul > li {
     list-style: none;
     display: inline-block;
-    color: #fff;
+
     font-size: 12px;
     font-family: 'Montserrat';
     font-weight: 400;
@@ -6566,4 +6566,40 @@ table.point-items-more span {
 .flex-al-center{
     display: flex;
     align-items: center;
+}
+/*DROPDOWN MENU*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/*TEXT OVER*/
+.over-text{
+    white-space: nowrap;
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #000000;
+}
+
+.dropdown-item:hover{
+    background: #ccc;
+}
+
+.dropdown-item{
+    padding: 8px 12px;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

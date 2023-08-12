@@ -10,7 +10,7 @@
     }
 @endphp
 
-<!-- START HEADER TOP SECTION -->
+    <!-- START HEADER TOP SECTION -->
 <div class="header-top">
     <div class="container">
         <div class="row">
@@ -35,26 +35,51 @@
             <div class="col-md-6">
                 <div class="header-right-menu">
                     <ul>
-                        <li>Currency: <a href="#">USD</a></li>
-                        <li>Wishlist: <a href="#">12</a></li>
-                        <li>  @guest
+                        <li>
+                            @guest
                                 <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
                             @endguest
+                        </li>
 
+                        <li>
                             @auth
-                                <form action="{{route('logout')}}" method="post">
+                                <form class="dropdown dropdown-toggle" action="{{route('logout')}}" method="post">
                                     @csrf
-                                    <button type="submit">
-                                        <i class="fas fa-user"> logout</i>
-                                    </button>
+                                    <div class="dropdown">
+                                        <div>
+                                            <i class="fa fa-user" style="color: #fff"></i><span class="over-text" style="padding-left: 5px; color: #fff">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <div class="dropdown-item"><a style="color: #333" href="{{url('/my-account')}}">User profile</a>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <button type="submit" class="" style="color: #333; border: none; background-color: transparent; padding: 0px">Log out</button>
+                                            </div>
+                                        </div>
+                </div>
 
-                                </form>
-                            @endauth</li>
-                    </ul>
-                </div><!-- end of /. header top right menu -->
-            </div><!-- end of /. col -->
-        </div><!-- end of /. row -->
-    </div><!-- end of /. container -->
+
+                {{--                                    <ul class="dropdown-menu row bg-dark" role="menu">--}}
+                {{--                                        <li>--}}
+                {{--                                            <div  class="col-menu col-md-3 bg-dark">--}}
+                {{--                                                <a href="{{url('/my-account')}}">--}}
+                {{--                                                    <h6 class="title">My profile</h6>--}}
+                {{--                                                </a>--}}
+
+                {{--                                            </div><!-- end col-3 -->--}}
+                {{--                                        </li>--}}
+                {{--                                    </ul>--}}
+                {{--                                    <button   type="submit">--}}
+                {{--                                        <i class="fas fa-user">{{\Illuminate\Support\Facades\Auth::user()->name}}</i>--}}
+                {{--                                    </button>--}}
+                </form>
+                @endauth
+                </li>
+                </ul>
+            </div><!-- end of /. header top right menu -->
+        </div><!-- end of /. col -->
+    </div><!-- end of /. row -->
+</div><!-- end of /. container -->
 </div><!-- END OF /. HEADER TOP SECTION -->
 
 <div class="header-section">
@@ -65,7 +90,7 @@
             <div class="attr-nav shoping-cart-box">
                 <ul>
                     <li class="dropdown">
-                        <a href="{{url('cart')}}" class="dropdown-toggle" data-toggle="dropdown" >
+                        <a href="{{url('/cart')}}" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-shopping-bag"></i>
                             <div class="shop-cart">
                                 <span class="cart-price">
@@ -81,7 +106,8 @@
 
             <!-- Start Header Navigation -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed top-m-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed top-m-btn" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -93,14 +119,14 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse top-nav" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" >
+                <ul class="nav navbar-nav navbar-right">
                     <li><a href="">Match</a>
                     <li><a href="">Player Rank</a></li>
                     <li>
-                        <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop </a>
+                        <a href="{{route('shop-product')}}">Shop</a>
                     </li>
                     <li>
-                        <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">News</a>
+                        <a href="{{route('blog')}}" role="button" aria-haspopup="true" aria-expanded="false">News</a>
                     </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     <li><a href="{{route("club-history")}}">Club History</a></li>
@@ -117,7 +143,7 @@
                 <ul>
                     <li class="search">
                         <form action="#">
-                            <input type="text" name="search" placeholder="Search"  />
+                            <input type="text" name="search" placeholder="Search"/>
                             <button><i class="fa fa-search"></i></button>
                         </form>
                     </li>
@@ -140,17 +166,17 @@
                     <li><a href="/match">Matches</a></li>
                     <li><a href="/top-players">Player Ranks</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Super Cup</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Super Cup</a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Custom Menu</a></li>
                             <li><a href="#">Custom Menu</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Sub Menu</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Custom Menu</a></li>
                                     <li><a href="#">Custom Menu</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Sub Menu</a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="#">Custom Menu</a></li>
                                             <li><a href="#">Custom Menu</a></li>

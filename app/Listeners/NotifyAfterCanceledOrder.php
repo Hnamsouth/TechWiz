@@ -31,6 +31,6 @@ class NotifyAfterCanceledOrder
         //Goi helper notification pusher
         $data['message'] = 'Order #'.$order->id.' has been canceled, go to order list?';
         $data['confirm'] = true;
-        notify('my-channel', 'my-event', $data);
+//        notify('my-channel', 'my-event', $data);
     }
 }

@@ -35,6 +35,6 @@ class NotifyAdminOrderCreated
         //Goi helper notification pusher
         $data['message'] = 'New order #'.$order->id.' has been placed, go to order list?';
         $data['confirm'] = true;
-        notify('my-channel', 'my-event', $data);
+//        notify('my-channel', 'my-event', $data);
     }
 }

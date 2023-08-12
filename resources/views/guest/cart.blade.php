@@ -345,9 +345,9 @@
                         <div class="total-cart-box clearfix">
                             <h4>Cart Totals</h4>
                             <ul class="list clearfix">
-                                <li>Subtotal:<span id="total">{{number_format($total,2)}}</span></li>
-                                <li>Shipping:<span id="shipping">{{number_format($shipping,2)}}</span></li>
-                                <li>Order Total:<span id="grand-total">{{number_format($total+$shipping,2)}}</span></li>
+                                <li>Subtotal:<span id="total">${{number_format($total,2)}}</span></li>
+                                <li>Shipping:<span id="shipping">${{number_format($shipping,2)}}</span></li>
+                                <li>Order Total:<span id="grand-total">${{number_format($total+$shipping,2)}}</span></li>
                             </ul>
                             @if($can_checkout && count($cart) > 0)
                                 <div class="carry-olpdman-btn" style="position: relative; margin-top: 30px">
