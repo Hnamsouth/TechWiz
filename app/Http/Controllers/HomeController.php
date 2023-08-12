@@ -13,6 +13,7 @@ use App\Models\League;
 use App\Models\LeagueSeason;
 use App\Models\Players;
 use App\Models\Product;
+use App\Models\Team;
 use Cloudinary\Api\Upload\UploadApi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -650,4 +651,11 @@ class HomeController extends Controller
         }
         return back()->with('error', "You can not cancel this order.");
     }
+
+
+
+
+
+
+
 }

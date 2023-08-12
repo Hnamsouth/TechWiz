@@ -30,6 +30,8 @@ Route::get('/blog-detail/{blog:id}', [HomeController::class, 'blogDetails']);
 
 
 Route::get('/shop', [HomeController::class, 'shopProduct'])->name('shop-product');
+//Route::get('/uplogo', [\App\Http\Controllers\WebController::class, 'uplogo'])->name('shop-product');
+//Route::get('/uplogo-player', [\App\Http\Controllers\WebController::class, 'uplogoPlayer'])->name('shop-product');
 
 Route::get('/match', [HomeController::class, 'match'])->name('match');
 Route::get('/team', [HomeController::class, 'team'])->name('team');

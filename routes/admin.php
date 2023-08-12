@@ -69,4 +69,8 @@ Route::middleware(['auth','admin'])->group(function () {
         Route::put('/edit/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'update']);
         Route::delete('/delete/{blog:id}', [\App\Http\Controllers\Admin\BlogController::class, 'delete']);
     });
+
+
+
+
 });

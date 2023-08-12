@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Match;
 use App\Models\MatchEvent;
 use App\Models\Players;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class MatchController extends Controller
@@ -32,4 +33,8 @@ class MatchController extends Controller
     public function PointTable(){
         return view('guest.point-table');
     }
+
+
+
+
 }
