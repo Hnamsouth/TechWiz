@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,14 +19,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->NamSeeder();
-
-//        $this->HungSeeder();
+        $this->NamSeeder();
+        $this->HungSeeder();
         $this->HienSeeder();
+        $this->Gadmin();
+    }
+    public function Gadmin(){
+        $user= User::create([
+            'name'=>'adminaaa',
+            'email'=>'admin@gmail.com',
+            'username'=>'admin123',
+            'password'=>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        ]);
+        Admin::create([
+            'user_id'=>$user->id,
+            'role'=>Admin::ADMIN,
+        ]);
     }
 
     protected  function HungSeeder(){
-        \App\Models\User::factory(100)->create();
+       $user =  \App\Models\User::factory(100)->create();
 
         $this->call(CategorySeeder::class);
         $this->call(ProductSeeder::class);

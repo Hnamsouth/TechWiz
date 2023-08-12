@@ -136,7 +136,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">
-                    <li><a href="#">Liga BBVA</a></li>
+                    <li><a href="{{route('point_table')}}">Ranks</a></li>
                     <li><a href="#">UEFA</a></li>
                     <li class="dropdown megamenu-fw">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">EPL</a>

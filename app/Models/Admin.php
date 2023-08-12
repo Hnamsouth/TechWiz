@@ -24,7 +24,6 @@ class Admin extends Authenticatable
     protected $fillable = [
         'user_id',
         'role',
-        'permission',
     ];
 
     public function User()

@@ -17,6 +17,9 @@ class MatchController extends Controller
 {
     //
 
+    public function match(){
+        return view('guest.');
+    }
     public function match_result(Match $match){
 //        dd($match->MatchStatistical);
         $MatchResult = $match->MatchResult;

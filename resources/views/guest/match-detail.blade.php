@@ -856,7 +856,7 @@
                                             <div class="col-sm-6">
                                                     <div class="statstics">
                                                         <a  href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center" style="font-size:15px;font-weight:bold">
-                                                            <img src="{{$MatchPlayer[$i]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <img src="{{$MatchPlayer[$i]->Player->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                             <span>{{$MatchPlayer[$i]->Player->name}}({{$MatchPlayer[$i]->Player->number}})</span>
                                                         </a>
                                                     </div>
@@ -865,7 +865,7 @@
                                                     <div class="statstics statstics-right text-right">
                                                         <a href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center"  style="justify-content:end; font-size:15px;font-weight:bold">
                                                             <span>{{$MatchPlayer[$i+2]->Player->name}}({{$MatchPlayer[$i+2]->Player->number}})</span>
-                                                            <img src="{{$MatchPlayer[$i+2]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <img src="{{$MatchPlayer[$i+2]->Player->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                         </a>
                                                     </div>
                                             </div>
