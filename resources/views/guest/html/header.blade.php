@@ -120,8 +120,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse top-nav" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Match</a>
-                    <li><a href="">Player</a></li>
+                    <li><a href="{{route('point_table')}}">Ranks</a>
+                    <li><a href="/top-players">Player</a></li>
+                    <li><a href="/match">Player</a></li>
                     <li>
                         <a href="{{route('shop-product')}}">Shop</a>
                     </li>
@@ -160,45 +161,6 @@
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">
-                    <li><a href="{{route('point_table')}}">Ranks</a></li>
-                    <li><a href="/match">Matches</a></li>
-                    <li><a href="/top-players">Player Ranks</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Super Cup</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">World Cup</a></li>
-                    <li><a href="#">NPL</a></li>
-                    <li><a href="#">Nation League</a></li>
-                    <li><a href="#">Archive</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
         </div><!-- end of container -->
     </nav><!-- end of /. nav -->
 </div><!-- end of /. nav area-->
