@@ -21,7 +21,7 @@ class LeagueSeason extends Model
         return $this->belongsTo(League::class);
     }
     public function Matches(){
-        return $this->hasMany(Match::class,'league_season_id','id');
+        return $this->hasMany(Matchs::class,'league_season_id','id');
     }
 
     public function scopeSeason($query,$season){

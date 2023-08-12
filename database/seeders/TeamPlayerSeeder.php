@@ -6,7 +6,7 @@ use App\Models\EuroWorldSeason;
 use App\Models\LeageStage;
 use App\Models\League;
 use App\Models\LeagueSeason;
-use App\Models\Match;
+use App\Models\Matchs;
 use App\Models\MatchEvent;
 use App\Models\MatchLineups;
 use App\Models\MatchPlayer;
@@ -144,7 +144,7 @@ class TeamPlayerSeeder extends Seeder
         $formations=['4-4-2','4-3-3','5-3-2','4-3-2-1'];
         foreach ($league_Season_Created as $item) {
             // find match finished for each season
-            $matches = Match::Status(1)->LeagueSeason($item->id)->get();
+            $matches = Matchs::Status(1)->LeagueSeason($item->id)->get();
 
             foreach ($matches as $m){
                 // create match player
@@ -266,7 +266,7 @@ class TeamPlayerSeeder extends Seeder
                 $day=$location?0:40;
                 foreach ($team as  $i2=>$t2){
                     if($t1->team_id!=$t2->team_id){
-                        Match::create([
+                        Matchs::create([
                             'datetime'=>Carbon::now()->addDays($day),
                             'location'=>$location?'0':'1', // 0 = san khach, 1 = san nha
                             'status'=>$location?0:1, // 0 =  da xong, 1 = chua da , 2 = huy

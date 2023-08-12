@@ -7,7 +7,7 @@ use App\Events\NewOrderCreated;
 use App\Mail\MailOrder;
 use App\Models\Blog;
 use App\Models\Category;
-use App\Models\Match;
+use App\Models\Matchs;
 use App\Models\Order;
 use App\Models\League;
 use App\Models\LeagueSeason;
@@ -49,7 +49,7 @@ class HomeController extends Controller
         where('id', '<>', $last_new->first()->id)
             ->orderBy("publish_date", 'desc')->limit(4)->get();
 
-        $match = Match::orderBy("datetime", 'desc')
+        $match = Matchs::orderBy("datetime", 'desc')
             ->limit(4)->get();;
 
 
@@ -70,14 +70,6 @@ class HomeController extends Controller
             ->orderBy("publish_date", 'desc')
             ->limit(4)->get();
         $league_1 =League::all();
-
-
-
-//            foreach ($match as $item){
-//                dd($item->matchResult);
-//            }
-//        dd($match);
-
 
         return view('guest.home', compact('last_new_league_world_cup_2','last_new_league_world_cup','league_1','last_new', 'second_new', 'match', 'leagueSeasonList', 'today_on_sport', 'today_on_sport_footter', ));
     }

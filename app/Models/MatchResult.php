@@ -19,7 +19,7 @@ class MatchResult extends Model
     ];
 
     public function Match(){
-        return $this->belongsTo(Match::class,'match_id');
+        return $this->belongsTo(Matchs::class,'match_id');
     }
     public function scopeMatchSearch($query,$match_id){
         if($match_id && $match_id!=0){

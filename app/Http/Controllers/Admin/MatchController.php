@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\League;
-use App\Models\Match;
+use App\Models\Matchs;
 use App\Models\Team;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class MatchController extends Controller
     public function list(Request $request) {
         $search = $request->get("search");
 
-        $data = Match::Search($search)->paginate(20);
+        $data = Matchs::Search($search)->paginate(20);
 
 
 
@@ -44,19 +44,19 @@ class MatchController extends Controller
         ]);
 
         $data= $request->all();
-        Match::create($data);
+        Matchs::create($data);
         return redirect()->to("/admin/match");
 
 
 
     }
-    public function edit(Match $match) {
+    public function edit(Matchs $match) {
         $team=Team::all();
         $league=League::all();
 
         return view("admin.match.edit",compact('team','league','match'));
     }
-    public function update(Request $request,Match $match){
+    public function update(Request $request,Matchs $match){
 
         $request->validate([
             "datetime" =>  'required|date|after:today',
@@ -71,7 +71,7 @@ class MatchController extends Controller
         return redirect()->to("/admin/match");
 
     }
-    public function delete(Match $match) {
+    public function delete(Matchs $match) {
         $match->delete();
         return redirect()->to( url("/admin/match") );
     }

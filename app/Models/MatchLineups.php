@@ -18,7 +18,7 @@ class MatchLineups extends Model
     ];
 
     public function Match(){
-        return $this->belongsTo(Match::class);
+        return $this->belongsTo(Matchs::class);
     }
     public  function Team(){
         return $this->belongsToMany(Team::class,'teams');
