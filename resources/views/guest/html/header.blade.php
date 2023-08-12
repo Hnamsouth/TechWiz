@@ -109,8 +109,11 @@
                         <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop <b class="caret"></b></a>
                     </li>
                     <li>
-                        <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
-
+                        <a href="{{route('blog')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('blog')}}">Blog</a></li>
+                            <li><a href="{{route('blog-soccer-info')}}">Blog soccer</a></li>
+                        </ul>
                     </li>
                     <li><a href="{{route("contact")}}">Contact</a></li>
                     <li><a href="{{route("club-history")}}">Club History</a></li>
