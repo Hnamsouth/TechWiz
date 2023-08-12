@@ -161,7 +161,6 @@ class HomeController extends Controller
 
     }
 
-
     public function shopProduct(Request $request)
     {
         $search = $request->get("search");
@@ -368,7 +367,7 @@ class HomeController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'phone' => ['required', 'regex:/^[0-9]{10}$/'],
+            'phone' => ['required', 'numeric'],
             'country' => 'required',
             'address' => 'required',
             'city' => 'required',
@@ -555,41 +554,13 @@ class HomeController extends Controller
         $user = Auth::user();
 
         $request->validate([
-            'avatar' => "nullable|image|mimes:jpeg,png,jpg,svg,webp",
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'email' => "required|string|email|max:255|unique:users,email," . $user->id,
-            'telephone' => ['nullable', 'regex:/^[0-9]{10}$/'],
+            'email' => "required|string|email|max:255|unique:users,email,".$user->id,
+            'telephone' => ['nullable', 'numeric'],
             'postcode' => ['nullable', 'numeric'],
         ]);
 
-        $data = $request->except("avatar");
-        try {
-            if ($request->get('keep_old_avatar') == 0) { //Don't keep the old avatar
-//                //-- Delete the old avatar from Cloudinary
-//                if ($user->avatar) {
-//                    $public_id = 'eproject-sem2/' . basename($user->avatar, '.' . pathinfo($user->avatar, PATHINFO_EXTENSION));
-//                    $delete_result = (new UploadApi())->destroy($public_id, ['resource_type' => 'image']);
-//                }
-                $data['avatar'] = null;
-                //-- If user want to upload new avatar
-                if ($request->hasFile("avatar")) {
-                    $fileName = time() . "_" . str_replace(' ', '_', $request->get('name'));
-                    //-- Upload image to Cloudinary --
-                    $result = (new UploadApi())->upload(
-                        $request->file('avatar')->getRealPath(),
-                        [
-                            'public_id' => $fileName,
-                            'folder' => 'eproject-sem2/'
-                        ]
-                    );
-                    //-- Save url to 'avatar' --
-                    $data['avatar'] = $result['secure_url'];
-                }
-            }
-        } catch (\Exception $e) {
-        } finally {
-            $data['avatar'] = $data['avatar'] ?? null;
-        }
+        $data = $request->all();
 
         $user->update($data);
 

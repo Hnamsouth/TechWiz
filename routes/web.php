@@ -41,6 +41,8 @@ Route::prefix('/contact')->group(function () {
     Route::post('/create', [\App\Http\Controllers\FeedbackController::class, 'store']);
 });
 //Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
+Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
+Route::post('/checkout', [HomeController::class, 'placeOrder'])->middleware(['auth'])->name('placeOrder');
 
 Route::get('/point-table', [\App\Http\Controllers\Client\MatchController::class, 'PointTable'])->name('point_table');
 Route::get('/team', [HomeController::class, 'PointTable'])->name('team');
