@@ -102,4 +102,9 @@ class HomeController extends Controller
     {
         return view('guest.club-history');
     }
+
+    public function blogSoccerInfo()
+    {
+        return view('guest.blog-soccer-info');
+    }
 }
