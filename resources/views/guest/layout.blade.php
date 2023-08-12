@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="/">
     <!-- ==== Document Title ==== -->
-    <title>sccc</title>
+    <title>Soccer Club</title>
 
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="">
