@@ -29,10 +29,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+
 
     /**
      * Show the application dashboard.
@@ -59,20 +56,42 @@ class HomeController extends Controller
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter=Blog::
+        $today_on_sport_footter = Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
-        return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList','today_on_sport','today_on_sport_footter'));
+        $last_new_league_world_cup = Blog::where('publish_date', '<>', $today)
+            ->where('league_id', '=', 1)
+            ->orderBy("publish_date", 'desc')
+            ->limit(2)->get();
+        $last_new_league_world_cup_2 = Blog::where('publish_date', '<>', $today)
+            ->where('league_id', '=', 1)
+            ->        where('id', '<>', $last_new_league_world_cup->first()->id)
+
+            ->orderBy("publish_date", 'desc')
+            ->limit(4)->get();
+        $league_1 =League::all();
+
+
+
+//            foreach ($match as $item){
+//                dd($item->matchResult);
+//            }
+//        dd($match);
+
+
+        return view('guest.home', compact('last_new_league_world_cup_2','last_new_league_world_cup','league_1','last_new', 'second_new', 'match', 'leagueSeasonList', 'today_on_sport', 'today_on_sport_footter', ));
     }
 
     public function match()
     {
         return view('guest.match');
     }
+
     public function team()
     {
         return view('guest.team');
     }
+
     public function contact()
     {
         return view('guest.contact');
@@ -103,6 +122,11 @@ class HomeController extends Controller
             ->get();
 
         $league=League::all();
+
+
+//        dd($second_new);
+
+
         return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport','today_on_sport_footter','last_new_slider','league'));
     }
 
@@ -139,7 +163,7 @@ class HomeController extends Controller
         $category_id = $request->get("category_id");
 //        $lowest_price = $request->get("lowest_price");
 //        $highest_price = $request->get("highest_price");
-        $lowest_price =  str_replace('$', '', $request->get('lowest_price'));
+        $lowest_price = str_replace('$', '', $request->get('lowest_price'));
         $highest_price = str_replace('$', '', $request->get('highest_price'));
         $orderCol = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[0] : "created_at";
         $sortBy = $request->has("orderCol") ? explode('/', $request->get("orderCol"))[1] : "desc";
@@ -202,7 +226,7 @@ class HomeController extends Controller
         if ($flag) {
             $cart[] = $product;
         }
-        session(["cart"=>$cart]);
+        session(["cart" => $cart]);
         $cartCount = count(session('cart', []));
 
         // Calculate total price of cart items
@@ -221,7 +245,7 @@ class HomeController extends Controller
         $can_checkout = true;
         foreach ($cart as $item) {
             $total += $item->price * $item->buy_quantity;
-            if($item->quantity < $item->buy_quantity) {
+            if ($item->quantity < $item->buy_quantity) {
                 $can_checkout = false;
             }
         }
@@ -229,7 +253,7 @@ class HomeController extends Controller
         // set the redirectTo property to the checkout URL
         session(['redirectTo' => url('/checkout')]);
 
-        return view("guest.cart", compact("cart","total", "shipping", "can_checkout"));
+        return view("guest.cart", compact("cart", "total", "shipping", "can_checkout"));
     }
 
     public function updateCart(Request $request)
@@ -259,10 +283,10 @@ class HomeController extends Controller
             $shipping = 0;
 
             $data = [
-                'subTotal' => number_format($subTotal,2),
-                'total' => number_format($total,2),
-                'shipping' => number_format($shipping,2),
-                'grandTotal' => number_format($total + $shipping,2)
+                'subTotal' => number_format($subTotal, 2),
+                'total' => number_format($total, 2),
+                'shipping' => number_format($shipping, 2),
+                'grandTotal' => number_format($total + $shipping, 2)
             ];
 
             return response()->json($data);
@@ -280,7 +304,7 @@ class HomeController extends Controller
                 unset($cart[$key]);
             }
         }
-        session(["cart"=>$cart]);
+        session(["cart" => $cart]);
 
         // Calculate the new total
         $total = 0;
@@ -294,9 +318,9 @@ class HomeController extends Controller
             $response = [
                 'status' => 'success',
                 'message' => 'Product removed from cart successfully.',
-                'total' => number_format($total,2),
-                'shipping' => number_format($shipping,2),
-                'grandTotal' => number_format($total + $shipping,2),
+                'total' => number_format($total, 2),
+                'shipping' => number_format($shipping, 2),
+                'grandTotal' => number_format($total + $shipping, 2),
             ];
             return response()->json($response);
         }
@@ -311,7 +335,7 @@ class HomeController extends Controller
         $can_checkout = true;
         foreach ($cart as $item) {
             $total += $item->price * $item->buy_quantity;
-            if($item->quantity < $item->buy_quantity) {
+            if ($item->quantity < $item->buy_quantity) {
                 $can_checkout = false;
             }
         }
@@ -326,16 +350,17 @@ class HomeController extends Controller
         // if the URL is not set, redirect to the home page
         if (!$redirectTo) {
             //return redirect()->to('/');
-            return view("guest.checkout", compact("cart","total","shipping"));
+            return view("guest.checkout", compact("cart", "total", "shipping"));
         }
 
         // clear the previous URL from the session
         session()->forget('redirectTo');
 
-        return view("guest.checkout", compact("cart","total","shipping"));
+        return view("guest.checkout", compact("cart", "total", "shipping"));
     }
 
-    public function placeOrder(Request $request) {
+    public function placeOrder(Request $request)
+    {
         $request->validate([
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'phone' => ['required', 'regex:/^[0-9]{10}$/'],
@@ -353,7 +378,7 @@ class HomeController extends Controller
         $can_checkout = true;
         foreach ($cart as $item) {
             $total += $item->price * $item->buy_quantity;
-            if($item->quantity < $item->buy_quantity) {
+            if ($item->quantity < $item->buy_quantity) {
                 $can_checkout = false;
             }
         }
@@ -375,14 +400,14 @@ class HomeController extends Controller
         }
 
         $order = Order::create([
-            'code' => $paymentCode.microtime(true) * 10000,
+            'code' => $paymentCode . microtime(true) * 10000,
             'user_id' => $user->id,
             'subtotal' => $total,
             'delivery_fee' => $shipping,
             'grand_total' => $total + $shipping,
             'status' => $request->get('payment_method') == Order::COD ? Order::CONFIRMED : Order::PENDING,
             'fullname' => $request->get('name'),
-            'country' => $request->get('country') ,
+            'country' => $request->get('country'),
             'state' => $request->get('state'),
             'city' => $request->get('city'),
             'address' => $request->get('address'),
@@ -420,9 +445,9 @@ class HomeController extends Controller
         event(new NewOrderCreated($order));
 
         if ($request->get('payment_method') == Order::PAYPAL) {
-            return redirect()->to(route('process_paypal',['order'=>$order->code]));
+            return redirect()->to(route('process_paypal', ['order' => $order->code]));
         } elseif ($request->get('payment_method') == Order::VNPAY) {
-            return redirect()->to(route('process_vnpay',['order'=>$order->code]));
+            return redirect()->to(route('process_vnpay', ['order' => $order->code]));
         } else {
             $totalQuantity = 0;
             foreach ($order->products as $product) {
@@ -432,7 +457,7 @@ class HomeController extends Controller
             if ($request->get('payment_method') == Order::COD) {
                 Mail::to($order->email)->send(new MailOrder($order));
             }
-            return view('guest.order-confirm',compact('order', 'totalQuantity'));
+            return view('guest.order-confirm', compact('order', 'totalQuantity'));
         }
     }
 
@@ -445,14 +470,14 @@ class HomeController extends Controller
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
-                "return_url" => route('success_paypal', ['order'=>$order->code]),
-                "cancel_url" => route('cancel_paypal', ['order'=>$order->code]),
+                "return_url" => route('success_paypal', ['order' => $order->code]),
+                "cancel_url" => route('cancel_paypal', ['order' => $order->code]),
             ],
             "purchase_units" => [
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => number_format($order->grand_total,2,".","")
+                        "value" => number_format($order->grand_total, 2, ".", "")
                     ]
                 ]
             ]
