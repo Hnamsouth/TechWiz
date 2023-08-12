@@ -9,6 +9,7 @@ use App\Models\Match;
 use App\Models\MatchEvent;
 use App\Models\MatchPlayer;
 use App\Models\MatchResult;
+use App\Models\Matchx;
 use App\Models\Players;
 use App\Models\PointTeam;
 use App\Models\TeamLeagueSeason;
@@ -26,7 +27,7 @@ class MatchController extends Controller
             if($index<2) {continue;}
             // team cua moi giai dau
             $leagueSeason =$item->LeagueSeason->sortBy([['season','desc']])->first();
-            $matchs= Match::LeagueSeasonSearch($leagueSeason->id)->Status(0)->get();
+            $matchs= Matchx::LeagueSeasonSearch($leagueSeason->id)->Status(0)->get();
             $leagueData->push([
                 'league'=>$item,
                 'match'=>$matchs
@@ -35,7 +36,7 @@ class MatchController extends Controller
 //        dd($leagueData[0]['match']);
         return view('guest.match',compact('leagueData'));
     }
-    public function match_result(Match $match){
+    public function match_result(Matchx $match){
 //        dd($match->MatchStatistical);
         $MatchResult = $match->MatchResult;
         $MatchStatistical = $match->MatchStatistical;
