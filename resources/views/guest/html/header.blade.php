@@ -10,7 +10,7 @@
     }
 @endphp
 
-<!-- START HEADER TOP SECTION -->
+    <!-- START HEADER TOP SECTION -->
 <div class="header-top">
     <div class="container">
         <div class="row">
@@ -45,32 +45,41 @@
                             @auth
                                 <form class="dropdown dropdown-toggle" action="{{route('logout')}}" method="post">
                                     @csrf
-                                    <ul class="dropdown-menu row bg-dark" role="menu">
-                                        <li>
-                                            <div  class="col-menu col-md-3 bg-dark">
-                                                <a href="{{url('/my-account')}}">
-                                                    <h6 class="title">My profile</h6>
-                                                </a>
-
-                                            </div><!-- end col-3 -->
-
-
-                                        </li>
-                                    </ul>
-                                    <button   type="submit">
-                                        <i class="fas fa-user">{{\Illuminate\Support\Facades\Auth::user()->name}}</i>
-
-                                    </button>
+                                    <div class="dropdown">
+                                        <div>
+                                            <i class="fa fa-user" style="color: #fff"></i><span class="over-text" style="padding-left: 5px; color: #fff">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <div class="dropdown-item"><a style="color: #333" href="{{url('/my-account')}}">User profile</a>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <button type="submit" class="" style="color: #333; border: none; background-color: transparent; padding: 0px">Log out</button>
+                                            </div>
+                                        </div>
+                </div>
 
 
-                                </form>
-                            @endauth
-                        </li>
-                    </ul>
-                </div><!-- end of /. header top right menu -->
-            </div><!-- end of /. col -->
-        </div><!-- end of /. row -->
-    </div><!-- end of /. container -->
+                {{--                                    <ul class="dropdown-menu row bg-dark" role="menu">--}}
+                {{--                                        <li>--}}
+                {{--                                            <div  class="col-menu col-md-3 bg-dark">--}}
+                {{--                                                <a href="{{url('/my-account')}}">--}}
+                {{--                                                    <h6 class="title">My profile</h6>--}}
+                {{--                                                </a>--}}
+
+                {{--                                            </div><!-- end col-3 -->--}}
+                {{--                                        </li>--}}
+                {{--                                    </ul>--}}
+                {{--                                    <button   type="submit">--}}
+                {{--                                        <i class="fas fa-user">{{\Illuminate\Support\Facades\Auth::user()->name}}</i>--}}
+                {{--                                    </button>--}}
+                </form>
+                @endauth
+                </li>
+                </ul>
+            </div><!-- end of /. header top right menu -->
+        </div><!-- end of /. col -->
+    </div><!-- end of /. row -->
+</div><!-- end of /. container -->
 </div><!-- END OF /. HEADER TOP SECTION -->
 
 <div class="header-section">
@@ -81,7 +90,7 @@
             <div class="attr-nav shoping-cart-box">
                 <ul>
                     <li class="dropdown">
-                        <a href="{{url('cart')}}" class="dropdown-toggle" data-toggle="dropdown" >
+                        <a href="{{url('/cart')}}" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-shopping-bag"></i>
                             <div class="shop-cart">
                                 <span class="cart-price">
@@ -97,26 +106,28 @@
 
             <!-- Start Header Navigation -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed top-m-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed top-m-btn" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="/assets/images/logo.png" class="logo" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="/assets/images/logo.png" class="logo" alt=""></a>
             </div>
             <!-- End Header Navigation -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse top-nav" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" >
-                    <li><a href="">Match</a>
-                    <li><a href="">Player Rank</a></li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{route('match')}}">Match</a>
+                    <li><a href="{{route('point_table')}}">Club Rank</a></li>
+                    <li><a href="{{route('top_player')}}">Player Rank</a></li>
                     <li>
-                        <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop </a>
+                        <a href="{{route('shop-product')}}">Shop</a>
                     </li>
                     <li>
-                        <a href="{{route('blog')}}"  role="button" aria-haspopup="true" aria-expanded="false">News</a>
+                        <a href="{{route('blog')}}" role="button" aria-haspopup="true" aria-expanded="false">News</a>
                     </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     <li><a href="{{route("club-history")}}">Club History</a></li>
@@ -126,70 +137,70 @@
     </nav><!-- End Navigation -->
 
     <!-- START MENU SECTION -->
-    <nav class="navbar navbar-default bootsnav">
-        <div class="container">
-            <!-- Start Atribute Navigation -->
-            <div class="attr-nav">
-                <ul>
-                    <li class="search">
-                        <form action="#">
-                            <input type="text" name="search" placeholder="Search"  />
-                            <button><i class="fa fa-search"></i></button>
-                        </form>
-                    </li>
-                </ul>
-            </div><!-- end of /. header search button -->
-            <!-- End Atribute Navigation -->
+{{--    <nav class="navbar navbar-default bootsnav">--}}
+{{--        <div class="container">--}}
+{{--            <!-- Start Atribute Navigation -->--}}
+{{--            <div class="attr-nav">--}}
+{{--                <ul>--}}
+{{--                    <li class="search">--}}
+{{--                        <form action="#">--}}
+{{--                            <input type="text" name="search" placeholder="Search"/>--}}
+{{--                            <button><i class="fa fa-search"></i></button>--}}
+{{--                        </form>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div><!-- end of /. header search button -->--}}
+{{--            <!-- End Atribute Navigation -->--}}
 
-            <!-- Start Header Navigation -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </div>
-            <!-- End Header Navigation -->
+{{--            <!-- Start Header Navigation -->--}}
+{{--            <div class="navbar-header">--}}
+{{--                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">--}}
+{{--                    <i class="fa fa-bars"></i>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+{{--            <!-- End Header Navigation -->--}}
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">
-                    <li><a href="{{route('point_table')}}">Ranks</a></li>
-                    <li><a href="/match">Matches</a></li>
-                    <li><a href="/top-players">Player Ranks</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Super Cup</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Sub Menu</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Sub Menu</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                            <li><a href="#">Custom Menu</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Custom Menu</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                            <li><a href="#">Custom Menu</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">World Cup</a></li>
-                    <li><a href="#">NPL</a></li>
-                    <li><a href="#">Nation League</a></li>
-                    <li><a href="#">Archive</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- end of container -->
-    </nav><!-- end of /. nav -->
+{{--            <!-- Collect the nav links, forms, and other content for toggling -->--}}
+{{--            <div class="collapse navbar-collapse" id="navbar-menu">--}}
+{{--                <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">--}}
+{{--                    <li><a href="{{route('point_table')}}">Ranks</a></li>--}}
+{{--                    <li><a href="/match">Matches</a></li>--}}
+{{--                    <li><a href="/top-players">Player Ranks</a></li>--}}
+{{--                    <li class="dropdown">--}}
+{{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Super Cup</a>--}}
+{{--                        <ul class="dropdown-menu">--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li class="dropdown">--}}
+{{--                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>--}}
+{{--                                <ul class="dropdown-menu">--}}
+{{--                                    <li><a href="#">Custom Menu</a></li>--}}
+{{--                                    <li><a href="#">Custom Menu</a></li>--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>--}}
+{{--                                        <ul class="dropdown-menu">--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                    <li><a href="#">Custom Menu</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                            <li><a href="#">Custom Menu</a></li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                    <li><a href="#">World Cup</a></li>--}}
+{{--                    <li><a href="#">NPL</a></li>--}}
+{{--                    <li><a href="#">Nation League</a></li>--}}
+{{--                    <li><a href="#">Archive</a></li>--}}
+{{--                </ul>--}}
+{{--            </div><!-- /.navbar-collapse -->--}}
+{{--        </div><!-- end of container -->--}}
+{{--    </nav>--}}
 </div><!-- end of /. nav area-->
 <!-- End Navigation -->

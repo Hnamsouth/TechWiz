@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="/">
     <!-- ==== Document Title ==== -->
-    <title>Soccer Club</title>
+    <title>sccc</title>
 
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="">
@@ -78,6 +78,5 @@
 </script>
 
 <!-- Wrapper End -->
-{{--@include("guest.html.js")--}}
 </body>
 </html>
