@@ -17,8 +17,8 @@
                                     <span>Playing ball</span>
                                 </div>
                                 <div class="blog-single-content-title">
-                                    <h3>Fernando Santos's Portugal manifesto</h3>
-                                    <span></span>
+                                    <h3>All you need to know about soccer</h3>
+                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2023 - 22:15  </span>
                                     <ul class="blog-share">
                                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -29,20 +29,21 @@
                                     </ul>
                                 </div>
                                 <div class="blog-single-content">
+                                    <h1>What is soccer?</h1>
                                     <p>
-                                        Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. <br><br>
+                                        Soccer is a team sport played by a team of 11 players against another team of 11 players on a field.<br>
 
-                                        Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. In ac dui quis
+                                        The team has one designated goalkeeper and 10 outfield players. Outfield players are usually specialised in attacking or defending or both. A team is typically split into defenders, midfielders and forwards, though <br> there is no restriction on players moving anywhere on the pitch.<br>
+
+                                        It is known as soccer in North America, but is called football in most of the rest of the world. Its full name is Association Football.<br><br>
                                     </p>
-                                    <h3>Game Highlights</h3>
+                                    <h3>What does a soccer ball look like?</h3>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="blog-single-sub-item">
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <br>
-
-                                                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
+                                                <p>A soccer ball is round, and must measure between 27-28" in circumference and weigh between 14 and 16oz.
                                                 </p>
-                                                <i class="fa fa-quote-left" aria-hidden="true"></i>  <b>Donec mollis hendrerit risus hasellus nec sem in justo llentesque facilisis. Etiam imperdiet imperdiet orci. </b>
+                                                <i class="fa fa-quote-left" aria-hidden="true"></i>  <b>A soccer ball is round, and must measure between 27-28" in circumference and weigh between 14 and 16oz.</b>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -51,13 +52,54 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <h3>How many countries play soccer?</h3>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <br>
-
-                                        Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+                                        Soccer is the world's most popular sport, played by over 250 million people in more than 200 countries. It is particularly popular in Europe, Central and South America, and Africa, though has a growing influence in North America and Asia.
                                     </p>
+                                    <h3>What does a soccer pitch look like?</h3>
+                                    <p>
+                                        The game is played on a rectangular field called a pitch with a goal at either end. The size of the pitch for international adult category matches can be between 110-120 yards long and 70-80 yards wide.<br><br>
 
+                                        The lines at either end of the pitch are called the goal lines, the lines perpendicular to the goal lines are called the touchlines.<br><br>
+
+                                        The playing surface is usually grass. Artificial surfaces are very rarely used at professional level.
+                                    </p>
+                                    <h3>What does a soccer pitch look like?</h3>
+                                    <p>
+                                        The object of the game is to move the ball up the pitch and beyond the goal line of your opponent's goal. A standard game lasts 90 minutes, split into two halves of 45 minutes.<br><br>
+
+                                        The goal has two upright posts and a horizontal bar connecting them known as the crossbar and is placed in the middle of the goal line. For competitive games, a net is connected to the posts and crossbar to stop the ball after it has crossed the goal line.<br><br>
+
+                                        Any of a team's 11 players on the pitch can score a goal, which adds one to the team's total. The team also get a goal if an opponent sends the ball into their own goal by mistake.<br><br>
+
+                                        The team that scores the most goals in the 90 minutes wins the game.<br><br>
+
+                                        Regular season games end at 90 minutes, even if the scoreline is level.<br><br>
+
+                                        In domestic cup competitions and the knockout stages of international club and national team competitions, an additional 30 minutes - known as extra-time - is played, split into two halves of 15 minutes.<br><br>
+
+                                        If the scores are still level after extra-time, a penalty shootout takes place. Here, five players from each team take turns to score. If the scores are still level after that, the team's remaining players step up for sudden death until there is a winner.<br><br>
+                                    </p>
+                                    <h3>Does soccer have post-season play-offs?</h3>
+                                    <p>
+                                        Most domestic soccer leagues do not have a post-season play-off round like the major sports in the United States and Canada. The team that finishes at the top of the table after the end of the season is usually crowned champion after each team has played each other at home and away (on the road).<br><br>
+
+                                        Most league competitions give winning teams three points. A tie - or a draw - earns both sides one point. Losing teams receive no points.<br><br>
+
+                                        Some domestic leagues do use playoffs to decide which teams are demoted - or relegated - from a league, such as the Bundesliga in Germany. The English Premier League has a play-off to decide which team is promoted to the top flight from the second division.<br><br>
+                                    </p>
+                                    <h3>What are the rules of soccer?</h3>
+                                    <p>
+                                        The sport has 17 rules known as the Laws of the Game, which were laid down and are governed by the International Football Association Board (IFAB). The laws are designed to be universal, but slight modifications are made to take into account factors such as age, gender and disabilities.
+                                    </p>
+                                    <h3>What is a foul in soccer?</h3>
+                                    <p>
+                                        The sport has 17 rules known as the Laws of the Game, which were laid down and are governed by the International Football Association Board (IFAB). The laws are designed to be universal, but slight modifications are made to take into account factors such as age, gender and disabilities.
+                                    </p>
                                 </div>
+
+
+
                                 <div class="author-profile">
                                     <div class="profile-pic"><img src="/assets/images/blog/admin.jpg" alt="" class="img-responsive"></div>
                                     <div class="author-content">
