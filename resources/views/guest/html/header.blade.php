@@ -94,8 +94,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse top-nav" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" >
-                    <li><a href="#">Features</a>
-                    <li><a href="#">About</a></li>
+                    <li><a href="">Match</a>
+                    <li><a href="">Player</a></li>
                     <li>
                         <a href="{{route('shop-product')}}"  role="button" aria-haspopup="true" aria-expanded="false">Shop </a>
                     </li>

@@ -41,18 +41,16 @@ Route::prefix('/contact')->group(function () {
     Route::post('/create', [\App\Http\Controllers\FeedbackController::class, 'store']);
 });
 //Route::get('/playerdetail', [HomeController::class, 'playerdetail'])->name('playerdetail');
-Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
-Route::post('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
+
 Route::get('/point-table', [\App\Http\Controllers\Client\MatchController::class, 'PointTable'])->name('point_table');
 Route::get('/team', [HomeController::class, 'PointTable'])->name('team');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
 Route::get('/player-detail/{player:id}', [HomeController::class, 'playerdetail'])->name('playerdetail');
-Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
-Route::get('add-to-cart/{product:slug}', [HomeController::class, 'addToCart'])->name('add-to-cart');
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
-Route::post('/update-cart', [HomeController::class, 'updateCart'])->name('cart');
-Route::post('/delete-from-cart/{product:slug}', [HomeController::class, 'deleteFromCart'])->name('cart');
+
+
+
 Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-history');
 //commit
 
@@ -60,6 +58,15 @@ Route::get('/club-history', [HomeController::class, 'clubHistory'])->name('club-
 Route::get('/match-rs/{match:id}',[\App\Http\Controllers\Client\MatchController::class,'match_result'])->name('match_rs');
 
 
+//Product router
+
+Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
+Route::post('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
+Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
+Route::get('add-to-cart/{product:slug}', [HomeController::class, 'addToCart'])->name('add-to-cart');
+Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+Route::post('/update-cart', [HomeController::class, 'updateCart'])->name('cart');
+Route::post('/delete-from-cart/{product:slug}', [HomeController::class, 'deleteFromCart'])->name('cart');
 /* -- PAYPAL -- */
 Route::get('/process-paypal/{order:code}', [HomeController::class, 'processPaypal'])->middleware(['auth'])->name('process_paypal');
 Route::get('/success-paypal/{order:code}', [HomeController::class, 'successPaypal'])->middleware(['auth'])->name('success_paypal');

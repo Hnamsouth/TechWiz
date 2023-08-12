@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->NamSeeder();
+//        $this->NamSeeder();
 
-        $this->HungSeeder();
+//        $this->HungSeeder();
         $this->HienSeeder();
     }
 

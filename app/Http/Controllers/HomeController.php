@@ -59,10 +59,20 @@ class HomeController extends Controller
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter=Blog::
+        $today_on_sport_footter = Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
+        $last_new_league_world_cup = Blog::where('publish_date', '<>', $today)
+            ->where('league_id', '=', 1)
+            ->orderBy("publish_date", 'desc')
+            ->limit(2)->get();
+        $last_new_league_world_cup_2 = Blog::where('publish_date', '<>', $today)
+            ->where('league_id', '=', 1)
+            ->        where('id', '<>', $last_new_league_world_cup->first()->id)
 
+            ->orderBy("publish_date", 'desc')
+            ->limit(4)->get();
+        $league_1 =League::all();
 
 
 
@@ -72,11 +82,13 @@ class HomeController extends Controller
 //        dd($match);
 
 
-        return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList','today_on_sport','today_on_sport_footter'));
+        return view('guest.home', compact('last_new_league_world_cup_2','last_new_league_world_cup','league_1','last_new', 'second_new', 'match', 'leagueSeasonList', 'today_on_sport', 'today_on_sport_footter', ));
     }
 
     public function match()
     {
+
+
         return view('guest.match');
     }
 
@@ -110,17 +122,17 @@ class HomeController extends Controller
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter=Blog::
+        $today_on_sport_footter = Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
 
-        $league=League::all();
+        $league = League::all();
 
 
 //        dd($second_new);
 
 
-        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport','today_on_sport_footter','last_new_slider','league'));
+        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport', 'today_on_sport_footter', 'last_new_slider', 'league'));
     }
 
     public function playerdetail(Players $player)
@@ -136,15 +148,15 @@ class HomeController extends Controller
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter=Blog::
+        $today_on_sport_footter = Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
         $last_new_slider = Blog::
-            orderBy("publish_date", 'desc')->limit(3)->get();
-        $league=League::all();
+        orderBy("publish_date", 'desc')->limit(3)->get();
+        $league = League::all();
 
 
-        return view('guest.blog-details', compact('blog','today_on_sport','league','today_on_sport_footter','last_new_slider'));
+        return view('guest.blog-details', compact('blog', 'today_on_sport', 'league', 'today_on_sport_footter', 'last_new_slider'));
 
 
     }
@@ -651,11 +663,6 @@ class HomeController extends Controller
         }
         return back()->with('error', "You can not cancel this order.");
     }
-
-
-
-
-
 
 
 }

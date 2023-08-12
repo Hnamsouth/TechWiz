@@ -32,6 +32,7 @@ class FeedbackController extends Controller
         ]);
         $data =$request->all();
         Feedback::create($data);
-        return redirect()->to("/home");
+
+        return redirect()->to("/home")->with('alert', 'Thank for feedback!!!');
     }
 }
