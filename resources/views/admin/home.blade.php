@@ -250,16 +250,6 @@
                                     <a href="#s_revenue-year" data-toggle="tab" id="s_revenue-year-tab" role="tab" area-controls="s_revenue-table" aria-selected="false">Year</a>
                                 </li>
                             </ul>
-                            <div class="dropdown dropleft">
-                                <a href="#" role="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span data-feather="more-horizontal"></span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="action">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="card-body p-0">
