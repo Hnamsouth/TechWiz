@@ -88,7 +88,7 @@ class WebController extends Controller
             $index++;
         }
 
-
+        return redirect('/');
     }
 
 
@@ -181,8 +181,7 @@ class WebController extends Controller
             $item->update(['img'=>$data[$index]]);
             $index++;
         }
-
-
+        return redirect('/');
     }
 
 

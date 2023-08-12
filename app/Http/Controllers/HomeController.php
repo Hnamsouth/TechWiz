@@ -13,7 +13,6 @@ use App\Models\League;
 use App\Models\LeagueSeason;
 use App\Models\Players;
 use App\Models\Product;
-use App\Models\Team;
 use Cloudinary\Api\Upload\UploadApi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -39,9 +38,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $leagueSeasonList = LeagueSeason::with('League')->with('Matches')->get();
-//        dd($leagueSeasonList->get(4)->Matches->take(10));
-//        dd($leagueSeasonList->get(2)->Matches->first());
+        $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
 
         $today = Carbon::now('Asia/Kolkata');
         $last_new = Blog::where('publish_date', '>=', $today)
@@ -87,8 +84,6 @@ class HomeController extends Controller
 
     public function match()
     {
-
-
         return view('guest.match');
     }
 
@@ -122,17 +117,17 @@ class HomeController extends Controller
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter = Blog::
+        $today_on_sport_footter=Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
 
-        $league = League::all();
+        $league=League::all();
 
 
 //        dd($second_new);
 
 
-        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport', 'today_on_sport_footter', 'last_new_slider', 'league'));
+        return view('guest.blog', compact('last_new', 'second_new', 'today_on_sport','today_on_sport_footter','last_new_slider','league'));
     }
 
     public function playerdetail(Players $player)
@@ -148,15 +143,15 @@ class HomeController extends Controller
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter = Blog::
+        $today_on_sport_footter=Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
         $last_new_slider = Blog::
-        orderBy("publish_date", 'desc')->limit(3)->get();
-        $league = League::all();
+            orderBy("publish_date", 'desc')->limit(3)->get();
+        $league=League::all();
 
 
-        return view('guest.blog-details', compact('blog', 'today_on_sport', 'league', 'today_on_sport_footter', 'last_new_slider'));
+        return view('guest.blog-details', compact('blog','today_on_sport','league','today_on_sport_footter','last_new_slider'));
 
 
     }
@@ -636,6 +631,4 @@ class HomeController extends Controller
         }
         return back()->with('error', "You can not cancel this order.");
     }
-
-
 }

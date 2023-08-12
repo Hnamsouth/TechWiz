@@ -58,7 +58,7 @@ class Match extends Model
     public function scopeStatus($query, $search){
             return $query->where('status','=',$search);
     }
-    public function scopeLeagueSeason($query, $league_season_id){
+    public function scopeLeagueSeasonSearch($query, $league_season_id){
         if($league_season_id && $league_season_id != 0){
             return $query->where('league_season_id','=',$league_season_id);
         }
@@ -73,6 +73,23 @@ class Match extends Model
     public function scopeLeagueStage($query, $league_stage_id){
         if($league_stage_id && $league_stage_id != 0){
             return $query->where('league_stage_id','=',$league_stage_id);
+        }
+        return $query;
+    }
+    public function scopeF1Team($query, $team_id){
+        if($team_id && $team_id != 0){
+            return $query->where('first_team_id','=',$team_id);
+        }
+        return $query;
+    }
+
+    public function scopeF1TeamSeason($query, $team_id,$season){
+        if($team_id && $team_id != 0){
+            return $query->where(function ($query) use ($team_id) {
+                $query->where('first_team_id', $team_id)
+                    ->orWhere('second_team_id', $team_id);
+            })
+                ->where('league_season_id', $season);
         }
         return $query;
     }

@@ -14,7 +14,6 @@ class Coaches extends Model
         'name',
         'nationality',
         'position',
-        'position',
         'date_of_birth',
         'img',
         'des',

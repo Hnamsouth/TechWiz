@@ -52,31 +52,35 @@
 
                                         <table class="table table-striped-inverse point-table">
                                             <thead>
-                                                <tr>
-                                                    <th width="5%" scope="row">Rank</th>
-                                                    <th width="25%" class="text-center">Team</th>
-                                                    <th width="10%" class="text-center">Won</th>
-                                                    <th width="10%" class="text-center">Draw</th>
-                                                    <th width="10%" class="text-center">Lost </th>
-                                                    <th width="10%" class="text-center">Goal For</th>
-                                                    <th width="10%" class="text-center">Goal Against</th>
-                                                    <th width="10%" class="text-center">Points</th>
-                                                </tr>
+                                            <tr>
+                                                <th width="5%" scope="row">Rank</th>
+                                                <th width="25%" class="text-center">Player</th>
+                                                <th width="10%" class="text-center">Goal</th>
+                                                <th width="10%" class="text-center">Assists</th>
+                                                <th width="10%" class="text-center">Rate</th>
+                                                <th width="10%" class="text-center">MN Playing</th>
+                                                <th width="10%" class="text-center">Red Card</th>
+                                                <th width="10%" class="text-center">Yellow Card</th>
+                                                <th width="10%" class="text-center">Match Played</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($ll['point'] as $id=>$tp)
+                                            @foreach($ll['players']->sortBy([['goal', 'desc']])->take(10) as $id=>$tp)
                                                 <tr>
                                                     <td data-th="Rank" width="5%" scope="row">{{$id+1}}</td>
-                                                    <td data-th="Team" width="25%"  class="text-left">
-                                                        <img src="{{$tp->Teams->logo}}" alt="" width="30" height="30" style="border-radius:50%" />
-                                                        <span>{{$tp->Teams->name}}</span>
+                                                    <td data-th="Player" width="25%"  >
+                                                        <a href="{{route('playerdetail',['player'=>$tp->id])}}" data-toggle="tooltip" data-placement="top" class="text-left">
+                                                            <img src="{{$tp->img}}" alt="" width="30" height="30" style="border-radius:50%" />
+                                                            <span>{{$tp->name}}</span>
+                                                        </a>
                                                     </td>
-                                                    <td data-th="Won" width="10%" class="text-center">{{37-$id}}</td>
-                                                    <td data-th="Draw" width="10%" class="text-center">{{random_int(10,12)}}</td>
-                                                    <td data-th="Lost" width="10%" class="text-center">{{random_int(5,9)}}</td>
-                                                    <td data-th="For" width="10%" class="text-center">{{random_int(26,37)}}</td>
-                                                    <td data-th="Against" width="10%" class="text-center">{{random_int(9,23)}}</td>
-                                                    <td data-th="Points" width="10%" class="text-center">{{98-$id}}</td>
+                                                    <td data-th="Goal" width="10%" class="text-center">{{150-$id}}</td>
+                                                    <td data-th="Assists" width="10%" class="text-center">{{random_int(1,30)}}</td>
+                                                    <td data-th="Rate" width="10%" class="text-center">{{random_int(6,9)+0.5}}</td>
+                                                    <td data-th="MNPlaying" width="10%" class="text-center">{{random_int(556,720)}}</td>
+                                                    <td data-th="RedCard" width="10%" class="text-center">{{random_int(1,5)}}</td>
+                                                    <td data-th="YellowCard" width="10%" class="text-center">{{random_int(1,6)}}</td>
+                                                    <td data-th="MatchPlayed" width="10%" class="text-center">{{120-(random_int(5,8))}}</td>
                                                 </tr>
                                             @endforeach
 
@@ -139,5 +143,4 @@
             </div>
         </div>
     </div>
-
 @endsection

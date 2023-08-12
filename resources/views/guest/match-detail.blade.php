@@ -2,7 +2,7 @@
 
 @extends('guest.layout')
 @section('main-content')
-    @include('guest.html.slider-section')
+{{--    @include('guest.html.slider-section')--}}
     <!-- start of /. match today section -->
     <div class="match-today-section world-cup-match">
         <div class="container">
@@ -406,9 +406,9 @@
                                                                     <div class="col-md-4 col-xs-2">
                                                                         <div class="statstics">
                                                                             @if($fh->event_type == 'Yellow card' || $fh->event_type == 'Red card' )
-                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/{{$fh->event_type == 'Red card'?"red":"yellow"}}_card_icon.svg" width="24" height="24" />  {{$fh->minute>45? 45 . " +" . ($fh->minute-45): $fh->minute}}'</p>
+                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/{{$fh->event_type == 'Red card'?"red":"yellow"}}_card_icon.svg" width="24" height="24" />  {{$fh->minute>90? 90 . " +" . ($fh->minute-90): $fh->minute}}'</p>
                                                                             @else
-                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/goal_icon.svg" width="24" height="24" />  {{$fh->minute>45? 45 . " +" . ($fh->minute-45): $fh->minute}}'</p>
+                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/goal_icon.svg" width="24" height="24" />  {{$fh->minute>90? 90 . " +" . ($fh->minute-90): $fh->minute}}'</p>
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -423,7 +423,7 @@
                                                         </div>
                                                         <div class="col-md-4 col-xs-8">
                                                             <div class="statstics statstics-center text-center">
-                                                                <p class="statstics"><img src="{{$fh->FirstPlayer->Teams[0]->logo}}" width="30" height="30" style="border-radius: 50%;"/> <img src="https://ssl.gstatic.com/onebox/sports/game_feed/substitution_icon.svg" width="24" height="24" /> <span>{{$fh->minute>45? 45 . " +" . ($fh->minute-45): $fh->minute}}'</span></p>
+                                                                <p class="statstics"><img src="{{$fh->FirstPlayer->Teams[0]->logo}}" width="30" height="30" style="border-radius: 50%;"/> <img src="https://ssl.gstatic.com/onebox/sports/game_feed/substitution_icon.svg" width="24" height="24" /> <span>{{$fh->minute>90? 90 . " +" . ($fh->minute-90): $fh->minute}}'</span></p>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4 col-xs-2">
@@ -460,9 +460,9 @@
                                                                     <div class="col-md-4 col-xs-2">
                                                                         <div class="statstics">
                                                                             @if($fh->event_type == 'Yellow card' || $fh->event_type == 'Red card' )
-                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/{{$fh->event_type == 'Red card'?"red":"yellow"}}_card_icon.svg" width="24" height="24" />  {{$fh->minute>45? 45 . " +" . ($fh->minute-45): $fh->minute}}'</p>
+                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/{{$fh->event_type == 'Red card'?"red":"yellow"}}_card_icon.svg" width="24" height="24" />  {{$fh->minute>120? 120 . " +" . ($fh->minute-120): $fh->minute}}'</p>
                                                                             @else
-                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/goal_icon.svg" width="24" height="24" />  {{$fh->minute>45? 45 . " +" . ($fh->minute-45): $fh->minute}}'</p>
+                                                                                <p class="statstics "><img src="https://ssl.gstatic.com/onebox/sports/game_feed/goal_icon.svg" width="24" height="24" />  {{$fh->minute>120? 120 . " +" . ($fh->minute-120): $fh->minute}}'</p>
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -508,7 +508,7 @@
                                                     <div class="row {{$i%2==1?"color-row":""}} " style="display:flex; align-items:center">
                                                         <div class="col-md-4 col-xs-2">
                                                             @php($ft=$ME4[$i]->event_type=='Penalty'?$ft+1:$ft)
-                                                            <div class="">
+                                                            <div style="display:flex">
                                                                 <img src="{{$ME4[$i]->FirstPlayer->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                                 <div class="row">
                                                                     <span style="font-size:15px;font-weight:bold">{{$ME4[$i]->FirstPlayer->name}}({{$ME4[$i]->FirstPlayer->number}})</span>
@@ -526,7 +526,7 @@
                                                         </div>
                                                         <div class="col-md-4 col-xs-2">
                                                             @php($st=$ME4[$i+1]->event_type=='Penalty'?$st+1:$st)
-                                                            <div class="text-right">
+                                                            <div class="text-right" style="display: flex;flex-direction:row;justify-content: flex-end">
                                                                 <div class="row">
                                                                     <span style="font-size:15px;font-weight:bold">{{$ME4[$i+1]->FirstPlayer->name}}({{$ME4[$i+1]->FirstPlayer->number}})</span>
                                                                     <p>({{$ft}} - {{$st}})</p>
@@ -856,7 +856,7 @@
                                             <div class="col-sm-6">
                                                     <div class="statstics">
                                                         <a  href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center" style="font-size:15px;font-weight:bold">
-                                                            <img src="{{$MatchPlayer[$i]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <img src="{{$MatchPlayer[$i]->Player->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                             <span>{{$MatchPlayer[$i]->Player->name}}({{$MatchPlayer[$i]->Player->number}})</span>
                                                         </a>
                                                     </div>
@@ -865,7 +865,7 @@
                                                     <div class="statstics statstics-right text-right">
                                                         <a href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center"  style="justify-content:end; font-size:15px;font-weight:bold">
                                                             <span>{{$MatchPlayer[$i+2]->Player->name}}({{$MatchPlayer[$i+2]->Player->number}})</span>
-                                                            <img src="{{$MatchPlayer[$i+2]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <img src="{{$MatchPlayer[$i+2]->Player->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                         </a>
                                                     </div>
                                             </div>
