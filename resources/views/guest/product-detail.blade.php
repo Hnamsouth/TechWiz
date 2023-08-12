@@ -1,4 +1,3 @@
-
 @extends('guest.layout')
 
 @section('after_css')
@@ -89,64 +88,77 @@
                         <div class="product-meta row">
                             <div class="col-md-8">
                                 <div class="title">
-                                    <h3>{{$product->name}}</h3>
-                                    <h3 class="product-price">${{number_format($product->price, 2)}}</h3>
+                                    <h3 style="margin-bottom: ">{{$product->name}}</h3>
+                                    <h1 class="product-price">${{number_format($product->price, 2)}}</h1>
+                                </div>
+                                <div class="product-caption">
+                                    <h3 style="margin-bottom:8px;">Product desciption</h3>
+                                    <p>{{$product->short_desc}}</p>
+                                </div>
+                                <div>
+                                    <h3 style="margin-bottom:8px;">Detail informations</h3>
+                                    <div>
+                                        Natural white cover paper
+                                        Printed in full color and foil stamped
+                                        Metallic gold envelope
+                                        Blank interior
+                                        Made in USA
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="product-caption">
-                                    <p>{{$product->short_desc}}</p>
-                                </div>
+                                @if($product->quantity > 0)
+                                    <form class="add-to-cart-form"
+                                          action="{{url('add-to-cart',['product'=>$product->slug])}}" method="get">
+                                        <div class="">
+                                            <div class="handle-counter" id="handleCounter">
+                                                <button style="margin-top: 0px;" class="counter-minus btn btn-primary">-</button>
+                                                <input type="text" value="1" name="buy_quantity">
+                                                <button style="margin-top: 0px;" class="counter-plus btn btn-primary">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="buy-now-btn">
+                                            <button type="submit" style="width: 100%"><i
+                                                    class="fa fa-shopping-basket" aria-hidden="true"></i> Add to
+                                                cart
+                                            </button>
+                                        </div>
+                                    </form>
                             </div>
-                            @if($product->quantity > 0)
-                            <form class="add-to-cart-form" action="{{url('add-to-cart',['product'=>$product->slug])}}" method="get">
-                                <div class="col-md-4">
-                                    <div class="handle-counter" id="handleCounter">
-                                        <button class="counter-minus btn btn-primary">-</button>
-                                        <input type="text" value="1" name="buy_quantity">
-                                        <button class="counter-plus btn btn-primary">+</button>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="buy-now-btn">
-                                        <button type="submit"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart</button>
-                                    </div>
-                                </div>
-                            </form>
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-tab">
-                        <div class="tab-menu-area">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                            </ul>
-                        </div>
+            {{--            <div class="row">--}}
+            {{--                <div class="col-md-12">--}}
+            {{--                    <div class="product-tab">--}}
+            {{--                        <div class="tab-menu-area">--}}
+            {{--                            <!-- Nav tabs -->--}}
+            {{--                            <ul class="nav nav-tabs" role="tablist">--}}
+            {{--                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"--}}
+            {{--                                                                          data-toggle="tab">Description</a></li>--}}
+            {{--                            </ul>--}}
+            {{--                        </div>--}}
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="home">
-                                <div class="description-area">
-                                    <div class="title-area">
-                                        <h4>Description</h4>
-                                    </div>
-                                    <div class="content-area">
-                                        {!! $product->desc !!}
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{--                        <!-- Tab panes -->--}}
+            {{--                        <div class="tab-content">--}}
+            {{--                            <div role="tabpanel" class="tab-pane active" id="home">--}}
+            {{--                                <div class="description-area">--}}
+            {{--                                    <div class="title-area">--}}
+            {{--                                        <h4>Description</h4>--}}
+            {{--                                    </div>--}}
+            {{--                                    <div class="content-area">--}}
+            {{--                                        {!! $product->desc !!}--}}
+            {{--                                    </div>--}}
+            {{--                                </div>--}}
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
             <div class="row">
                 <div class="col-md-12">
                     <div class="recent-item-title">
@@ -159,16 +171,22 @@
                                     <div class="single-product">
                                         <div class="product-imgs">
                                             <a href="{{url('product-detail', ['product'=>$product->slug])}}">
-                                                <div style="position: relative; width: 100%; padding-top: calc(330 / 262 * 100%); overflow: hidden;">
-                                                    <img src="{{add_w_auto_to_cloudinary_url($product->thumbnail)}}" alt="" class="img-responsive product-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                                <div
+                                                    style="position: relative; width: 100%; padding-top: calc(330 / 262 * 100%); overflow: hidden;">
+                                                    <img src="{{add_w_auto_to_cloudinary_url($product->thumbnail)}}"
+                                                         alt="" class="img-responsive product-img"
+                                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
                                                 </div>
                                             </a>
                                         </div>
 
                                         <div class="product-info">
                                             <div class="pull-left" style="max-width: 80%">
-                                                <a href="{{url('product-detail', ['product'=>$product->slug])}}" class="title">{{$product->name}}</a>
-                                                <p class="price">$42 <s class="previous-price">${{number_format($product->price)}}</s></p>
+                                                <a href="{{url('product-detail', ['product'=>$product->slug])}}"
+                                                   class="title">{{$product->name}}</a>
+                                                <p class="price">$42 <s
+                                                        class="previous-price">${{number_format($product->price)}}</s>
+                                                </p>
                                             </div>
 
                                             <div class="pull-right">
@@ -192,6 +210,6 @@
         </div>
     </div>
 
-@include('guest.html.twitter-section')
+    @include('guest.html.twitter-section')
 
 @endsection
