@@ -273,8 +273,6 @@ class TeamPlayerSeeder extends Seeder
                             'first_team_id'=>$t1->team_id,
                             'second_team_id'=>$t2->team_id,
                             'league_season_id'=>$item->id,
-//                            'euro_world_season_id',
-//                            'league_stage_id',
                         ]);
                         $day+=2;
                     }

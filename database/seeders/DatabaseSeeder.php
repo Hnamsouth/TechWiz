@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->NamSeeder();
-        $this->HungSeeder();
-        $this->HienSeeder();
-        $this->Gadmin();
+//        $this->HungSeeder();
+//        $this->HienSeeder();
+//        $this->Gadmin();
     }
     public function Gadmin(){
         $user= User::create([

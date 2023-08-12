@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
     Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminController::class, 'home']);
     // -- PRODUCT --
     Route::prefix('product')->group(function () {
@@ -86,3 +87,5 @@
         Route::delete('/delete/{match:id}', [\App\Http\Controllers\Admin\MatchController::class, 'delete']);
     });
 
+Route::get('/uplogo', [\App\Http\Controllers\WebController::class, 'uplogo'])->name('shop-product');
+Route::get('/uplogo-player', [\App\Http\Controllers\WebController::class, 'uplogoPlayer'])->name('shop-product');

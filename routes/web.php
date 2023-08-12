@@ -45,5 +45,4 @@ Route::prefix("profile")->group(function (){
     Route::get('/{player:name}', [\App\Http\Controllers\PlayerController::class, 'detail']);
 });
 
-//Route::get('/uplogo', [\App\Http\Controllers\WebController::class, 'uplogo'])->name('shop-product');
-//Route::get('/uplogo-player', [\App\Http\Controllers\WebController::class, 'uplogoPlayer'])->name('shop-product');
+

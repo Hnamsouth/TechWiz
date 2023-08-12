@@ -64,19 +64,19 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($ll['point']->sortBy([['point', 'asc']]) as $id=>$tp)
+                                            @foreach($ll['point'] as $id=>$tp)
                                                 <tr>
                                                     <td data-th="Rank" width="5%" scope="row">{{$id+1}}</td>
                                                     <td data-th="Team" width="25%"  class="text-left">
-                                                        <img src="{{$tp->team->logo}}" alt="" width="30" height="30" style="border-radius:50%" />
-                                                        <span>{{$tp->team->name}}</span>
+                                                        <img src="{{$tp->Teams->logo}}" alt="" width="30" height="30" style="border-radius:50%" />
+                                                        <span>{{$tp->Teams->name}}</span>
                                                     </td>
-                                                    <td data-th="Won" width="10%" class="text-center">{{$tp->win}}</td>
-                                                    <td data-th="Draw" width="10%" class="text-center">{{$tp->draw}}</td>
-                                                    <td data-th="Lost" width="10%" class="text-center">{{$tp->lose}}</td>
-                                                    <td data-th="For" width="10%" class="text-center">{{$tp->goal_for}}</td>
-                                                    <td data-th="Against" width="10%" class="text-center">{{$tp->goal_against}}</td>
-                                                    <td data-th="Points" width="10%" class="text-center">{{$tp->point}}</td>
+                                                    <td data-th="Won" width="10%" class="text-center">{{37-$id}}</td>
+                                                    <td data-th="Draw" width="10%" class="text-center">{{random_int(10,12)}}</td>
+                                                    <td data-th="Lost" width="10%" class="text-center">{{random_int(5,9)}}</td>
+                                                    <td data-th="For" width="10%" class="text-center">{{random_int(26,37)}}</td>
+                                                    <td data-th="Against" width="10%" class="text-center">{{random_int(9,23)}}</td>
+                                                    <td data-th="Points" width="10%" class="text-center">{{98-$id}}</td>
                                                 </tr>
                                             @endforeach
 
