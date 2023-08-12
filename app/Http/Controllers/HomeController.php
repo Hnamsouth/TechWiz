@@ -517,8 +517,10 @@ class HomeController extends Controller
         foreach ($order->products as $product) {
             $totalQuantity += $product->pivot->quantity;
         }
+//        dd($order);
         //Send Email after payment success
         Mail::to($order->email)->send(new MailOrder($order));
+
         return view('guest.order-confirm', compact('order', 'totalQuantity'));
     }
 

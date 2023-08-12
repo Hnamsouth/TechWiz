@@ -62,8 +62,6 @@ Route::get('/match-rs/{match:id}',[\App\Http\Controllers\Client\MatchController:
 
 //Product router
 
-Route::get('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
-Route::post('/checkout', [HomeController::class, 'checkout'])->middleware(['auth'])->name('checkout');
 Route::get('/product-detail/{product:slug}', [HomeController::class, 'productDetail'])->name('product-detail');
 Route::get('add-to-cart/{product:slug}', [HomeController::class, 'addToCart'])->name('add-to-cart');
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart');

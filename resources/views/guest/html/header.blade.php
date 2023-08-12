@@ -36,16 +36,17 @@
                 <div class="header-right-menu">
                     <ul>
                         <li>Currency: <a href="#">USD</a></li>
-                        <li>Wishlist: <a href="#">12</a></li>
-                        <li>  @guest
+                        <li>
+                        </li>
+                        <li>
+                            @guest
                                 <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
                             @endguest
-
                             @auth
                                 <form action="{{route('logout')}}" method="post">
                                     @csrf
                                     <button type="submit">
-                                        <i class="fas fa-user"> logout</i>
+                                        <i class="fas fa-user"> {{\Illuminate\Support\Facades\Auth::user()->name}}</i>
                                     </button>
 
                                 </form>
