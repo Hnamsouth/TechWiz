@@ -23,5 +23,7 @@ class TeamLeagueSeason extends Model
         return $query;
     }
 
-
+    public function Teams(){
+        return $this->belongsTo(Team::class,'team_id');
+    }
 }

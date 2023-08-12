@@ -34,4 +34,15 @@ class Players extends Model
     public function MatchPlayer(){
         return $this->hasMany(MatchPlayer::class,"player_id");
     }
+
+    public function scopeSeasonPlayers($query,$season_id){
+        if($season_id && $season_id!=0){
+            return $query->whereIn('id',function ($query) use ($season_id){
+                $query->select('player_id')->from('team_player')->whereIn('team_id',function ($query) use ($season_id){
+                    $query->select('team_id')->from('team_league_season')->where('league_season_id','=',$season_id);
+                });
+            });
+        }
+        return $query;
+    }
 }

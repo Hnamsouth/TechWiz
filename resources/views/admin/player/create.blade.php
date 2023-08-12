@@ -189,7 +189,7 @@
                                                         <img class="avatrSrc img-thumbnail" src="/admin/img/upload.png" alt="Avatar Upload" style="max-width: 200px">
                                                     </div>
                                                     <div class="avatar-up">
-                                                        <input type="file" name="image" class="upload-avatar-input" accept="image">
+                                                        <input type="file" name="img" class="upload-avatar-input" accept="image">
                                                     </div>
                                                     <div class="image-actions">
                                                         <a href="#" class="edit-icon position-absolute" style="top: -10px;right: -10px"><i class="fas fa-pen"></i>
@@ -199,7 +199,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @error("image")
+                                        @error("img")
                                         <div class="invalid-feedback">
                                             {{$message}}
                                         </div>

@@ -137,6 +137,18 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group row mb-25">
+                                        <div class="col-sm-3">
+                                            <label for="inputLevel" class=" col-form-label  color-dark fs-14 fw-500 align-center">Club Team</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="form-control ih-medium ip-gray radius-xs b-light px-15" id="inputLevel">
+                                                @foreach($team as $item)
+                                                    <option @if(old("club_team_id")==$item->id) selected @endif value="{{$coaches->club_team_id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row mb-1">
                                         <div class="col-sm-3">

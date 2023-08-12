@@ -2,8 +2,8 @@
 
 use Pusher\Pusher;
 
-if (!function_exists('notify')) {
-    function notify($chanel, $event, $data) {
+if (!function_exists('notify1')) {
+    function notify1($chanel, $event, $data) {
         $options = array(
             'cluster' => 'ap1',
             'useTLS' => true

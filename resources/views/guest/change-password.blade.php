@@ -179,87 +179,55 @@
                 <div class="col-md-9 col-sm-8">
                     <div class="inner-box checkout-section pt-0">
                         <div class="billing-info">
-                            <h4 class="sub-title">Account Information</h4>
-                            <form class="billing-form" action="{{url('update-user-info')}}" method="post" enctype="multipart/form-data">
+                            <h4 class="sub-title">Change Password</h4>
+                            @if($errors->any())
+                                {!! implode('', $errors->all('<div style="color:red; padding-top: 23px">:message</div>')) !!}
+                            @endif
+                            @if(Session::get('error') && Session::get('error') != null)
+                                <div style="color:red; padding-top: 23px">{{ Session::get('error') }}</div>
+                                @php
+                                    Session::put('error', null)
+                                @endphp
+                            @endif
+                            @if(Session::get('success') && Session::get('success') != null)
+                                <div style="color:green; padding-top: 23px">{{ Session::get('success') }}</div>
+                                @php
+                                    Session::put('success', null)
+                                @endphp
+                            @endif
+                            <form class="billing-form" action="{{url('/my-account/change-password')}}" method="post">
                                 @csrf
 
                                 <div class="row">
                                     <div class="col-lg-12 form-group">
-                                        <label>Name*</label>
+                                        <label>Current Password</label>
                                         <div class="field-input">
-                                            <input type="text" name="name" value="{{ Auth::user()->name }}" required class="editable-field" readonly>
+                                            <input type="password" name="current_password" required>
                                         </div>
-                                        @error('name')
+                                        @error('current_password')
                                         <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-lg-12  form-group">
-                                        <label>Email Address*</label>
+                                        <label>New Password</label>
                                         <div class="field-input">
-                                            <input type="email" name="email" value="{{ Auth::user()->email }}" required class="editable-field" readonly>
+                                            <input type="password" name="new_password" required>
                                         </div>
-                                        @error('email')
+                                        @error('new_password')
                                         <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-lg-12 form-group">
-                                        <label>Phone Number</label>
+                                        <label>Confirm New Password</label>
                                         <div class="field-input">
-                                            <input type="text" name="telephone" value="{{ Auth::user()->telephone }}" class="editable-field" readonly>
+                                            <input type="password" name="new_password_confirmation" required>
                                         </div>
-                                        @error('phone')
-                                        <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-lg-12 form-group">
-                                        <label>Country</label>
-                                        <div class="field-input">
-                                            <input type="text" name="country" value="{{ Auth::user()->country }}" class="editable-field" readonly>
-                                        </div>
-                                        @error('country')
-                                        <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-lg-12 form-group">
-                                        <label>Address</label>
-                                        <div class="field-input">
-                                            <input type="text" name="address" class="editable-field" value="{{ Auth::user()->address }}" readonly>
-                                        </div>
-                                        @error('address')
-                                        <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-lg-12 form-group">
-                                        <label>Town/City</label>
-                                        <div class="field-input">
-                                            <input type="text" name="city" value="{{ Auth::user()->city }}" class="editable-field" readonly>
-                                        </div>
-                                        @error('city')
-                                        <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-lg-12 form-group">
-                                        <label>State</label>
-                                        <div class="field-input">
-                                            <input type="text" name="state" value="{{ Auth::user()->state }}" class="editable-field" readonly>
-                                        </div>
-                                        @error('state')
-                                        <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-lg-12 form-group">
-                                        <label>Postal Code</label>
-                                        <div class="field-input">
-                                            <input type="text" name="postcode" value="{{ Auth::user()->postcode }}" class="editable-field" readonly>
-                                        </div>
-                                        @error('postcode')
+                                        @error('new_password_confirmation')
                                         <span class="invalid-feedback d-block" role="alert">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-lg-12 form-group" style="display: flex; justify-content: center">
-                                        <a href="{{url('/my-account/change-password')}}" class="theme-btn-two ml-2" style="margin-right: 10px">Change password</a>
-                                        <button type="button" id="edit-btn" class="theme-btn-two float-right" style="margin-right: 10px">Edit</button>
-                                        <button type="submit" id="save-btn" class="theme-btn-two " style="display: none;">Save</button>
+                                        <button type="submit" id="save-btn" class="theme-btn-two " >Change</button>
                                     </div>
                                 </div>
                             </form>
@@ -271,19 +239,3 @@
     </div><!-- END OF PRODUCTS SECTION -->
 @endsection
 
-
-@section("after_js")
-    <script>
-        const editBtn = document.querySelector('#edit-btn');
-        const saveBtn = document.querySelector('#save-btn');
-        const inputFields = document.querySelectorAll('.editable-field');
-
-        editBtn.addEventListener('click', () => {
-            // Remove the 'readonly' attribute from all input fields
-            inputFields.forEach(input => input.removeAttribute('readonly'));
-            // Show the 'Save' button and hide the 'Edit' button
-            saveBtn.style.display = 'block';
-            editBtn.style.display = 'none';
-        });
-    </script>
-@endsection

@@ -26,9 +26,10 @@ class TeamController extends Controller
     public function store(Request $request){
         $request->validate([
             "name"=>"required|string|min:6",
-            "country"=>"required",
+            "country"=>"nullable",
             "level"=>"required|numeric|min:0|max:1",
-            "logo"=>"required|image|mimes:png,gif,jpg,jpeg"
+            "continent"=>"nullable|string",
+            "logo"=>"nullable|image|mimes:png,gif,jpg,jpeg"
         ],[
             "required"=>"Vui lòng nhập thông tin",
             "min"=> "Nhập tối thiểu :min ký tự",
@@ -54,8 +55,9 @@ class TeamController extends Controller
             $data['logo'] = $data['logo'] ?? null;
         }
 
-        Team::create($data);
+        $team = Team::create($data);
 
+        $team->update();
         return redirect()->to("/admin/team");
     }
 
@@ -68,6 +70,7 @@ class TeamController extends Controller
             "name"=>"required|string|min:6",
             "country"=>"required",
             "level"=>"required|numeric|min:0|max:1",
+            "continent"=>"nullable|string",
             "logo"=>"required|image|mimes:png,gif,jpg,jpeg"
         ],[
             "required"=>"Vui lòng nhập thông tin",
@@ -76,7 +79,7 @@ class TeamController extends Controller
 
         $data = $request->except("logo");
         try {
-            if ($request->get('old_logo_url') == null) { //Don't keep the old thumbnail
+            if ($request->get('old_thumb_url') == null) { //Don't keep the old thumbnail
                 //-- Delete the old thumbnail from Cloudinary
                 if ($team->logo) {
                     $public_id = 'techwiz/' . basename($team->logo, '.' . pathinfo($team->logo, PATHINFO_EXTENSION));
@@ -104,6 +107,7 @@ class TeamController extends Controller
         } finally {
             $data['logo'] = $data['logo'] ?? null;
         }
+        $data = $request->all();
 
         $team->update($data);
         return redirect()->to("admin/team");

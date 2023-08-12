@@ -8,6 +8,7 @@ use App\Mail\MailOrder;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Match;
+use App\Models\Matchx;
 use App\Models\Order;
 use App\Models\League;
 use App\Models\LeagueSeason;
@@ -41,9 +42,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $leagueSeasonList = LeagueSeason::with('League')->with('Matches')->get();
-//        dd($leagueSeasonList->get(4)->Matches->take(10));
-//        dd($leagueSeasonList->get(2)->Matches->first());
+        $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
 
         $today = Carbon::now('Asia/Kolkata');
         $last_new = Blog::where('publish_date', '>=', $today)
@@ -54,17 +53,27 @@ class HomeController extends Controller
         where('id', '<>', $last_new->first()->id)
             ->orderBy("publish_date", 'desc')->limit(4)->get();
 
-        $match = Match::orderBy("datetime", 'desc')
+        $match = Matchx::orderBy("datetime", 'desc')
             ->limit(4)->get();;
 
 
         $today_on_sport = Blog::
         orderBy("publish_date", 'desc')->limit(5)
             ->get();
-        $today_on_sport_footter=Blog::
+        $today_on_sport_footter = Blog::
         orderBy("publish_date", 'asc')->limit(5)
             ->get();
+        $last_new_league_world_cup = Blog::where('publish_date', '<>', $today)
+            ->where('league_id', '=', 1)
+            ->orderBy("publish_date", 'desc')
+            ->limit(2)->get();
+        $last_new_league_world_cup_2 = Blog::where('publish_date', '<>', $today)
+            ->where('league_id', '=', 1)
+            ->        where('id', '<>', $last_new_league_world_cup->first()->id)
 
+            ->orderBy("publish_date", 'desc')
+            ->limit(4)->get();
+        $league_1 =League::all();
 
 
 
@@ -74,17 +83,19 @@ class HomeController extends Controller
 //        dd($match);
 
 
-        return view('guest.home', compact('last_new', 'second_new', 'match', 'leagueSeasonList','today_on_sport','today_on_sport_footter'));
+        return view('guest.home', compact('last_new_league_world_cup_2','last_new_league_world_cup','league_1','last_new', 'second_new', 'match', 'leagueSeasonList', 'today_on_sport', 'today_on_sport_footter', ));
     }
 
     public function match()
     {
         return view('guest.match');
     }
+
     public function team()
     {
         return view('guest.team');
     }
+
     public function contact()
     {
         return view('guest.contact');
@@ -185,17 +196,19 @@ class HomeController extends Controller
 
         $data = $searchedData->CategoryFilter($category_id)->orderBy($orderCol, $sortBy)->paginate(12);
 
-        return view('guest.shop',compact('data',"categories", "searchedDataCount"));
+        return view('guest.shop', compact('data', "categories", "searchedDataCount"));
     }
+
     public function productDetail(Product $product)
     {
-        $related_products = Product::where("category_id", $product->category_id)->where("id","<>",$product->id)->orderBy("created_at", "desc")->limit(4)->get();
+        $related_products = Product::where("category_id", $product->category_id)->where("id", "<>", $product->id)->orderBy("created_at", "desc")->limit(4)->get();
         return view('guest.product-detail', compact("product", "related_products"));
     }
 
-    public function addToCart(Product $product, Request $request) {
+    public function addToCart(Product $product, Request $request)
+    {
         $request->validate([
-            "buy_quantity" => "required|numeric|min:1|max:".$product->quantity
+            "buy_quantity" => "required|numeric|min:1|max:" . $product->quantity
         ]);
         $buy_quantity = $request->get("buy_quantity");
 
@@ -217,7 +230,7 @@ class HomeController extends Controller
         if ($flag) {
             $cart[] = $product;
         }
-        session(["cart"=>$cart]);
+        session(["cart" => $cart]);
         $cartCount = count(session('cart', []));
 
         // Calculate total price of cart items
@@ -229,13 +242,14 @@ class HomeController extends Controller
         return response()->json(['cartCount' => $cartCount, 'totalPrice' => $totalPrice]);
     }
 
-    public function cart() {
+    public function cart()
+    {
         $cart = session()->has("cart") && is_array(session("cart")) ? session("cart") : [];
         $total = 0;
         $can_checkout = true;
         foreach ($cart as $item) {
             $total += $item->price * $item->buy_quantity;
-            if($item->quantity < $item->buy_quantity) {
+            if ($item->quantity < $item->buy_quantity) {
                 $can_checkout = false;
             }
         }
@@ -243,7 +257,7 @@ class HomeController extends Controller
         // set the redirectTo property to the checkout URL
         session(['redirectTo' => url('/checkout')]);
 
-        return view("guest.cart", compact("cart","total", "shipping", "can_checkout"));
+        return view("guest.cart", compact("cart", "total", "shipping", "can_checkout"));
     }
 
     public function updateCart(Request $request)
@@ -273,10 +287,10 @@ class HomeController extends Controller
             $shipping = 0;
 
             $data = [
-                'subTotal' => number_format($subTotal,2),
-                'total' => number_format($total,2),
-                'shipping' => number_format($shipping,2),
-                'grandTotal' => number_format($total + $shipping,2)
+                'subTotal' => number_format($subTotal, 2),
+                'total' => number_format($total, 2),
+                'shipping' => number_format($shipping, 2),
+                'grandTotal' => number_format($total + $shipping, 2)
             ];
 
             return response()->json($data);
@@ -286,14 +300,15 @@ class HomeController extends Controller
 
     }
 
-    public function deleteFromCart(Request $request, Product $product) {
+    public function deleteFromCart(Request $request, Product $product)
+    {
         $cart = session()->has("cart") && is_array(session("cart")) ? session("cart") : [];
         foreach ($cart as $key => $value) {
             if ($value->id == $product->id) {
                 unset($cart[$key]);
             }
         }
-        session(["cart"=>$cart]);
+        session(["cart" => $cart]);
 
         // Calculate the new total
         $total = 0;
@@ -307,9 +322,9 @@ class HomeController extends Controller
             $response = [
                 'status' => 'success',
                 'message' => 'Product removed from cart successfully.',
-                'total' => number_format($total,2),
-                'shipping' => number_format($shipping,2),
-                'grandTotal' => number_format($total + $shipping,2),
+                'total' => number_format($total, 2),
+                'shipping' => number_format($shipping, 2),
+                'grandTotal' => number_format($total + $shipping, 2),
             ];
             return response()->json($response);
         }
@@ -317,13 +332,14 @@ class HomeController extends Controller
         return redirect()->to("/cart");
     }
 
-    public function checkout() {
+    public function checkout()
+    {
         $cart = session()->has("cart") && is_array(session("cart")) ? session("cart") : [];
         $total = 0;
         $can_checkout = true;
         foreach ($cart as $item) {
             $total += $item->price * $item->buy_quantity;
-            if($item->quantity < $item->buy_quantity) {
+            if ($item->quantity < $item->buy_quantity) {
                 $can_checkout = false;
             }
         }
@@ -338,16 +354,17 @@ class HomeController extends Controller
         // if the URL is not set, redirect to the home page
         if (!$redirectTo) {
             //return redirect()->to('/');
-            return view("guest.checkout", compact("cart","total","shipping"));
+            return view("guest.checkout", compact("cart", "total", "shipping"));
         }
 
         // clear the previous URL from the session
         session()->forget('redirectTo');
 
-        return view("guest.checkout", compact("cart","total","shipping"));
+        return view("guest.checkout", compact("cart", "total", "shipping"));
     }
 
-    public function placeOrder(Request $request) {
+    public function placeOrder(Request $request)
+    {
         $request->validate([
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'phone' => ['required', 'regex:/^[0-9]{10}$/'],
@@ -365,7 +382,7 @@ class HomeController extends Controller
         $can_checkout = true;
         foreach ($cart as $item) {
             $total += $item->price * $item->buy_quantity;
-            if($item->quantity < $item->buy_quantity) {
+            if ($item->quantity < $item->buy_quantity) {
                 $can_checkout = false;
             }
         }
@@ -387,7 +404,7 @@ class HomeController extends Controller
         }
 
         $order = Order::create([
-            'code' => $paymentCode.microtime(true) * 10000,
+            'code' => $paymentCode . microtime(true) * 10000,
             'user_id' => $user->id,
             'subtotal' => $total,
             'delivery_fee' => $shipping,
@@ -432,9 +449,9 @@ class HomeController extends Controller
         event(new NewOrderCreated($order));
 
         if ($request->get('payment_method') == Order::PAYPAL) {
-            return redirect()->to(route('process_paypal',['order'=>$order->code]));
+            return redirect()->to(route('process_paypal', ['order' => $order->code]));
         } elseif ($request->get('payment_method') == Order::VNPAY) {
-            return redirect()->to(route('process_vnpay',['order'=>$order->code]));
+            return redirect()->to(route('process_vnpay', ['order' => $order->code]));
         } else {
             $totalQuantity = 0;
             foreach ($order->products as $product) {
@@ -444,11 +461,12 @@ class HomeController extends Controller
             if ($request->get('payment_method') == Order::COD) {
                 Mail::to($order->email)->send(new MailOrder($order));
             }
-            return view('guest.order-confirm',compact('order', 'totalQuantity'));
+            return view('guest.order-confirm', compact('order', 'totalQuantity'));
         }
     }
 
-    public function processPaypal(Order $order) {
+    public function processPaypal(Order $order)
+    {
         $provider = new PayPal;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -456,14 +474,14 @@ class HomeController extends Controller
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
-                "return_url" => route('success_paypal', ['order'=>$order->code]),
-                "cancel_url" => route('cancel_paypal', ['order'=>$order->code]),
+                "return_url" => route('success_paypal', ['order' => $order->code]),
+                "cancel_url" => route('cancel_paypal', ['order' => $order->code]),
             ],
             "purchase_units" => [
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => number_format($order->grand_total,2,".","")
+                        "value" => number_format($order->grand_total, 2, ".", "")
                     ]
                 ]
             ]
@@ -482,18 +500,18 @@ class HomeController extends Controller
                 ->route('cancel_paypal')
                 ->with('error', 'Something went wrong.');
 
-        }
-        else {
+        } else {
             return redirect()
                 ->route('cancel_paypal')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }
 
-    public function successPaypal(Order $order) {
-        $order->update(['payment_status'=>true]);
+    public function successPaypal(Order $order)
+    {
+        $order->update(['payment_status' => true]);
         if ($order->status == Order::PENDING) {
-            $order->update(['status'=>Order::CONFIRMED]);
+            $order->update(['status' => Order::CONFIRMED]);
         }
         $totalQuantity = 0;
         foreach ($order->products as $product) {
@@ -501,19 +519,22 @@ class HomeController extends Controller
         }
         //Send Email after payment success
         Mail::to($order->email)->send(new MailOrder($order));
-        return view('guest.order-confirm',compact('order', 'totalQuantity'));
+        return view('guest.order-confirm', compact('order', 'totalQuantity'));
     }
-    public function successPaypalTest(Order $order) {
+
+    public function successPaypalTest(Order $order)
+    {
         return view('guest.order-confirm');
     }
 
-    public function cancelPaypal(Order $order) {
+    public function cancelPaypal(Order $order)
+    {
         $totalQuantity = 0;
         foreach ($order->products as $product) {
             $totalQuantity += $product->pivot->quantity;
         }
         $error = session('error');
-        return view('guest.cancel-payment',compact('order', 'totalQuantity', 'error'));
+        return view('guest.cancel-payment', compact('order', 'totalQuantity', 'error'));
     }
 
     public function clubHistory()
@@ -522,90 +543,66 @@ class HomeController extends Controller
     }
 
 
-
-    public function myAccount() {
+    public function myAccount()
+    {
         return view('guest.myaccount');
     }
 
-    public function updateUserInfo(Request $request) {
+    public function updateUserInfo(Request $request)
+    {
         // Get the currently authenticated user
         $user = Auth::user();
 
         $request->validate([
             'avatar' => "nullable|image|mimes:jpeg,png,jpg,svg,webp",
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'email' => "required|string|email|max:255|unique:users,email,".$user->id,
+            'email' => "required|string|email|max:255|unique:users,email," . $user->id,
             'telephone' => ['nullable', 'regex:/^[0-9]{10}$/'],
             'postcode' => ['nullable', 'numeric'],
         ]);
 
-        $data = $request->except("avatar");
-        try {
-            if ($request->get('keep_old_avatar') == 0) { //Don't keep the old avatar
-//                //-- Delete the old avatar from Cloudinary
-//                if ($user->avatar) {
-//                    $public_id = 'eproject-sem2/' . basename($user->avatar, '.' . pathinfo($user->avatar, PATHINFO_EXTENSION));
-//                    $delete_result = (new UploadApi())->destroy($public_id, ['resource_type' => 'image']);
-//                }
-                $data['avatar'] = null;
-                //-- If user want to upload new avatar
-                if($request->hasFile("avatar")) {
-                    $fileName = time() . "_" . str_replace(' ', '_', $request->get('name'));
-                    //-- Upload image to Cloudinary --
-                    $result = (new UploadApi())->upload(
-                        $request->file('avatar')->getRealPath(),
-                        [
-                            'public_id' => $fileName,
-                            'folder' => 'eproject-sem2/'
-                        ]
-                    );
-                    //-- Save url to 'avatar' --
-                    $data['avatar'] = $result['secure_url'];
-                }
-            }
-        } catch (\Exception $e) {
-        } finally {
-            $data['avatar'] = $data['avatar'] ?? null;
-        }
+        $data = $request->all();
 
         $user->update($data);
 
         return redirect()->to('/my-account');
     }
 
-    public function changePassword() {
+    public function changePassword()
+    {
         return view('guest.change-password');
     }
 
-    public function changePasswordSave(Request $request) {
+    public function changePasswordSave(Request $request)
+    {
         $request->validate([
             'current_password' => 'required|string',
             'new_password' => 'required|confirmed|min:8|string'
         ]);
         $user = Auth::user();
         // The passwords matches
-        if (!Hash::check($request->get('current_password'), $user->password))
-        {
+        if (!Hash::check($request->get('current_password'), $user->password)) {
             return back()->with('error', "Current Password is Invalid");
         }
         // Current password and new password same
-        if (strcmp($request->get('current_password'), $request->new_password) == 0)
-        {
+        if (strcmp($request->get('current_password'), $request->new_password) == 0) {
             return redirect()->back()->with("error", "New Password cannot be same as your current password.");
         }
-        $user->password =  Hash::make($request->new_password);
+        $user->password = Hash::make($request->new_password);
         $user->save();
         return back()->with('success', "Password Changed Successfully");
     }
 
 
-    public function orderHistory() {
+    public function orderHistory()
+    {
         $user = Auth::user();
         $orders = $user->orders()->orderBy('created_at', 'desc')->get();
         return view('guest.order-history', compact('orders'));
     }
 
-    public function orderDetail(Order $order) {
+    public function orderDetail(Order $order)
+    {
         if ($order->user_id !== Auth::id()) {
             abort(403, 'Unauthorized');
         }
@@ -613,7 +610,8 @@ class HomeController extends Controller
         return view('guest.order-detail', compact('order'));
     }
 
-    public function cancelOrder(Request $request) {
+    public function cancelOrder(Request $request)
+    {
         $request->validate([
             'reason' => 'required'
         ]);
@@ -633,7 +631,7 @@ class HomeController extends Controller
             //Phat su kien CancelOrder de NotifyAfterCanceledOrder xu ly
             event(new CancelOrder($order));
 
-            return redirect()->to(url("/order-detail", ["order"=>$order->code]));
+            return redirect()->to(url("/order-detail", ["order" => $order->code]));
         }
         return back()->with('error', "You can not cancel this order.");
     }

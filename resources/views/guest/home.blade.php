@@ -373,127 +373,85 @@
     <div class="section blog-container-2">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="blog-container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="title-section">
-                                    <h2>Latest <b>News</b></h2>
                                     <ul class="filter-menu button-group sort-button-group">
-                                        <li class="button active" data-category="all">All</li>
-                                        <li class="button" data-category="team">The Team</li>
-                                        <li class="button" data-category="uefa-2016">Uefa 2016</li>
-                                        <li class="button" data-category="uefa-2017">UEFA 2017</li>
+                                        @foreach($league_1 as $key=>$item)
+                                        <li class="button {{$key==0?'active':''}}" data-category="all">{{$item->name}}</li>
+                                        @endforeach
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="row work">
+
+                            @foreach($last_new_league_world_cup as $item)
                             <div class="col-md-6 work-item team">
                                 <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/2.jpg" alt="" />
+                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
+                                        <span>{{$item->league->name}}</span>
+                                        <img src="{{$item->thumbnail}}" alt="" />
                                         <div class="blog-content-title">
-                                            <h3>UEFA EURO 2016 Team of the Tournament</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
+                                            <h3>{{$item->title}}</h3>
+                                            <span><i class="fa fa-clock-o"></i>{{$item->publish_date}} <i class="fa fa-comments"></i> 16 </span>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6 work-item uefa-2017">
-                                <div class="blog-items">
-                                    <a href="blog-single.html">
-                                        <span>Euro 2016</span>
-                                        <img src="/assets/images/blog/3.jpg" alt="" />
-                                        <div class="blog-content-title">
-                                            <h3>On bringing in younger players</h3>
-                                            <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
+
+
+
+
+
+
+@foreach($last_new_league_world_cup_2 as $item)
+
                             <div class="col-md-6 work-item team">
                                 <div class="blog-items-sm">
-                                    <a href="blog-single.html">
+                                    <a href="{{url("/blog-detail",["blog"=>$item->id])}}">
                                         <div class="thumbnail">
-                                            <img src="/assets/images/blog/s1.jpg" class="img-responsive" width="120" height="120" alt="">
+                                            <img src="{{$item->thumbnail}}" class="img-responsive" width="120" height="120" alt="">
                                         </div>
                                         <div class="blog-content">
-                                            <span>Euro 2016</span>
-                                            <h3>Lukas Podolski retires from Germany duty</h3>
-                                            <p><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16</p>
+                                            <span>{{$item->league->name}}</span>
+                                            <h3>{{$item->title}}</h3>
+                                            <p><i class="fa fa-clock-o"></i> {{$item->publish_date}}<i class="fa fa-comments"></i> 16</p>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6 work-item uefa-2016">
-                                <div class="blog-items-sm">
-                                    <a href="blog-single.html">
-                                        <div class="thumbnail">
-                                            <img src="/assets/images/blog/s2.jpg" class="img-responsive" width="120" height="120" alt="">
-                                        </div>
-                                        <div class="blog-content">
-                                            <span>Euro 2016</span>
-                                            <h3>Lukas Podolski retires from Germany duty</h3>
-                                            <p><i class="fa fa-clock-o"></i> 12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 work-item  uefa-2017">
-                                <div class="blog-items-sm">
-                                    <a href="blog-single.html">
-                                        <div class="thumbnail">
-                                            <img src="/assets/images/blog/s3.jpg" class="img-responsive" width="120" height="120" alt="">
-                                        </div>
-                                        <div class="blog-content">
-                                            <span>Euro 2016</span>
-                                            <h3>Youngest German to reach 100 caps</h3>
-                                            <p><i class="fa fa-clock-o"></i> 12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 work-item uefa-2016">
-                                <div class="blog-items-sm">
-                                    <a href="blog-single.html">
-                                        <div class="thumbnail">
-                                            <img src="/assets/images/blog/s4.jpg" class="img-responsive" width="120" height="120" alt="">
-                                        </div>
-                                        <div class="blog-content">
-                                            <span>Euro 2016</span>
-                                            <h3>Podolski's top five moments for Germany</h3>
-                                            <p><i class="fa fa-clock-o"></i> 12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                                @endforeach
+
                         </div>
                     </div>
                 </div><!-- end of /. col-md-8 -->
-                <div class="col-md-4">
-                    <div class="sidebar">
-                        <div class="widget">
-                            <div class="widget-title">
-                            </div>
-                            <div class="social-like-area">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i> <span>108608   Likes</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i> <span>108608   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play"></i> <span>1802   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <div class="sidebar-ad">
-                                <a href="#">
-                                    <img src="/assets/images/banner.jpg" class="img-responsive" width="370" height="571" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end of /. col -->
+{{--                <div class="col-md-4">--}}
+{{--                    <div class="sidebar">--}}
+{{--                        <div class="widget">--}}
+{{--                            <div class="widget-title">--}}
+{{--                            </div>--}}
+{{--                            <div class="social-like-area">--}}
+{{--                                <ul>--}}
+{{--                                    <li><a href="#"><i class="fa fa-facebook"></i> <span>108608   Likes</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
+{{--                                    <li><a href="#"><i class="fa fa-twitter"></i> <span>108608   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
+{{--                                    <li><a href="#"><i class="fa fa-youtube-play"></i> <span>1802   Followers</span> <i class="fa fa-arrow-circle-o-right"></i> </a></li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="widget">--}}
+{{--                            <div class="sidebar-ad">--}}
+{{--                                <a href="#">--}}
+{{--                                    <img src="/assets/images/banner.jpg" class="img-responsive" width="370" height="571" alt="">--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div><!-- end of /. col -->--}}
             </div><!-- end of /. row -->
         </div><!-- end of /. container -->
     </div><!-- end of /. blog container 2 -->

@@ -132,6 +132,20 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group row mb-25">
+                                        <div class="col-sm-3">
+                                            <label for="inputLevel" class=" col-form-label  color-dark fs-14 fw-500 align-center">Club Team</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="form-control ih-medium ip-gray radius-xs b-light px-15" id="inputLevel">
+                                                @foreach($team as $item)
+                                                    <option @if(old("club_team_id")==$item->id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group row mb-1">
                                         <div class="col-sm-3">
                                             <label class="col-form-label  color-dark fs-14 fw-500 align-center">Image</label>
@@ -143,7 +157,7 @@
                                                         <img class="avatrSrc img-thumbnail" src="/admin/img/upload.png" alt="Avatar Upload" style="max-width: 200px">
                                                     </div>
                                                     <div class="avatar-up">
-                                                        <input type="file" name="image" class="upload-avatar-input" accept="image">
+                                                        <input type="file" name="img" class="upload-avatar-input" accept="image">
                                                     </div>
                                                     <div class="image-actions">
                                                         <a href="#" class="edit-icon position-absolute" style="top: -10px;right: -10px"><i class="fas fa-pen"></i>

@@ -9,6 +9,7 @@ class MatchPlayer extends Model
 {
     use HasFactory;
 
+    public $PlayerMatch;
     protected $table='match_players';
     protected  $fillable=[
         'position',
@@ -41,5 +42,18 @@ class MatchPlayer extends Model
     }
     public function Player(){
         return $this->belongsTo(Players::class);
+    }
+
+    public function scopeMatchPlayed($query,$season,$player_id){
+        return $query->whereIn('match_id',function ($query) use ($season){
+            $query->from('matches')->select('id')->where('league_season_id','=',$season);
+        })->where('player_id','=',$player_id);
+    }
+
+    public function get_playerM(){
+        return $this->PlayerMatch;
+    }
+    public function set_playerM($PlayerMatch){
+        $this->PlayerMatch=$PlayerMatch;
     }
 }

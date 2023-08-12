@@ -236,52 +236,52 @@
     </div>
 </div><!-- END OF /. BLOG CONTAINER SECTION -->
 
-<div class="latest-blog-section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="owl-carousel latest-blog-slider" id="latest-blog">
-                    <div class="item">
-                        <div class="blog-items">
-                            <a href="#">
-                                <img src="/assets/images/blog/b-single-3.jpg" alt="" />
-                                <div class="blog-content-title">
-                                    <span>Euro 2016</span>
-                                    <h3>Fernando Santos's Portugal manifesto</h3>
-                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog-items">
-                            <a href="#">
-                                <img src="/assets/images/blog/b-single-4.jpg" alt="" />
-                                <div class="blog-content-title">
-                                    <span>Euro 2016</span>
-                                    <h3>Fernando Santos's Portugal manifesto</h3>
-                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog-items">
-                            <a href="#">
-                                <span>Euro 2016</span>
-                                <img src="/assets/images/blog/b-single-3.jpg" alt="" />
-                                <div class="blog-content-title">
-                                    <h3>Fernando Santos's Portugal manifesto</h3>
-                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    @include('guest.html.twitter-section')
+{{--<div class="latest-blog-section">--}}
+{{--    <div class="container-fluid">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <div class="owl-carousel latest-blog-slider" id="latest-blog">--}}
+{{--                    <div class="item">--}}
+{{--                        <div class="blog-items">--}}
+{{--                            <a href="#">--}}
+{{--                                <img src="/assets/images/blog/b-single-3.jpg" alt="" />--}}
+{{--                                <div class="blog-content-title">--}}
+{{--                                    <span>Euro 2016</span>--}}
+{{--                                    <h3>Fernando Santos's Portugal manifesto</h3>--}}
+{{--                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="item">--}}
+{{--                        <div class="blog-items">--}}
+{{--                            <a href="#">--}}
+{{--                                <img src="/assets/images/blog/b-single-4.jpg" alt="" />--}}
+{{--                                <div class="blog-content-title">--}}
+{{--                                    <span>Euro 2016</span>--}}
+{{--                                    <h3>Fernando Santos's Portugal manifesto</h3>--}}
+{{--                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="item">--}}
+{{--                        <div class="blog-items">--}}
+{{--                            <a href="#">--}}
+{{--                                <span>Euro 2016</span>--}}
+{{--                                <img src="/assets/images/blog/b-single-3.jpg" alt="" />--}}
+{{--                                <div class="blog-content-title">--}}
+{{--                                    <h3>Fernando Santos's Portugal manifesto</h3>--}}
+{{--                                    <span><i class="fa fa-clock-o"></i>  12 Aug, 2016 - 22:15 <i class="fa fa-comments"></i> 16 </span>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--    @include('guest.html.twitter-section')--}}
 @endsection
 

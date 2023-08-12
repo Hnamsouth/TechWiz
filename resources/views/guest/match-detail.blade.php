@@ -508,7 +508,7 @@
                                                     <div class="row {{$i%2==1?"color-row":""}} " style="display:flex; align-items:center">
                                                         <div class="col-md-4 col-xs-2">
                                                             @php($ft=$ME4[$i]->event_type=='Penalty'?$ft+1:$ft)
-                                                            <div class="">
+                                                            <div style="display:flex">
                                                                 <img src="{{$ME4[$i]->FirstPlayer->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                                 <div class="row">
                                                                     <span style="font-size:15px;font-weight:bold">{{$ME4[$i]->FirstPlayer->name}}({{$ME4[$i]->FirstPlayer->number}})</span>
@@ -526,7 +526,7 @@
                                                         </div>
                                                         <div class="col-md-4 col-xs-2">
                                                             @php($st=$ME4[$i+1]->event_type=='Penalty'?$st+1:$st)
-                                                            <div class="text-right">
+                                                            <div class="text-right" style="display: flex;flex-direction:row;justify-content: flex-end">
                                                                 <div class="row">
                                                                     <span style="font-size:15px;font-weight:bold">{{$ME4[$i+1]->FirstPlayer->name}}({{$ME4[$i+1]->FirstPlayer->number}})</span>
                                                                     <p>({{$ft}} - {{$st}})</p>
@@ -856,7 +856,7 @@
                                             <div class="col-sm-6">
                                                     <div class="statstics">
                                                         <a  href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center" style="font-size:15px;font-weight:bold">
-                                                            <img src="{{$MatchPlayer[$i]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <img src="{{$MatchPlayer[$i]->Player->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                             <span>{{$MatchPlayer[$i]->Player->name}}({{$MatchPlayer[$i]->Player->number}})</span>
                                                         </a>
                                                     </div>
@@ -865,7 +865,7 @@
                                                     <div class="statstics statstics-right text-right">
                                                         <a href="{{route('playerdetail',['player'=>$MatchPlayer[$i]->Player->id])}}" class="flex-al-center"  style="justify-content:end; font-size:15px;font-weight:bold">
                                                             <span>{{$MatchPlayer[$i+2]->Player->name}}({{$MatchPlayer[$i+2]->Player->number}})</span>
-                                                            <img src="{{$MatchPlayer[$i+2]->Player->Teams[0]->logo}}" width="60" height="60" style="border-radius: 50%;"/>
+                                                            <img src="{{$MatchPlayer[$i+2]->Player->img}}" width="60" height="60" style="border-radius: 50%;"/>
                                                         </a>
                                                     </div>
                                             </div>

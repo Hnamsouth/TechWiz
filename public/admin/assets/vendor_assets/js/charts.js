@@ -1062,7 +1062,7 @@ function chartjsLineChartFour(selector, bcolor = "#FA8B0C", height = "95", dataC
                 yLabel,
                 datasetIndex
               } = t;
-              return `<span class="chart-data">${yLabel}m</span> <span class="data-label">${d.datasets[datasetIndex].label}</span>`;
+              return `<span class="chart-data">${yLabel}</span> <span class="data-label">${d.datasets[datasetIndex].label}</span>`;
             },
           },
         },
@@ -1081,7 +1081,7 @@ function chartjsLineChartFour(selector, bcolor = "#FA8B0C", height = "95", dataC
               suggestedMax: 80,
               stepSize: 20,
               callback: function (label, index, labels) {
-                return label + "m";
+                return label;
               },
             },
           }, ],
@@ -1753,7 +1753,7 @@ function chartjsLineChartAccount(selector, bcolor = "#FA8B0C") {
                 yLabel,
                 xLabel
               } = t;
-              return `${xLabel}: $${yLabel}k`;
+              return `${xLabel}: $ k`;
             },
             labelColor(tooltipItem, chart) {
               return {

@@ -18,23 +18,28 @@ class Admin extends Authenticatable
 //    const ADMINISTRATOR = [self::ADMIN,self::MANAGER,self::STAFF];
 
     use HasApiTokens, HasFactory, Notifiable;
+
     protected $table = 'admins';
-    protected $guard  = 'admin';
-    protected $fillable=[
+    protected $guard = 'admin';
+    protected $fillable = [
         'user_id',
         'role',
-        'permission',
     ];
 
-    public function User(){
+    public function User()
+    {
         return $this->hasOne(User::class);
     }
-    public function Role(){
+
+    public function Role()
+    {
         return $this->hasOne(Role::class);
     }
-    public function Permission(){
+
+    public function Permission()
+    {
         return $this->hasOne(Permission::class);
     }
 
-
 }
+
