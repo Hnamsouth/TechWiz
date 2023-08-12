@@ -18,7 +18,21 @@ class MatchController extends Controller
     //
 
     public function match(){
-        return view('guest.');
+        $leagueList= League::with('LeagueSeason')->get();
+        $leagueData=collect([]);
+        foreach ($leagueList as $index=>$item){
+            // tim match result cua team vaf tran dau da dien da trong mua giai
+            if($index<2) {continue;}
+            // team cua moi giai dau
+            $leagueSeason =$item->LeagueSeason->sortBy([['season','desc']])->first();
+            $matchs= Match::LeagueSeasonSearch($leagueSeason->id)->Status(0)->get();
+            $leagueData->push([
+                'league'=>$item,
+                'match'=>$matchs
+            ]);
+        }
+//        dd($leagueData[0]['match']);
+        return view('guest.match',compact('leagueData'));
     }
     public function match_result(Match $match){
 //        dd($match->MatchStatistical);
@@ -39,7 +53,6 @@ class MatchController extends Controller
 
     public function PointTable(){
         // win- lose- draw - goal for - goal against - point
-        $leagueSeasonList= LeagueSeason::with('League')->with('Matches')->get();
         $leagueList= League::with('LeagueSeason')->get();
         $leagueData=collect([]);
         foreach ($leagueList as $index=>$item){
@@ -47,11 +60,10 @@ class MatchController extends Controller
             if($index<2) {continue;}
             // team cua moi giai dau
             $teamleague = TeamLeagueSeason::LeagueSeason($item->LeagueSeason[0]->id)->get();
-//            dd($teamleague);
             $point=collect([]);
             foreach ($teamleague as $id=>$t){
                 // tim tran da dau cua team trong mua giai
-                $matches= Match::F1TeamSeason($t->team_id,$t->league_season_id)->get();
+                $matches= Match::F1TeamSeason($t->team_id,$t->league_season_id)->Status(1)->get();
                 $tp = new PointTeam();
                 foreach ($matches as $m){
                     $check= $m->MatchResult[0];
@@ -86,13 +98,14 @@ class MatchController extends Controller
                 'league'=>$item,
                 'point'=>$point
             ]);
-//            dd($point);
         }
-//            dd($leagueData[0]['point']->sortBy([['point', 'asc']]));
-        // win- lose- draw:
 
-
-//        dd($leagueSeasonList[3]->Matches->where('status','=',1));
         return view('guest.point-table',compact('leagueData'));
+    }
+
+    public function TopPlayers(){
+
+
+        return view('guest.top-players');
     }
 }

@@ -137,68 +137,8 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav navbar-left" data-in="zoomIn" data-out="zoomOut">
                     <li><a href="{{route('point_table')}}">Ranks</a></li>
-                    <li><a href="#">UEFA</a></li>
-                    <li class="dropdown megamenu-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">EPL</a>
-                        <ul class="dropdown-menu megamenu-content" role="menu">
-                            <li>
-                                <div class="row">
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Title Menu One</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                            </ul>
-                                        </div>
-                                    </div><!-- end col-3 -->
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Title Menu Two</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                            </ul>
-                                        </div>
-                                    </div><!-- end col-3 -->
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Title Menu Three</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Title Menu Four</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                                <li><a href="#">Custom Menu</a></li>
-                                            </ul>
-                                        </div>
-                                    </div><!-- end col-3 -->
-                                </div><!-- end row -->
-                            </li>
-                        </ul>
-                    </li>
+                    <li><a href="/match">Matches</a></li>
+                    <li><a href="/top-players">Player Ranks</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Super Cup</a>
                         <ul class="dropdown-menu">
