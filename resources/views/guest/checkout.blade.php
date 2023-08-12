@@ -391,6 +391,7 @@
 @endsection
 
 @section('main-content')
+
     <!-- START PAGE TITILE SECTION -->
     <div class="player-profile-section page-title-section">
         <div class="container">

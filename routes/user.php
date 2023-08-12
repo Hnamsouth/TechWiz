@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
-Route::post('/checkout', [HomeController::class, 'placeOrder']);
+//Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+//Route::post('/checkout', [HomeController::class, 'placeOrder']);
 
 /* -- PAYPAL -- */
 Route::get('/process-paypal/{order:code}', [HomeController::class, 'processPaypal'])->name('process_paypal');
